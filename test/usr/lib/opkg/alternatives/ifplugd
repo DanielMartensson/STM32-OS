@@ -1,0 +1,2 @@
+/usr/sbin/ifplugd
+/bin/busybox.nosuid 50

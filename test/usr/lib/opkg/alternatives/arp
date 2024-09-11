@@ -1,0 +1,2 @@
+/sbin/arp
+/bin/busybox.nosuid 50

@@ -1,0 +1,2 @@
+/usr/sbin/ether-wake
+/bin/busybox.nosuid 50
