@@ -1,0 +1,13 @@
+e9745f0cec20207a9366f4ab93def9f5  usr/bin/dbclient
+da9a178110491ba21c38dbe07829b7df  usr/bin/dropbearconvert
+ccbf48e5493d260e0490ee97ccd87d02  usr/bin/dropbearkey
+ccd116c3816699914c376c2fac5081b8  usr/sbin/dropbear
+1efb0b76e7d0913940561ece0de10029  usr/share/doc/dropbear-bin/NEWS.Debian.gz
+57065f5a41ad238b3ba4273612da4116  usr/share/doc/dropbear-bin/README
+f9c21b608ed269a0abfa10f18f95624c  usr/share/doc/dropbear-bin/changelog.Debian.gz
+0eb04200bc074bcaf01d0c54d79e27fa  usr/share/doc/dropbear-bin/changelog.gz
+857934197771f0efe5ad56772a1ab671  usr/share/doc/dropbear-bin/copyright
+b61b1b813172266ee0dc5b135ed98601  usr/share/man/man1/dbclient.1.gz
+c85b1bb113389d3d329382968013454a  usr/share/man/man1/dropbearconvert.1.gz
+a5967f56a56b122b0b4a78c6be24170d  usr/share/man/man1/dropbearkey.1.gz
+aabd0ac6dbabb96827631398c3abb45c  usr/share/man/man8/dropbear.8.gz

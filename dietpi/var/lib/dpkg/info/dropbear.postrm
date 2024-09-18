@@ -1,0 +1,35 @@
+#! /bin/sh
+set -e
+
+if [ "$1" = "purge" ]; then
+    if [ -d "/etc/dropbear" ]; then
+        rm -rf /etc/dropbear/supervise /etc/dropbear/log/supervise
+        rm -f /etc/dropbear/dropbear_rsa_host_key
+        rm -f /etc/dropbear/dropbear_dss_host_key
+        rm -f /etc/dropbear/dropbear_ecdsa_host_key
+        rm -f /etc/dropbear/dropbear_ed25519_host_key
+    fi
+fi
+
+# Automatically added by dh_installinit/13.11.4
+if [ "$1" = "remove" ] && [ -x "/etc/init.d/dropbear" ] ; then
+	chmod -x "/etc/init.d/dropbear" >/dev/null || true
+fi
+if [ -z "${DPKG_ROOT:-}" ] && [ "$1" = "purge" ] ; then
+	update-rc.d dropbear remove >/dev/null
+fi
+# End automatically added section
+# Automatically added by dh_installsystemd/13.11.4
+if [ "$1" = remove ] && [ -d /run/systemd/system ] ; then
+	systemctl --system daemon-reload >/dev/null || true
+fi
+# End automatically added section
+# Automatically added by dh_installsystemd/13.11.4
+if [ "$1" = "purge" ]; then
+	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+		deb-systemd-helper purge 'dropbear.service' >/dev/null || true
+	fi
+fi
+# End automatically added section
+
+exit 0

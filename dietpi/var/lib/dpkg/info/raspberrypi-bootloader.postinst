@@ -1,0 +1,142 @@
+#!/bin/sh -e
+
+get_file_list() {
+  cat /var/lib/dpkg/info/raspberrypi-kernel.md5sums /var/lib/dpkg/info/raspberrypi-kernel.md5sums 2> /dev/null | awk '/ boot/ {print "/"$2}'
+}
+
+get_filtered_file_list() {
+  for file in $(get_file_list); do
+    if [ -f "$file" ]; then
+      echo "$file"
+    fi
+  done
+}
+
+get_available_space() {
+  INSTALLED_SPACE="$(get_filtered_file_list | xargs -r du -cm 2> /dev/null | tail -n1 | cut -f1)"
+  FREE_SPACE="$(df -m /boot | awk 'NR==2 {print $4}')"
+  echo $(( INSTALLED_SPACE + FREE_SPACE ))
+}
+
+is_pifour() {
+  grep -q "^Revision\s*:\s*[ 123][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]11[0-9a-fA-F]$" /proc/cpuinfo
+  return $?
+}
+
+if [ "$(get_available_space)" -lt "51" ]; then
+  echo "You do not have enough space in /boot to install this package."
+  SKIP_FILES=1
+  if is_pifour; then
+    SKIP_PI4=0
+    echo "Only adding Pi 4 support"
+  else
+    SKIP_PI4=1
+    echo "Skipping Pi 4 support"
+  fi
+fi
+
+if [ "$SKIP_FILES" != "1" ] || [ "${SKIP_PI4}" = "1" ]; then
+  if [ -f /usr/share/rpikernelhack/start.elf ]; then
+    rm -f /boot/start.elf
+    dpkg-divert --package rpikernelhack --rename --remove /boot/start.elf
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/start_cd.elf ]; then
+    rm -f /boot/start_cd.elf
+    dpkg-divert --package rpikernelhack --rename --remove /boot/start_cd.elf
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/start_db.elf ]; then
+    rm -f /boot/start_db.elf
+    dpkg-divert --package rpikernelhack --rename --remove /boot/start_db.elf
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/start_x.elf ]; then
+    rm -f /boot/start_x.elf
+    dpkg-divert --package rpikernelhack --rename --remove /boot/start_x.elf
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/fixup.dat ]; then
+    rm -f /boot/fixup.dat
+    dpkg-divert --package rpikernelhack --rename --remove /boot/fixup.dat
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/fixup_cd.dat ]; then
+    rm -f /boot/fixup_cd.dat
+    dpkg-divert --package rpikernelhack --rename --remove /boot/fixup_cd.dat
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/fixup_db.dat ]; then
+    rm -f /boot/fixup_db.dat
+    dpkg-divert --package rpikernelhack --rename --remove /boot/fixup_db.dat
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/fixup_x.dat ]; then
+    rm -f /boot/fixup_x.dat
+    dpkg-divert --package rpikernelhack --rename --remove /boot/fixup_x.dat
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/bootcode.bin ]; then
+    rm -f /boot/bootcode.bin
+    dpkg-divert --package rpikernelhack --rename --remove /boot/bootcode.bin
+    sync
+  fi
+fi
+
+if [ "$SKIP_FILES" != "1" ] || [ "${SKIP_PI4}" = "0" ]; then
+  if [ -f /usr/share/rpikernelhack/start4.elf ]; then
+    rm -f /boot/start4.elf
+    dpkg-divert --package rpikernelhack --rename --remove /boot/start4.elf
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/start4cd.elf ]; then
+    rm -f /boot/start4cd.elf
+    dpkg-divert --package rpikernelhack --rename --remove /boot/start4cd.elf
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/start4db.elf ]; then
+    rm -f /boot/start4db.elf
+    dpkg-divert --package rpikernelhack --rename --remove /boot/start4db.elf
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/start4x.elf ]; then
+    rm -f /boot/start4x.elf
+    dpkg-divert --package rpikernelhack --rename --remove /boot/start4x.elf
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/fixup4.dat ]; then
+    rm -f /boot/fixup4.dat
+    dpkg-divert --package rpikernelhack --rename --remove /boot/fixup4.dat
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/fixup4cd.dat ]; then
+    rm -f /boot/fixup4cd.dat
+    dpkg-divert --package rpikernelhack --rename --remove /boot/fixup4cd.dat
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/fixup4db.dat ]; then
+    rm -f /boot/fixup4db.dat
+    dpkg-divert --package rpikernelhack --rename --remove /boot/fixup4db.dat
+    sync
+  fi
+  if [ -f /usr/share/rpikernelhack/fixup4x.dat ]; then
+    rm -f /boot/fixup4x.dat
+    dpkg-divert --package rpikernelhack --rename --remove /boot/fixup4x.dat
+    sync
+  fi
+fi
+
+if [ -f /usr/share/rpikernelhack/LICENCE.broadcom ]; then
+  rm -f /boot/LICENCE.broadcom
+  dpkg-divert --package rpikernelhack --rename --remove /boot/LICENCE.broadcom
+  sync
+fi
+if [ -d /usr/share/rpikernelhack ]; then
+  rmdir --ignore-fail-on-non-empty /usr/share/rpikernelhack
+fi
+
+touch /run/reboot-required
+if ! grep -qs "raspberrypi-bootloader" /run/reboot-required.pkgs; then
+  echo "raspberrypi-bootloader" >> /run/reboot-required.pkgs
+fi
+

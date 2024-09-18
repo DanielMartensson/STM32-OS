@@ -1,0 +1,13 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libarmmem-v6l.so
+/usr/lib/arm-linux-gnueabihf/libarmmem-v7l.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/raspi-copies-and-fills
+/usr/share/doc/raspi-copies-and-fills/changelog.gz
+/usr/share/doc/raspi-copies-and-fills/copyright
+/usr/lib/arm-linux-gnueabihf/libarmmem-aarch64.so
+/usr/lib/arm-linux-gnueabihf/libarmmem-v8l.so

@@ -1,0 +1,12 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libmd.so.0.0.5
+/usr/share
+/usr/share/doc
+/usr/share/doc/libmd0
+/usr/share/doc/libmd0/changelog.Debian.gz
+/usr/share/doc/libmd0/changelog.gz
+/usr/share/doc/libmd0/copyright
+/usr/lib/arm-linux-gnueabihf/libmd.so.0

@@ -1,0 +1,15 @@
+#!/bin/dash
+ALIASES="/lib/modules/$(uname -r)/modules.alias"
+n=0
+while :; do
+	eval "comp=\"\$OF_COMPATIBLE_$n\""
+	comp=$(echo "$comp" | sed 's/.*,//')
+	if [ -z "$comp" ]; then
+		break
+	fi
+	if grep -q "alias $SUBSYSTEM:$comp " $ALIASES; then
+		modprobe "$SUBSYSTEM:$comp" && exit 0
+	fi
+	n=$(expr $n + 1)
+done
+modprobe "$MODALIAS" || modprobe "of:N${OF_NAME}T<NULL>C$OF_COMPATIBLE_0"

@@ -1,0 +1,88 @@
+#!/bin/sh
+set -e
+
+showpubkey() {
+    local keyfile="$1" pubkey
+    if ! command -v ssh-keygen >/dev/null; then
+        cat
+    else
+        pubkey="$(mktemp --tmpdir -- "${keyfile##*/}-XXXXXXXXXX.pub")"
+        grep -m1 -E '^(ssh-(rsa|ed25519)|ecdsa-sha2-nistp(256|384|521)) ' >"$pubkey"
+        ssh-keygen -v -lf "$pubkey" | sed -r "1s@\\S+(\\s+\\([^)]+\\))\$@$keyfile\\1@"
+        rm -f -- "$pubkey"
+    fi
+}
+
+if [ "$1" = 'configure' ]; then
+    havehostkey=no
+    for keytype in rsa ecdsa ed25519; do
+        keyfile="/etc/dropbear/dropbear_${keytype}_host_key"
+        if [ -e "$keyfile" ]; then
+            havehostkey=yes
+            break
+        fi
+    done
+    if [ "$havehostkey" = no ]; then
+        # generate host keys (excluding DSS)
+        for keytype in rsa ecdsa ed25519; do
+            keyfile="/etc/dropbear/dropbear_${keytype}_host_key"
+            keyfile_openssh="/etc/ssh/ssh_host_${keytype}_key"
+            keytype2="$(echo "$keytype" | tr '[a-z]' '[A-Z]')"
+
+            if [ -f "$keyfile_openssh" ]; then
+                echo "Converting existing OpenSSH $keytype2 host key to Dropbear format." >&2
+                dropbearconvert openssh dropbear "$keyfile_openssh" "$keyfile"
+                dropbearkey -y -f "$keyfile" | showpubkey "$keyfile"
+            else
+                echo "Generating Dropbear $keytype2 host key.  Please wait." >&2
+                dropbearkey -t "$keytype" -f "$keyfile" | showpubkey "$keyfile"
+            fi
+        done
+    fi
+fi
+
+# Automatically added by dh_installinit/13.11.4
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	if [ -z "${DPKG_ROOT:-}" ] && [ -x "/etc/init.d/dropbear" ]; then
+		update-rc.d dropbear defaults >/dev/null
+		if [ -n "$2" ]; then
+			_dh_action=restart
+		else
+			_dh_action=start
+		fi
+		invoke-rc.d --skip-systemd-native dropbear $_dh_action || exit 1
+	fi
+fi
+# End automatically added section
+# Automatically added by dh_installsystemd/13.11.4
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	# The following line should be removed in trixie or trixie+1
+	deb-systemd-helper unmask 'dropbear.service' >/dev/null || true
+
+	# was-enabled defaults to true, so new installations run enable.
+	if deb-systemd-helper --quiet was-enabled 'dropbear.service'; then
+		# Enables the unit on first installation, creates new
+		# symlinks on upgrades if the unit file has changed.
+		deb-systemd-helper enable 'dropbear.service' >/dev/null || true
+	else
+		# Update the statefile to add new symlinks (if any), which need to be
+		# cleaned up on purge. Also remove old symlinks.
+		deb-systemd-helper update-state 'dropbear.service' >/dev/null || true
+	fi
+fi
+# End automatically added section
+# Automatically added by dh_installsystemd/13.11.4
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	if [ -d /run/systemd/system ]; then
+		systemctl --system daemon-reload >/dev/null || true
+		if [ -n "$2" ]; then
+			_dh_action=restart
+		else
+			_dh_action=start
+		fi
+		deb-systemd-invoke $_dh_action 'dropbear.service' >/dev/null || true
+	fi
+fi
+# End automatically added section
+
+exit 0

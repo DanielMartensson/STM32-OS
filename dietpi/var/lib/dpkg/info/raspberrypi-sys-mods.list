@@ -1,0 +1,14 @@
+/.
+/lib
+/lib/udev
+/lib/udev/rules.d
+/lib/udev/rules.d/15-i2c-modprobe.rules
+/lib/udev/rules.d/99-com.rules
+/usr
+/usr/lib
+/usr/lib/raspberrypi-sys-mods
+/usr/lib/raspberrypi-sys-mods/i2cprobe
+/usr/share
+/usr/share/doc
+/usr/share/doc/raspberrypi-sys-mods
+/usr/share/doc/raspberrypi-sys-mods/copyright

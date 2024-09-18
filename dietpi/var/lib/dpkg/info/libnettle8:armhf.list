@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libnettle.so.8.6
+/usr/share
+/usr/share/doc
+/usr/share/doc/libnettle8
+/usr/share/doc/libnettle8/NEWS.gz
+/usr/share/doc/libnettle8/README
+/usr/share/doc/libnettle8/changelog.Debian.gz
+/usr/share/doc/libnettle8/changelog.gz
+/usr/share/doc/libnettle8/copyright
+/usr/lib/arm-linux-gnueabihf/libnettle.so.8

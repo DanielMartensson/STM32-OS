@@ -1,0 +1,48 @@
+#!/bin/sh
+if [ -f /etc/default/raspberrypi-kernel ]; then
+  . /etc/default/raspberrypi-kernel
+  INITRD=${INITRD:-"No"}
+  export INITRD
+  RPI_INITRD=${RPI_INITRD:-"No"}
+  export RPI_INITRD
+
+fi
+if [ -d "/etc/kernel/postrm.d" ]; then
+  run-parts -v --report --exit-on-error --arg=6.1.21+ --arg=/boot/kernel.img /etc/kernel/postrm.d
+  run-parts -v --report --exit-on-error --arg=6.1.21-v7+ --arg=/boot/kernel7.img /etc/kernel/postrm.d
+  run-parts -v --report --exit-on-error --arg=6.1.21-v7l+ --arg=/boot/kernel7l.img /etc/kernel/postrm.d
+  run-parts -v --report --exit-on-error --arg=6.1.21-v8+ --arg=/boot/kernel8.img /etc/kernel/postrm.d
+fi
+if [ -d "/etc/kernel/postrm.d/6.1.21+" ]; then
+  run-parts -v --report --exit-on-error --arg=6.1.21+ --arg=/boot/kernel.img /etc/kernel/postrm.d/6.1.21+
+fi
+if [ -d "/etc/kernel/postrm.d/6.1.21-v7+" ]; then
+  run-parts -v --report --exit-on-error --arg=6.1.21-v7+ --arg=/boot/kernel7.img /etc/kernel/postrm.d/6.1.21-v7+
+fi
+if [ -d "/etc/kernel/postrm.d/6.1.21-v7l+" ]; then
+  run-parts -v --report --exit-on-error --arg=6.1.21-v7l+ --arg=/boot/kernel7l.img /etc/kernel/postrm.d/6.1.21-v7l+
+fi
+if [ -d "/etc/kernel/postrm.d/6.1.21-v8+" ]; then
+  run-parts -v --report --exit-on-error --arg=6.1.21-v8+ --arg=/boot/kernel8.img /etc/kernel/postrm.d/6.1.21-v8+
+fi
+# Automatically added by dh_installmodules/13.3.4
+if [ -e /boot/System.map-6.1.21-v8+ ]; then
+	depmod -a -F /boot/System.map-6.1.21-v8+ 6.1.21-v8+ || true
+fi
+# End automatically added section
+# Automatically added by dh_installmodules/13.3.4
+if [ -e /boot/System.map-6.1.21-v7l+ ]; then
+	depmod -a -F /boot/System.map-6.1.21-v7l+ 6.1.21-v7l+ || true
+fi
+# End automatically added section
+# Automatically added by dh_installmodules/13.3.4
+if [ -e /boot/System.map-6.1.21-v7+ ]; then
+	depmod -a -F /boot/System.map-6.1.21-v7+ 6.1.21-v7+ || true
+fi
+# End automatically added section
+# Automatically added by dh_installmodules/13.3.4
+if [ -e /boot/System.map-6.1.21+ ]; then
+	depmod -a -F /boot/System.map-6.1.21+ 6.1.21+ || true
+fi
+# End automatically added section
+

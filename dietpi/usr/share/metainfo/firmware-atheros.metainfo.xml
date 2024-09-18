@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="firmware">
+  <id>org.debian.packages.firmware_atheros</id>
+  <name>Binary firmware for Qualcomm Atheros wireless cards</name>
+  <summary>Binary firmware for USB wireless network and Bluetooth cards supported by the ar5523, ath3k, ath6kl_sdio, ath6kl_usb, ath10k, or wilc6210 drivers.</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <provides>
+    <firmware type="runtime">ar3k/AthrBT_0x01020001.dfu</firmware>
+    <firmware type="runtime">ar3k/AthrBT_0x01020200.dfu</firmware>
+    <firmware type="runtime">ar3k/AthrBT_0x01020201.dfu</firmware>
+    <firmware type="runtime">ar3k/AthrBT_0x11020000.dfu</firmware>
+    <firmware type="runtime">ar3k/AthrBT_0x11020100.dfu</firmware>
+    <firmware type="runtime">ar3k/AthrBT_0x31010000.dfu</firmware>
+    <firmware type="runtime">ar3k/AthrBT_0x31010100.dfu</firmware>
+    <firmware type="runtime">ar3k/AthrBT_0x41020000.dfu</firmware>
+    <firmware type="runtime">ar3k/ramps_0x01020001_26.dfu</firmware>
+    <firmware type="runtime">ar3k/ramps_0x01020200_26.dfu</firmware>
+    <firmware type="runtime">ar3k/ramps_0x01020200_40.dfu</firmware>
+    <firmware type="runtime">ar3k/ramps_0x01020201_26.dfu</firmware>
+    <firmware type="runtime">ar3k/ramps_0x01020201_40.dfu</firmware>
+    <firmware type="runtime">ar3k/ramps_0x11020000_40.dfu</firmware>
+    <firmware type="runtime">ar3k/ramps_0x11020100_40.dfu</firmware>
+    <firmware type="runtime">ar3k/ramps_0x31010000_40.dfu</firmware>
+    <firmware type="runtime">ar3k/ramps_0x31010100_40.dfu</firmware>
+    <firmware type="runtime">ar3k/ramps_0x41020000_40.dfu</firmware>
+    <firmware type="runtime">ar5523.bin</firmware>
+    <firmware type="runtime">ar7010.fw</firmware>
+    <firmware type="runtime">ar7010_1_1.fw</firmware>
+    <firmware type="runtime">ar9271.fw</firmware>
+    <firmware type="runtime">ath10k/QCA4019/hw1.0/board-2.bin</firmware>
+    <firmware type="runtime">ath10k/QCA4019/hw1.0/firmware-5.bin</firmware>
+    <firmware type="runtime">ath10k/QCA6174/hw2.1/board.bin</firmware>
+    <firmware type="runtime">ath10k/QCA6174/hw2.1/board-2.bin</firmware>
+    <firmware type="runtime">ath10k/QCA6174/hw2.1/firmware-5.bin</firmware>
+    <firmware type="runtime">ath10k/QCA6174/hw3.0/board.bin</firmware>
+    <firmware type="runtime">ath10k/QCA6174/hw3.0/board-2.bin</firmware>
+    <firmware type="runtime">ath10k/QCA6174/hw3.0/firmware-4.bin</firmware>
+    <firmware type="runtime">ath10k/QCA6174/hw3.0/firmware-6.bin</firmware>
+    <firmware type="runtime">ath10k/QCA6174/hw3.0/firmware-sdio-6.bin</firmware>
+    <firmware type="runtime">ath10k/QCA9377/hw1.0/board.bin</firmware>
+    <firmware type="runtime">ath10k/QCA9377/hw1.0/board-2.bin</firmware>
+    <firmware type="runtime">ath10k/QCA9377/hw1.0/firmware-5.bin</firmware>
+    <firmware type="runtime">ath10k/QCA9377/hw1.0/firmware-6.bin</firmware>
+    <firmware type="runtime">ath10k/QCA9377/hw1.0/firmware-sdio-5.bin</firmware>
+    <firmware type="runtime">ath10k/QCA9887/hw1.0/board.bin</firmware>
+    <firmware type="runtime">ath10k/QCA9887/hw1.0/firmware-5.bin</firmware>
+    <firmware type="runtime">ath10k/QCA9888/hw2.0/board-2.bin</firmware>
+    <firmware type="runtime">ath10k/QCA9888/hw2.0/firmware-5.bin</firmware>
+    <firmware type="runtime">ath10k/QCA988X/hw2.0/board.bin</firmware>
+    <firmware type="runtime">ath10k/QCA988X/hw2.0/firmware-4.bin</firmware>
+    <firmware type="runtime">ath10k/QCA988X/hw2.0/firmware-5.bin</firmware>
+    <firmware type="runtime">ath10k/QCA9984/hw1.0/board-2.bin</firmware>
+    <firmware type="runtime">ath10k/QCA9984/hw1.0/firmware-5.bin</firmware>
+    <firmware type="runtime">ath10k/QCA99X0/hw2.0/board-2.bin</firmware>
+    <firmware type="runtime">ath10k/QCA99X0/hw2.0/firmware-5.bin</firmware>
+    <firmware type="runtime">ath10k/WCN3990/hw1.0/firmware-5.bin</firmware>
+    <firmware type="runtime">ath10k/WCN3990/hw1.0/board-2.bin</firmware>
+    <firmware type="runtime">ath10k/WCN3990/hw1.0/wlanmdsp.mbn</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/board-2.bin</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/m3_fw.b00</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/m3_fw.b01</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/m3_fw.b02</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/m3_fw.flist</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/m3_fw.mdt</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.b00</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.b01</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.b02</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.b03</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.b04</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.b05</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.b07</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.b08</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.b09</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.b10</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.b11</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.b13</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.b14</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.flist</firmware>
+    <firmware type="runtime">ath11k/IPQ5018/hw1.0/q6_fw.mdt</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/board-2.bin</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/m3_fw.b00</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/m3_fw.b01</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/m3_fw.b02</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/m3_fw.flist</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/m3_fw.mdt</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/q6_fw.b00</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/q6_fw.b01</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/q6_fw.b02</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/q6_fw.b03</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/q6_fw.b04</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/q6_fw.b05</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/q6_fw.b07</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/q6_fw.b08</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/q6_fw.flist</firmware>
+    <firmware type="runtime">ath11k/IPQ6018/hw1.0/q6_fw.mdt</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/board-2.bin</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/m3_fw.b00</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/m3_fw.b01</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/m3_fw.b02</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/m3_fw.flist</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/m3_fw.mdt</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/q6_fw.b00</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/q6_fw.b01</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/q6_fw.b02</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/q6_fw.b03</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/q6_fw.b04</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/q6_fw.b05</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/q6_fw.b07</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/q6_fw.b08</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/q6_fw.flist</firmware>
+    <firmware type="runtime">ath11k/IPQ8074/hw2.0/q6_fw.mdt</firmware>
+    <firmware type="runtime">ath11k/QCA6390/hw2.0/board-2.bin</firmware>
+    <firmware type="runtime">ath11k/QCA6390/hw2.0/amss.bin</firmware>
+    <firmware type="runtime">ath11k/QCA6390/hw2.0/m3.bin</firmware>
+    <firmware type="runtime">ath11k/QCN9074/hw1.0/amss.bin</firmware>
+    <firmware type="runtime">ath11k/QCN9074/hw1.0/board-2.bin</firmware>
+    <firmware type="runtime">ath11k/QCN9074/hw1.0/m3.bin</firmware>
+    <firmware type="runtime">ath11k/WCN6750/hw1.0/board-2.bin</firmware>
+    <firmware type="runtime">ath11k/WCN6750/hw1.0/wpss.b00</firmware>
+    <firmware type="runtime">ath11k/WCN6750/hw1.0/wpss.b01</firmware>
+    <firmware type="runtime">ath11k/WCN6750/hw1.0/wpss.b02</firmware>
+    <firmware type="runtime">ath11k/WCN6750/hw1.0/wpss.b03</firmware>
+    <firmware type="runtime">ath11k/WCN6750/hw1.0/wpss.b04</firmware>
+    <firmware type="runtime">ath11k/WCN6750/hw1.0/wpss.b05</firmware>
+    <firmware type="runtime">ath11k/WCN6750/hw1.0/wpss.b06</firmware>
+    <firmware type="runtime">ath11k/WCN6750/hw1.0/wpss.b07</firmware>
+    <firmware type="runtime">ath11k/WCN6750/hw1.0/wpss.b08</firmware>
+    <firmware type="runtime">ath11k/WCN6750/hw1.0/wpss.mdt</firmware>
+    <firmware type="runtime">ath11k/WCN6855/hw2.0/amss.bin</firmware>
+    <firmware type="runtime">ath11k/WCN6855/hw2.0/board-2.bin</firmware>
+    <firmware type="runtime">ath11k/WCN6855/hw2.0/m3.bin</firmware>
+    <firmware type="runtime">ath11k/WCN6855/hw2.0/regdb.bin</firmware>
+    <firmware type="runtime">ath11k/WCN6855/hw2.1/amss.bin</firmware>
+    <firmware type="runtime">ath11k/WCN6855/hw2.1/board-2.bin</firmware>
+    <firmware type="runtime">ath11k/WCN6855/hw2.1/m3.bin</firmware>
+    <firmware type="runtime">ath11k/WCN6855/hw2.1/regdb.bin</firmware>
+    <firmware type="runtime">ath3k-1.fw</firmware>
+    <firmware type="runtime">ath6k/AR6003.1/hw2.1.1/athwlan.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003.1/hw2.1.1/bdata.SD31.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003.1/hw2.1.1/bdata.SD32.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003.1/hw2.1.1/bdata.WB31.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003.1/hw2.1.1/data.patch.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003.1/hw2.1.1/endpointping.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003.1/hw2.1.1/otp.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw1.0/athwlan.bin.z77</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw1.0/bdata.SD31.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw1.0/bdata.SD32.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw1.0/bdata.WB31.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw1.0/data.patch.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw1.0/otp.bin.z77</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.0/athwlan.bin.z77</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.0/bdata.SD31.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.0/bdata.SD32.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.0/bdata.WB31.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.0/data.patch.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.0/otp.bin.z77</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.1.1/athwlan.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.1.1/bdata.SD31.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.1.1/bdata.SD32.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.1.1/bdata.WB31.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.1.1/data.patch.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.1.1/endpointping.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.1.1/fw-2.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.1.1/fw-3.bin</firmware>
+    <firmware type="runtime">ath6k/AR6003/hw2.1.1/otp.bin</firmware>
+    <firmware type="runtime">ath6k/AR6004/hw1.2/bdata.bin</firmware>
+    <firmware type="runtime">ath6k/AR6004/hw1.2/fw-2.bin</firmware>
+    <firmware type="runtime">ath6k/AR6004/hw1.3/bdata.bin</firmware>
+    <firmware type="runtime">ath6k/AR6004/hw1.3/fw-3.bin</firmware>
+    <firmware type="runtime">htc_7010.fw</firmware>
+    <firmware type="runtime">htc_9271.fw</firmware>
+    <firmware type="runtime">qca/crbtfw21.tlv</firmware>
+    <firmware type="runtime">qca/crbtfw32.tlv</firmware>
+    <firmware type="runtime">qca/crnv21.bin</firmware>
+    <firmware type="runtime">qca/crnv32.bin</firmware>
+    <firmware type="runtime">qca/crnv32u.bin</firmware>
+    <firmware type="runtime">qca/hpbtfw21.tlv</firmware>
+    <firmware type="runtime">qca/hpnv21.bin</firmware>
+    <firmware type="runtime">qca/hpnv21g.bin</firmware>
+    <firmware type="runtime">qca/hpnv21.301</firmware>
+    <firmware type="runtime">qca/hpnv21.302</firmware>
+    <firmware type="runtime">qca/hpnv21g.301</firmware>
+    <firmware type="runtime">qca/hpnv21g.302</firmware>
+    <firmware type="runtime">qca/htbtfw20.tlv</firmware>
+    <firmware type="runtime">qca/htnv20.bin</firmware>
+    <firmware type="runtime">qca/msbtfw11.mbn</firmware>
+    <firmware type="runtime">qca/msbtfw11.tlv</firmware>
+    <firmware type="runtime">qca/msnv11.bin</firmware>
+    <firmware type="runtime">qca/msnv11.b09</firmware>
+    <firmware type="runtime">qca/msnv11.b0a</firmware>
+    <firmware type="runtime">qca/nvm_00130300.bin</firmware>
+    <firmware type="runtime">qca/nvm_00130302.bin</firmware>
+    <firmware type="runtime">qca/nvm_00230302.bin</firmware>
+    <firmware type="runtime">qca/nvm_00440302.bin</firmware>
+    <firmware type="runtime">qca/nvm_00440302_eu.bin</firmware>
+    <firmware type="runtime">qca/nvm_00440302_i2s_eu.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00000200.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00000201.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00000300.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00000302.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00000302_eu.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130200.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130200_0104.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130200_0105.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130200_0106.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130200_0107.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130200_0109.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130200_0110.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130201.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130201_010a.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130201_010b.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130201_0303.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130201_gf.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130201_gf_010a.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130201_gf_010b.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00130201_gf_0303.bin</firmware>
+    <firmware type="runtime">qca/nvm_usb_00190200.bin</firmware>
+    <firmware type="runtime">qca/rampatch_00130300.bin</firmware>
+    <firmware type="runtime">qca/rampatch_00130302.bin</firmware>
+    <firmware type="runtime">qca/rampatch_00230302.bin</firmware>
+    <firmware type="runtime">qca/rampatch_00440302.bin</firmware>
+    <firmware type="runtime">qca/rampatch_usb_00000200.bin</firmware>
+    <firmware type="runtime">qca/rampatch_usb_00000201.bin</firmware>
+    <firmware type="runtime">qca/rampatch_usb_00000300.bin</firmware>
+    <firmware type="runtime">qca/rampatch_usb_00000302.bin</firmware>
+    <firmware type="runtime">qca/rampatch_usb_00130200.bin</firmware>
+    <firmware type="runtime">qca/rampatch_usb_00130201.bin</firmware>
+    <firmware type="runtime">qca/rampatch_usb_00190200.bin</firmware>
+    <firmware type="runtime">wil6210.brd</firmware>
+    <firmware type="runtime">wil6210.fw</firmware>
+    <modalias>pci:v00000777d000011ACsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v0000168Cd0000003Csv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v0000168Cd0000003Esv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v0000168Cd00000040sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v0000168Cd00000041sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v0000168Cd00000042sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v0000168Cd00000046sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v0000168Cd00000050sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v0000168Cd00000056sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v000017CBd00001101sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v000017CBd00001103sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v000017CBd00001104sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v000017CBd00001201sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001AE9d00000302sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001AE9d00000310sv*sd*bc*sc*i*</modalias>
+    <modalias>sdio:c*v0271d0300*</modalias>
+    <modalias>sdio:c*v0271d0301*</modalias>
+    <modalias>sdio:c*v0271d0400*</modalias>
+    <modalias>sdio:c*v0271d0401*</modalias>
+    <modalias>sdio:c*v0271d0402*</modalias>
+    <modalias>sdio:c*v0271d0418*</modalias>
+    <modalias>sdio:c*v0271d0419*</modalias>
+    <modalias>usb:v03F0p311Dd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0489pE027d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0489pE02Cd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0489pE036d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0489pE03Cd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0489pE03Dd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0489pE04Dd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0489pE04Ed*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0489pE056d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0489pE057d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0489pE05Fd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0489pE076d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0489pE078d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0489pE095d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04C5p1330d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04CAp3004d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04CAp3005d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04CAp3006d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04CAp3007d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04CAp3008d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04CAp300Bd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04CAp300Dd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04CAp300Fd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04CAp3010d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04CAp3014d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04CAp3018d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04DAp390Dd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v04F2pAFF1d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v07D1p3A07d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v07D1p3A08d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v083Ap4506d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v083Ap4507d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0846p4250d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0846p4251d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0846p4300d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0846p4301d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0846p5F00d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0846p5F01d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0930p0215d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0930p0219d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0930p021Cd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0930p0220d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0930p0227d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0B05p17D0d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CDEp0012d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CDEp0013d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p0001d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p0002d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p0003d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p0004d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p0005d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p0006d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p0036d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p3000d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p3002d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p3004d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p3008d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p311Dd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p311Ed*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p311Fd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p3121d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p817Ad*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p817Bd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p9374d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3p9375d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3pE003d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3pE004d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3pE005d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3pE006d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0CF3pE019d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0D8Ep7801d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0D8Ep7802d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0D8Ep7803d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0D8Ep7811d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0D8Ep7812d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v129Bp160Bd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v129Bp160Cd*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1385p4250d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1385p4251d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1385p5F00d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1385p5F01d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1385p5F02d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1385p5F03d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v13D3p3304d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v13D3p3362d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v13D3p3375d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v13D3p3393d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v13D3p3395d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v13D3p3402d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v13D3p3408d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v13D3p3423d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v13D3p3432d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v13D3p3472d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v13D3p3474d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v13D3p3487d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v13D3p3490d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1435p0826d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1435p0827d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1435p0828d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1435p0829d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v157Ep3006d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v157Ep3007d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v157Ep3205d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v157Ep3206d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v168Cp0001d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v168Cp0002d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1690p0710d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1690p0711d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1690p0712d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v1690p0713d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v16ABp7801d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v16ABp7802d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v16ABp7811d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v16ABp7812d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v2001p3A00d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v2001p3A01d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v2001p3A02d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v2001p3A03d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v2001p3A04d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v2001p3A05d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+
+  </provides>
+</component>

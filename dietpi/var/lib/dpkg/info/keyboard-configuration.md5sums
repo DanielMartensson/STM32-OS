@@ -1,0 +1,12 @@
+3c0105186ad0729a1dee992c67c0ce8d  usr/share/bug/keyboard-configuration/control
+7cfc9187c9f370ac1b9aca04b5275640  usr/share/console-setup/KeyboardNames.pl
+b5c4ab15444be006f921b2e16e98d003  usr/share/console-setup/kbdnames-maker
+663a19562dd2fb01b99258619e551526  usr/share/console-setup/keyboard
+8152f9bd10ababbfc3340d29440976f8  usr/share/doc/keyboard-configuration/FAQ.gz
+a6300d587fe7327715461df2d118fbc4  usr/share/doc/keyboard-configuration/README.Debian
+a18d8daef0c4c3426cc439da08ce6589  usr/share/doc/keyboard-configuration/changelog.gz
+49cab1cfd397b014807c5b2bcc63e04f  usr/share/doc/keyboard-configuration/copyright
+0ee6d905789e8fdf8ea3f4ebac577c5e  usr/share/doc/keyboard-configuration/copyright.fonts.gz
+60d40a4a9a50131084e4167a8a8b6619  usr/share/doc/keyboard-configuration/copyright.xkb.gz
+b0689fab4f0baab7720a7201cc6dbd4a  usr/share/lintian/overrides/keyboard-configuration
+4afb21d20d56da87a27a1524f4fb5160  usr/share/man/man5/keyboard.5.gz

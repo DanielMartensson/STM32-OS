@@ -1,0 +1,7 @@
+897582e6c58e21bee3e00ef865d821f0  bin/setupcon
+d52bc9aa0fde95ac58ef8e7b3a3858ec  usr/bin/ckbcomp
+3c0105186ad0729a1dee992c67c0ce8d  usr/share/bug/console-setup/control
+20405c5d168d636155a5627154b22c27  usr/share/console-setup/console-setup
+ba7e3047d19bc2e75545a8d585167403  usr/share/man/man1/ckbcomp.1.gz
+abd9d5a5ea5676c71d73b843137808c6  usr/share/man/man1/setupcon.1.gz
+6b3992f8a1bba3a7bac143ca24c2a6de  usr/share/man/man5/console-setup.5.gz

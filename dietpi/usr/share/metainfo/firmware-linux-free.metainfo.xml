@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="firmware">
+  <id>org.debian.packages.firmware_linux_free</id>
+  <name>Binary firmware for various drivers in the Linux kernel</name>
+  <summary>Binary firmware for  This package contains firmware which was previously included in the Linux kernel and which is compliant with the Debian Free Software Guidelines. . Most firmware previously included in the Linux kernel is non-free and has been moved to the firmware-linux-nonfree package..</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <provides>
+    <firmware type="runtime">av7110/bootcode.bin</firmware>
+    <firmware type="runtime">carl9170-1.fw</firmware>
+    <firmware type="runtime">cis/3CCFEM556.cis</firmware>
+    <firmware type="runtime">cis/3CXEM556.cis</firmware>
+    <firmware type="runtime">cis/COMpad2.cis</firmware>
+    <firmware type="runtime">cis/COMpad4.cis</firmware>
+    <firmware type="runtime">cis/DP83903.cis</firmware>
+    <firmware type="runtime">cis/LA-PCM.cis</firmware>
+    <firmware type="runtime">cis/MT5634ZLX.cis</firmware>
+    <firmware type="runtime">cis/NE2K.cis</firmware>
+    <firmware type="runtime">cis/PCMLM28.cis</firmware>
+    <firmware type="runtime">cis/PE-200.cis</firmware>
+    <firmware type="runtime">cis/PE520.cis</firmware>
+    <firmware type="runtime">cis/RS-COM-2P.cis</firmware>
+    <firmware type="runtime">cis/SW_555_SER.cis</firmware>
+    <firmware type="runtime">cis/SW_7xx_SER.cis</firmware>
+    <firmware type="runtime">cis/SW_8xx_SER.cis</firmware>
+    <firmware type="runtime">cis/tamarack.cis</firmware>
+    <firmware type="runtime">dsp56k/bootstrap.bin</firmware>
+    <firmware type="runtime">isci/isci_firmware.bin</firmware>
+    <firmware type="runtime">keyspan_pda/keyspan_pda.fw</firmware>
+    <firmware type="runtime">keyspan_pda/xircom_pgs.fw</firmware>
+    <firmware type="runtime">usbdux_firmware.bin</firmware>
+    <firmware type="runtime">usbduxfast_firmware.bin</firmware>
+    <firmware type="runtime">usbduxsigma_firmware.bin</firmware>
+
+  </provides>
+</component>
