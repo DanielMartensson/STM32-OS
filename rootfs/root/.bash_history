@@ -81,3 +81,9 @@ sudo apt-get install file
 file forcefsck 
 fsck
 exit
+ls
+rm forcefsck 
+exit
+sudo apt-get autoremove fdisk
+ls
+exit

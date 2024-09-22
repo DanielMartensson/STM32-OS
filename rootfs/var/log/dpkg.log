@@ -1956,3 +1956,11 @@
 2024-09-22 19:53:18 trigproc libc-bin:armhf 2.39-0ubuntu8 <none>
 2024-09-22 19:53:18 status half-configured libc-bin:armhf 2.39-0ubuntu8
 2024-09-22 19:53:18 status installed libc-bin:armhf 2.39-0ubuntu8
+2024-09-22 20:30:44 startup packages remove
+2024-09-22 20:30:44 status installed fdisk:armhf 2.39.3-9ubuntu6.1
+2024-09-22 20:30:44 remove fdisk:armhf 2.39.3-9ubuntu6.1 <none>
+2024-09-22 20:30:44 status half-configured fdisk:armhf 2.39.3-9ubuntu6.1
+2024-09-22 20:30:45 status half-installed fdisk:armhf 2.39.3-9ubuntu6.1
+2024-09-22 20:30:45 status config-files fdisk:armhf 2.39.3-9ubuntu6.1
+2024-09-22 20:30:45 status not-installed fdisk:armhf <none>
+2024-09-22 20:30:45 startup packages configure
