@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libzstd.so.1.4.4
+/usr/share
+/usr/share/doc
+/usr/share/doc/libzstd1
+/usr/share/doc/libzstd1/changelog.Debian.gz
+/usr/share/doc/libzstd1/copyright
+/usr/lib/arm-linux-gnueabihf/libzstd.so.1

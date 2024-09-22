@@ -1,0 +1,9 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libhogweed.so.5.0
+/usr/share
+/usr/share/doc
+/usr/lib/arm-linux-gnueabihf/libhogweed.so.5
+/usr/share/doc/libhogweed5

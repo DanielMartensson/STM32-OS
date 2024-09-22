@@ -1,0 +1,10 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libnetplan.so.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libnetplan0
+/usr/share/doc/libnetplan0/changelog.Debian.gz
+/usr/share/doc/libnetplan0/copyright

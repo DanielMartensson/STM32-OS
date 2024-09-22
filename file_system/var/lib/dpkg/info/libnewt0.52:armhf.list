@@ -1,0 +1,15 @@
+/.
+/etc
+/etc/newt
+/etc/newt/palette.original
+/etc/newt/palette.ubuntu
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libnewt.so.0.52.21
+/usr/share
+/usr/share/doc
+/usr/share/doc/libnewt0.52
+/usr/share/doc/libnewt0.52/changelog.Debian.gz
+/usr/share/doc/libnewt0.52/copyright
+/usr/lib/arm-linux-gnueabihf/libnewt.so.0.52

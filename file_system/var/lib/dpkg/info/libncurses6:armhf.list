@@ -1,0 +1,17 @@
+/.
+/lib
+/lib/arm-linux-gnueabihf
+/lib/arm-linux-gnueabihf/libncurses.so.6.2
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libform.so.6.2
+/usr/lib/arm-linux-gnueabihf/libmenu.so.6.2
+/usr/lib/arm-linux-gnueabihf/libpanel.so.6.2
+/usr/share
+/usr/share/doc
+/lib/arm-linux-gnueabihf/libncurses.so.6
+/usr/lib/arm-linux-gnueabihf/libform.so.6
+/usr/lib/arm-linux-gnueabihf/libmenu.so.6
+/usr/lib/arm-linux-gnueabihf/libpanel.so.6
+/usr/share/doc/libncurses6

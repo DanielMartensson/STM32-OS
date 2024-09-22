@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libelf-0.176.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/libelf1
+/usr/share/doc/libelf1/changelog.Debian.gz
+/usr/share/doc/libelf1/copyright
+/usr/lib/arm-linux-gnueabihf/libelf.so.1

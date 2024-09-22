@@ -1,0 +1,8 @@
+914cfa3b4f2a9ba946f5e64fd6ead1bb  lib/arm-linux-gnueabihf/libhistory.so.8.0
+cdcfb0b5ed1757f34b29da09c5bb6426  lib/arm-linux-gnueabihf/libreadline.so.8.0
+db22ab5a3d7a94ab8b0a93657b11aa08  usr/share/doc/libreadline8/README.Debian
+0bb4ff5a1ee6f767d0d1b7ded925a8a3  usr/share/doc/libreadline8/USAGE
+e074f6768e516acb31615f19e68a6af2  usr/share/doc/libreadline8/changelog.Debian.gz
+b0cf3572690d3722c99c47e2cc573aeb  usr/share/doc/libreadline8/copyright
+05e58ca0def73f34efef5ff4cac6a939  usr/share/doc/libreadline8/examples/Inputrc
+244319c9dd88c980910aacd76477b8d9  usr/share/doc/libreadline8/inputrc.arrows

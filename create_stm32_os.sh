@@ -1,35 +1,35 @@
-# Download build root
-wget -nc https://buildroot.org/downloads/buildroot-2024.02.6.tar.gz
+# Remove old
+rm rootfs.ext4
 
-# Extract
-tar -xf buildroot-2024.02.6.tar.gz
+# Make file
+dd if=/dev/zero of=rootfs.ext4 bs=1M count=380
 
-# Remove
-rm -f *.gz
+# Make filesystem
+mkfs.ext4 rootfs.ext4
 
-# Install packages
-sudo apt-get install g++ make libncurses-dev unzip bc bzip2 libelf-dev libssl-dev extlinux -ys
-
-# Copy defconfig
-cp stm32_os_defconfig buildroot-2024.02.6/configs
+# Mount
+sudo mount -o loop rootfs.ext4 /mnt/rootfs
 
 # Go inside
-cd buildroot-2024.02.6
+cd file_system
 
-# Enter menuconfig
-make stm32_os_defconfig
-
-# Compile
-make
-
-# Create a rootfs folder
+# Create folder
 sudo mkdir /mnt/rootfs
 
-# Mount rootfs.ext4
-sudo mount -o loop output/images/rootfs.ext4 /mnt/rootfs
-
+# Fill and exclude proc
+sudo cp -a bin home/ media/ opt/ root/ sbin usr/ boot/ etc/ lib mnt/ srv/ tmp/ var/ dev/ run/ sys/ /mnt/rootfs/
 
 # Umount
-#sudo umount /mnt/rootfs
+sudo umount /mnt/rootfs
+
+# Get out
+cd ..
+
+# Copy
+cp rootfs.ext4 ../STM32-Computer/Firmware/STM32-Computer-Firmware/CA7/FIP_artifacts/rootfs.ext4
+
+
+
+
 
 

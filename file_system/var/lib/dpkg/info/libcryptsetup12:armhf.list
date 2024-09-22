@@ -1,0 +1,13 @@
+/.
+/lib
+/lib/arm-linux-gnueabihf
+/lib/arm-linux-gnueabihf/libcryptsetup.so.12.5.0
+/usr
+/usr/share
+/usr/share/bug
+/usr/share/bug/libcryptsetup12
+/usr/share/doc
+/usr/share/doc/libcryptsetup12
+/usr/share/doc/libcryptsetup12/changelog.Debian.gz
+/usr/share/doc/libcryptsetup12/copyright
+/lib/arm-linux-gnueabihf/libcryptsetup.so.12
