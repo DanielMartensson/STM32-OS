@@ -1,8 +1,0 @@
-a16a58b1a3894620ec14424055f2794e  lib/udev/rules.d/10-local-rpi.rules
-4ba9ada5991c42eabf4e869df7b2a36b  usr/lib/arm-linux-gnueabihf/libbcm_host.so.0
-9d695eed947763691d12f32036ca6d0c  usr/lib/arm-linux-gnueabihf/libdebug_sym.so.0
-0021d95baf5379d6a8cbe74b1fb37675  usr/lib/arm-linux-gnueabihf/libdtovl.so.0
-63f296e4312590032125ccead6fe22d3  usr/lib/arm-linux-gnueabihf/libvchiq_arm.so.0
-c9b22fcecf183657baff974c7c2777c0  usr/lib/arm-linux-gnueabihf/libvcos.so.0
-a3913667da7d2435d26a84c5f64d2053  usr/share/doc/libraspberrypi0/README.md
-edc9b0d3b59d7f8a61f10236c3715cfa  usr/share/doc/libraspberrypi0/changelog.Debian.gz

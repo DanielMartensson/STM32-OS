@@ -1,5 +1,0 @@
-# md5, sha256 from https://pypi.org/pypi/starlette/json
-md5  b0ba8178dd4bf2cdff53c8702212be52  starlette-0.37.2.tar.gz
-sha256  9af890290133b79fc3db55474ade20f6220a364a0402e0b556e7cd5e1e093823  starlette-0.37.2.tar.gz
-# Locally computed sha256 checksums
-sha256  dcb95677a02240243187e964f941847d19b17821cf99e5afae684fab328c19bf  LICENSE.md

@@ -1,4 +1,0 @@
-b5c3c8bb856fffaa0b83eaf6c7fffd08  usr/share/doc/raspberrypi-sys-mods/copyright
-10b341869b489a22c5e60e2b714d06ef  usr/lib/raspberrypi-sys-mods/i2cprobe
-af5cbc23e7ad401e1a32dfe14a729bdf  lib/udev/rules.d/99-com.rules
-8b990575624026bdace42b4770bb7008  lib/udev/rules.d/15-i2c-modprobe.rules

@@ -1,4 +1,0 @@
-#!/bin/dash
-groupadd -rf spi
-groupadd -rf i2c
-groupadd -rf gpio
