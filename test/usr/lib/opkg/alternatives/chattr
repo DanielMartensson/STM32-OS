@@ -1,3 +1,0 @@
-/bin/chattr
-/bin/busybox.nosuid 50
-/bin/chattr.e2fsprogs 100
