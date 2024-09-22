@@ -84,3 +84,5 @@ cd init.d/
 ls
 less enable_ethernet.sh 
 exit
+ls
+exit

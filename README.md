@@ -54,6 +54,6 @@ Don't forget to change the `BOOT1` pin to `unconnected` when you're flashing and
 * Question: STMicroelectronics have a linux distribution called `OpenSTLinux`. Why did you not use that instead?
   - Answer: Lack of support, they have their own package repository which is very poor, bugs, large memory usage, not a minimalistic linux distribution and one of the ST employees told me that `OpenSTLinux` is not ready yet and the dev team is working on the packages. I was expecting that the fix will be within few days, but no...Therefore, I'm using `Ubunut's` APT-ecosystem, which is way more stable, richer and in fact...more like a linux user standard today.
 * Question: I want to build on my kernel, can I use this repository to build on my kernel?
- - Answer: No, if you want to build on your kernel, head over to `STM32-Computer`. I have separated the `bootfs`-work (kernel) and `rootfs`-work (STM32-OS).
+  - Answer: No, if you want to build on your kernel, head over to `STM32-Computer`. I have separated the `bootfs`-work (kernel) and `rootfs`-work (STM32-OS).
   
  
