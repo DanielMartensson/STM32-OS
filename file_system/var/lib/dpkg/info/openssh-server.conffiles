@@ -1,5 +1,0 @@
-/etc/default/ssh
-/etc/init.d/ssh
-/etc/pam.d/sshd
-/etc/ssh/moduli
-/etc/ufw/applications.d/openssh-server
