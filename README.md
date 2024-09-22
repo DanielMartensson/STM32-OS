@@ -55,7 +55,7 @@ df -h
 * Question: Can I use this for `STM32MP157` too?
   - Answer: The installation of this linux distribution is meant to work for `STM32-Computer`, but the `file_system` folder, which is the `STM32-OS`, can work for all types of `armhf` architectures. So the answer is yes, you can.
 * Question: STMicroelectronics have a linux distribution called `OpenSTLinux`. Why did you not use that instead?
-  - Answer: I find that `Ubunutu's` ecosystem of the `apt` packages are much richer compared to `OpenSTLinux`. Also there are more community support for `Ubuntu` compared to `OpenSTLinux`.
+  - Answer: I find that `Ubunutu's` ecosystem of the `apt` packages are much richer compared to `OpenSTLinux`. Also there is more community support for `Ubuntu` compared to `OpenSTLinux`.
 * Question: I want to build on my kernel, can I use this repository to build on my kernel?
   - Answer: No, if you want to build on your kernel, head over to `STM32-Computer`. I have separated the `bootfs`-work (kernel) and `rootfs`-work (STM32-OS).
 * Question: What's the difference between `Ubuntu 24.04 LTS` and `STM32-OS 24.04 LTS`?
