@@ -41,12 +41,14 @@ STM32-Computer/Firmware/STM32-Computer-Firmware/CA7/FIP_artifacts
 
 Don't forget to change the `BOOT1` pin to `unconnected` when you're flashing and then change `BOOT1` pin to `connected` when you're booting the `STM32-OS`.
 
-After the system has booted up, and you can either login via `UART` or `ssh`, then it's important to run this command so you can take adventage of the total system space. This will resize the system to its true size, or else, you cannot even create a single file.
+After the system has booted up, and you can either login(`user: root`. `password: root`) via `UART` or `ssh`, then it's important to run this command so you can take adventage of the total system space. This will resize the system to its true size, or else, you cannot even create a single file.
 
 ```sh
 resize2fs /dev/mmcblk0p7
 df -h
 ```
+
+
 
 # FAQ
 
