@@ -48,7 +48,7 @@ resize2fs /dev/mmcblk0p7
 df -h
 ```
 
-
+![](https://raw.githubusercontent.com/DanielMartensson/STM32-OS/refs/heads/main/memory.png)
 
 # FAQ
 
