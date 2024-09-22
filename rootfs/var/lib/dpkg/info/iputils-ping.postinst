@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+PROGRAM=$(dpkg-divert --truename /bin/ping)
+
+if [ "$1" = configure ]; then
+    if setcap cap_net_raw+ep $PROGRAM; then
+        chmod u-s $PROGRAM
+    fi
+fi
+
+
+
+exit 0
+
+# Local variables:
+# mode: shell-script
+# tab-width: 4
+# indent-tabs-mode: nil
+# end:

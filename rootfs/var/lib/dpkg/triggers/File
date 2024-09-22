@@ -1,0 +1,12 @@
+/usr/share/debianutils/shells.d debianutils/noawait
+/usr/lib/systemd/catalog systemd/noawait
+/usr/lib/binfmt.d systemd/noawait
+/etc/dbus-1/system.d dbus/noawait
+/usr/share/dbus-1/system.d dbus/noawait
+/usr/share/dbus-1/system-services dbus/noawait
+/usr/lib/arm-linux-gnueabihf/gio/modules libglib2.0-0t64:armhf/noawait
+/usr/share/glib-2.0/schemas libglib2.0-0t64:armhf
+/etc/rsyslog.d rsyslog/noawait
+/usr/share/mime/packages shared-mime-info/noawait
+/usr/lib/udev/hwdb.d udev/noawait
+/lib/udev/hwdb.d udev/noawait

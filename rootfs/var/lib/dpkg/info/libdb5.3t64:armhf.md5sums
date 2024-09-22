@@ -1,0 +1,5 @@
+40cc324ca92b86080feba8c661987b71  usr/lib/arm-linux-gnueabihf/libdb-5.3.so
+1337bf4d556c693a76991cb4dfbba1ff  usr/share/doc/libdb5.3t64/build_signature_armhf.txt
+fe705e0aa3bb90a09f03405ffdf6a29f  usr/share/doc/libdb5.3t64/changelog.Debian.gz
+00aa43d3e94c4b9211e70e6c14b3d078  usr/share/doc/libdb5.3t64/copyright
+a76cb0923170dc6eaff3b11971bc2eef  usr/share/lintian/overrides/libdb5.3t64

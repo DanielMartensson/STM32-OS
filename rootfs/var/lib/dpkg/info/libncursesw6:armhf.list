@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libformw.so.6.4
+/usr/lib/arm-linux-gnueabihf/libmenuw.so.6.4
+/usr/lib/arm-linux-gnueabihf/libncursesw.so.6.4
+/usr/lib/arm-linux-gnueabihf/libpanelw.so.6.4
+/usr/share
+/usr/share/doc
+/usr/lib/arm-linux-gnueabihf/libformw.so.6
+/usr/lib/arm-linux-gnueabihf/libmenuw.so.6
+/usr/lib/arm-linux-gnueabihf/libncursesw.so.6
+/usr/lib/arm-linux-gnueabihf/libpanelw.so.6
+/usr/share/doc/libncursesw6

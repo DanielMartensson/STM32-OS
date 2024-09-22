@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/bin
+/usr/bin/ping
+/usr/share
+/usr/share/doc
+/usr/share/doc/iputils-ping
+/usr/share/doc/iputils-ping/changelog.Debian.gz
+/usr/share/doc/iputils-ping/copyright
+/usr/share/man
+/usr/share/man/man8
+/usr/share/man/man8/ping.8.gz
+/usr/bin/ping4
+/usr/bin/ping6
+/usr/share/man/man8/ping4.8.gz
+/usr/share/man/man8/ping6.8.gz

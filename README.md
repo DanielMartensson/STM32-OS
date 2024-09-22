@@ -1,14 +1,15 @@
-# STM32-OS 20.04 LTS
-This repository is about a minimal Linux distro, based on `Ubuntu 20.04 LTS`. This linux distribution has the minimal setup for starting a system. Every package `Ubuntu 20.04 LTS` have, can be installed on `STM32-OS`.
+# STM32-OS 24.04 LTS
+This repository is about a minimal linux distro, based on `Ubuntu 24.04 LTS`. This linux distribution has the minimal setup for starting a system. Every package `Ubuntu 24.04 LTS` have, can be installed on `STM32-OS`.
 
 # Important software pre-installed
 
-* Busy Box
-* Open SSH
-* APT
-* DPKG
-* Nano
-* Python
+* busybox
+* ssh
+* apt
+* dpkg
+* nano
+* python
+* isc-dhcp-client
 * bzip2
 * gzip
 * net-tools
@@ -43,14 +44,12 @@ Don't forget to change the `BOOT1` pin to `unconnected` when you're flashing and
 * Question: I want to build my own system too. How did you create this system? Did you use `Yocto` or `Buildroot`?
   - Answer: None of them. I used `debootstrap`. This creates a minimal linux distro, based on `Ubuntu focal`, which is `20.04 LTS`, supported to April 2025.
   ```sh
-  sudo debootstrap --arch=armhf focal /path/to/target http://ports.ubuntu.com/ubuntu-ports
+  sudo debootstrap --arch=armhf noble rootfs http://ports.ubuntu.com/ubuntu-ports
   ```
   Then you logging into the system using for using and installing the packages such as `openssh` or `net-tools`.
   ```sh
-  sudo chroot /path/to/target
+  sudo chroot rootfs
   ```
-* Question: Will you update `STM32-OS` to `24.04 LTS`?
-  - Answer: Yes
 * Question: STMicroelectronics have a linux distribution called `OpenSTLinux`. Why did you not use that instead?
   - Answer: Lack of support, they have their own package repository which is very poor, bugs, large memory usage, not a minimalistic linux distribution and one of the ST employees told me that `OpenSTLinux` is not ready yet and the dev team is working on the packages. I was expecting that the fix will be within few days, but no...Therefore, I'm using `Ubunut's` APT-ecosystem, which is way more stable, richer and in fact...more like a linux user standard today.
 * Question: I want to build on my kernel, can I use this repository to build on my kernel?

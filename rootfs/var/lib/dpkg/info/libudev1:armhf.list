@@ -1,0 +1,12 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libudev.so.1.7.8
+/usr/share
+/usr/share/doc
+/usr/share/doc/libudev1
+/usr/share/doc/libudev1/NEWS.Debian.gz
+/usr/share/doc/libudev1/changelog.Debian.gz
+/usr/share/doc/libudev1/copyright
+/usr/lib/arm-linux-gnueabihf/libudev.so.1

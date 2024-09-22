@@ -1,0 +1,901 @@
+Package: cockpit
+Architecture: all
+Version: 316-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 64
+Depends: cockpit-bridge (>= 316-1~bpo24.04.1), cockpit-ws (>= 316-1~bpo24.04.1), cockpit-system (>= 316-1~bpo24.04.1)
+Recommends: cockpit-storaged (>= 316-1~bpo24.04.1), cockpit-networkmanager (>= 316-1~bpo24.04.1), cockpit-packagekit (>= 316-1~bpo24.04.1)
+Suggests: cockpit-doc (>= 316-1~bpo24.04.1), cockpit-pcp (>= 316-1~bpo24.04.1), cockpit-sosreport (>= 316-1~bpo24.04.1), xdg-utils
+Filename: pool/universe/c/cockpit/cockpit_316-1~bpo24.04.1_all.deb
+Size: 19838
+MD5sum: 01dd5a37e97fe04f1df12a90b99b8d18
+SHA1: 079564f93056887b2e7ac5e1fdb8196ba3c8e6b8
+SHA256: 78faeaec955f98112c17c70cdbd78a40bb2a4901df20a1ea70baec84267f7d97
+SHA512: 773a932007952cc411a89473eab2135d075b17d2933cdaca17af1c312e05c64134bb4fcf2a0de1fccc5db018c1127889ee947a813a13ec56ec073628d30eff20
+Homepage: https://cockpit-project.org/
+Description: Web Console for Linux servers
+Description-md5: 24b0aa0c07779dcba10e15ca9244d9e9
+
+Package: cockpit
+Architecture: all
+Version: 321-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 65
+Depends: cockpit-bridge (>= 321-1~bpo24.04.1), cockpit-ws (>= 321-1~bpo24.04.1), cockpit-system (>= 321-1~bpo24.04.1)
+Recommends: cockpit-storaged (>= 321-1~bpo24.04.1), cockpit-networkmanager (>= 321-1~bpo24.04.1), cockpit-packagekit (>= 321-1~bpo24.04.1)
+Suggests: cockpit-doc (>= 321-1~bpo24.04.1), cockpit-sosreport (>= 321-1~bpo24.04.1), xdg-utils
+Filename: pool/universe/c/cockpit/cockpit_321-1~bpo24.04.1_all.deb
+Size: 19796
+MD5sum: 4b7895a9b8b58dc115aa0b18ce331d84
+SHA1: 0e8a3d5d2ce17ddc086cd55632a27f1becf7472d
+SHA256: 9be9d347a9ee9a72cda25332fa583f9a42f516fce4de0394e69ada1b07c09eb1
+SHA512: 262415c2ed2ce37a5bd4e20da3cd3975f92381be64b9ecdbe911cde5b59dadf82e59b5d8214f9c6e5fa9ff49ed2ebbdc1a150ce7a0ae0ac36ae25ef596394b91
+Homepage: https://cockpit-project.org/
+Description: Web Console for Linux servers
+Description-md5: 24b0aa0c07779dcba10e15ca9244d9e9
+
+Package: cockpit-bridge
+Architecture: armhf
+Version: 321-1~bpo24.04.1
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 826
+Provides: cockpit-ssh
+Depends: libc6 (>= 2.38), libglib2.0-0t64 (>= 2.68.0), libjson-glib-1.0-0 (>= 1.5.2), libssh-4 (>= 0.10.4), libsystemd0 (>= 235), python3:any, glib-networking
+Recommends: openssh-client
+Breaks: cockpit-ws (<< 181.x)
+Replaces: cockpit-dashboard (<< 170.x), cockpit-ws (<< 181.x)
+Filename: pool/universe/c/cockpit/cockpit-bridge_321-1~bpo24.04.1_armhf.deb
+Size: 362590
+MD5sum: b102aa2edab1190fec389c40236777bd
+SHA1: 5b42666e73fc7e8b457fe469cd55c951183221de
+SHA256: 982d15c1d4a34c72930885aa22f6a0706cbeba08629893a81b8b0c9f39b1aec6
+SHA512: fd5ee69f173c0c05fff67e13d9271ccc5262c931a85168d10739b6d966aab746cf2c9c3d9b1d74faff141bff48f039d48c21ff74799bf8b0064d6e9b26bdf94b
+Homepage: https://cockpit-project.org/
+Description: Cockpit bridge server-side component
+Description-md5: 34419f40043aa83e9a0fb5968fe56ce7
+
+Package: cockpit-doc
+Architecture: all
+Version: 316-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/doc
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 520
+Filename: pool/universe/c/cockpit/cockpit-doc_316-1~bpo24.04.1_all.deb
+Size: 131984
+MD5sum: 068767f7200e7f2eacf72b3cdb959d16
+SHA1: f9547f03b42c252c698d244f2722fde3bd7ae8e5
+SHA256: 808e0ab3c9907e72e68c9a1841e5cc7e9aad279e0e7406504343ba6c40610659
+SHA512: 245199ea2a66699cb7f1cdf54099624130a97e771732fdbce353dca0251c77a0b3cb0c92eef54282f44a4dc288ed623419c4d4c9d48ed3f20f25e4e0d01305c5
+Homepage: https://cockpit-project.org/
+Description: Cockpit deployment and developer guide
+Description-md5: 917dc8f7798407683627da6ebb139a47
+
+Package: cockpit-doc
+Architecture: all
+Version: 321-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/doc
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 518
+Filename: pool/universe/c/cockpit/cockpit-doc_321-1~bpo24.04.1_all.deb
+Size: 132774
+MD5sum: fba870a33e9d99b5a2c6a315a299b3a8
+SHA1: 1a8421a796cb72b4c1d69a1ccb0ca481d5d12282
+SHA256: 81d84b45bdd212684957f5cc2eefb79b54216b21e9c89623a373c4ac95ab8a28
+SHA512: 965cfd5bed714e1c050ada4f64b063c701fe64d02de391f973c3f834552d5eae898a826ca3ce6dadcc9171a215b4bb2a54d04639a85786a484384a3c9c3d81bb
+Homepage: https://cockpit-project.org/
+Description: Cockpit deployment and developer guide
+Description-md5: 917dc8f7798407683627da6ebb139a47
+
+Package: cockpit-machines
+Architecture: all
+Version: 316-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 987
+Depends: cockpit-bridge (>= 215), libvirt-daemon-system, libvirt-clients | libvirt-bin, libvirt-dbus
+Recommends: virtinst (>= 3.0.0), python3-gi, gir1.2-libosinfo-1.0, qemu-block-extra
+Filename: pool/universe/c/cockpit-machines/cockpit-machines_316-1~bpo24.04.1_all.deb
+Size: 970466
+MD5sum: 269fcbb493919312f021e1797888493c
+SHA1: 1ce35943d65a4c0de89767e405f59ac9ec34b3ca
+SHA256: 3e74643deac5fc66fda9e99c045d193784a4c127eb325d062521a561506224c6
+SHA512: 13bc6eb16b276a75ed985884f85c690765b1f9bfae7610c89036afffcb3dddb4e219fad0a59a0877a7bc2991695dbee6524996883e8bc8886fa015e36c571605
+Homepage: https://github.com/cockpit-project/cockpit-machines
+Description: Cockpit user interface for virtual machines
+Description-md5: 0eb6768a5275b934fab3627c568646c9
+
+Package: cockpit-networkmanager
+Architecture: all
+Version: 316-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 868
+Depends: cockpit-bridge (>= 316-1~bpo24.04.1), network-manager (>= 1.6)
+Filename: pool/universe/c/cockpit/cockpit-networkmanager_316-1~bpo24.04.1_all.deb
+Size: 817316
+MD5sum: 9dac5a3521b9190555b71f0dee83707c
+SHA1: 319d9ee46fb62bcd4ccc1331438b40da12e14bdc
+SHA256: 036ca64a6a152253c2a6cf4a9cf5a2a7cce20dade4015e28919f0970859c6282
+SHA512: 7ddfc5e5691e557672d31eaca993a0751f65d76c354f189898dd6ee86873db089a1485f59da3c52c39448d68ff800c22e2bec821db65f04ca9c9a71730a1791d
+Homepage: https://cockpit-project.org/
+Description: Cockpit user interface for networking
+Description-md5: d453350593dcc4aba8e5cd9e282c9e7c
+
+Package: cockpit-networkmanager
+Architecture: all
+Version: 321-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 861
+Depends: cockpit-bridge (>= 321-1~bpo24.04.1), network-manager (>= 1.6)
+Filename: pool/universe/c/cockpit/cockpit-networkmanager_321-1~bpo24.04.1_all.deb
+Size: 808338
+MD5sum: d5ecedd44262a849976c9968a0818cee
+SHA1: 81ee6d9816125aca8c98df542bbc9735686375ba
+SHA256: 2120280faecd0a1dad4ecb28a9ddbf2d7953aa3f3466a9bd8eb0c5a172269943
+SHA512: 915b7e1564062eeca344aaf83c498ea338142a0e0c29841f0971ce15d55f1051c985095eac2a89c9b5369fa42b81baaea3d3f59686046eac044970b874af1506
+Homepage: https://cockpit-project.org/
+Description: Cockpit user interface for networking
+Description-md5: d453350593dcc4aba8e5cd9e282c9e7c
+
+Package: cockpit-packagekit
+Architecture: all
+Version: 316-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 992
+Depends: cockpit-bridge (>= 316-1~bpo24.04.1), packagekit, python3
+Filename: pool/universe/c/cockpit/cockpit-packagekit_316-1~bpo24.04.1_all.deb
+Size: 928592
+MD5sum: 72826721889af11c7ce3e1bc40c89309
+SHA1: 72cd7020d8036ccf0c9e5c79ec0da568ee0baef1
+SHA256: 7c6d09dc4d7a6f575457614eb1b2fff0694ac62537c2af8049695ba2b20e7bf0
+SHA512: 7c5265b14a6239c47696f8682ebd9c1920eb6749cee8d5fc72ac71f026a749040c34b816d998e538a4dacb18286eaee0cee346bb5b2eea43083e3ff5f139d52d
+Homepage: https://cockpit-project.org/
+Description: Cockpit user interface for apps and package updates
+Description-md5: 78e1cc24dd1b7a3c1e724e0fb54d4968
+
+Package: cockpit-packagekit
+Architecture: all
+Version: 321-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 835
+Depends: cockpit-bridge (>= 321-1~bpo24.04.1), packagekit, python3
+Filename: pool/universe/c/cockpit/cockpit-packagekit_321-1~bpo24.04.1_all.deb
+Size: 769254
+MD5sum: 33348100904f002be29baa5ea934ceb6
+SHA1: 3b0d1d5925485ba285fce4d3847c96a1996b25a0
+SHA256: 0f6f1a0098800e38d6b2226c266b1c4af4ed1ea52168e88961320d5f20164882
+SHA512: 442f44e935dd550a05e99a0f7de700b134f32f676d44a5321cd82fc74164ba719593fa693bf0861b3956a2f397b641d883966f4158717d4efc18d463f67f561e
+Homepage: https://cockpit-project.org/
+Description: Cockpit user interface for apps and package updates
+Description-md5: 78e1cc24dd1b7a3c1e724e0fb54d4968
+
+Package: cockpit-pcp
+Architecture: armhf
+Version: 316-1~bpo24.04.1
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 158
+Depends: libc6 (>= 2.38), libglib2.0-0t64 (>= 2.68.0), libjson-glib-1.0-0 (>= 1.5.2), libpcp3t64, libsystemd0 (>= 235), cockpit-bridge (>= 316-1~bpo24.04.1), pcp
+Filename: pool/universe/c/cockpit/cockpit-pcp_316-1~bpo24.04.1_armhf.deb
+Size: 68660
+MD5sum: 7834b14263925bbfb7bcdb1e078010f4
+SHA1: 74ba550565fb96bd20f8f6bf7302855515f1564e
+SHA256: 23fd695b747a5a9b0fdee2e4c72eb1c2a2c0c5409b207d7b96d135f5db92d311
+SHA512: 4ff366878f6f02ee1d3de56f5fcdee316845692878ae1f9dabfdf36288cc5812715ce065e9aabe41e43087f3326e813c0388ae50f66d85d5f4d80333da509eeb
+Homepage: https://cockpit-project.org/
+Description: Cockpit PCP integration
+Description-md5: 2bcebebdc8b56e2cd8c2ba8755912a8f
+
+Package: cockpit-podman
+Architecture: all
+Version: 91-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Origin: Ubuntu
+Maintainer: Martin Pitt <martin.pitt@ubuntu.com>
+Original-Maintainer: Martin Pitt <mpitt@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 559
+Depends: cockpit-bridge, podman (>= 2.0.4)
+Filename: pool/universe/c/cockpit-podman/cockpit-podman_91-1~bpo24.04.1_all.deb
+Size: 532906
+MD5sum: 581faeeabd19fe7eb2136206bf75dd29
+SHA1: 07675c3afafbb777a35b8b4df595dcf86a1eb5b3
+SHA256: 359dafbff04f3f8b2aefbdf7c295e64ddf5146ba9b19a0c7b56594d66589d971
+SHA512: 30e7d536ac9b9cd186745d5c4e1b98aa81c16db08ab5d6ea50b855c2ba6d92466054b54fba279602977d697d9b6cb59d2f59f8f5ec71d15d771778ab71ac31cc
+Homepage: https://github.com/cockpit-project/cockpit-podman
+Description: Cockpit component for Podman containers
+Description-md5: bd8bea62609a52119a9f55b9e9e77daf
+
+Package: cockpit-sosreport
+Architecture: all
+Version: 316-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 598
+Depends: cockpit-bridge (>= 316-1~bpo24.04.1), sosreport
+Filename: pool/universe/c/cockpit/cockpit-sosreport_316-1~bpo24.04.1_all.deb
+Size: 544212
+MD5sum: a99d748b3ef81a7b0f7f8a5dba318787
+SHA1: 449c8e735b6e1ef92c851019581976f0e15d59d8
+SHA256: 0b8d3cf585cdf35400aea742ed1f13083beabb091a8e6e3f8189420c1cc16389
+SHA512: 8e1cbfbcc9e5e29d7ba00ffacff12bd1e3b4901da02b5c522859ae7bb2c029a43ba4be158a46322a64f96b967f1d14d8b69f9c851a9f72ab87eb3c819ec6c471
+Homepage: https://cockpit-project.org/
+Description: Cockpit user interface for diagnostic reports
+Description-md5: 4758fe190de68c7b853346fee5745606
+
+Package: cockpit-sosreport
+Architecture: all
+Version: 321-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 460
+Depends: cockpit-bridge (>= 321-1~bpo24.04.1), sosreport
+Filename: pool/universe/c/cockpit/cockpit-sosreport_321-1~bpo24.04.1_all.deb
+Size: 401612
+MD5sum: b2c31ab1ab4d8f02a6414a3d56102d0c
+SHA1: fecf0890e5f941adf9cbd18a1a5d9852e50d9532
+SHA256: f9f502c6d52b386c88684ef2667275327ed33d9223a764d720eb21ef1d4fbf56
+SHA512: 471fa0ec8fa1524b0fcf4651944b94cb55bce46660d15cbcfe11b02321ae0127370dedc9b38477008859de21705e42f6b6a50b5c57bd4e2505d411418f77ee8c
+Homepage: https://cockpit-project.org/
+Description: Cockpit user interface for diagnostic reports
+Description-md5: 4758fe190de68c7b853346fee5745606
+
+Package: cockpit-storaged
+Architecture: all
+Version: 316-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 899
+Depends: udisks2 (>= 2.9), udisks2 (>= 2.10) | libblockdev-mdraid2, cockpit-bridge (>= 316-1~bpo24.04.1), python3, python3-dbus
+Suggests: udisks2-btrfs, udisks2-lvm2, mdadm
+Filename: pool/universe/c/cockpit/cockpit-storaged_316-1~bpo24.04.1_all.deb
+Size: 866472
+MD5sum: 01b8299957179eee8863621d40f15d2b
+SHA1: f53e9c6cfc0602fe63d53e48f90c83bd8e7cc37f
+SHA256: 1ea70ebd9474eb95414982b5354b95b9991bbb7d7654596563b1f549c01cdbc7
+SHA512: 5d60f1722630bcdda5884bb87164550a1165269d77905837a7210d77f2beb1a5750743883f6b29b48fbfea4e7db67d0e0ef4001278a1e7e159b6f592244dc1bb
+Homepage: https://cockpit-project.org/
+Description: Cockpit user interface for storage
+Description-md5: c2ebe73ae22d08ed61f7619b0540e9d3
+
+Package: cockpit-storaged
+Architecture: all
+Version: 321-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 777
+Depends: udisks2 (>= 2.9), udisks2 (>= 2.10) | libblockdev-mdraid2, cockpit-bridge (>= 321-1~bpo24.04.1), python3, python3-dbus
+Suggests: udisks2-btrfs, udisks2-lvm2, mdadm
+Filename: pool/universe/c/cockpit/cockpit-storaged_321-1~bpo24.04.1_all.deb
+Size: 738988
+MD5sum: 500c7a0533aee334090c1323cf23eea9
+SHA1: 455cc1c1623f5da4845240e3593923c67103db54
+SHA256: d5a7fcce36bddb0319b1413d89a6d7ce74ae4274e9060650c8b458dff3264f35
+SHA512: 4889718dca80e87f958931334308f2b653c05a025b929f3a5a0c0b5fea7af45c9ab2ad80af69ec87570bbcefdeb41e7ddf985d0deb0f199ed3165321d3000a98
+Homepage: https://cockpit-project.org/
+Description: Cockpit user interface for storage
+Description-md5: c2ebe73ae22d08ed61f7619b0540e9d3
+
+Package: cockpit-system
+Architecture: all
+Version: 316-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 3437
+Provides: cockpit-shell, cockpit-systemd, cockpit-tuned, cockpit-users
+Depends: cockpit-bridge (>= 316-1~bpo24.04.1), libpwquality-tools, openssl
+Recommends: sudo | pkexec | policykit-1
+Conflicts: cockpit-shell
+Breaks: cockpit-dashboard
+Replaces: cockpit-dashboard, cockpit-shell
+Filename: pool/universe/c/cockpit/cockpit-system_316-1~bpo24.04.1_all.deb
+Size: 3285322
+MD5sum: 394a75d4992ab4de323799808b23f4c1
+SHA1: d1cbfc8e038f23999d2ce001ac8ee8e3b8ec44c2
+SHA256: 9fb6a777a0d8a443158fbf67b36caed0b0f468649b2bc0a1e42787f89e9f37f2
+SHA512: 03d67870b5e4d9ee4c009f926f016203c456ff0331737923ea8e322201da658c885ecd92dc82510bd2f5b5b570c430035fe741428cf86bbf4ac01fa03b1d335c
+Homepage: https://cockpit-project.org/
+Description: Cockpit admin interface for a system
+Description-md5: 305239ce7fcb5c6043156a1e54c69f73
+
+Package: cockpit-system
+Architecture: all
+Version: 321-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 3223
+Provides: cockpit-shell, cockpit-systemd, cockpit-tuned, cockpit-users
+Depends: cockpit-bridge (>= 321-1~bpo24.04.1), libpwquality-tools, openssl
+Recommends: sudo | pkexec | policykit-1
+Conflicts: cockpit-shell
+Breaks: cockpit-dashboard
+Replaces: cockpit-dashboard, cockpit-shell
+Filename: pool/universe/c/cockpit/cockpit-system_321-1~bpo24.04.1_all.deb
+Size: 3073710
+MD5sum: de7e6e44ab3058db2c6bbf014031ad24
+SHA1: 48ebe39d494902d0f666572b6a030e12e290438a
+SHA256: b3f281f350f2e0416b9a59df9026b8a7563e6978c6ca0d9a11432f584b3632b4
+SHA512: 04beb0513e9780b7735163bf24a23758d4f964a74b2de1caae44d863630a46fcade0782b73093876461a6160ff89394db54d15d836015db8a0ec4bc4009ec3dd
+Homepage: https://cockpit-project.org/
+Description: Cockpit admin interface for a system
+Description-md5: 305239ce7fcb5c6043156a1e54c69f73
+
+Package: cockpit-tests
+Architecture: armhf
+Version: 321-1~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 652
+Provides: cockpit-test-assets
+Depends: libc6 (>= 2.4), libpam0g (>= 0.99.7.1), cockpit-system (>= 321-1~bpo24.04.1), openssh-client
+Conflicts: cockpit-test-assets
+Replaces: cockpit-test-assets
+Filename: pool/universe/c/cockpit/cockpit-tests_321-1~bpo24.04.1_armhf.deb
+Size: 532762
+MD5sum: b13985d667b3166b784cdb0051670c79
+SHA1: 23cf2fba280654393189bd22d347311892445e24
+SHA256: 402bdffc02c29a8581d385637ed220bba4fbaa56f9147c3a194bbf4cee45487e
+SHA512: 18a53cdb900912749a08530d57e3ddcee996697d7cb3af4e324671c56aaf6155f30acf448935e917ad5def5690d5454ee20add21444d2ed471df59562f24631b
+Homepage: https://cockpit-project.org/
+Description: Tests for Cockpit
+Description-md5: 0b4ed46aa862cd96d493b081c605101e
+
+Package: cockpit-ws
+Architecture: armhf
+Version: 321-1~bpo24.04.1
+Priority: optional
+Section: universe/admin
+Source: cockpit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 1544
+Depends: systemd (>= 235), libc6 (>= 2.38), libcrypt1 (>= 1:4.1.0), libglib2.0-0t64 (>= 2.68.0), libgnutls30t64 (>= 3.8.1), libgssapi-krb5-2 (>= 1.17), libjson-glib-1.0-0 (>= 1.5.2), libpam0g (>= 1.3.1), libsystemd0 (>= 237), glib-networking, adduser, openssl, libnss-systemd
+Suggests: sssd-dbus (>= 2.6.2), python3
+Filename: pool/universe/c/cockpit/cockpit-ws_321-1~bpo24.04.1_armhf.deb
+Size: 866194
+MD5sum: cdccaa9a617702d62c788cb555bece21
+SHA1: fdd6b15888a80ef8a393f4f91f1f2b5f8151dd77
+SHA256: 8deee240cacd4dc2978bb4ee24d5d3be826575106a3aad2b3f8f671a0f49c3ae
+SHA512: 956fd609af8e5854133f465b3ce7a8606377940d11a941bca52df79bae68c38f2df7a75b02e95ae239fd96d069d7c9aab112c2e94f8160b8ea1b213cbd7696ec
+Homepage: https://cockpit-project.org/
+Description: Cockpit Web Service
+Description-md5: f492a869e15f8c92004032f384bce124
+
+Package: dh-dlopenlibdeps
+Architecture: all
+Version: 0.15~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Source: package-notes
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Luca Boccassi <bluca@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 31
+Provides: dh-sequence-dlopenlibdeps
+Depends: perl:any, debhelper, python3:any, python3-pyelftools
+Enhances: debhelper
+Filename: pool/universe/p/package-notes/dh-dlopenlibdeps_0.15~bpo24.04.1_all.deb
+Size: 8720
+MD5sum: f2a590a7d972f260a5de4bd4c1c95a0c
+SHA1: 87383d777f9224541e49d52b739c4727a2c612df
+SHA256: 8c6000e8f385652b44c41a4313bad052f8341ee7e6332df9f283b4bce4413243
+SHA512: 8b3d0d207ccfdaf0619f9f5fb6f4034322a06b4e9cc1251e0390ca64e6a1acfbae3aeb43caf9a1cabe8faaafd1cb58e5497d958d2ae0a29c5737829e9f553c1c
+Homepage: https://systemd.io/ELF_PACKAGE_METADATA/
+Description: Debian Helper for parsing dlopen metadata from ELF binaries
+Description-md5: f7fa3f2e87185346827dad9c3d729ace
+
+Package: dh-package-notes
+Architecture: all
+Version: 0.15~bpo24.04.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/admin
+Source: package-notes
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Luca Boccassi <bluca@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 19
+Depends: debhelper
+Enhances: debhelper
+Filename: pool/universe/p/package-notes/dh-package-notes_0.15~bpo24.04.1_all.deb
+Size: 5866
+MD5sum: b748b9577f788785c047888efc0696c9
+SHA1: d82b4202de0a995eff122490c05af260ba2997b2
+SHA256: 630a90261dd666758ad3afc91a341e8afad6e3054b72993e3c795c0501b835e5
+SHA512: 4884da7525af1258fc33b9992d94994449088c1f16cd8147ffcaae053985767cbfbe1298b65927b2234de23a176d5ab5c44733ed98f355582f7a371528a51c76
+Homepage: https://systemd.io/ELF_PACKAGE_METADATA/
+Description: Debian Helper for adding package metadata to ELF binaries
+Description-md5: f4efc55ff826f8612b67335eecdab3ac
+
+Package: gallery-dl
+Architecture: all
+Version: 1.27.4-1~bpo24.04.1
+Priority: optional
+Section: universe/web
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Unit 193 <unit193@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 1912
+Depends: python3-requests, python3:any
+Suggests: ffmpeg, python3-brotli, yt-dlp | youtube-dl
+Filename: pool/universe/g/gallery-dl/gallery-dl_1.27.4-1~bpo24.04.1_all.deb
+Size: 339556
+MD5sum: 2ef9021317c8674c0b2e1b8e26aeec71
+SHA1: 13524368ddedab018ebac2483f8343422ae80a7e
+SHA256: 86a58887bafb4f07e8ff96b9abfd6aabaadfb9541a4afcb2b917a3e978b984f6
+SHA512: 3f4fc536227eaff77b202a0f4f1c504cc20af2ec79b744c54bf19b1eb44152bc135657a435179100577c86c299c7c7752ade80a455b845cf5589d991e6877152
+Homepage: https://github.com/mikf/gallery-dl
+Description: command-line program to download image galleries
+Description-md5: 0510bb32672915f74b92695fc9fb569d
+
+Package: libobs-dev
+Architecture: armhf
+Version: 30.2.3+dfsg-1~bpo24.04.1
+Priority: optional
+Section: universe/libdevel
+Source: obs-studio
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 726
+Depends: libobs0t64 (= 30.2.3+dfsg-1~bpo24.04.1), libsimde-dev, libx11-dev
+Filename: pool/universe/o/obs-studio/libobs-dev_30.2.3+dfsg-1~bpo24.04.1_armhf.deb
+Size: 106828
+MD5sum: be16a6bbe05e84a28ce48ae3476faae9
+SHA1: 5101f5a89bff63986b2b61025e68177e106a28a5
+SHA256: 77dbff69b9442635fa7cc50e7433a7c94b76ba3894b44644aee32a09a6b691b4
+SHA512: f98047d8a6a2e0ec853c84dddf6ad119c2a376f9a5e4901cbccc916c8862d5a42e1f081d249feeea759d151a43f54654723338f9eefbf528761d1bcb05e15d41
+Homepage: https://obsproject.com
+Description: recorder and streamer for live video content (development files)
+Description-md5: 225773aeb3e625b11d710d9b8c43c078
+
+Package: libobs0t64
+Architecture: armhf
+Version: 30.2.3+dfsg-1~bpo24.04.1
+Built-Using: simde (= 0.7.2-6)
+Multi-Arch: same
+Priority: optional
+Section: universe/libs
+Source: obs-studio
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 1295
+Depends: libavcodec60 (>= 7:6.0), libavformat60 (>= 7:6.0), libavutil58 (>= 7:6.0), libc6 (>= 2.38), libegl1, libgcc-s1 (>= 3.5), libglib2.0-0t64 (>= 2.26.0), libjansson4 (>= 2.14), libluajit-5.1-2 (>= 2.0.4+dfsg) | libluajit2-5.1-2 (>= 2.1~), libpulse0 (>= 0.99.1), libpython3.12t64 (>= 3.12.1), libstdc++6 (>= 11), libswresample4 (>= 7:6.0), libswscale7 (>= 7:6.0), libuuid1 (>= 2.16), libwayland-client0 (>= 1.20.0), libwayland-egl1 (>= 1.15.0), libx11-6, libx11-xcb1 (>= 2:1.8.7), libxcb-xinput0 (>= 1.15), libxcb1, libxkbcommon0 (>= 0.5.0), zlib1g (>= 1:1.2.3.3)
+Breaks: libobs0 (<< 30.2.3+dfsg-1~bpo24.04.1)
+Replaces: libobs0
+Filename: pool/universe/o/obs-studio/libobs0t64_30.2.3+dfsg-1~bpo24.04.1_armhf.deb
+Size: 529088
+MD5sum: 4107d10e11964aed7f79945220da6bad
+SHA1: ddc263bf8a71fd1365a0fb5f6be3e77e5b264f72
+SHA256: 375a93a1ade33a5338bb208f380a8aa24b3953331a61a9ec9d38dbc4a914c140
+SHA512: 2e45e06dfe7ae400cc763f595c7f848ad4fbedcb23696c202adac8f06dd44648866d77721b99bde0f2afa17b3784ae49fc1002bf3d25401a8b6d594c4d9a0a0f
+Homepage: https://obsproject.com
+Description: recorder and streamer for live video content (shared library)
+Task: ubuntustudio-video
+Description-md5: e656b9704323c8e11d168b672bfabb94
+
+Package: limnoria
+Architecture: all
+Version: 2024.8.26-1~bpo24.04.1
+Priority: optional
+Section: universe/net
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Mattia Rizzolo <mattia@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 5345
+Depends: python3:any
+Recommends: iputils-ping, procps, python3-chardet, python3-cryptography, python3-dateutil, python3-feedparser, python3-gnupg, python3-socks
+Conflicts: supybot
+Filename: pool/universe/l/limnoria/limnoria_2024.8.26-1~bpo24.04.1_all.deb
+Size: 680530
+MD5sum: a5442a11f285c9b0e018085a35c2cd1b
+SHA1: 606545137d099014cd23b2efcb43c75b696a1f23
+SHA256: 2f5c8611be7017cef7ee60e968dc9e61b6b54f478d930037fa25ab79df74281a
+SHA512: b08bcf4116f8ac160793cdc2e1ff967029b8e4e2bf98ae091160bedc54df2f3840306a5aa560921acceb4f8a76d0ce09dc50bf7f4c872bc1f3bba09fd4d79a19
+Homepage: https://github.com/ProgVal/Limnoria
+Description: robust and user-friendly Python IRC bot
+Description-md5: 33156b967de31535f327652d89476669
+
+Package: lsp-plugins
+Architecture: armhf
+Version: 1.2.16-1~bpo24.04.1
+Priority: optional
+Section: universe/sound
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 14
+Depends: lsp-plugins-clap, lsp-plugins-jack, lsp-plugins-ladspa, lsp-plugins-lv2, lsp-plugins-vst, lsp-plugins-vst3
+Suggests: dgedit
+Filename: pool/universe/l/lsp-plugins/lsp-plugins_1.2.16-1~bpo24.04.1_armhf.deb
+Size: 2856
+MD5sum: f7da271128f5375def600f8786cc8365
+SHA1: fbe5c5df90fb23c40dc8bca9a72af58a0c38f0f6
+SHA256: b5f25f48cba76f2caf98bc7e901d19b0d962312f4f7ab0d5a907537c7640b4a7
+SHA512: b6e6106f5d484316e3075151726d0a818080869b199245134a7ec2b531137c5faabb49154bcb6bf09946e3753818081f6d7e9b3ecd779c61d9d70d2a62a69604
+Homepage: https://lsp-plug.in/
+Description: LSP (Linux Studio Plugins) audio-plugins (metapackage)
+Description-md5: 878ce8cd10738a8943d4c42fb4b57bb0
+
+Package: lsp-plugins-clap
+Architecture: armhf
+Version: 1.2.16-1~bpo24.04.1
+Priority: optional
+Section: universe/sound
+Source: lsp-plugins
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 6514
+Provides: clap-plugin
+Depends: libc6 (>= 2.38), libcairo2 (>= 1.6.0), libfreetype6 (>= 2.4.2), libgcc-s1 (>= 3.5), libsndfile1 (>= 1.0.20), libstdc++6 (>= 5), libx11-6, libxrandr2 (>= 2:1.5.0)
+Filename: pool/universe/l/lsp-plugins/lsp-plugins-clap_1.2.16-1~bpo24.04.1_armhf.deb
+Size: 2031776
+MD5sum: 51ca4aae3a548dfa83e46e82ffd8a838
+SHA1: 18ae7f7db9b2a14fb6b10af6991c8f230887c049
+SHA256: 8d1cbb674d0f12e2c61de03c3a3d6875f67db91f4108efb0bf48c4861cd2572c
+SHA512: 01e7063431bd8b0632c4731db6f64e9fadc82db258d4d24f3fed7e33a879b0205b39dbeef45347ca9cd7ea7bff03a03b159ca921dd4e93807bcb96c6f6ce308b
+Homepage: https://lsp-plug.in/
+Description: LSP (Linux Studio Plugins) audio-plugins (clap plugins)
+Description-md5: cffc51d0c01792470896468ae7c010d5
+
+Package: lsp-plugins-jack
+Architecture: armhf
+Version: 1.2.16-1~bpo24.04.1
+Priority: optional
+Section: universe/sound
+Source: lsp-plugins
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 8558
+Depends: lsp-plugins-r3d-glx (= 1.2.16-1~bpo24.04.1), libc6 (>= 2.38), libcairo2 (>= 1.6.0), libfreetype6 (>= 2.4.2), libgcc-s1 (>= 3.5), libjack-jackd2-0 (>= 1.9.10+20150825) | libjack-0.125, libsndfile1 (>= 1.0.20), libstdc++6 (>= 5), libx11-6, libxrandr2 (>= 2:1.5.0)
+Filename: pool/universe/l/lsp-plugins/lsp-plugins-jack_1.2.16-1~bpo24.04.1_armhf.deb
+Size: 2093950
+MD5sum: 8ef27f498948cf007eaf0c9293d32bb8
+SHA1: db0ddf5492084bcc5e0d694b56ffeafe67577767
+SHA256: 8ce8da9503fdc9e587a190bef6fedcc23b0b5a27901ad43cd5021d112455ad97
+SHA512: 9a1707db9f822c5386346c3726a5a2cf4d9b422a39fa292c49eabcba6177021bef9517fcedef8dce654d06cb2c3f5b5c62748e5f9eb1fcaba4189dca13523102
+Homepage: https://lsp-plug.in/
+Description: LSP (Linux Studio Plugins) audio-plugins (standalone JACK clients)
+Description-md5: dcca13fad9daac63db876da8ea8c29f7
+
+Package: lsp-plugins-ladspa
+Architecture: armhf
+Version: 1.2.16-1~bpo24.04.1
+Priority: optional
+Section: universe/sound
+Source: lsp-plugins
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 4944
+Provides: ladspa-plugin
+Depends: libc6 (>= 2.38), libgcc-s1 (>= 3.5), libsndfile1 (>= 1.0.20), libstdc++6 (>= 5)
+Filename: pool/universe/l/lsp-plugins/lsp-plugins-ladspa_1.2.16-1~bpo24.04.1_armhf.deb
+Size: 1469318
+MD5sum: efa29592c8665c10f960603f385bf88c
+SHA1: 98a6b0e600f2271e9e8b2d238da53310c7878236
+SHA256: 9ef829589cf636b82ec5074420687b6694e664db2ae0a1f52481cac2c039b8bf
+SHA512: edf7f3056060758c498f62d1ef70a5ed6b546a5309bd934bd3e33181858f08c433221e7499cf338f5846c68b5a9e08e95fead43146354d0ac071f948db022e81
+Homepage: https://lsp-plug.in/
+Description: LSP (Linux Studio Plugins) audio-plugins (ladspa plugins)
+Description-md5: 8d7c8fff2f6f2f2412e292d8300b2bd3
+
+Package: lsp-plugins-lv2
+Architecture: armhf
+Version: 1.2.16-1~bpo24.04.1
+Priority: optional
+Section: universe/sound
+Source: lsp-plugins
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 26082
+Provides: lv2-plugin
+Depends: lsp-plugins-r3d-glx (= 1.2.16-1~bpo24.04.1), libc6 (>= 2.38), libcairo2 (>= 1.6.0), libfreetype6 (>= 2.4.2), libgcc-s1 (>= 3.5), libsndfile1 (>= 1.0.20), libstdc++6 (>= 5), libx11-6, libxrandr2 (>= 2:1.5.0)
+Filename: pool/universe/l/lsp-plugins/lsp-plugins-lv2_1.2.16-1~bpo24.04.1_armhf.deb
+Size: 2543440
+MD5sum: 6b4898b78d8fad94e45e2a755d6543bb
+SHA1: bf67cc3f5b731e9b02d12cd2ca215f80cc4d953b
+SHA256: 73fad1fa87eada2f39fa9947e0e0cb9d4ca1d9996603ef1c3fd6835605f79a92
+SHA512: e35402fa3c767e5bbf7f086c2919a7aaf207f3639994f6274210353ab8b946c65029813735327e9093bb6bd70f04d21ecf4b625fdf9105acb66f541123d21f7f
+Homepage: https://lsp-plug.in/
+Description: LSP (Linux Studio Plugins) audio-plugins (LV2 plugins)
+Task: ubuntustudio-audio
+Description-md5: ae448ed51900173db039cbecf96cae24
+
+Package: lsp-plugins-r3d-glx
+Architecture: armhf
+Version: 1.2.16-1~bpo24.04.1
+Priority: optional
+Section: universe/sound
+Source: lsp-plugins
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 33
+Depends: libc6 (>= 2.4), libgl1, libstdc++6 (>= 4.1.1), libx11-6
+Breaks: lsp-plugins-jack (<< 1.1.30-1~)
+Replaces: lsp-plugins-jack (<< 1.1.30-1~)
+Filename: pool/universe/l/lsp-plugins/lsp-plugins-r3d-glx_1.2.16-1~bpo24.04.1_armhf.deb
+Size: 13540
+MD5sum: ccf04e4411670e6be8e1e76b23374f93
+SHA1: a4dbf2714c8bab2d48c6802f4c8f2760746b8bb7
+SHA256: 817d6afd6f55428a1a5bf11ff47843ea6f28af07e355f958f122889814785652
+SHA512: e709ac25ef3202b2be4849a33c4840ec67fd5aa420ba15a9675ddc3563b07fa8e7d889277fcd416a7a8b1815a62829b8c4ac507fdea96242fe1cb198ef3e29e3
+Homepage: https://lsp-plug.in/
+Description: LSP (Linux Studio Plugins) r3d-glx library
+Task: ubuntustudio-audio
+Description-md5: 492a3a0345b9d8545f6c0476769838b9
+
+Package: lsp-plugins-vst
+Architecture: armhf
+Version: 1.2.16-1~bpo24.04.1
+Priority: optional
+Section: universe/sound
+Source: lsp-plugins
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 8291
+Provides: vst-plugin
+Depends: lsp-plugins-r3d-glx (= 1.2.16-1~bpo24.04.1), libc6 (>= 2.38), libcairo2 (>= 1.6.0), libfreetype6 (>= 2.4.2), libgcc-s1 (>= 3.5), libsndfile1 (>= 1.0.20), libstdc++6 (>= 5), libx11-6, libxrandr2 (>= 2:1.5.0)
+Filename: pool/universe/l/lsp-plugins/lsp-plugins-vst_1.2.16-1~bpo24.04.1_armhf.deb
+Size: 2045926
+MD5sum: 96854377ac285f26a8e1a9f1d1522480
+SHA1: a23cb58d6c99f48953b5ad9576af138ad2db7297
+SHA256: 29d58fed46607ecc0a02baec54a2c58165f86ba5625a61b81d51fdf5912a23d7
+SHA512: d1ba39ce7813c2246b2abcd5e294e1cff21f662b7b649695e22292aeff40cb2576488cd807d732a243631fd750703ddb4eff7fb4e7696fd06a8f949cdd271775
+Homepage: https://lsp-plug.in/
+Description: LSP (Linux Studio Plugins) audio-plugins (VST plugins)
+Description-md5: 62b3a565d01d30ccbd34c576fa0987ee
+
+Package: lsp-plugins-vst3
+Architecture: armhf
+Version: 1.2.16-1~bpo24.04.1
+Priority: optional
+Section: universe/sound
+Source: lsp-plugins
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 6717
+Provides: vst3-plugin
+Depends: lsp-plugins-r3d-glx (= 1.2.16-1~bpo24.04.1), libc6 (>= 2.38), libcairo2 (>= 1.6.0), libfreetype6 (>= 2.4.2), libgcc-s1 (>= 3.5), libsndfile1 (>= 1.0.20), libstdc++6 (>= 5), libx11-6, libxrandr2 (>= 2:1.5.0)
+Filename: pool/universe/l/lsp-plugins/lsp-plugins-vst3_1.2.16-1~bpo24.04.1_armhf.deb
+Size: 2056406
+MD5sum: de66e1dd488c669d781ab744a94ac698
+SHA1: d59197a0cc350db1148296334d4e0814b67a5138
+SHA256: 5f1c83e70bb27598316fad8d7d0346ea4e1de52e2fcd06e638c6b0d7403110db
+SHA512: 5fc9435a42e79e4cf0985d8a038cbb2d472b86c5c556d2060fd155d3cd4403c43af9087a97b06f61de47ea1ec074b50f0e850ebf5cae697220ecb722f85771e8
+Homepage: https://lsp-plug.in/
+Description: LSP (Linux Studio Plugins) audio-plugins (VST3 plugins)
+Description-md5: d81080d83a116aa14fb8f14aad3834c6
+
+Package: obs-plugins
+Architecture: armhf
+Version: 30.2.3+dfsg-1~bpo24.04.1
+Built-Using: simde (= 0.7.2-6)
+Multi-Arch: same
+Priority: optional
+Section: universe/video
+Source: obs-studio
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 878
+Depends: libasound2t64 (>= 1.0.16), libc6 (>= 2.34), libegl1, libgcc-s1 (>= 3.5), libglib2.0-0t64 (>= 2.30.0), libjack-jackd2-0 (>= 1.9.10+20150825) | libjack-0.125, libobs0t64 (= 30.2.3+dfsg-1~bpo24.04.1), libpipewire-0.3-0t64 (>= 0.3.6), libqt6core6t64 (>= 6.4.0), libqt6gui6t64 (>= 6.1.2), libqt6widgets6t64 (>= 6.1.2), libstdc++6 (>= 10.2)
+Recommends: vlc
+Filename: pool/universe/o/obs-studio/obs-plugins_30.2.3+dfsg-1~bpo24.04.1_armhf.deb
+Size: 234512
+MD5sum: c34787c0333de43fadf355553d79bafe
+SHA1: 3c2b278066a7c50a9ac0ff54fb7e2382344f0055
+SHA256: 89e4fabb6e0fc7e7700964f2b31257fccba990baeeb44cd0626ee052fde3d9ef
+SHA512: 9d0a5a11cab662abcfddf11bfeb675361fec4269e77f1b298ed0af643e9440929e9617a7fe5d539f5a9a5a9dc229c3dd4ba3122c5ea1961510645a097ec8657a
+Homepage: https://obsproject.com
+Description: recorder and streamer for live video content (plugins)
+Task: ubuntustudio-video
+Description-md5: 4743a3cf0718cf932aaff6660bcfb83e
+
+Package: obs-studio
+Architecture: armhf
+Version: 30.2.3+dfsg-1~bpo24.04.1
+Priority: optional
+Section: universe/video
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 19209
+Depends: qt6-image-formats-plugins, qt6-wayland, python3:any, python3 (<< 3.13), python3 (>= 3.12~), python3.12, libavcodec60 (>= 7:6.1), libavdevice60 (>= 7:6.0), libavformat60 (>= 7:6.0), libavutil58 (>= 7:6.0), libc6 (>= 2.38), libcurl3t64-gnutls (>= 7.16.2), libegl1, libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.2.1), libgcc-s1 (>= 3.5), libglx0, libjansson4 (>= 2.14), libluajit-5.1-2 (>= 2.0.4+dfsg) | libluajit2-5.1-2 (>= 2.1~), libmbedcrypto7t64 (>= 2.28.0), libmbedtls14t64 (>= 2.28.0), libmbedx509-1t64 (>= 2.28.0), libobs0t64 (= 30.2.3+dfsg-1~bpo24.04.1), libopengl0, libpci3 (>= 1:3.8.0), libpulse0 (>= 0.99.1), libpython3.12t64 (>= 3.12.1), libqrcodegencpp1 (>= 1.2.1), libqt6core6t64 (>= 6.4.0), libqt6dbus6t64 (>= 6.3.0), libqt6gui6t64 (>= 6.4.0), libqt6network6t64 (>= 6.1.2), libqt6svg6 (>= 6.2.0), libqt6widgets6t64 (>= 6.3.0), libqt6xml6t64 (>= 6.1.2), librist4 (>= 0.2.6+dfsg), libspeexdsp1 (>= 1.2.1), libsrt1.5-openssl (>= 1.5.3), libstdc++6 (>= 13.1), libswscale7 (>= 7:6.0), libudev1 (>= 183), libv4l-0t64 (>= 0.5.0), libva-drm2 (>= 1.1.0), libva2 (>= 2.2.0), libx11-6, libx264-164 (>= 2:0.164.3108+git31e19f9), libxcb-composite0, libxcb-randr0 (>= 1.12), libxcb-shm0, libxcb-xfixes0, libxcb-xinerama0, libxcb1 (>= 1.8), libxkbcommon0 (>= 0.5.0)
+Recommends: obs-plugins (= 30.2.3+dfsg-1~bpo24.04.1)
+Suggests: pkexec | policykit-1, v4l2loopback-dkms
+Breaks: obs-websocket (<< 4.9.0-2.1~)
+Replaces: obs-websocket (<< 4.9.0-2.1~)
+Filename: pool/universe/o/obs-studio/obs-studio_30.2.3+dfsg-1~bpo24.04.1_armhf.deb
+Size: 6015296
+MD5sum: b0b886610a8cc1a0c17142aeb158af70
+SHA1: 6d2faddfc33e18cfc694618a90b170f99e16355b
+SHA256: 7996b9d5de0f5cc4898b744d8dbcb42555d7e0c75c303aaf89e356a7b89f480e
+SHA512: 63d7061354e17187950817824620d65b4a40eb106cbdad069306f80891095294d1b60425fbe75468d2d063e6a606e5b5336920ec52df68cbf03a5d53506c5cb9
+Homepage: https://obsproject.com
+Description: recorder and streamer for live video content
+Task: ubuntustudio-video
+Description-md5: cbfc110806d932e7f3e83ac87b6bfc7e
+
+Package: xca
+Architecture: armhf
+Version: 2.6.0-1~bpo24.04.1
+Priority: optional
+Section: universe/x11
+Origin: Ubuntu
+Maintainer: Thomas Ward <teward@ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 4192
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.5), libqt5core5t64 (>= 5.15.1), libqt5gui5t64 (>= 5.14.1) | libqt5gui5-gles (>= 5.14.1), libqt5help5 (>= 5.15.1), libqt5sql5t64 (>= 5.3.0), libqt5widgets5t64 (>= 5.14.1), libssl3t64 (>= 3.0.0), libstdc++6 (>= 5), libqt5sql5-sqlite
+Recommends: libqt5sql5-mysql, libqt5sql5-psql, libqt5sql5-odbc
+Filename: pool/universe/x/xca/xca_2.6.0-1~bpo24.04.1_armhf.deb
+Size: 1170968
+MD5sum: 3307c4f8643f9517ef04845609098cf0
+SHA1: 193e3ec3bee6f75410d43abfabdf3de6738a0de6
+SHA256: 7890d68a4e6285dd38f9a69d0d1c9f3c7a9bdf0ed5b00c285b2e57c870712b1c
+SHA512: 0ecb76d75e70c53af23b95d508624ea24d68ddeddcdef247d2f700117a415aa84d5109ea3e6f21d38ad7d333a5eceed18d86e98881ce04a7f5fb31532de02266
+Homepage: https://hohnstaedt.de/xca/
+Description: x509 Certification Authority management tool based on QT
+Description-md5: db82d1221dacff719c800bc29695a864
+
+Package: yt-dlp
+Architecture: all
+Version: 2024.08.06-1~bpo24.04.1
+Priority: optional
+Section: universe/web
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Unit 193 <unit193@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 10502
+Depends: python3-brotli, python3-certifi, python3-mutagen, python3-pycryptodome, python3-requests, python3-urllib3, python3-websockets, python3:any, python3-pkg-resources
+Recommends: aria2 | wget | curl, ca-certificates, ffmpeg
+Suggests: libfribidi-bin | bidiv, phantomjs
+Filename: pool/universe/y/yt-dlp/yt-dlp_2024.08.06-1~bpo24.04.1_all.deb
+Size: 1874154
+MD5sum: 8677c530538b744632b10c93db17c934
+SHA1: 5bd4409ca5bffdb6c28887e27d86af9fd7e4a748
+SHA256: fa65890932f3a404743294ad6871c0153219d1d360c2534bf01ca52ff35f206c
+SHA512: 4500898089842e40190415d8754b77863dcebf7775dd89def7e6c01d3d4a1da7984de61754e4a8919d45a30939d9181641eee6b8358c29497892e4716f48c2c7
+Homepage: https://github.com/yt-dlp/yt-dlp
+Description: downloader of videos from YouTube and other sites
+Task: kubuntu-desktop, kubuntu-full, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-desktop, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi
+Description-md5: 696e37a37f8255534fa8403c237e4982
+

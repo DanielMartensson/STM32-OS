@@ -1,0 +1,4 @@
+bcef9742eb9c1c61c3cad3c31c0b65de  usr/lib/arm-linux-gnueabihf/libbsd.so.0.12.1
+09623afa65e871e87c52db7884ef6ea3  usr/share/doc/libbsd0/changelog.Debian.gz
+9b087a0981a1fcad42efbba6d4925a0f  usr/share/doc/libbsd0/copyright
+49c5973f0f93e28269f634795ef84b97  usr/share/lintian/overrides/libbsd0

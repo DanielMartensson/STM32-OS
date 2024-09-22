@@ -2,7 +2,7 @@
 rm rootfs.ext4
 
 # Make file
-dd if=/dev/zero of=rootfs.ext4 bs=1M count=380
+dd if=/dev/zero of=rootfs.ext4 bs=1M count=650
 
 # Make filesystem
 mkfs.ext4 rootfs.ext4
@@ -11,7 +11,7 @@ mkfs.ext4 rootfs.ext4
 sudo mount -o loop rootfs.ext4 /mnt/rootfs
 
 # Go inside
-cd file_system
+cd rootfs
 
 # Create folder
 sudo mkdir /mnt/rootfs

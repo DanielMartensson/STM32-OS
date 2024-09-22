@@ -1,0 +1,12 @@
+#!/bin/sh
+## Sourced, not exec'ed, but helps syntax highlighting
+#
+# Script fragment disabling make_resolv_conf(),
+# to be used in conjunction with dhclient-exit-hooks.d/resolved
+#
+
+if systemctl is-enabled systemd-resolved > /dev/null 2>&1; then
+    # Undefine the nasty default make_resolv_conf() to avoid it overriding
+    # /etc/resolv.conf (or /run/systemd/resolve/stub-resolv.conf)
+    make_resolv_conf() { : ; }
+fi

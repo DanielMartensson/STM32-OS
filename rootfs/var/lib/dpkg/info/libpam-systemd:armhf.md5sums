@@ -1,0 +1,6 @@
+15b8e44e40b2458057e4e926453f01da  usr/lib/arm-linux-gnueabihf/security/pam_systemd.so
+2ee581114d4cd91a8b5bdba61570bb95  usr/lib/arm-linux-gnueabihf/security/pam_systemd_loadkey.so
+b16a86fb841b001b52a5c5caccf526c2  usr/share/doc/libpam-systemd/copyright
+ad0ca85f6e3ac5a74ace82d9abfe40d9  usr/share/lintian/overrides/libpam-systemd
+19e3ee4b2af7d41b708fa9855e566355  usr/share/man/man8/pam_systemd.8.gz
+9dfe5c25c668641a5b9c776e22588ec9  usr/share/pam-configs/systemd

@@ -1,0 +1,85 @@
+
+Log started: 2024-09-22  18:08:19
+Log ended: 2024-09-22  18:09:27
+
+Log started: 2024-09-22  18:15:09
+Log ended: 2024-09-22  18:15:11
+
+Log started: 2024-09-22  18:42:41
+Selecting previously unselected package busybox-static.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16338 files and directories currently installed.)
+Preparing to unpack .../busybox-static_1%3a1.36.1-6ubuntu3_armhf.deb ...
+Unpacking busybox-static (1:1.36.1-6ubuntu3) ...
+Setting up busybox-static (1:1.36.1-6ubuntu3) ...
+Log ended: 2024-09-22  18:42:43
+
+Log started: 2024-09-22  18:59:38
+Selecting previously unselected package isc-dhcp-client.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16356 files and directories currently installed.)
+Preparing to unpack .../isc-dhcp-client_4.4.3-P1-4ubuntu2_armhf.deb ...
+Unpacking isc-dhcp-client (4.4.3-P1-4ubuntu2) ...
+Selecting previously unselected package isc-dhcp-common.
+Preparing to unpack .../isc-dhcp-common_4.4.3-P1-4ubuntu2_armhf.deb ...
+Unpacking isc-dhcp-common (4.4.3-P1-4ubuntu2) ...
+Setting up isc-dhcp-client (4.4.3-P1-4ubuntu2) ...
+Setting up isc-dhcp-common (4.4.3-P1-4ubuntu2) ...
+Log ended: 2024-09-22  18:59:41
+
+Log started: 2024-09-22  19:45:23
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16389 files and directories currently installed.)
+Preparing to unpack .../bsdutils_1%3a2.39.3-9ubuntu6.1_armhf.deb ...
+Unpacking bsdutils (1:2.39.3-9ubuntu6.1) over (1:2.39.3-9ubuntu6) ...
+Setting up bsdutils (1:2.39.3-9ubuntu6.1) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16389 files and directories currently installed.)
+Preparing to unpack .../util-linux_2.39.3-9ubuntu6.1_armhf.deb ...
+Unpacking util-linux (2.39.3-9ubuntu6.1) over (2.39.3-9ubuntu6) ...
+Setting up util-linux (2.39.3-9ubuntu6.1) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16389 files and directories currently installed.)
+Preparing to unpack .../mount_2.39.3-9ubuntu6.1_armhf.deb ...
+Unpacking mount (2.39.3-9ubuntu6.1) over (2.39.3-9ubuntu6) ...
+Preparing to unpack .../libblkid1_2.39.3-9ubuntu6.1_armhf.deb ...
+Unpacking libblkid1:armhf (2.39.3-9ubuntu6.1) over (2.39.3-9ubuntu6) ...
+Setting up libblkid1:armhf (2.39.3-9ubuntu6.1) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16389 files and directories currently installed.)
+Preparing to unpack .../libmount1_2.39.3-9ubuntu6.1_armhf.deb ...
+Unpacking libmount1:armhf (2.39.3-9ubuntu6.1) over (2.39.3-9ubuntu6) ...
+Setting up libmount1:armhf (2.39.3-9ubuntu6.1) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16389 files and directories currently installed.)
+Preparing to unpack .../libsmartcols1_2.39.3-9ubuntu6.1_armhf.deb ...
+Unpacking libsmartcols1:armhf (2.39.3-9ubuntu6.1) over (2.39.3-9ubuntu6) ...
+Setting up libsmartcols1:armhf (2.39.3-9ubuntu6.1) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16389 files and directories currently installed.)
+Preparing to unpack .../libuuid1_2.39.3-9ubuntu6.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.39.3-9ubuntu6.1) over (2.39.3-9ubuntu6) ...
+Setting up libuuid1:armhf (2.39.3-9ubuntu6.1) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16389 files and directories currently installed.)
+Preparing to unpack .../eject_2.39.3-9ubuntu6.1_armhf.deb ...
+Unpacking eject (2.39.3-9ubuntu6.1) over (2.39.3-9ubuntu6) ...
+Preparing to unpack .../libfdisk1_2.39.3-9ubuntu6.1_armhf.deb ...
+Unpacking libfdisk1:armhf (2.39.3-9ubuntu6.1) over (2.39.3-9ubuntu6) ...
+Selecting previously unselected package fdisk.
+Preparing to unpack .../fdisk_2.39.3-9ubuntu6.1_armhf.deb ...
+Unpacking fdisk (2.39.3-9ubuntu6.1) ...
+Setting up eject (2.39.3-9ubuntu6.1) ...
+Setting up libfdisk1:armhf (2.39.3-9ubuntu6.1) ...
+Setting up mount (2.39.3-9ubuntu6.1) ...
+Setting up fdisk (2.39.3-9ubuntu6.1) ...
+Processing triggers for libc-bin (2.39-0ubuntu8) ...
+Log ended: 2024-09-22  19:45:43
+
+Log started: 2024-09-22  19:53:14
+Selecting previously unselected package libmagic-mgc.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16401 files and directories currently installed.)
+Preparing to unpack .../libmagic-mgc_1%3a5.45-3build1_armhf.deb ...
+Unpacking libmagic-mgc (1:5.45-3build1) ...
+Selecting previously unselected package libmagic1t64:armhf.
+Preparing to unpack .../libmagic1t64_1%3a5.45-3build1_armhf.deb ...
+Unpacking libmagic1t64:armhf (1:5.45-3build1) ...
+Selecting previously unselected package file.
+Preparing to unpack .../file_1%3a5.45-3build1_armhf.deb ...
+Unpacking file (1:5.45-3build1) ...
+Setting up libmagic-mgc (1:5.45-3build1) ...
+Setting up libmagic1t64:armhf (1:5.45-3build1) ...
+Setting up file (1:5.45-3build1) ...
+Processing triggers for libc-bin (2.39-0ubuntu8) ...
+Log ended: 2024-09-22  19:53:18

@@ -1,0 +1,96 @@
+Package: libwrap0
+Architecture: armhf
+Auto-Installed: 1
+
+Package: ssh-import-id
+Architecture: armhf
+Auto-Installed: 1
+
+Package: openssh-client
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libpsl5t64
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libcbor0.10
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libxmuu1
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libfido2-1
+Architecture: armhf
+Auto-Installed: 1
+
+Package: python3-distro
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libxau6
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libxcb1
+Architecture: armhf
+Auto-Installed: 1
+
+Package: openssh-server
+Architecture: armhf
+Auto-Installed: 1
+
+Package: wget
+Architecture: armhf
+Auto-Installed: 1
+
+Package: publicsuffix
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libx11-data
+Architecture: armhf
+Auto-Installed: 1
+
+Package: xauth
+Architecture: armhf
+Auto-Installed: 1
+
+Package: openssh-sftp-server
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libxext6
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libx11-6
+Architecture: armhf
+Auto-Installed: 1
+
+Package: ncurses-term
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libedit2
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libxdmcp6
+Architecture: armhf
+Auto-Installed: 1
+
+Package: isc-dhcp-common
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libmagic-mgc
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libmagic1t64
+Architecture: armhf
+Auto-Installed: 1
+

@@ -1,0 +1,28 @@
+lease {
+  interface "wlp3s0";
+  fixed-address 192.168.1.35;
+  option subnet-mask 255.255.255.0;
+  option routers 192.168.1.1;
+  option dhcp-lease-time 7200;
+  option dhcp-message-type 5;
+  option domain-name-servers 192.168.1.1;
+  option dhcp-server-identifier 192.168.1.1;
+  option domain-name "zyxel.com";
+  renew 0 2024/09/22 19:55:53;
+  rebind 0 2024/09/22 20:44:56;
+  expire 0 2024/09/22 20:59:56;
+}
+lease {
+  interface "wlp3s0";
+  fixed-address 192.168.1.35;
+  option subnet-mask 255.255.255.0;
+  option routers 192.168.1.1;
+  option dhcp-lease-time 7200;
+  option dhcp-message-type 5;
+  option domain-name-servers 192.168.1.1;
+  option dhcp-server-identifier 192.168.1.1;
+  option domain-name "zyxel.com";
+  renew 0 2024/09/22 20:54:17;
+  rebind 0 2024/09/22 21:40:53;
+  expire 0 2024/09/22 21:55:53;
+}
