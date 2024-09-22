@@ -1,6 +1,5 @@
 # STM32-OS 24.04 LTS
 
-Solarized dark             |  Solarized Ocean
 :-------------------------:|:-------------------------:
 ![](https://raw.githubusercontent.com/DanielMartensson/STM32-OS/refs/heads/main/stm32mp1.png)  |  ![](https://raw.githubusercontent.com/DanielMartensson/STM32-OS/refs/heads/main/ubuntu.png)
 
@@ -56,5 +55,7 @@ df -h
   - Answer: Lack of support, they have their own package repository which is very poor, bugs, slow community forum, large memory usage, not a minimalistic linux distribution and one of the ST employees told me that `OpenSTLinux` is not ready yet and the dev team is working on the packages. I was expecting that the fix will be within few days, but no...Therefore, I'm using `Ubunut's` APT-ecosystem, which is way more stable, richer and in fact...more like a linux user standard today.
 * Question: I want to build on my kernel, can I use this repository to build on my kernel?
   - Answer: No, if you want to build on your kernel, head over to `STM32-Computer`. I have separated the `bootfs`-work (kernel) and `rootfs`-work (STM32-OS).
+* Question: What's the difference between `Ubuntu 24.04 LTS` and `STM32-OS 24.04 LTS`?
+  - Answer: I'm keeping `STM32-OS` as thin as possible for minimal `RAM` usage.
   
  
