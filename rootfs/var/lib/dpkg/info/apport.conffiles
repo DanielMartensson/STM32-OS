@@ -1,0 +1,5 @@
+/etc/apport/crashdb.conf
+/etc/apport/report-ignore/README.denylist
+/etc/cron.daily/apport
+/etc/default/apport
+/etc/logrotate.d/apport

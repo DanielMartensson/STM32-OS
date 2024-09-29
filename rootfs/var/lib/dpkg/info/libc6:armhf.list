@@ -290,6 +290,7 @@
 /usr/share/doc/libc6/README.Debian.gz
 /usr/share/doc/libc6/README.hesiod.gz
 /usr/share/doc/libc6/changelog.Debian.gz
+/usr/share/doc/libc6/changelog.gz
 /usr/share/doc/libc6/copyright
 /usr/share/lintian
 /usr/share/lintian/overrides

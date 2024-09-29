@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libpostproc.so.57.3.100
+/usr/share
+/usr/share/doc
+/usr/share/doc/libpostproc57
+/usr/share/doc/libpostproc57/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libpostproc57
+/usr/lib/arm-linux-gnueabihf/libpostproc.so.57
+/usr/share/doc/libpostproc57/changelog.Debian.gz

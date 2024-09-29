@@ -4484,7 +4484,7 @@ Z Pacific/Wallis 12:15:20 - LMT 1901
 12 - +12
 Z WET 0 E WE%sT
 L Etc/GMT GMT
-L Australia/Canberra Australia/ACT
+L Australia/Sydney Australia/ACT
 L Australia/Lord_Howe Australia/LHI
 L Australia/Sydney Australia/NSW
 L Australia/Darwin Australia/North
@@ -4494,7 +4494,7 @@ L Australia/Hobart Australia/Tasmania
 L Australia/Melbourne Australia/Victoria
 L Australia/Perth Australia/West
 L Australia/Broken_Hill Australia/Yancowinna
-L America/Porto_Acre Brazil/Acre
+L America/Rio_Branco Brazil/Acre
 L America/Noronha Brazil/DeNoronha
 L America/Sao_Paulo Brazil/East
 L America/Manaus Brazil/West
@@ -4536,7 +4536,7 @@ L America/Mazatlan Mexico/BajaSur
 L America/Mexico_City Mexico/General
 L Pacific/Auckland NZ
 L Pacific/Chatham NZ-CHAT
-L America/Shiprock Navajo
+L America/Denver Navajo
 L Asia/Shanghai PRC
 L Europe/Warsaw Poland
 L Europe/Lisbon Portugal
@@ -4605,7 +4605,7 @@ L Pacific/Honolulu Pacific/Johnston
 L America/Nuuk America/Godthab
 L Asia/Ashgabat Asia/Ashkhabad
 L Asia/Kolkata Asia/Calcutta
-L Asia/Chongqing Asia/Chungking
+L Asia/Shanghai Asia/Chungking
 L Asia/Dhaka Asia/Dacca
 L Europe/Istanbul Asia/Istanbul
 L Asia/Kathmandu Asia/Katmandu

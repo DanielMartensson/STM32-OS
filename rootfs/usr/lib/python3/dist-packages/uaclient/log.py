@@ -1,17 +1,27 @@
 import json
 import logging
 import os
+import pathlib
 from collections import OrderedDict
-from typing import Any, Dict, List  # noqa: F401
+from typing import Any, Dict, List, Union  # noqa: F401
 
-from uaclient import defaults, system, util
+from uaclient import defaults, secret_manager, system, util
+from uaclient.config import UAConfig
 
 
-class RedactionFilter(logging.Filter):
+class RegexRedactionFilter(logging.Filter):
     """A logging filter to redact confidential info"""
 
     def filter(self, record: logging.LogRecord):
         record.msg = util.redact_sensitive_logs(str(record.msg))
+        return True
+
+
+class KnownSecretRedactionFilter(logging.Filter):
+    """A logging filter to redact confidential info"""
+
+    def filter(self, record: logging.LogRecord):
+        record.msg = secret_manager.secrets.redact_secrets(str(record.msg))
         return True
 
 
@@ -61,9 +71,20 @@ class JsonArrayFormatter(logging.Formatter):
         return json.dumps(list(local_log_record.values()))
 
 
+def get_user_or_root_log_file_path() -> str:
+    """
+    Gets the correct log_file path,
+    adjusting for whether the user is root or not.
+    """
+    if util.we_are_currently_root():
+        return UAConfig().log_file
+    else:
+        return get_user_log_file()
+
+
 def get_user_log_file() -> str:
     """Gets the correct user log_file storage location"""
-    return system.get_user_cache_dir() + "/ubuntu-pro.log"
+    return os.path.join(system.get_user_cache_dir(), "ubuntu-pro.log")
 
 
 def get_all_user_log_files() -> List[str]:
@@ -74,22 +95,57 @@ def get_all_user_log_files() -> List[str]:
     user_directories = os.listdir("/home")
     log_files = []
     for user_directory in user_directories:
-        user_path = (
-            "/home/"
-            + user_directory
-            + "/.cache/"
-            + defaults.USER_CACHE_SUBDIR
-            + "/ubuntu-pro.log"
+        user_path = os.path.join(
+            "/home",
+            user_directory,
+            ".cache",
+            defaults.USER_CACHE_SUBDIR,
+            "ubuntu-pro.log",
         )
         if os.path.isfile(user_path):
             log_files.append(user_path)
     return log_files
 
 
-def setup_journald_logging(log_level, logger):
-    logger.setLevel(log_level)
+def setup_journald_logging():
+    logger = logging.getLogger("ubuntupro")
+    logger.setLevel(logging.INFO)
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(JsonArrayFormatter())
-    console_handler.setLevel(log_level)
-    console_handler.addFilter(RedactionFilter())
+    console_handler.setLevel(logging.INFO)
+    console_handler.addFilter(RegexRedactionFilter())
+    console_handler.addFilter(KnownSecretRedactionFilter())
     logger.addHandler(console_handler)
+
+
+def setup_cli_logging(log_level: Union[str, int], log_file: str):
+    """Setup logging to log_file
+
+    If run as non-root then log_file is replaced with a user-specific log file.
+    """
+    # support lower-case log_level config value
+    if isinstance(log_level, str):
+        log_level = log_level.upper()
+
+    # if we are running as non-root, change log file
+    if not util.we_are_currently_root():
+        log_file = get_user_log_file()
+
+    logger = logging.getLogger("ubuntupro")
+    logger.setLevel(log_level)
+
+    # Clear all handlers, so they are replaced for this logger
+    logger.handlers = []
+
+    # Setup file logging
+    log_file_path = pathlib.Path(log_file)
+    if not log_file_path.exists():
+        log_file_path.parent.mkdir(parents=True, exist_ok=True)
+        log_file_path.touch(mode=0o640)
+    file_handler = logging.FileHandler(log_file)
+    file_handler.setFormatter(JsonArrayFormatter())
+    file_handler.setLevel(log_level)
+    file_handler.addFilter(RegexRedactionFilter())
+    file_handler.addFilter(KnownSecretRedactionFilter())
+
+    logger.addHandler(file_handler)

@@ -1,0 +1,13 @@
+55be59381df3810545175574ccaa8f0a  usr/share/doc/pocketsphinx-en-us/changelog.Debian.gz
+76103ccf3e63d0ca536b1d44c19eedc7  usr/share/doc/pocketsphinx-en-us/copyright
+0a6e327399864b37e2f7023f972983c6  usr/share/pocketsphinx/model/en-us/cmudict-en-us.dict
+4acea50db07fa9482dc4130c11f08821  usr/share/pocketsphinx/model/en-us/en-us-phone.lm.bin
+574e3e017b3451d571a81c86f26128b7  usr/share/pocketsphinx/model/en-us/en-us.lm.bin
+45c80a79247b52dc6b48f2f07744d91d  usr/share/pocketsphinx/model/en-us/en-us/README
+2dd4b7429d418f8fd42f5905570b77a6  usr/share/pocketsphinx/model/en-us/en-us/feat.params
+ba13d30c2fee63e039e119ab449bd618  usr/share/pocketsphinx/model/en-us/en-us/mdef
+d0ee21e7d0e03575f27497b2833c6f02  usr/share/pocketsphinx/model/en-us/en-us/means
+05034ffef21f4810d10d3c76a6f5e921  usr/share/pocketsphinx/model/en-us/en-us/noisedict
+75328625279cdbb72f800b315365ff45  usr/share/pocketsphinx/model/en-us/en-us/sendump
+7a63d8971f81eef2154ea38b8bdfe520  usr/share/pocketsphinx/model/en-us/en-us/transition_matrices
+d4d6ba74707952aa7e00c3bc1e7d0fb4  usr/share/pocketsphinx/model/en-us/en-us/variances

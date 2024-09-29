@@ -1,0 +1,14 @@
+2d05a1b277d0457ebe0168fd011c4d9d  usr/lib/arm-linux-gnueabihf/libgstallocators-1.0.so.0.2402.0
+d91448c17488862a986053ca9943e377  usr/lib/arm-linux-gnueabihf/libgstapp-1.0.so.0.2402.0
+46ef0fb660908a67620186bf0ebe3b3e  usr/lib/arm-linux-gnueabihf/libgstaudio-1.0.so.0.2402.0
+ea39b55b36df3be62b6dd8278670a30c  usr/lib/arm-linux-gnueabihf/libgstfft-1.0.so.0.2402.0
+498fbbf2673eb3498abdc209a88faef7  usr/lib/arm-linux-gnueabihf/libgstpbutils-1.0.so.0.2402.0
+2e3cd9c798742d216cd652396858bfe0  usr/lib/arm-linux-gnueabihf/libgstriff-1.0.so.0.2402.0
+0b83f53c2861f1cbb4ea9bf1497d541e  usr/lib/arm-linux-gnueabihf/libgstrtp-1.0.so.0.2402.0
+61862d9a5d909a1385438f87139025f9  usr/lib/arm-linux-gnueabihf/libgstrtsp-1.0.so.0.2402.0
+5d20f21c405bb60b0a9919969dd438a1  usr/lib/arm-linux-gnueabihf/libgstsdp-1.0.so.0.2402.0
+57791dda9de606e0e406c17f33a6192f  usr/lib/arm-linux-gnueabihf/libgsttag-1.0.so.0.2402.0
+c0298bd85bb15c3e18e34fba43c3ea30  usr/lib/arm-linux-gnueabihf/libgstvideo-1.0.so.0.2402.0
+89ffef8a8a4d763828a404ca5f648d6a  usr/share/doc/libgstreamer-plugins-base1.0-0/changelog.Debian.gz
+700f1835ede31ed6160dc1ba5cd64279  usr/share/doc/libgstreamer-plugins-base1.0-0/copyright
+b3856cc9571b1ae084deac70b44fd537  usr/share/gst-plugins-base/1.0/license-translations.dict

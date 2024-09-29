@@ -1,0 +1,2 @@
+package-name-doesnt-match-sonames libatk-1.0-0
+libatk1.0-0t64: package-name-doesnt-match-sonames libatk1.0-0

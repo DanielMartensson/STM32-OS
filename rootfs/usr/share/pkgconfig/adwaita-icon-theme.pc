@@ -1,0 +1,4 @@
+
+Name: adwaita-icon-theme
+Description: A collection of icons used as the basis for GNOME themes
+Version: 46.0

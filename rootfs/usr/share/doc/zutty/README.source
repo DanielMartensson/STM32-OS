@@ -1,0 +1,12 @@
+zutty for Debian
+----------------
+
+Source uses waf for building, therefore source package is repackaged
+from git master branch using the “debian/repackage.sh” script.
+
+While repackaging the “vtscript.gz” compressed file in test directory
+has been kept because it's used as-is by the test scripts and
+uncompressing it would require further modification of source.
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 09 Aug 2021 22:40:23 +0200
+

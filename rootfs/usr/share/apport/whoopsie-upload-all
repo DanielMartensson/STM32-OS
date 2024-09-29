@@ -1,0 +1,246 @@
+#!/usr/bin/python3
+
+# Copyright (c) 2013 Canonical Ltd.
+# Author: Martin Pitt <martin.pitt@ubuntu.com>
+#
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 2 of the License, or (at your
+# option) any later version.  See http://www.gnu.org/copyleft/gpl.html for
+# the full text of the license.
+
+"""Process all pending crashes and mark them for whoopsie upload, but do not
+upload them to any other crash database. Wait until whoopsie is done
+uploading."""
+
+# TODO: Address following pylint complaints
+# pylint: disable=invalid-name
+
+import argparse
+import errno
+import fcntl
+import logging
+import os
+import stat
+import subprocess
+import sys
+import time
+import zlib
+
+import apport
+import apport.fileutils
+from problem_report import MalformedProblemReport
+
+
+def process_report(report):
+    # TODO: Split into smaller functions/methods
+    # pylint: disable=too-many-branches,too-many-return-statements
+    # pylint: disable=too-many-statements
+    """Collect information for a report and mark for whoopsie upload
+
+    errors.ubuntu.com does not collect any hook data anyway, so we do not need
+    to bother collecting it.
+
+    Return path of upload stamp if report was successfully processed, or None
+    otherwise.
+    """
+    upload_stamp = f"{report.rsplit('.', 1)[0]}.upload"
+
+    # whoopsie-upload-all is only called if autoreporting of crashes is set,
+    # so its unlikely that systems with that set are interested in having the
+    # .crash file around. Additionally, having .crash files left over causes
+    # systemd's PathExistsGlob to be constantly triggered. See systemd issue
+    # #16669 and LP: #1891657 for some details.
+    uploaded_stamp = f"{upload_stamp}ed"
+    if os.path.exists(uploaded_stamp) and os.path.exists(report):
+        report_st = os.stat(report)
+        uploaded_st = os.stat(uploaded_stamp)
+        # if the crash file is new delete the uploaded file
+        if uploaded_st.st_mtime < report_st.st_mtime:
+            os.unlink(uploaded_stamp)
+            if os.path.exists(upload_stamp):
+                upload_st = os.stat(upload_stamp)
+                # also delete the upload file
+                if upload_st.st_mtime < report_st.st_mtime:
+                    os.unlink(upload_stamp)
+
+    if os.path.exists(upload_stamp):
+        logging.info("%s already marked for upload, skipping", report)
+        return upload_stamp
+
+    report_stat = None
+
+    r = apport.Report()
+    # make sure we're actually on the hook to write this updated report
+    # before we start doing expensive collection operations
+    try:
+        with open(report, "rb") as f:
+            try:
+                fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except OSError:
+                logging.info("%s already being processed, skipping", report)
+                return None
+            r.load(f, binary="compressed")
+            report_stat = os.stat(report)
+    except (MalformedProblemReport, OSError, zlib.error) as error:
+        sys.stderr.write(f"ERROR: cannot load {report}: {str(error)}\n")
+        return None
+    if r.get("ProblemType", "") != "Crash" and "ExecutablePath" not in r:
+        logging.info("  skipping, not a crash")
+        return None
+    if "Dependencies" in r and r.get("_HooksRun") != "no":
+        logging.info("%s already has info collected", report)
+    else:
+        logging.info("Collecting info for %s...", report)
+        r.add_os_info()
+        try:
+            r.add_package_info()
+        except (SystemError, ValueError) as error:
+            sys.stderr.write(
+                f"ERROR: cannot add package info on {report}: {str(error)}\n"
+            )
+            return None
+        # add information from package specific hooks
+        try:
+            r.add_hooks_info()
+        except Exception as error:  # pylint: disable=broad-except
+            sys.stderr.write(
+                f"WARNING: hook failed for processing {report}: {str(error)}\n"
+            )
+
+        try:
+            r.add_gdb_info()
+        except (EOFError, OSError, zlib.error) as error:
+            # gzip.GzipFile.read can raise zlib.error. See LP bug #1947800
+
+            # Calling add_gdb_info raises ENOENT if the crash's executable
+            # is missing or gdb is not available, but apport-retrace could
+            # still process it.
+            if getattr(error, "errno", None) != errno.ENOENT:
+                sys.stderr.write(f"ERROR: processing {report}: {str(error)}\n")
+                if os.path.exists(report):
+                    os.unlink(report)
+                return None
+
+        # write updated report, we use os.open and os.fdopen as
+        # /proc/sys/fs/protected_regular is set to 1 (LP: #1848064)
+        # make sure the file isn't a FIFO or symlink
+        try:
+            fd = os.open(report, os.O_NOFOLLOW | os.O_WRONLY | os.O_NONBLOCK)
+        except FileNotFoundError:
+            # The crash report was deleted. Nothing left to do.
+            return None
+        st = os.fstat(fd)
+        if stat.S_ISREG(st.st_mode):
+            with os.fdopen(fd, "wb") as f:
+                os.fchmod(fd, 0)
+                r.write(f)
+                os.fchmod(fd, 0o640)
+
+    # now tell whoopsie to upload the report
+    logging.info("Marking %s for whoopsie upload", report)
+    apport.fileutils.mark_report_upload(report)
+    assert os.path.exists(upload_stamp)
+    os.chown(upload_stamp, report_stat.st_uid, report_stat.st_gid)
+    return upload_stamp
+
+
+def collect_info():
+    """Collect information for all reports
+
+    Return set of all generated upload stamps.
+    """
+    if os.geteuid() != 0:
+        sys.stderr.write(
+            f"WARNING: Not running as root, cannot process reports"
+            f" which are not owned by uid {os.getuid()}\n"
+        )
+
+    stamps = set()
+    reports = apport.fileutils.get_all_reports()
+    for r in reports:
+        res = process_report(r)
+        if res:
+            stamps.add(res)
+
+    return stamps
+
+
+def wait_uploaded(stamps, timeout):
+    """Wait until all reports were uploaded.
+
+    Times out after a given number of seconds.
+
+    Return True if all reports were uploaded, False if there are some missing.
+    """
+    logging.info("Waiting for whoopsie to upload reports (timeout: %d s)", timeout)
+
+    while timeout >= 0:
+        # determine missing stamps
+        missing = ""
+        for stamp in stamps:
+            uploaded = f"{stamp}ed"
+            if os.path.exists(stamp) and not os.path.exists(uploaded):
+                missing += f"{uploaded} "
+        if not missing:
+            return True
+
+        logging.info("  missing (remaining: %d s): %s", timeout, missing)
+        time.sleep(10)
+        timeout -= 10
+
+    return False
+
+
+# pylint: disable-next=missing-function-docstring
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Noninteractively upload all "
+        "Apport crash reports to errors.ubuntu.com"
+    )
+    parser.add_argument(
+        "-t",
+        "--timeout",
+        default=0,
+        type=int,
+        help="seconds to wait for whoopsie to upload the reports"
+        " (default: do not wait)",
+    )
+    parser.add_argument("--loglevel", default="info", help="log level (default: info)")
+    opts = parser.parse_args()
+
+    numeric_level = getattr(logging, opts.loglevel.upper(), None)
+    if not isinstance(numeric_level, int):
+        raise ValueError(f"Invalid log level: {opts.loglevel}")
+    logging.basicConfig(level=numeric_level)
+
+    # verify that whoopsie.path is enabled
+    if (
+        subprocess.call(
+            ["/bin/systemctl", "--quiet", "is-enabled", "whoopsie.path"],
+            stdout=subprocess.PIPE,
+        )
+        != 0
+    ):
+        logging.info("whoopsie.path is not enabled, doing nothing")
+        return
+
+    stamps = collect_info()
+    # print('stamps:', stamps)
+    if stamps:
+        # Touch the directory that is monitored by whoopsie.path so that
+        # whoopsie.service can activate. Ideally, this directory and the one
+        # that apport-autoreport.path monitors would be different but they are
+        # the same currently.
+        os.utime(apport.fileutils.report_dir)
+
+        if opts.timeout > 0:
+            if not wait_uploaded(stamps, opts.timeout):
+                sys.exit(2)
+            logging.info("All reports uploaded successfully")
+        else:
+            logging.info("All reports processed")
+
+
+if __name__ == "__main__":
+    main()

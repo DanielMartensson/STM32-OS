@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: systemd-python
+Version: 235
+Summary: Python interface for libsystemd
+Home-page: https://github.com/systemd/python-systemd
+Author-email: david@davidstrauss.net
+Maintainer: systemd developers
+Maintainer-email: systemd-devel@lists.freedesktop.org
+License: LGPLv2+
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Logging
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+License-File: LICENSE.txt

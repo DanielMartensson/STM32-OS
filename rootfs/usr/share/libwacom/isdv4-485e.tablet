@@ -1,0 +1,15 @@
+# Active electrostatic (AES) sensor used by the HP Elite x2 1012 G2
+
+[Device]
+Name=Wacom ISDv4 485e
+ModelName=
+DeviceMatch=i2c:056a:485e
+Class=ISDV4
+Width=10
+Height=7
+IntegratedIn=Display;System
+Styli=@isdv4-aes;
+
+[Features]
+Stylus=true
+Touch=true

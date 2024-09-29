@@ -168,10 +168,6 @@ class NetplanApply(utils.NetplanCommand):
             # Clean up any old netplan related OVS ports/bonds/bridges, if applicable
             NetplanApply.process_ovs_cleanup(config_manager, old_files_ovs, restart_ovs, exit_on_error)
             wpa_services = ['netplan-wpa-*.service']
-            # Historically (up to v0.98) we had netplan-wpa@*.service files, in case of an
-            # upgraded system, we need to make sure to stop those.
-            if utils.systemctl_is_active('netplan-wpa@*.service'):
-                wpa_services.insert(0, 'netplan-wpa@*.service')
             utils.systemctl('stop', wpa_services, sync=sync)
         else:
             logging.debug('no netplan generated networkd configuration exists')
@@ -256,10 +252,8 @@ class NetplanApply(utils.NetplanCommand):
                                       stdout=subprocess.DEVNULL,
                                       stderr=subprocess.DEVNULL)
 
-        # Reloading of udev rules happens during 'netplan generate' already
-        # subprocess.check_call(['udevadm', 'control', '--reload-rules'])
-        subprocess.check_call(['udevadm', 'trigger', '--attr-match=subsystem=net'])
-        subprocess.check_call(['udevadm', 'settle'])
+        subprocess.check_call(['udevadm', 'control', '--reload'])
+        subprocess.check_call(['udevadm', 'trigger', '--action=move', '--subsystem-match=net', '--settle'])
 
         # apply any SR-IOV related changes, if applicable
         NetplanApply.process_sriov_config(config_manager, exit_on_error)

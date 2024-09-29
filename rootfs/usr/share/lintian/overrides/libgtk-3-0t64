@@ -1,0 +1,2 @@
+# GDK and GTK are intentionally packaged together
+libgtk-3-0t64: package-name-doesnt-match-sonames libgdk-3-0 libgtk-3-0

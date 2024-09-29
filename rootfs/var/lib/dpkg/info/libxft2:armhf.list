@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libXft.so.2.3.6
+/usr/share
+/usr/share/doc
+/usr/share/doc/libxft2
+/usr/share/doc/libxft2/changelog.Debian.gz
+/usr/share/doc/libxft2/copyright
+/usr/lib/arm-linux-gnueabihf/libXft.so.2

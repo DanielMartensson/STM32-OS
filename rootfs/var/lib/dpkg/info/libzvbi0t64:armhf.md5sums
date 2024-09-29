@@ -1,0 +1,9 @@
+248f2dfe60901bc3619c03936968efe4  usr/lib/arm-linux-gnueabihf/libzvbi-chains.so.0.0.0
+336d7df205869a54f94767e68c1cf64a  usr/lib/arm-linux-gnueabihf/libzvbi.so.0.13.2
+b48739f8b81fce05e3a587538e99bf10  usr/share/doc/libzvbi0t64/AUTHORS.gz
+6cf1e8c069baa871856dc952a376855c  usr/share/doc/libzvbi0t64/NEWS.gz
+8c11436c5396c0a33a032a2b01e3a49b  usr/share/doc/libzvbi0t64/README.md.gz
+a6932154351eea983f7bc1f501ac44c8  usr/share/doc/libzvbi0t64/TODO
+c1a165daf0e12b50dd264ef2205800e3  usr/share/doc/libzvbi0t64/changelog.Debian.gz
+8a187ae235dc684b366bc2cf61648c9e  usr/share/doc/libzvbi0t64/copyright
+7b2e26add710395dff0c1a0e47878daa  usr/share/lintian/overrides/libzvbi0t64

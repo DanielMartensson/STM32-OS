@@ -1,4 +1,5 @@
 /etc/apparmor.d/ubuntu_pro_apt_news
+/etc/apparmor.d/ubuntu_pro_esm_cache
 /etc/apt/apt.conf.d/20apt-esm-hook.conf
 /etc/apt/preferences.d/ubuntu-pro-esm-apps
 /etc/apt/preferences.d/ubuntu-pro-esm-infra

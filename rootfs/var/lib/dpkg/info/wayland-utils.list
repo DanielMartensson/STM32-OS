@@ -1,0 +1,12 @@
+/.
+/usr
+/usr/bin
+/usr/bin/wayland-info
+/usr/share
+/usr/share/doc
+/usr/share/doc/wayland-utils
+/usr/share/doc/wayland-utils/changelog.Debian.gz
+/usr/share/doc/wayland-utils/copyright
+/usr/share/man
+/usr/share/man/man1
+/usr/share/man/man1/wayland-info.1.gz

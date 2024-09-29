@@ -1,0 +1,12 @@
+[ 94548.965] _XSERVTransSocketUNIXCreateListener: ...SocketCreateListener() failed
+[ 94548.972] _XSERVTransMakeAllCOTSServerListeners: server already running
+[ 94548.973] (EE) 
+Fatal server error:
+[ 94548.974] (EE) Cannot establish any listening sockets - Make sure an X server isn't already running(EE) 
+[ 94548.974] (EE) 
+Please consult the The X.Org Foundation support 
+	 at http://wiki.x.org
+ for help. 
+[ 94548.974] (EE) Please also check the log file at "/var/log/Xorg.0.log" for additional information.
+[ 94548.975] (EE) 
+[ 94548.977] (EE) Server terminated with error (1). Closing log file.

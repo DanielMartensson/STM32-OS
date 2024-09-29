@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libudfread.so.0.1.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libudfread0
+/usr/share/doc/libudfread0/changelog.Debian.gz
+/usr/share/doc/libudfread0/copyright
+/usr/lib/arm-linux-gnueabihf/libudfread.so.0

@@ -1,7 +1,7 @@
-f7fc1d8daf31ab14a713adcd91011e99  usr/lib/python3/dist-packages/netplan/__init__.py
-64fdf1ce9417b95c5680e8e15576356a  usr/lib/python3/dist-packages/netplan/_netplan_cffi.abi3.so
+e0cd1329d8811e6987358e4e75c4e704  usr/lib/python3/dist-packages/netplan/__init__.py
+48f922041fdb3069a9e5c6783347c0c1  usr/lib/python3/dist-packages/netplan/_netplan_cffi.abi3.so
 59a5d67af9c33802135bbda5c7fa7d3d  usr/lib/python3/dist-packages/netplan/_utils.py
 63599330f349e62f0bd44b91216f63f4  usr/lib/python3/dist-packages/netplan/netdef.py
 ec0366861c2bd10f9987974580233c9f  usr/lib/python3/dist-packages/netplan/parser.py
 4c5075c71d703d47e1a0e187dc223bd0  usr/lib/python3/dist-packages/netplan/state.py
-9c561a35625122bf549353e419a80ddc  usr/share/doc/python3-netplan/copyright
+94d353575ea84eb1e4887271ada2d029  usr/share/doc/python3-netplan/copyright

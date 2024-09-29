@@ -1,0 +1,10 @@
+[Unit]
+Description=Process error reports when automatic reporting is enabled (timer based)
+ConditionPathExists=/var/lib/apport/autoreport
+
+[Timer]
+OnStartupSec=1h
+OnUnitActiveSec=3h
+
+[Install]
+WantedBy=timers.target

@@ -56,6 +56,7 @@
 /usr/lib/arm-linux-gnueabihf/security/pam_tty_audit.so
 /usr/lib/arm-linux-gnueabihf/security/pam_umask.so
 /usr/lib/arm-linux-gnueabihf/security/pam_unix.so
+/usr/lib/arm-linux-gnueabihf/security/pam_userdb.so
 /usr/lib/arm-linux-gnueabihf/security/pam_usertype.so
 /usr/lib/arm-linux-gnueabihf/security/pam_warn.so
 /usr/lib/arm-linux-gnueabihf/security/pam_wheel.so
@@ -121,6 +122,7 @@
 /usr/share/man/man8/pam_tty_audit.8.gz
 /usr/share/man/man8/pam_umask.8.gz
 /usr/share/man/man8/pam_unix.8.gz
+/usr/share/man/man8/pam_userdb.8.gz
 /usr/share/man/man8/pam_usertype.8.gz
 /usr/share/man/man8/pam_warn.8.gz
 /usr/share/man/man8/pam_wheel.8.gz

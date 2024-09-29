@@ -2,7 +2,7 @@
 # Ask the user about the time zone, and output the resulting TZ value to stdout.
 # Interact with the user via stderr and stdin.
 
-PKGVERSION="(Ubuntu GLIBC 2.39-0ubuntu8) "
+PKGVERSION="(Ubuntu GLIBC 2.39-0ubuntu8.3) "
 TZVERSION="2.39"
 REPORT_BUGS_TO="<https://bugs.launchpad.net/ubuntu/+source/glibc/+bugs>"
 

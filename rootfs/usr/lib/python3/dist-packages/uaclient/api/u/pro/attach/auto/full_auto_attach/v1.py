@@ -10,15 +10,37 @@ from uaclient.config import UAConfig
 from uaclient.data_types import DataObject, Field, StringDataValue, data_list
 from uaclient.entitlements import order_entitlements_for_enabling
 from uaclient.entitlements.entitlement_status import CanEnableFailure
+from uaclient.files import machine_token
 
 event = event_logger.get_event_logger()
 
 
 class FullAutoAttachOptions(DataObject):
     fields = [
-        Field("enable", data_list(StringDataValue), False),
-        Field("enable_beta", data_list(StringDataValue), False),
-        Field("cloud_override", StringDataValue, False),
+        Field(
+            "enable",
+            data_list(StringDataValue),
+            False,
+            doc="Optional list of services to enable after auto-attaching.",
+        ),
+        Field(
+            "enable_beta",
+            data_list(StringDataValue),
+            False,
+            doc=(
+                "Optional list of beta services to enable after"
+                " auto-attaching."
+            ),
+        ),
+        Field(
+            "cloud_override",
+            StringDataValue,
+            False,
+            doc=(
+                "Ignore the result of ``cloud-id`` and act as if running on"
+                " this cloud."
+            ),
+        ),
     ]
 
     def __init__(
@@ -37,14 +59,12 @@ class FullAutoAttachResult(DataObject, AdditionalInfo):
 
 
 def _enable_services_by_name(
-    cfg: UAConfig, services: List[str], allow_beta: bool
+    cfg: UAConfig, services: List[str]
 ) -> List[Tuple[str, messages.NamedMessage]]:
     failed_services = []
     for name in order_entitlements_for_enabling(cfg, services):
         try:
-            ent_ret, reason = actions.enable_entitlement_by_name(
-                cfg, name, assume_yes=True, allow_beta=allow_beta
-            )
+            ent_ret, reason = actions.enable_entitlement_by_name(cfg, name)
         except exceptions.UbuntuProError as e:
             failed_services.append(
                 (name, messages.NamedMessage(e.msg_code or "unknown", e.msg))
@@ -77,9 +97,11 @@ def _full_auto_attach(
     *,
     mode: event_logger.EventLoggerMode = event_logger.EventLoggerMode.JSON
 ) -> FullAutoAttachResult:
+    """
+    This endpoint runs the whole auto-attach process on the system.
+    """
     try:
         with lock.RetryLock(
-            cfg=cfg,
             lock_holder="pro.api.u.pro.attach.auto.full_auto_attach.v1",
         ):
             ret = _full_auto_attach_in_lock(options, cfg, mode=mode)
@@ -95,10 +117,11 @@ def _full_auto_attach_in_lock(
     mode: event_logger.EventLoggerMode,
 ) -> FullAutoAttachResult:
     event.set_event_mode(mode)
+    machine_token_file = machine_token.get_machine_token_file(cfg)
 
     if _is_attached(cfg).is_attached:
         raise exceptions.AlreadyAttachedError(
-            account_name=cfg.machine_token_file.account.get("name", "")
+            account_name=machine_token_file.account.get("name", "")
         )
 
     if util.is_config_value_true(
@@ -116,13 +139,9 @@ def _full_auto_attach_in_lock(
 
     failed = []
     if options.enable is not None:
-        failed += _enable_services_by_name(
-            cfg, options.enable, allow_beta=False
-        )
+        failed += _enable_services_by_name(cfg, options.enable)
     if options.enable_beta is not None:
-        failed += _enable_services_by_name(
-            cfg, options.enable_beta, allow_beta=True
-        )
+        failed += _enable_services_by_name(cfg, options.enable_beta)
 
     contract_client = contract.UAContractClient(cfg)
     contract_client.update_activity_token()
@@ -139,3 +158,74 @@ endpoint = APIEndpoint(
     fn=_full_auto_attach,
     options_cls=FullAutoAttachOptions,
 )
+
+_doc = {
+    "introduced_in": "27.11",
+    "requires_network": True,
+    "extra_args_content": """
+.. note::
+
+    If none of the lists are set, the services will be enabled based on the
+    contract definitions.
+""",
+    "example_python": """
+from uaclient.api.u.pro.attach.auto.full_auto_attach.v1 import full_auto_attach, FullAutoAttachOptions
+
+options = FullAutoAttachOptions(enable=["<service1>", "<service2>"], enable_beta=["<beta_service3>"])
+result = full_auto_attach(options)
+""",  # noqa: E501
+    "result_class": FullAutoAttachResult,
+    "exceptions": [
+        (
+            exceptions.AlreadyAttachedError,
+            (
+                "Raised if running on a machine which is already attached to a"
+                " Pro subscription."
+            ),
+        ),
+        (
+            exceptions.AutoAttachDisabledError,
+            "Raised if ``disable_auto_attach: true`` in ``uaclient.conf``.",
+        ),
+        (
+            exceptions.ConnectivityError,
+            (
+                "Raised if it is not possible to connect to the contracts"
+                " service."
+            ),
+        ),
+        (
+            exceptions.ContractAPIError,
+            (
+                "Raised if there is an unexpected error in the contracts"
+                " service interaction."
+            ),
+        ),
+        (
+            exceptions.EntitlementsNotEnabledError,
+            (
+                "Raised if the Client fails to enable any of the entitlements"
+                " (whether present in any of the lists or listed in the"
+                " contract)."
+            ),
+        ),
+        (
+            exceptions.LockHeldError,
+            (
+                "Raised if another Client process is holding the lock on the"
+                " machine."
+            ),
+        ),
+        (
+            exceptions.NonAutoAttachImageError,
+            (
+                "Raised if the cloud where the system is running does not"
+                " support auto-attach."
+            ),
+        ),
+    ],
+    "example_cli": 'pro api u.pro.attach.auto.full_auto_attach.v1 --data {"enable": ["esm-infra", "esm-apps"]}',  # noqa: E501
+    "example_json": """
+{}
+""",
+}

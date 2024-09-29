@@ -1,0 +1,4 @@
+fb782c833f901aae4561336a2f6323c9  usr/lib/arm-linux-gnueabihf/libGLESv2.so.2.1.0
+2295a81abfbf493c2fefd51c81b8618e  usr/share/bug/libgles2/control
+ba0c09cf9de1643aaab0fd695a6d7476  usr/share/doc/libgles2/copyright
+c892a92ca2f1c99b9fd25bdb589b6b7c  usr/share/lintian/overrides/libgles2

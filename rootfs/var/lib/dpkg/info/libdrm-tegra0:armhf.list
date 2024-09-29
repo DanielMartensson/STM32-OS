@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libdrm_tegra.so.0.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libdrm-tegra0
+/usr/share/doc/libdrm-tegra0/copyright
+/usr/lib/arm-linux-gnueabihf/libdrm_tegra.so.0
+/usr/share/doc/libdrm-tegra0/changelog.Debian.gz

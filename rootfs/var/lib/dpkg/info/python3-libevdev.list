@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/lib
+/usr/lib/python3
+/usr/lib/python3/dist-packages
+/usr/lib/python3/dist-packages/libevdev
+/usr/lib/python3/dist-packages/libevdev/__init__.py
+/usr/lib/python3/dist-packages/libevdev/_clib.py
+/usr/lib/python3/dist-packages/libevdev/const.py
+/usr/lib/python3/dist-packages/libevdev/device.py
+/usr/lib/python3/dist-packages/libevdev/event.py
+/usr/lib/python3/dist-packages/libevdev-0.5.egg-info
+/usr/share
+/usr/share/doc
+/usr/share/doc/python3-libevdev
+/usr/share/doc/python3-libevdev/changelog.Debian.gz
+/usr/share/doc/python3-libevdev/copyright

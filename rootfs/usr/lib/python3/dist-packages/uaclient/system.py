@@ -5,7 +5,7 @@ import os
 import pathlib
 import re
 import stat
-import subprocess
+import subprocess  # nosec B404
 import tempfile
 import time
 import uuid
@@ -44,7 +44,14 @@ RE_KERNEL_UNAME = (
 )
 
 DistroInfo = NamedTuple(
-    "DistroInfo", [("eol", datetime.date), ("eol_esm", datetime.date)]
+    "DistroInfo",
+    [
+        ("eol", datetime.date),
+        ("eol_esm", datetime.date),
+        ("series", str),
+        ("release", str),
+        ("series_codename", str),
+    ],
 )
 
 KernelInfo = NamedTuple(
@@ -71,6 +78,7 @@ ReleaseInfo = NamedTuple(
         ("pretty_version", str),
     ],
 )
+
 CpuInfo = NamedTuple(
     "CpuInfo",
     [
@@ -97,7 +105,8 @@ def _get_kernel_changelog_timestamp(
 ) -> Optional[datetime.datetime]:
     if is_container():
         LOG.warning(
-            "Not attempting to use timestamp of kernel changelog because we're in a container"  # noqa: E501
+            "Not attempting to use timestamp of kernel "
+            "changelog because we're in a container"
         )
         return None
 
@@ -274,23 +283,30 @@ def get_machine_id(cfg) -> str:
     We first check for the machine-id in machine-token.json before
     looking at the system file.
     """
+    from uaclient.files import machine_token
+    from uaclient.files.state_files import machine_id_file
 
-    if cfg.machine_token:
-        cfg_machine_id = cfg.machine_token.get("machineTokenInfo", {}).get(
-            "machineId"
-        )
-        if cfg_machine_id:
-            return cfg_machine_id
+    machine_token_file = machine_token.get_machine_token_file()
+    if machine_token_file.machine_token:
+        machine_id = machine_token_file.machine_token.get(
+            "machineTokenInfo", {}
+        ).get("machineId")
+        if machine_id:
+            return machine_id
 
-    fallback_machine_id_file = cfg.data_path("machine-id")
+    fallback_machine_id = machine_id_file.read()
 
-    for path in [ETC_MACHINE_ID, DBUS_MACHINE_ID, fallback_machine_id_file]:
+    for path in [ETC_MACHINE_ID, DBUS_MACHINE_ID]:
         if os.path.exists(path):
             content = load_file(path).rstrip("\n")
             if content:
                 return content
+
+    if fallback_machine_id:
+        return fallback_machine_id
+
     machine_id = str(uuid.uuid4())
-    cfg.write_cache("machine-id", machine_id)
+    machine_id_file.write(machine_id)
     return machine_id
 
 
@@ -428,6 +444,9 @@ def get_distro_info(series: str) -> DistroInfo:
             else:
                 eol_esm = values[7] if "LTS" in values[0] else values[5]
             return DistroInfo(
+                release=values[0],
+                series_codename=values[1],
+                series=values[2],
                 eol=datetime.datetime.strptime(values[5], "%Y-%m-%d").date(),
                 eol_esm=datetime.datetime.strptime(eol_esm, "%Y-%m-%d").date(),
             )
@@ -511,12 +530,17 @@ def is_exe(path: str) -> bool:
     return os.path.isfile(path) and os.access(path, os.X_OK)
 
 
-def load_file(filename: str, decode: bool = True) -> str:
+def load_file(filename: str) -> str:
     """Read filename and decode content."""
     with open(filename, "rb") as stream:
         LOG.debug("Reading file: %s", filename)
         content = stream.read()
-    return content.decode("utf-8")
+    try:
+        return content.decode("utf-8")
+    except UnicodeDecodeError:
+        raise exceptions.InvalidFileEncodingError(
+            file_name=filename, file_encoding="utf-8"
+        )
 
 
 def create_file(filename: str, mode: int = 0o644) -> None:
@@ -611,22 +635,23 @@ def _subp(
 
     stdout = None
     stderr = None
+    set_lang = {}
+
     if pipe_stdouterr:
         stdout = subprocess.PIPE
         stderr = subprocess.PIPE
+        # Set LANG to avoid non-utf8 when we pipe the handlers
+        set_lang = {"LANG": "C.UTF-8", "LC_ALL": "C.UTF-8"}
 
-    # If env is None, subprocess.Popen will use the process environment
-    # variables by default, as stated here:
-    # https://docs.python.org/3.5/library/subprocess.html?highlight=subprocess#popen-constructor
-    merged_env = None
-    if override_env_vars:
-        merged_env = {**os.environ, **override_env_vars}
+    if override_env_vars is None:
+        override_env_vars = {}
+    merged_env = {**os.environ, **set_lang, **override_env_vars}
 
     if rcs is None:
         rcs = [0]
     redacted_cmd = util.redact_sensitive_logs(" ".join(args))
     try:
-        proc = subprocess.Popen(
+        proc = subprocess.Popen(  # nosec B603
             bytes_args,
             stdout=stdout,
             stderr=stderr,
@@ -635,8 +660,8 @@ def _subp(
         (out, err) = proc.communicate(timeout=timeout)
     except OSError:
         try:
-            out_result = out.decode("utf-8") if out else ""
-            err_result = err.decode("utf-8") if err else ""
+            out_result = out.decode("utf-8", errors="ignore") if out else ""
+            err_result = err.decode("utf-8", errors="ignore") if err else ""
             raise exceptions.ProcessExecutionError(
                 cmd=redacted_cmd,
                 exit_code=proc.returncode,
@@ -646,8 +671,8 @@ def _subp(
         except UnboundLocalError:
             raise exceptions.ProcessExecutionError(cmd=redacted_cmd)
 
-    out_result = out.decode("utf-8") if out else ""
-    err_result = err.decode("utf-8") if err else ""
+    out_result = out.decode("utf-8", errors="ignore") if out else ""
+    err_result = err.decode("utf-8", errors="ignore") if err else ""
     if proc.returncode not in rcs:
         raise exceptions.ProcessExecutionError(
             cmd=redacted_cmd,
@@ -780,9 +805,11 @@ def get_user_cache_dir() -> str:
 
     xdg_cache_home = os.environ.get("XDG_CACHE_HOME")
     if xdg_cache_home:
-        return xdg_cache_home + "/" + defaults.USER_CACHE_SUBDIR
+        return os.path.join(xdg_cache_home, defaults.USER_CACHE_SUBDIR)
 
-    return os.path.expanduser("~") + "/.cache/" + defaults.USER_CACHE_SUBDIR
+    return os.path.join(
+        os.path.expanduser("~"), ".cache", defaults.USER_CACHE_SUBDIR
+    )
 
 
 def get_reboot_required_pkgs() -> Optional[RebootRequiredPkgs]:

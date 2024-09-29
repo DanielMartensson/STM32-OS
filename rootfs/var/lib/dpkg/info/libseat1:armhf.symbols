@@ -1,0 +1,13 @@
+libseat.so.1 libseat1 #MINVER#
+* Build-Depends-Package: libseat-dev
+ libseat_close_device@Base 0.5.0
+ libseat_close_seat@Base 0.5.0
+ libseat_disable_seat@Base 0.5.0
+ libseat_dispatch@Base 0.5.0
+ libseat_get_fd@Base 0.5.0
+ libseat_open_device@Base 0.5.0
+ libseat_open_seat@Base 0.5.0
+ libseat_seat_name@Base 0.5.0
+ libseat_set_log_handler@Base 0.5.0
+ libseat_set_log_level@Base 0.5.0
+ libseat_switch_session@Base 0.5.0

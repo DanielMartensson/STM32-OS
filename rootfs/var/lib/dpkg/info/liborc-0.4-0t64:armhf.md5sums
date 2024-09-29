@@ -1,0 +1,5 @@
+d27189763f407637f7f2740db6eb27d3  usr/lib/arm-linux-gnueabihf/liborc-0.4.so.0.38.0
+93f27aa8b37d48f5b93c2f00c66ebc33  usr/lib/arm-linux-gnueabihf/liborc-test-0.4.so.0.38.0
+3161848286cbf0da4166aa6f13ae1273  usr/share/doc/liborc-0.4-0t64/changelog.Debian.gz
+68fa95b2be1e678abd11b10fd17c94aa  usr/share/doc/liborc-0.4-0t64/copyright
+b7f10f239ec9f1ee3b23c46700a72a02  usr/share/lintian/overrides/liborc-0.4-0t64

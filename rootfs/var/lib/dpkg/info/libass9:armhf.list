@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libass.so.9.2.1
+/usr/share
+/usr/share/doc
+/usr/share/doc/libass9
+/usr/share/doc/libass9/changelog.Debian.gz
+/usr/share/doc/libass9/copyright
+/usr/lib/arm-linux-gnueabihf/libass.so.9

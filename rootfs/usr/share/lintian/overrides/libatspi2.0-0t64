@@ -1,0 +1,2 @@
+package-name-doesnt-match-sonames libatspi0
+libatspi2.0-0t64: package-name-doesnt-match-sonames libatspi2.0-0

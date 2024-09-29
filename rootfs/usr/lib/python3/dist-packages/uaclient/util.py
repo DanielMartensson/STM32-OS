@@ -266,7 +266,7 @@ def redact_sensitive_logs(
 
 
 def handle_message_operations(
-    msg_ops: Optional[MessagingOperations],
+    msg_ops: Optional[MessagingOperations], assume_yes: bool
 ) -> bool:
     """Emit messages to the console for user interaction
 
@@ -277,17 +277,15 @@ def handle_message_operations(
 
     :return: True upon success, False on failure.
     """
-    from uaclient import event_logger
-
-    event = event_logger.get_event_logger()
     if not msg_ops:
         return True
 
     for msg_op in msg_ops:
         if isinstance(msg_op, str):
-            event.info(msg_op)
+            print(msg_op)
         else:  # Then we are a callable and dict of args
             functor, args = msg_op
+            args["assume_yes"] = assume_yes
             if not functor(**args):
                 return False
     return True
@@ -466,10 +464,10 @@ def set_filename_extension(filename: str, new_extension: str) -> str:
     return name + "." + new_extension
 
 
-def print_package_list(
+def create_package_list_str(
     package_list: List[str],
 ):
-    print(
+    return (
         "\n".join(
             textwrap.wrap(
                 " ".join(package_list),
@@ -480,5 +478,5 @@ def print_package_list(
                 subsequent_indent="  ",
             )
         )
+        + "\n"
     )
-    print("")

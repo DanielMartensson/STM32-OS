@@ -1,0 +1,46 @@
+Upstream contacts
+=================
+:toc:
+Cyril Brulebois <kibi@debian.org>
+
+
+Getting announcements
+---------------------
+
+ * Almost everything: `xorg-announce@lists.freedesktop.org`
+ * Mesa: `mesa-announce@lists.freedesktop.org`
+
+_(Source: https://wiki.x.org/wiki/XorgMailingLists[XorgMailingLists])_
+
+
+Developer lists
+---------------
+
+
+Almost everything:
+
+ * `xorg-devel@lists.freedesktop.org` — doc:
+   https://wiki.x.org/wiki/Development/Documentation/SubmittingPatches[SubmittingPatches]
+   — module maintainers:
+   https://cgit.freedesktop.org/xorg/doc/xorg-docs/tree/MAINTAINERS[MAINTAINERS]
+
+Driver-specific:
+
+ * ATI: `xorg-driver-ati@lists.x.org`
+ * Intel: `intel-gfx@lists.freedesktop.org` — doc:
+   [https://01.org/linuxgraphics/documentation/how-report-bugs][How to file a good bug report]
+ * Nouveau: `nouveau@lists.freedesktop.org`
+ * VMMouse & VMWare: `thellstrom@vmware.com` — source:
+   https://wiki.x.org/wiki/vmware[vmware wikipage]
+
+Other:
+
+ * DRM: `dri-devel@lists.freedesktop.org`
+ * Mesa: `mesa-dev@lists.freedesktop.org`
+ * Pixman: `pixman@lists.freedesktop.org`
+ * Wayland: `wayland-devel@lists.freedesktop.org`
+ * XCB: `xcb@lists.freedesktop.org`
+ * XKeyboardConfig/xkb-data: `xkb@listserv.bat.ru` — source:
+   https://www.freedesktop.org/wiki/Software/XKeyboardConfig/Development[XKeyboardConfig]
+
+_(Source: https://wiki.x.org/wiki/XorgMailingLists[XorgMailingLists])_

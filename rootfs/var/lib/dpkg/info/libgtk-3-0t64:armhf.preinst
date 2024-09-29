@@ -1,0 +1,37 @@
+#!/bin/sh
+# Copyright 2024 Simon McVittie
+# SPDX-License-Identifier: LGPL-2.1-or-later
+
+set -e
+
+# Clean up libgtk-3-0:*.postrm, so that when libgtk-3-0 is purged, it
+# will not delete non-dpkg-managed files that have been taken over by
+# libgtk-3-0t64, such as
+# /usr/lib/arm-linux-gnueabihf/gtk-3.0/3.0.0/immodules.cache
+# See https://bugs.debian.org/1065494, https://bugs.debian.org/1065170.
+# TODO: When, if ever, can we safely remove this?
+case "$1" in
+    (install|upgrade)
+        # Do this cleanup on upgrade from any version older than the one that
+        # introduced this change.
+        #
+        # We also need to do this cleanup on new installations of
+        # libgtk-3-0t64 (because any new installation might be replacing
+        # libgtk-3-0) so treat an empty version as being arbitrarily old.
+        if dpkg --compare-versions "${2:-}" lt "3.24.41-2"
+        then
+            if old_postrm=$(dpkg-query --control-path "libgtk-3-0:armhf" postrm 2>/dev/null) \
+                && [ -n "$old_postrm" ] \
+                && [ -e "$old_postrm" ]
+            then
+                echo "libgtk-3-0t64.preinst: Removing $old_postrm to avoid" \
+                    "loss of /usr/lib/arm-linux-gnueabihf/gtk-3.0/3.0.0/immodules.cache..."
+                rm -f -v "$old_postrm"
+            fi
+        fi
+        ;;
+esac
+
+
+
+# vim:set sw=4 sts=4 et:

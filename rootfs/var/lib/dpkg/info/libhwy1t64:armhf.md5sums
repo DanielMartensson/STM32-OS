@@ -1,0 +1,6 @@
+8a663f014b7d8ad1c9ce987618dff483  usr/lib/arm-linux-gnueabihf/libhwy.so.1.0.7
+4e7335424386fa2b77d9af56b95c4a12  usr/lib/arm-linux-gnueabihf/libhwy_contrib.so.1.0.7
+fe590cc200bd540261afd267bf9d7741  usr/lib/arm-linux-gnueabihf/libhwy_test.so.1.0.7
+c8338d9930290dcbe3e8b942b66c1cd6  usr/share/doc/libhwy1t64/changelog.Debian.gz
+96ea374637ca031e64b266438ee94c53  usr/share/doc/libhwy1t64/copyright
+adb928602febf7b94793545cd127b609  usr/share/lintian/overrides/libhwy1t64

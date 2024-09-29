@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libxcb-xfixes.so.0.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libxcb-xfixes0
+/usr/share/doc/libxcb-xfixes0/copyright
+/usr/lib/arm-linux-gnueabihf/libxcb-xfixes.so.0
+/usr/share/doc/libxcb-xfixes0/changelog.Debian.gz

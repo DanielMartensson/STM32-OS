@@ -1,0 +1,6 @@
+auto
+/usr/lib/arm-linux-gnueabihf/libblas.so.3
+
+/usr/lib/arm-linux-gnueabihf/blas/libblas.so.3
+10
+

@@ -1,0 +1,120 @@
+#!/usr/bin/python3
+#
+# Copyright (c) 2010 Canonical Ltd.
+# Author: Martin Pitt <martin.pitt@ubuntu.com>
+#
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 2 of the License, or (at your
+# option) any later version.  See http://www.gnu.org/copyleft/gpl.html for
+# the full text of the license.
+
+"""Collect information about processes which are still running after sending
+SIGTERM to them (which happens during computer shutdown in
+/etc/init.d/sendsigs in Debian/Ubuntu)"""
+
+import argparse
+import errno
+import os
+
+import apport
+import apport.fileutils
+import apport.hookutils
+
+
+def parse_argv():
+    """Parse command line and return arguments."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-o",
+        "--omit",
+        metavar="PID",
+        action="append",
+        default=[],
+        dest="omit_pids",
+        help="Ignore a particular process ID (can be specified multiple times)",
+    )
+    return parser.parse_args()
+
+
+def orphaned_processes(omit_pids):
+    """Yield an iterator of running process IDs.
+
+    This excludes PIDs which do not have a valid /proc/pid/exe symlink (e. g.
+    kernel processes), the PID of our own process, and everything that is
+    contained in the omit_pids argument.
+    """
+    my_pid = os.getpid()
+    my_sid = os.getsid(0)
+    for process in os.listdir("/proc"):
+        try:
+            pid = int(process)
+        except ValueError:
+            continue
+        if pid == 1 or pid == my_pid or process in omit_pids:
+            apport.warning("ignoring: %s", process)
+            continue
+
+        try:
+            sid = os.getsid(pid)
+        except OSError:
+            # os.getsid() can fail with "No such process" if the process died
+            # in the meantime
+            continue
+
+        if sid == my_sid:
+            apport.warning("ignoring same sid: %s", process)
+            continue
+
+        try:
+            os.readlink(os.path.join("/proc", process, "exe"))
+        except OSError as error:
+            if error.errno == errno.ENOENT:
+                # kernel thread or similar, silently ignore
+                continue
+            apport.warning(
+                "Could not read information about pid %s: %s", process, str(error)
+            )
+            continue
+
+        yield process
+
+
+def do_report(pid, omit_pids):
+    """Create a report for a particular PID."""
+
+    report = apport.Report("Bug")
+    try:
+        report.add_proc_info(pid)
+    except (ValueError, AssertionError):
+        # happens if ExecutablePath doesn't exist (any more?), ignore
+        return
+
+    report["Tags"] = "shutdown-hang"
+    report["Title"] = "does not terminate at computer shutdown"
+    if "ExecutablePath" in report:
+        report["Title"] = (
+            f"{os.path.basename(report['ExecutablePath'])} {report['Title']}"
+        )
+    report["Processes"] = apport.hookutils.command_output(["ps", "aux"])
+    report["InitctlList"] = apport.hookutils.command_output(["initctl", "list"])
+    if omit_pids:
+        report["OmitPids"] = " ".join(omit_pids)
+
+    try:
+        with apport.fileutils.make_report_file(report) as report_file:
+            report.write(report_file)
+    except FileExistsError as error:
+        apport.warning("Cannot create report: %s already exists", error.filename)
+    except OSError as error:
+        apport.fatal("Cannot create report: %s", str(error))
+
+
+#
+# main
+#
+
+args = parse_argv()
+
+for p in orphaned_processes(args.omit_pids):
+    do_report(p, args.omit_pids)

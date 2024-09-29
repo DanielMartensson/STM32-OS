@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libpocketsphinx.so.3.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libpocketsphinx3
+/usr/share/doc/libpocketsphinx3/changelog.Debian.gz
+/usr/share/doc/libpocketsphinx3/copyright
+/usr/lib/arm-linux-gnueabihf/libpocketsphinx.so.3

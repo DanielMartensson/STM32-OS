@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libutempter.so.1.2.1
+/usr/lib/arm-linux-gnueabihf/utempter
+/usr/lib/arm-linux-gnueabihf/utempter/utempter
+/usr/share
+/usr/share/doc
+/usr/share/doc/libutempter0
+/usr/share/doc/libutempter0/changelog.Debian.gz
+/usr/share/doc/libutempter0/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libutempter0
+/usr/lib/arm-linux-gnueabihf/libutempter.so.0

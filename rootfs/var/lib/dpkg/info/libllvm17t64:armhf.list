@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libLLVM-17.so.1
+/usr/share
+/usr/share/doc
+/usr/share/doc/libllvm17t64
+/usr/share/doc/libllvm17t64/changelog.Debian.gz
+/usr/share/doc/libllvm17t64/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libllvm17t64
+/usr/lib/arm-linux-gnueabihf/libLLVM-17.so

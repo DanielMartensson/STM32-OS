@@ -1,0 +1,10 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libcodec2.so.1.2
+/usr/share
+/usr/share/doc
+/usr/share/doc/libcodec2-1.2
+/usr/share/doc/libcodec2-1.2/changelog.Debian.gz
+/usr/share/doc/libcodec2-1.2/copyright

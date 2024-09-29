@@ -1,0 +1,4 @@
+c4a3d4ab76e4ca7cd069cc5027daf19d  usr/lib/arm-linux-gnueabihf/libsrt-gnutls.so.1.5.3
+5d52a1b09a30dbbb5b126ef3ffe48acb  usr/share/doc/libsrt1.5-gnutls/changelog.Debian.gz
+62d97e3c356377a1957095a911850e2c  usr/share/doc/libsrt1.5-gnutls/copyright
+f6ed04b95ac346a1649a2fec1dfa4971  usr/share/lintian/overrides/libsrt1.5-gnutls

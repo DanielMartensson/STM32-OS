@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libvpx.so.9.0.0
+/usr/lib/arm-linux-gnueabihf/vfp
+/usr/lib/arm-linux-gnueabihf/vfp/neon
+/usr/lib/arm-linux-gnueabihf/vfp/neon/libvpx.so.9.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libvpx9
+/usr/share/doc/libvpx9/changelog.Debian.gz
+/usr/share/doc/libvpx9/copyright
+/usr/lib/arm-linux-gnueabihf/libvpx.so.9
+/usr/lib/arm-linux-gnueabihf/libvpx.so.9.0
+/usr/lib/arm-linux-gnueabihf/vfp/neon/libvpx.so.9
+/usr/lib/arm-linux-gnueabihf/vfp/neon/libvpx.so.9.0

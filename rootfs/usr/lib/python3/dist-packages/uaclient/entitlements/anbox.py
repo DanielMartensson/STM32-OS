@@ -1,6 +1,6 @@
 from typing import Any, Dict, Optional, Tuple
 
-from uaclient import contract, event_logger, messages, system
+from uaclient import api, contract, event_logger, messages, system
 from uaclient.entitlements.entitlement_status import (
     CanEnableFailure,
     CanEnableFailureReason,
@@ -51,8 +51,8 @@ class AnboxEntitlement(RepoEntitlement):
 
         return True, None
 
-    def _perform_enable(self, silent: bool = False) -> bool:
-        ret = super()._perform_enable(silent=silent)
+    def _perform_enable(self, progress: api.ProgressWrapper) -> bool:
+        ret = super()._perform_enable(progress)
 
         if not ret:
             return ret
@@ -60,10 +60,10 @@ class AnboxEntitlement(RepoEntitlement):
         directives = self.entitlement_cfg.get("entitlement", {}).get(
             "directives", {}
         )
-        machine_token = self.cfg.machine_token["machineToken"]
+        machine_token = self.machine_token_file.machine_token["machineToken"]
         client = contract.UAContractClient(self.cfg)
         anbox_images_machine_access = client.get_resource_machine_access(
-            machine_token, "anbox-images", save_file=False
+            machine_token, "anbox-images"
         )
 
         anbox_cloud_data = AnboxCloudData(
@@ -81,8 +81,8 @@ class AnboxEntitlement(RepoEntitlement):
 
         return True
 
-    def _perform_disable(self, silent=False):
-        super()._perform_disable(silent=silent)
+    def _perform_disable(self, progress: api.ProgressWrapper):
+        super()._perform_disable(progress)
         anbox_cloud_credentials_file.delete()
         return True
 

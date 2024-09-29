@@ -19,7 +19,7 @@
 # THE SOFTWARE.
 
 import logging
-from os import walk
+from os import walk, environ
 from os.path import abspath, isfile, join
 from subprocess import Popen, PIPE
 from debpython import PUBLIC_DIR_RE
@@ -46,12 +46,14 @@ def from_directory(dname, extensions=('.py',)):
 def from_package(package_name, extensions=('.py',)):
     """Generate *.py file names available in given package."""
     extensions = tuple(extensions)  # .endswith doesn't like list
+    env = environ.copy()
+    env['LC_ALL'] = 'C.UTF-8'
     process = Popen(('/usr/bin/dpkg', '-L', package_name), stdout=PIPE,
-                         stderr=PIPE)
+                         stderr=PIPE, env=env)
     stdout, stderr = process.communicate()
     if process.returncode != 0:
         raise Exception("cannot get content of %s" % package_name)
-    stdout = str(stdout, 'utf-8')
+    stdout = stdout.decode('utf-8', errors='replace')
     for line in stdout.splitlines():
         if line.endswith(extensions):
             yield line

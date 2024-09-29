@@ -1,4 +1,0 @@
-sensor:modalias:platform:HID-SENSOR-200073:dmi:*svnDell*:sku0CB2:*
-sensor:modalias:platform:HID-SENSOR-200073:dmi:*svnDell*:sku0CB3:*
-sensor:modalias:platform:HID-SENSOR-200073:dmi:*svnDell*:skuOCB4:*
- ACCEL_LOCATION=base

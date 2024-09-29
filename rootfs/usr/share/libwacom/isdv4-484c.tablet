@@ -1,0 +1,15 @@
+# Active electrostatic (AES) sensor used by the Dell Latitude 5285
+
+[Device]
+Name=Wacom ISDv4 484c
+ModelName=
+DeviceMatch=i2c:056a:484c
+Class=ISDV4
+Width=10
+Height=7
+IntegratedIn=Display;System
+Styli=@isdv4-aes;
+
+[Features]
+Stylus=true
+Touch=true

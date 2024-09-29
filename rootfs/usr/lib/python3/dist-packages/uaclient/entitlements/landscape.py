@@ -1,7 +1,7 @@
 import logging
 from typing import Any, Dict, Optional, Tuple
 
-from uaclient import event_logger, exceptions, messages, system, util
+from uaclient import api, event_logger, exceptions, messages, system, util
 from uaclient.entitlements.base import UAEntitlement
 from uaclient.entitlements.entitlement_status import ApplicationStatus
 
@@ -16,52 +16,47 @@ class LandscapeEntitlement(UAEntitlement):
     help_doc_url = messages.urls.LANDSCAPE_HOME_PAGE
     help_text = messages.LANDSCAPE_HELP_TEXT
 
-    def _perform_enable(self, silent: bool = False) -> bool:
+    def enable_steps(self) -> int:
+        return 1
+
+    def disable_steps(self) -> int:
+        return 1
+
+    def _perform_enable(self, progress: api.ProgressWrapper) -> bool:
         cmd = ["landscape-config"] + self.extra_args
-        if self.assume_yes and "--silent" not in cmd:
+        if not progress.is_interactive() and "--silent" not in cmd:
             cmd += ["--silent"]
 
         LOG.debug("Executing: %r", cmd)
-        event.info(
+        progress.progress(
             util.redact_sensitive_logs(
                 messages.EXECUTING_COMMAND.format(command=" ".join(cmd))
             )
         )
         try:
-            system.subp(cmd, pipe_stdouterr=self.assume_yes)
+            system.subp(cmd, pipe_stdouterr=not progress.is_interactive())
         except exceptions.ProcessExecutionError as e:
-            if self.assume_yes:
-                err_msg = messages.LANDSCAPE_CONFIG_FAILED
-                event.error(
-                    err_msg.msg,
-                    err_msg.name,
-                    service=self.name,
-                    additional_info={
-                        "stdout": e.stdout.strip(),
-                        "stderr": e.stderr.strip(),
-                    },
+            LOG.exception(e)
+            if not progress.is_interactive():
+                progress.emit("info", e.stderr.strip())
+                raise exceptions.LandscapeConfigFailed(
+                    stdout=e.stdout.strip(), stderr=e.stderr.strip()
                 )
-                event.info(e.stderr.strip())
-                event.info(messages.ENABLE_FAILED.format(title=self.title))
             return False
-
-        if self.assume_yes:
-            # when silencing landscape-config, include a success message
-            # otherwise, let landscape-config say what happened
-            event.info(messages.ENABLED_TMPL.format(title=self.title))
         return True
 
-    def _perform_disable(self, silent: bool = False) -> bool:
+    def _perform_disable(self, progress: api.ProgressWrapper) -> bool:
         cmd = ["landscape-config", "--disable"]
-        event.info(messages.EXECUTING_COMMAND.format(command=" ".join(cmd)))
+        progress.progress(
+            messages.EXECUTING_COMMAND.format(command=" ".join(cmd))
+        )
         try:
             system.subp(cmd)
         except exceptions.ProcessExecutionError as e:
             LOG.error(e)
-            event.info(str(e).strip())
-            event.warning(str(e), self.name)
+            progress.emit("info", str(e).strip())
 
-        event.info(messages.LANDSCAPE_CONFIG_REMAINS)
+        progress.emit("info", messages.LANDSCAPE_CONFIG_REMAINS)
 
         return True
 

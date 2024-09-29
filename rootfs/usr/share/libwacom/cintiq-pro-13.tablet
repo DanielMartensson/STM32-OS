@@ -1,0 +1,49 @@
+# Wacom
+# Cintiq Pro 13
+# DTH-1320
+#
+#                       K K K K K
+#          *-----------------------*
+#          |                       |
+#          |                       |
+#          |                       |
+#          |                       |
+#          |                       |
+#          |        DISPLAY        |
+#          |                       |
+#          |                       |
+#          |                       |
+#          |                       |
+#          |                       |
+#          *-----------------------*
+#
+# Note: The device has 5 keys as shown above. Their
+#       intended uses are, from left to right,:
+#       1. Mode change (Display/Opaque)
+#       2. Wacom Desktop Center
+#       3. On screen keyboard
+#       4. Wacom display settings
+#       5. Touch on/off
+#
+
+[Device]
+Name=Wacom Cintiq Pro 13
+ModelName=DTH-1320
+Class=Cintiq
+DeviceMatch=usb:056a:034f
+PairedID=usb:056a:0353
+Width=12
+Height=7
+# No pad buttons, so no layout
+Styli=@intuos5;@mobilestudio;@propengen2;
+IntegratedIn=Display
+
+[Features]
+Stylus=true
+Reversible=false
+Touch=true
+Ring=false
+
+[Keys]
+# first key is in-kernel display toggle
+KeyCodes=0;KEY_CONTROLPANEL;KEY_ONSCREEN_KEYBOARD;KEY_BUTTONCONFIG;SW_MUTE_DEVICE

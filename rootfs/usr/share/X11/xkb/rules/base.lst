@@ -479,6 +479,8 @@
   bepo_latin9     fr: French (BEPO, Latin-9 only)
   bepo_afnor      fr: French (BEPO, AFNOR)
   dvorak          fr: French (Dvorak)
+  ergol           fr: French (Ergo‑L)
+  ergol_iso       fr: French (Ergo‑L, ISO variant)
   mac             fr: French (Macintosh)
   us              fr: French (US)
   bre             fr: Breton (France)

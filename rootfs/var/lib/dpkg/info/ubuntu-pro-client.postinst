@@ -41,26 +41,20 @@ mark_reboot_cmds_as_needed() {
     fi
 }
 
-
 case "$1" in
     configure)
       PREVIOUS_PKG_VER=$2
 
       #
-      # Migrations from previous ubuntu-pro-client package versions
-      #
-      # These should always be version-gated using PREVIOUS_PKG_VER and execute in order from oldest to newest.
-      # For example:
-      #   if dpkg --compare-versions "$PREVIOUS_PKG_VER" lt "33~"; then
-      #       # do the migrations to version 33
-      #   fi
-      #   if dpkg --compare-versions "$PREVIOUS_PKG_VER" lt "34~"; then
-      #       # do the migrations to version 34
-      #   fi
+      # Migrations from previous ubuntu-pro-client package versions.
+      # These all exist in postinst-migrations.sh.
+      # See the explanation in that file.
+      # Do not add additional version migrations directly in this file.
       #
 
-      # none yet for ubuntu-pro-client package
-
+      if dpkg --compare-versions "$PREVIOUS_PKG_VER" ge "31~"; then
+          /usr/lib/ubuntu-advantage/postinst-migrations.sh $PREVIOUS_PKG_VER
+      fi
 
       #
       # do-release-upgrade migrations from previous Ubuntu release ubuntu-pro-client package versions
@@ -86,7 +80,7 @@ case "$1" in
       if grep -q "^ua_config:" /etc/ubuntu-advantage/uaclient.conf; then
           echo "Warning: uaclient.conf contains old ua_config field." >&2
           echo "         Please do the following:" >&2
-          echo "         1. Run 'pro config set field=value' for each field/value pair" >&2
+          echo "         1. Run 'sudo pro config set field=value' for each field/value pair" >&2
           echo "            present under ua_config in /etc/ubuntu-advantage/uaclient.conf" >&2
           echo "         2. Delete ua_config and all sub-fields in" >&2
           echo "            /etc/ubuntu-advantage/uaclient.conf" >&2
@@ -94,12 +88,31 @@ case "$1" in
       ;;
 esac
 
-# Automatically added by dh_apparmor/4.0.0-beta3-0ubuntu3
+# Automatically added by dh_apparmor/4.0.1really4.0.1-0ubuntu0.24.04.3
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/ubuntu_pro_apt_news"
     if [ -f "$APP_PROFILE" ]; then
         # Add the local/ include
         LOCAL_APP_PROFILE="/etc/apparmor.d/local/ubuntu_pro_apt_news"
+
+        test -e "$LOCAL_APP_PROFILE" || {
+            mkdir -p `dirname "$LOCAL_APP_PROFILE"`
+            install --mode 644 /dev/null "$LOCAL_APP_PROFILE"
+        }
+
+        # Reload the profile, including any abstraction updates
+        if aa-enabled --quiet 2>/dev/null; then
+            apparmor_parser -r -T -W "$APP_PROFILE" || true
+        fi
+    fi
+fi
+# End automatically added section
+# Automatically added by dh_apparmor/4.0.1really4.0.1-0ubuntu0.24.04.3
+if [ "$1" = "configure" ]; then
+    APP_PROFILE="/etc/apparmor.d/ubuntu_pro_esm_cache"
+    if [ -f "$APP_PROFILE" ]; then
+        # Add the local/ include
+        LOCAL_APP_PROFILE="/etc/apparmor.d/local/ubuntu_pro_esm_cache"
 
         test -e "$LOCAL_APP_PROFILE" || {
             mkdir -p `dirname "$LOCAL_APP_PROFILE"`

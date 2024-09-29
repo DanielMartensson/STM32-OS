@@ -1,0 +1,13 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libnorm.so.1
+/usr/share
+/usr/share/doc
+/usr/share/doc/libnorm1t64
+/usr/share/doc/libnorm1t64/changelog.Debian.gz
+/usr/share/doc/libnorm1t64/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libnorm1t64

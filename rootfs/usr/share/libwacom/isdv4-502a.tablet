@@ -1,0 +1,15 @@
+# Toshiba Portege X20W-D Convertible and Toshiba TruPen
+
+[Device]
+Name=Wacom ISDv4 50a2
+ModelName=
+DeviceMatch=usb:056a:50a2
+Class=ISDV4
+Width=11
+Height=6
+IntegratedIn=Display;System
+Styli=@isdv4-aes;
+
+[Features]
+Stylus=true
+Touch=true

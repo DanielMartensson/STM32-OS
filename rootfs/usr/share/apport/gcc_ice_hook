@@ -1,0 +1,44 @@
+#!/usr/bin/python3
+#
+# Copyright (c) 2007 Canonical Ltd.
+# Author: Martin Pitt <martin.pitt@ubuntu.com>
+#
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 2 of the License, or (at your
+# option) any later version.  See http://www.gnu.org/copyleft/gpl.html for
+# the full text of the license.
+
+"""Collect information about a gcc internal compiler exception (ICE)."""
+
+import sys
+
+import apport
+import apport.fileutils
+
+# parse command line arguments
+if len(sys.argv) != 3:
+    print(f"Usage: {sys.argv[0]} <executable name> <gcc -E output file>")
+    print(
+        'If "-" is specified as second argument,'
+        " the preprocessed source is read from stdin."
+    )
+    sys.exit(1)
+
+# workaround pylint-dev/pylint#7710, pylint: disable-next=unbalanced-tuple-unpacking
+(exename, sourcefile) = sys.argv[1:3]
+
+# create report
+pr = apport.Report()
+pr["ExecutablePath"] = exename
+if sourcefile == "-":
+    pr["PreprocessedSource"] = (sys.stdin, False)
+else:
+    pr["PreprocessedSource"] = (sourcefile, False)
+
+# write report
+try:
+    with apport.fileutils.make_report_file(pr) as f:
+        pr.write(f)
+except OSError as error:
+    apport.fatal("Cannot create report: %s", str(error))

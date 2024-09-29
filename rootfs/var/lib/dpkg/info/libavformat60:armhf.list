@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libavformat.so.60.16.100
+/usr/share
+/usr/share/doc
+/usr/share/doc/libavformat60
+/usr/share/doc/libavformat60/copyright
+/usr/lib/arm-linux-gnueabihf/libavformat.so.60
+/usr/share/doc/libavformat60/changelog.Debian.gz

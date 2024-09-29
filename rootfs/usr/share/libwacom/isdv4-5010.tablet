@@ -1,0 +1,15 @@
+# Active electrostatic (AES) sensor used by the Lenovo ThinkPad T550
+
+[Device]
+Name=Wacom ISDv4 5010
+ModelName=
+DeviceMatch=usb:056a:5010
+Class=ISDV4
+Width=11
+Height=6
+IntegratedIn=Display;System
+Styli=@isdv4-aes;
+
+[Features]
+Stylus=true
+Touch=true

@@ -1,0 +1,5 @@
+3326a36038608318bb84235e5c584d9a  usr/lib/arm-linux-gnueabihf/libvdpau.so.1.0.0
+12c1bf463e53c83f67afd4ba720e9255  usr/lib/arm-linux-gnueabihf/vdpau/libvdpau_trace.so.1.0.0
+06358f75d5b6605d3b159637a9fc3581  usr/share/bug/libvdpau1
+01a5cdb6c1a290b39c99fd8f798f5b39  usr/share/doc/libvdpau1/changelog.Debian.gz
+0640c85f7fc1969a7ef2652eb8ed356c  usr/share/doc/libvdpau1/copyright

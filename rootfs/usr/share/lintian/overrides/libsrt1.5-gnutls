@@ -1,0 +1,4 @@
+# package name also reflects the library used to enable encryption
+libsrt1.5-gnutls: package-name-doesnt-match-sonames libsrt-gnutls1.5
+# C++ library with over 1000 exported symbols, so let's stick with shlibs
+libsrt1.5-gnutls: no-symbols-control-file usr/lib/*/libsrt-gnutls.so.1.5.*

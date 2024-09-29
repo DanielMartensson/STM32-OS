@@ -4,7 +4,7 @@ import logging
 import os
 from typing import Any, Dict, List, Optional  # noqa: F401
 
-from uaclient import exceptions, http, system, util
+from uaclient import exceptions, http, secret_manager, system, util
 from uaclient.clouds import AutoAttachCloudInstance
 
 LOG = logging.getLogger(util.replace_top_level_logger_name(__name__))
@@ -29,6 +29,7 @@ GCP_LICENSES = {
     "bionic": "6022427724719891830",
     "focal": "599959289349842382",
     "jammy": "2592866803419978320",
+    "noble": "2176054482269786025",
 }
 
 
@@ -47,6 +48,7 @@ class UAAutoAttachGCPInstance(AutoAttachCloudInstance):
             TOKEN_URL, headers={"Metadata-Flavor": "Google"}, timeout=1
         )
         if response.code == 200:
+            secret_manager.secrets.add_secret(response.body)
             return {"identityToken": response.body}
 
         error_desc = response.json_dict.get("error_description")

@@ -1,0 +1,5 @@
+2697b2853583fae909a2c0f5cf5915d8  usr/bin/gtk-update-icon-cache
+5228260cfcb02d76bdc8c8f31a42b312  usr/sbin/update-icon-caches
+0cbe7814e76fb5e225075a38ff9a86d7  usr/share/doc/gtk-update-icon-cache/changelog.Debian.gz
+f0699c6a032baccef61fdf71d85aa078  usr/share/doc/gtk-update-icon-cache/copyright
+b149a68b474dc49babc079f06646ba80  usr/share/man/man1/gtk-update-icon-cache.1.gz

@@ -1,16 +1,13 @@
 import copy
-import json
 import logging
 import os
-from collections import namedtuple
 from functools import lru_cache, wraps
-from typing import Any, Dict, Optional, Tuple
+from typing import Any, Dict, Optional
 
 from uaclient import (
     apt,
     event_logger,
     exceptions,
-    files,
     http,
     messages,
     snap,
@@ -26,10 +23,8 @@ from uaclient.defaults import (
     CONFIG_FIELD_ENVVAR_ALLOWLIST,
     DEFAULT_CONFIG_FILE,
     DEFAULT_DATA_DIR,
-    PRIVATE_SUBDIR,
 )
-from uaclient.files import notices, state_files
-from uaclient.files.notices import Notice
+from uaclient.files import user_config_file
 from uaclient.yaml import safe_load
 
 LOG = logging.getLogger(util.replace_top_level_logger_name(__name__))
@@ -69,21 +64,11 @@ VALID_UA_CONFIG_KEYS = (
     "livepatch_url",
 )
 
-# A data path is a filename, an attribute ("private") indicating whether it
-# should only be readable by root.
-DataPath = namedtuple("DataPath", ("filename", "private"))
 
 event = event_logger.get_event_logger()
 
 
 class UAConfig:
-    data_paths = {
-        "instance-id": DataPath("instance-id", True),
-        "machine-access-cis": DataPath("machine-access-cis.json", True),
-        "lock": DataPath("lock", False),
-        "status-cache": DataPath("status.json", False),
-    }  # type: Dict[str, DataPath]
-
     ua_scoped_proxy_options = ("ua_apt_http_proxy", "ua_apt_https_proxy")
     global_scoped_proxy_options = (
         "global_apt_http_proxy",
@@ -97,7 +82,7 @@ class UAConfig:
     def __init__(
         self,
         cfg: Optional[Dict[str, Any]] = None,
-        user_config: Optional[state_files.UserConfigData] = None,
+        user_config: Optional[user_config_file.UserConfigData] = None,
         series: Optional[str] = None,
     ) -> None:
         """"""
@@ -113,36 +98,21 @@ class UAConfig:
             self.user_config = user_config
         else:
             try:
-                self.user_config = (
-                    state_files.user_config_file.read()
-                    or state_files.UserConfigData()
-                )
+                self.user_config = user_config_file.user_config.read()
             except Exception as e:
                 LOG.warning("Error loading user config", exc_info=e)
                 LOG.warning("Using default config values")
-                self.user_config = state_files.UserConfigData()
+                self.user_config = user_config_file.UserConfigData()
 
         # support old ua_config values in uaclient.conf as user-config.json
         # value overrides
         if "ua_config" in self.cfg:
-            self.user_config = state_files.UserConfigData.from_dict(
+            self.user_config = user_config_file.UserConfigData.from_dict(
                 {**self.user_config.to_dict(), **self.cfg["ua_config"]},
                 optional_type_errors_become_null=True,
             )
 
         self.series = series
-        self._machine_token_file = (
-            None
-        )  # type: Optional[files.MachineTokenFile]
-
-    @property
-    def machine_token_file(self):
-        if not self._machine_token_file:
-            self._machine_token_file = files.MachineTokenFile(
-                self.data_dir,
-                self.features.get("machine_token_overlay"),
-            )
-        return self._machine_token_file
 
     @property
     def contract_url(self) -> str:
@@ -163,7 +133,7 @@ class UAConfig:
     @http_proxy.setter
     def http_proxy(self, value: str):
         self.user_config.http_proxy = value
-        state_files.user_config_file.write(self.user_config)
+        user_config_file.user_config.write(self.user_config)
 
     @property
     def https_proxy(self) -> Optional[str]:
@@ -172,7 +142,7 @@ class UAConfig:
     @https_proxy.setter
     def https_proxy(self, value: str):
         self.user_config.https_proxy = value
-        state_files.user_config_file.write(self.user_config)
+        user_config_file.user_config.write(self.user_config)
 
     @property
     def ua_apt_https_proxy(self) -> Optional[str]:
@@ -181,7 +151,7 @@ class UAConfig:
     @ua_apt_https_proxy.setter
     def ua_apt_https_proxy(self, value: str):
         self.user_config.ua_apt_https_proxy = value
-        state_files.user_config_file.write(self.user_config)
+        user_config_file.user_config.write(self.user_config)
 
     @property
     def ua_apt_http_proxy(self) -> Optional[str]:
@@ -190,7 +160,7 @@ class UAConfig:
     @ua_apt_http_proxy.setter
     def ua_apt_http_proxy(self, value: str):
         self.user_config.ua_apt_http_proxy = value
-        state_files.user_config_file.write(self.user_config)
+        user_config_file.user_config.write(self.user_config)
 
     @property  # type: ignore
     @lru_cache(maxsize=None)
@@ -214,7 +184,7 @@ class UAConfig:
         self.user_config.global_apt_http_proxy = value
         self.user_config.apt_http_proxy = None
         UAConfig.global_apt_http_proxy.fget.cache_clear()  # type: ignore
-        state_files.user_config_file.write(self.user_config)
+        user_config_file.user_config.write(self.user_config)
 
     @property  # type: ignore
     @lru_cache(maxsize=None)
@@ -238,7 +208,7 @@ class UAConfig:
         self.user_config.global_apt_https_proxy = value
         self.user_config.apt_https_proxy = None
         UAConfig.global_apt_https_proxy.fget.cache_clear()  # type: ignore
-        state_files.user_config_file.write(self.user_config)
+        user_config_file.user_config.write(self.user_config)
 
     @property
     def update_messaging_timer(self) -> int:
@@ -250,7 +220,7 @@ class UAConfig:
     @update_messaging_timer.setter
     def update_messaging_timer(self, value: int):
         self.user_config.update_messaging_timer = value
-        state_files.user_config_file.write(self.user_config)
+        user_config_file.user_config.write(self.user_config)
 
     @property
     def metering_timer(self) -> int:
@@ -262,7 +232,7 @@ class UAConfig:
     @metering_timer.setter
     def metering_timer(self, value: int):
         self.user_config.metering_timer = value
-        state_files.user_config_file.write(self.user_config)
+        user_config_file.user_config.write(self.user_config)
 
     @property
     def poll_for_pro_license(self) -> bool:
@@ -277,7 +247,7 @@ class UAConfig:
     @poll_for_pro_license.setter
     def poll_for_pro_license(self, value: bool):
         self.user_config.poll_for_pro_license = value
-        state_files.user_config_file.write(self.user_config)
+        user_config_file.user_config.write(self.user_config)
 
     @property
     def polling_error_retry_delay(self) -> int:
@@ -291,7 +261,7 @@ class UAConfig:
     @polling_error_retry_delay.setter
     def polling_error_retry_delay(self, value: int):
         self.user_config.polling_error_retry_delay = value
-        state_files.user_config_file.write(self.user_config)
+        user_config_file.user_config.write(self.user_config)
 
     @property
     def apt_news(self) -> bool:
@@ -303,7 +273,7 @@ class UAConfig:
     @apt_news.setter
     def apt_news(self, value: bool):
         self.user_config.apt_news = value
-        state_files.user_config_file.write(self.user_config)
+        user_config_file.user_config.write(self.user_config)
 
     @property
     def apt_news_url(self) -> str:
@@ -315,50 +285,7 @@ class UAConfig:
     @apt_news_url.setter
     def apt_news_url(self, value: str):
         self.user_config.apt_news_url = value
-        state_files.user_config_file.write(self.user_config)
-
-    def check_lock_info(self) -> Tuple[int, str]:
-        """Return lock info if config lock file is present the lock is active.
-
-        If process claiming the lock is no longer present, remove the lock file
-        and log a warning.
-
-        :param lock_path: Full path to the lock file.
-
-        :return: A tuple (pid, string describing lock holder)
-            If no active lock, pid will be -1.
-        """
-        lock_path = self.data_path("lock")
-        no_lock = (-1, "")
-        if not os.path.exists(lock_path):
-            return no_lock
-        lock_content = system.load_file(lock_path)
-
-        try:
-            [lock_pid, lock_holder] = lock_content.split(":")
-        except ValueError:
-            raise exceptions.InvalidLockFile(
-                lock_file_path=os.path.join(self.data_dir, "lock")
-            )
-
-        try:
-            system.subp(["ps", lock_pid])
-            return (int(lock_pid), lock_holder)
-        except exceptions.ProcessExecutionError:
-            if not util.we_are_currently_root():
-                LOG.debug(
-                    "Found stale lock file previously held by %s:%s",
-                    lock_pid,
-                    lock_holder,
-                )
-                return (int(lock_pid), lock_holder)
-            LOG.warning(
-                "Removing stale lock file previously held by %s:%s",
-                lock_pid,
-                lock_holder,
-            )
-            system.ensure_file_absent(lock_path)
-            return no_lock
+        user_config_file.user_config.write(self.user_config)
 
     @property
     def data_dir(self):
@@ -390,85 +317,6 @@ class UAConfig:
                     features,
                 )
         return {}
-
-    @property
-    def machine_token(self):
-        """Return the machine-token if cached in the machine token response."""
-        return self.machine_token_file.machine_token
-
-    def data_path(self, key: Optional[str] = None) -> str:
-        """Return the file path in the data directory represented by the key"""
-        data_dir = self.data_dir
-        if not key:
-            return os.path.join(data_dir, PRIVATE_SUBDIR)
-        if key in self.data_paths:
-            data_path = self.data_paths[key]
-            if data_path.private:
-                return os.path.join(
-                    data_dir, PRIVATE_SUBDIR, data_path.filename
-                )
-            return os.path.join(data_dir, data_path.filename)
-        return os.path.join(data_dir, PRIVATE_SUBDIR, key)
-
-    def cache_key_exists(self, key: str) -> bool:
-        cache_path = self.data_path(key)
-        return os.path.exists(cache_path)
-
-    def delete_cache_key(self, key: str) -> None:
-        """Remove specific cache file."""
-        if not key:
-            raise RuntimeError(
-                "Invalid or empty key provided to delete_cache_key"
-            )
-        if key.startswith("machine-access"):
-            self._machine_token_file = None
-        elif key == "lock":
-            notices.remove(Notice.OPERATION_IN_PROGRESS)
-        cache_path = self.data_path(key)
-        system.ensure_file_absent(cache_path)
-
-    def delete_cache(self):
-        """
-        Remove configuration cached response files class attributes.
-        """
-        for path_key in self.data_paths.keys():
-            self.delete_cache_key(path_key)
-
-    def read_cache(self, key: str, silent: bool = False) -> Optional[Any]:
-        cache_path = self.data_path(key)
-        try:
-            content = system.load_file(cache_path)
-        except Exception:
-            if not os.path.exists(cache_path) and not silent:
-                LOG.debug("File does not exist: %s", cache_path)
-            return None
-        try:
-            return json.loads(content, cls=util.DatetimeAwareJSONDecoder)
-        except ValueError:
-            return content
-
-    def write_cache(self, key: str, content: Any) -> None:
-        filepath = self.data_path(key)
-        data_dir = os.path.dirname(filepath)
-        if not os.path.exists(data_dir):
-            os.makedirs(data_dir, exist_ok=True)
-            if os.path.basename(data_dir) == PRIVATE_SUBDIR:
-                os.chmod(data_dir, 0o700)
-        if key.startswith("machine-access"):
-            self._machine_token_file = None
-        elif key == "lock":
-            if ":" in content:
-                notices.add(
-                    Notice.OPERATION_IN_PROGRESS,
-                    operation=content.split(":")[1],
-                )
-        if not isinstance(content, str):
-            content = json.dumps(content, cls=util.DatetimeAwareJSONEncoder)
-        mode = 0o600
-        if key in self.data_paths:
-            if not self.data_paths[key].private:
-                mode = 0o644
-        system.write_file(filepath, content, mode=mode)
 
     def process_config(self):
         for prop in (
@@ -542,13 +390,16 @@ class UAConfig:
                 services_with_proxies.append("snap")
 
         from uaclient import livepatch
-        from uaclient.entitlements.entitlement_status import ApplicationStatus
-        from uaclient.entitlements.livepatch import LivepatchEntitlement
+        from uaclient.api.u.pro.status.enabled_services.v1 import (
+            _enabled_services,
+        )
 
-        livepatch_ent = LivepatchEntitlement(self)
-        livepatch_status, _ = livepatch_ent.application_status()
+        enabled_services = _enabled_services(self).enabled_services
+        livepatch_enabled = any(
+            ent for ent in enabled_services if ent.name == "livepatch"
+        )
 
-        if livepatch_status == ApplicationStatus.ENABLED:
+        if livepatch_enabled:
             livepatch.configure_livepatch_proxy(
                 self.http_proxy, self.https_proxy
             )
@@ -585,7 +436,7 @@ class UAConfig:
             LOG.warning('legacy "ua_config" found in uaclient.conf')
             LOG.warning("Please do the following:")
             LOG.warning(
-                "  1. run `pro config set field=value` for each"
+                "  1. run `sudo pro config set field=value` for each"
                 ' field/value pair present under "ua_config" in'
                 " /etc/ubuntu-advantage/uaclient.conf"
             )

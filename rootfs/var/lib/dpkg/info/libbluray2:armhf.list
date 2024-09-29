@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libbluray.so.2.4.3
+/usr/share
+/usr/share/doc
+/usr/share/doc/libbluray2
+/usr/share/doc/libbluray2/changelog.Debian.gz
+/usr/share/doc/libbluray2/copyright
+/usr/lib/arm-linux-gnueabihf/libbluray.so.2

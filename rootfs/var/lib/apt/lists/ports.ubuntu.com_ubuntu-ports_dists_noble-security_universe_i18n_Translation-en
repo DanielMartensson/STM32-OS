@@ -947,6 +947,21 @@ Description-en: CrowdSec bouncer for firewalls
  level via blocklists. It supports both nftables and iptables+ipset (IPv4
  and IPv6).
 
+Package: cups-browsed-tests
+Description-md5: a98d690349003fa24f51871870d532c8
+Description-en: OpenPrinting cups-browsed - Test script for autopkgtests
+ This package provides cups-browsed, a daemon which browses the Bonjour
+ broadcasts of shared remote CUPS printers and makes the printers
+ available locally, replacing the CUPS broadcasting/browsing which was
+ dropped in CUPS 1.6.x. This way the old behavior of having the remote
+ printers available automatically is now re-implemented with Bonjour.
+ .
+ This package contains a test script from the upstream code which is used
+ for the autopkgtests.
+ .
+ For using cups-browsed you do not need to install this package. It does not
+ contain anything useful for end users.
+
 Package: dasel
 Description-md5: 3f8318fcd9c3319a6a0449e33c591271
 Description-en: Query, update and convert data structures from the command line (program)
@@ -6030,6 +6045,21 @@ Description-en: Plasma Workspace for KF5 library
  .
  This package contains library files.
 
+Package: libcupsfilters-tests
+Description-md5: 14ad6a58b3641ba0e086ef4929e4d29d
+Description-en: OpenPrinting libcupsfilters - Test programs for autopkgtests
+ This library contains filter functions doing all kinds of file format
+ conversion used for printing and scanning, to be used in Printer
+ Applications, CUPS filters, printer drivers, ... also other commonly
+ used functions for handling print data, like color space/depth
+ conversion, dithering, IPP message parsing, ... are available.
+ .
+ This package contains test programs from the upstream code which are used
+ for the autopkgtests.
+ .
+ For using libcupsfilters you do not need to install this package. It does not
+ contain anything useful for end users.
+
 Package: libfreerdp-shadow-subsystem3-3
 Description-md5: 6ef6436c34df72c1cfaf1cf4dabe3235
 Description-en: FreeRDP Remote Desktop Protocol shadow subsystem libraries
@@ -6352,6 +6382,73 @@ Description-en: nss plugins providing IP address resolution for virtual machines
  managed virtual machines: the 'libvirt_guest' plugin uses libvirt's domain
  names while the 'libvirt' plugin looks at the guest's hostname.
 
+Package: libopenjp2-tools
+Description-md5: f29e7484a0cd49077edc02dc570a9a4b
+Description-en: command-line tools using the JPEG 2000 library
+ This package provides with command-line tools allowing for conversions between
+ several formats and also provides tools for encoding and decoding
+ motion-jpeg2000 video formats:
+ .
+  - opj_decompress: decodes j2k, jp2, and jpt files to pgm, ppm, pnm,
+                  pgx, and bmp.
+  - opj_compress: encodes pnm, pgm, pgx, bmp, and ppm files to j2k,
+                  and jp2.
+  - opj_dump: dump information contains in j2k and jp2.
+  - index_create: create jp2 with JPIP index file from a j2k file.
+  - frames_to_mj2: convert YUV video streams to mj2 format.
+  - mj2_to_frames: convert mj2 video streams to YUV format.
+  - wrap_j2k_in_mj2: wrap j2k codestreams into mj2 format.
+  - extract-j2k-from_mj2: extract j2k codestreams from the mj2 format.
+
+Package: libopenjpip-dec-server
+Description-md5: 200d1d78759ac8db1c5fffc4421914fa
+Description-en: tool to allow caching of JPEG 2000 files using JPIP protocol
+ This is client side application for caching remote JPEG 2000 using the JPIP
+ protocol. This command line application needs to run on the client side to
+ allow application such as opj_viewer to view images.
+
+Package: libopenjpip-server
+Description-md5: a1ff98fe57f04dbd0d10223568f211fe
+Description-en: JPIP server for JPEG 2000 files
+ OpenJPIP software is an implementation of JPEG 2000 Part9: Interactivity tools,
+ APIs and protocols (JPIP). For more info about JPIP, check the website:
+ http://www.jpeg.org/jpeg2000/j2kpart9.html. The current implementation uses
+ some results from the 2KAN project (http://www.2kan.org).
+ .
+ First Version covers:
+ .
+  - JPT-stream (Tile based) and JPP-stream (Precinct based) media types
+  - Session, channels, cache model managements
+  - JPIP over HTTP
+  - Indexing JPEG 2000 files
+  - Embedding XML formatted metadata
+  - Region Of Interest (ROI) requests
+
+Package: libopenjpip-viewer
+Description-md5: 5afa12d72ab835df2e19149b8ff31d51
+Description-en: JPEG 2000 java based viewer for advanced remote JPIP access
+ Java based client to view remote JPEG 2000 using JPIP protocol.
+ This is a simple java viewer to allow:
+ .
+  - Scale up request: Enlarge the window
+  - ROI request: Select a region by mouse click and drag, then click inside the
+    red frame of the selected region
+  - Annotate image with ROI information in XML metadata: Click button "Region
+    Of Interest"
+  - Open a new window presenting an aligned image with a locally stored image:
+    Click button "Image Registration" (Under Construction)
+
+Package: libopenjpip7
+Description-md5: 50cc5e723cb5be57e1d384f85d8d78f9
+Description-en: JPEG 2000 Interactive Protocol
+ OpenJPEG is a library for handling the JPEG 2000 image compression format.
+ JPEG 2000 is a wavelet-based image compression standard and permits progressive
+ transmission by pixel and resolution accuracy for progressive downloads of an
+ encoded image. It supports lossless and lossy compression, supports higher
+ compression than JPEG 1991, and has resilience to errors in the image.
+ .
+ This is an implementation of the JPEG 2000 Interactive Protocol (Part-9)
+
 Package: libphp8.3-embed
 Description-md5: bb653dd86e2dab4cff0e1464cdab0028
 Description-en: HTML-embedded scripting language (Embedded SAPI library)
@@ -6418,6 +6515,44 @@ Description-en: PDF rendering library -- development files (Qt 6 interface)
  .
  This package contains the headers and development libraries needed to
  build applications using the Qt 6-based Poppler interface.
+
+Package: libppd-tests
+Description-md5: a30cdd50425510de61c40aa7f0de6a34
+Description-en: OpenPrinting libppd - Upstream test programs for autopkgtests
+ This library contains everything needed to support PPD (PostScript
+ Printer Description) files, reading and parsing, handling collections
+ of PPD files, building PPD files from printer IPP attributes and from
+ *.drv files.
+ .
+ It contains the full PPD file and PostScript output functionality of
+ CUPS 2.x (libcups, ppdc) and cups-filters 1.x, so that the functionality
+ stays available for retro-fitting classic CUPS drivers after switching
+ to CUPS 3.x which has all PPD file support removed.
+ .
+ This package contains test programs from the upstream code which are used
+ for the autopkgtests.
+ .
+ For using libppd you do not need to install this package. It does not
+ contain anything useful for end users.
+
+Package: libppd-utils
+Description-md5: 9f3a670fe142c6ba86028f0bed73dccb
+Description-en: OpenPrinting libppd - PPD manipulation and test utilities
+ This library contains everything needed to support PPD (PostScript
+ Printer Description) files, reading and parsing, handling collections
+ of PPD files, building PPD files from printer IPP attributes and from
+ *.drv files.
+ .
+ It contains the full PPD file and PostScript output functionality of
+ CUPS 2.x (libcups, ppdc) and cups-filters 1.x, so that the functionality
+ stays available for retro-fitting classic CUPS drivers after switching
+ to CUPS 3.x which has all PPD file support removed.
+ .
+ This package provides the test utility testppdfile which replaces
+ the cupstestppd utility of CUPS 2.x. It also provides command line
+ utilities to generate and manipulate PPD files and convert between PPD
+ files and *.drv files. The core functionality of these utilities is
+ implemented in libppd.
 
 Package: libpython3.12-testsuite
 Description-md5: ad730db5e04da1131b8cceebc4970626
@@ -7130,6 +7265,16 @@ Description-en: TIFF manipulation and conversion tools
  and tools for doing simple manipulations of TIFF images.  See also
  libtiff-opengl.
 
+Package: libtomcat9-java
+Description-md5: 00d5ea98b1d596ecf9152383a3eafc0d
+Description-en: Apache Tomcat 9 - Servlet and JSP engine -- core libraries
+ Apache Tomcat implements the Java Servlet and the JavaServer Pages (JSP)
+ specifications from Oracle, and provides a "pure Java" HTTP web
+ server environment for Java code to run.
+ .
+ This package contains the Tomcat core classes which can be used by other
+ Java applications to embed Tomcat.
+
 Package: libunoil-java
 Description-md5: 9e017c19c2cbf8cab7b83a1ee17e6890
 Description-en: transitional package for LibreOffice UNO runtime environment
@@ -7599,6 +7744,25 @@ Description-en: Linux kernel version specific tools for version 6.8.0-1006
  version locked tools (such as perf and x86_energy_perf_policy) for
  version 6.8.0-1006 on
  64 bit x86.
+
+Package: linux-xilinx-headers-6.8.0-1008
+Description-md5: 7283ae4caebf04fc39513cf998f8691f
+Description-en: Header files related to Linux kernel version 6.8.0
+ This package provides kernel header files for version 6.8.0, for sites
+ that want the latest kernel headers. Please read
+ /usr/share/doc/linux-xilinx-headers-6.8.0-1008/debian.README.gz for details
+
+Package: linux-xilinx-tools-common
+Description-md5: aee6cd2d95f555559f899e9ee0c4e27a
+Description-en: Linux kernel version specific tools for version 6.8.0
+ This package provides the architecture independent parts for kernel
+ version locked tools (such as perf and x86_energy_perf_policy) for
+ version 6.8.0.
+
+Package: linux-xilinx-tools-host
+Description-md5: d29120b11150b79af4338241d0a5dc74
+Description-en: Linux kernel VM host tools
+ This package provides kernel tools useful for VM hosts.
 
 Package: lltsv
 Description-md5: 18cd2f542a1742732ce920f981c68df4
@@ -9390,6 +9554,12 @@ Description-en: development files for PostgreSQL 16 server-side programming
  PostgreSQL source-code tree.
  .
  PostgreSQL is an object-relational SQL database management system.
+
+Package: ppdc
+Description-md5: e7f99ec45e57c5a517be9d38459a27ea
+Description-en: OpenPrinting libppd - PPD utilities (transitional package)
+ This is a transitional package and can safely be removed once no other
+ packages depend on it.
 
 Package: prometheus
 Description-md5: ed8e3840401470b3bc3fb55243535f98
@@ -12017,6 +12187,93 @@ Description-en: seamless ssh agent for YubiKeys
  The key is generated on the YubiKey and can't be extracted. Every
  session requires the PIN, every login requires a touch. The setup
  takes care of the PUK and the management key.
+
+Package: linux-buildinfo-6.8.0-1008-xilinx
+Description-md5: 5a6366eac80524daf4fff1198b9b2a45
+Description-en: Linux kernel buildinfo for version 6.8.0 on ARMv8 SMP
+ This package contains the Linux kernel buildinfo for version 6.8.0 on
+ ARMv8 SMP.
+ .
+ You likely do not want to install this package.
+
+Package: linux-headers-6.8.0-1008-xilinx
+Description-md5: 4645431190c736aca24df48dc4acfe93
+Description-en: Linux kernel headers for version 6.8.0 on ARMv8 SMP
+ This package provides kernel header files for version 6.8.0 on
+ ARMv8 SMP.
+ .
+ This is for sites that want the latest kernel headers.  Please read
+ /usr/share/doc/linux-headers-6.8.0-1008/debian.README.gz for details.
+
+Package: linux-headers-xilinx
+Description-md5: fa0acf240b783404e900dcda9b66c38e
+Description-en: Linux kernel headers for Xilinx ZYNQ Ultrascale+ systems.
+ This package will always depend on the latest kernel headers available
+ for for Xilinx ZYNQ Ultrascale+ systems.
+
+Package: linux-image-6.8.0-1008-xilinx
+Description-md5: 35443ba3c52a7d34547ffbf2d0ab21b3
+Description-en: Linux kernel image for version 6.8.0 on ARMv8 SMP
+ This package contains the Linux kernel image for version 6.8.0 on
+ ARMv8 SMP.
+ .
+ Supports Xilinx ZYNQ Ultrascale+ processors.
+ .
+ Geared toward desktop and server systems.
+ .
+ You likely do not want to install this package directly. Instead, install
+ the linux-xilinx meta-package, which will ensure that upgrades work
+ correctly, and that supporting packages are also installed.
+
+Package: linux-image-xilinx
+Description-md5: 06208ef28340df18c0f77b072594dff3
+Description-en: Linux kernel image for Xilinx ZYNQ Ultrascale+ systems.
+ This package will always depend on the latest kernel image available
+ for Xilinx ZYNQ Ultrascale+ systems.
+
+Package: linux-modules-6.8.0-1008-xilinx
+Description-md5: 2f8e18f126968a4f1524da9af16a3f8b
+Description-en: Linux kernel extra modules for version 6.8.0 on ARMv8 SMP
+ Contains the corresponding System.map file, the modules built by the
+ packager, and scripts that try to ensure that the system is not left in an
+ unbootable state after an update.
+ .
+ Supports Xilinx ZYNQ Ultrascale+ processors.
+ .
+ Geared toward desktop and server systems.
+ .
+ You likely do not want to install this package directly. Instead, install
+ the linux-xilinx meta-package, which will ensure that upgrades work
+ correctly, and that supporting packages are also installed.
+
+Package: linux-tools-6.8.0-1008-xilinx
+Description-md5: 683f7dd1be136435f349619ff823b015
+Description-en: Linux kernel version specific tools for version 6.8.0-1008
+ This package provides the architecture dependant parts for kernel
+ version locked tools (such as perf and x86_energy_perf_policy) for
+ version 6.8.0-1008 on
+ ARMv8.
+
+Package: linux-tools-xilinx
+Description-md5: cb74ba9d8d077b1d38d9c66f1dc196d9
+Description-en: Linux kernel tools for Xilinx ZYNQ Ultrascale+ systems.
+ This package will always depend on the latest kernel tools available
+ for Xilinx ZYNQ Ultrascale+ systems.
+
+Package: linux-xilinx
+Description-md5: 0165521250eb9392a64a45c261d62c38
+Description-en: Complete Linux kernel and headers for Xilinx ZYNQ Ultrascale+ systems.
+ This package will always depend on the latest complete Linux kernel and headers
+ for Xilinx ZYNQ Ultrascale+ systems.
+
+Package: linux-xilinx-tools-6.8.0-1008
+Description-md5: 7d6a06f0922d972b56da0ef7b6036ec7
+Description-en: Linux kernel version specific tools for version 6.8.0-1008
+ This package provides the architecture dependant parts for kernel
+ version locked tools (such as perf and x86_energy_perf_policy) for
+ version 6.8.0-1008 on
+ ARMv8.
+ You probably want to install linux-tools-6.8.0-1008-<flavour>.
 
 Package: openjdk-11-jre
 Description-md5: 5bad8f597e182fdf0635f3b9fccbce1a

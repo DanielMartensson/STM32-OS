@@ -34,3 +34,62 @@ update-alternatives 2024-09-22 18:15:10: link group editor updated to point to /
 update-alternatives 2024-09-22 18:15:11: run with --install /usr/bin/pico pico /bin/nano 10 --slave /usr/share/man/man1/pico.1.gz pico.1.gz /usr/share/man/man1/nano.1.gz
 update-alternatives 2024-09-22 18:15:11: link group pico updated to point to /bin/nano
 update-alternatives 2024-09-22 19:45:27: run with --install /usr/bin/pager pager /bin/more 50 --slave /usr/share/man/man1/pager.1.gz pager.1.gz /usr/share/man/man1/more.1.gz
+update-alternatives 2024-09-23 18:04:12: run with --install /usr/bin/x-window-manager x-window-manager /usr/bin/ratpoison 20 --slave /usr/share/man/man1/x-window-manager.1.gz x-window-manager.1.gz /usr/share/man/man1/ratpoison.1.gz
+update-alternatives 2024-09-23 18:04:12: link group x-window-manager updated to point to /usr/bin/ratpoison
+update-alternatives 2024-09-23 18:04:41: run with --quiet --install /lib/cpp cpp /usr/bin/cpp 10
+update-alternatives 2024-09-23 18:04:41: link group cpp updated to point to /usr/bin/cpp
+update-alternatives 2024-09-23 18:04:47: run with --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/xterm 20 --slave /usr/share/man/man1/x-terminal-emulator.1.gz x-terminal-emulator.1.gz /usr/share/man/man1/xterm.1.gz
+update-alternatives 2024-09-23 18:04:47: link group x-terminal-emulator updated to point to /usr/bin/xterm
+update-alternatives 2024-09-23 18:04:47: run with --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/uxterm 20 --slave /usr/share/man/man1/x-terminal-emulator.1.gz x-terminal-emulator.1.gz /usr/share/man/man1/uxterm.1.gz
+update-alternatives 2024-09-23 18:04:47: run with --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/koi8rxterm 20 --slave /usr/share/man/man1/x-terminal-emulator.1.gz x-terminal-emulator.1.gz /usr/share/man/man1/koi8rxterm.1.gz
+update-alternatives 2024-09-23 18:04:47: run with --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/lxterm 30 --slave /usr/share/man/man1/x-terminal-emulator.1.gz x-terminal-emulator.1.gz /usr/share/man/man1/lxterm.1.gz
+update-alternatives 2024-09-23 18:04:47: link group x-terminal-emulator updated to point to /usr/bin/lxterm
+update-alternatives 2024-09-27 22:13:54: run with --quiet --remove cpp /usr/bin/cpp
+update-alternatives 2024-09-27 22:13:54: link group cpp fully removed
+update-alternatives 2024-09-27 22:14:07: run with --remove x-terminal-emulator /usr/bin/lxterm
+update-alternatives 2024-09-27 22:14:07: link group x-terminal-emulator updated to point to /usr/bin/koi8rxterm
+update-alternatives 2024-09-27 22:14:07: run with --remove x-terminal-emulator /usr/bin/koi8rxterm
+update-alternatives 2024-09-27 22:14:07: link group x-terminal-emulator updated to point to /usr/bin/uxterm
+update-alternatives 2024-09-27 22:14:07: run with --remove x-terminal-emulator /usr/bin/uxterm
+update-alternatives 2024-09-27 22:14:07: link group x-terminal-emulator updated to point to /usr/bin/xterm
+update-alternatives 2024-09-27 22:14:07: run with --remove x-terminal-emulator /usr/bin/xterm
+update-alternatives 2024-09-27 22:14:07: link group x-terminal-emulator fully removed
+update-alternatives 2024-09-27 22:28:03: run with --install /usr/lib/arm-linux-gnueabihf/libblas.so.3 libblas.so.3-arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf/blas/libblas.so.3 10
+update-alternatives 2024-09-27 22:28:03: link group libblas.so.3-arm-linux-gnueabihf updated to point to /usr/lib/arm-linux-gnueabihf/blas/libblas.so.3
+update-alternatives 2024-09-27 22:28:16: run with --install /usr/lib/arm-linux-gnueabihf/liblapack.so.3 liblapack.so.3-arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf/lapack/liblapack.so.3 10
+update-alternatives 2024-09-27 22:28:16: link group liblapack.so.3-arm-linux-gnueabihf updated to point to /usr/lib/arm-linux-gnueabihf/lapack/liblapack.so.3
+update-alternatives 2024-09-28 10:33:52: run with --remove liblapack.so.3-arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf/lapack/liblapack.so.3
+update-alternatives 2024-09-28 10:33:52: link group liblapack.so.3-arm-linux-gnueabihf fully removed
+update-alternatives 2024-09-28 10:33:52: run with --remove libblas.so.3-arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf/blas/libblas.so.3
+update-alternatives 2024-09-28 10:33:52: link group libblas.so.3-arm-linux-gnueabihf fully removed
+update-alternatives 2024-09-28 10:33:54: run with --remove x-window-manager /usr/bin/ratpoison
+update-alternatives 2024-09-28 10:33:54: link group x-window-manager fully removed
+update-alternatives 2024-09-28 10:40:45: run with --install /usr/lib/arm-linux-gnueabihf/libblas.so.3 libblas.so.3-arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf/blas/libblas.so.3 10
+update-alternatives 2024-09-28 10:40:45: link group libblas.so.3-arm-linux-gnueabihf updated to point to /usr/lib/arm-linux-gnueabihf/blas/libblas.so.3
+update-alternatives 2024-09-28 10:41:05: run with --install /usr/lib/arm-linux-gnueabihf/liblapack.so.3 liblapack.so.3-arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf/lapack/liblapack.so.3 10
+update-alternatives 2024-09-28 10:41:05: link group liblapack.so.3-arm-linux-gnueabihf updated to point to /usr/lib/arm-linux-gnueabihf/lapack/liblapack.so.3
+update-alternatives 2024-09-28 10:41:25: run with --install /usr/bin/x-window-manager x-window-manager /usr/bin/ratpoison 20 --slave /usr/share/man/man1/x-window-manager.1.gz x-window-manager.1.gz /usr/share/man/man1/ratpoison.1.gz
+update-alternatives 2024-09-28 10:41:25: link group x-window-manager updated to point to /usr/bin/ratpoison
+update-alternatives 2024-09-28 10:41:33: run with --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/zutty 40 --slave /usr/share/man/man1/x-terminal-emulator.1.gz x-terminal-emulator.1.gz /usr/share/man/man1/zutty.1.gz
+update-alternatives 2024-09-28 10:41:33: link group x-terminal-emulator updated to point to /usr/bin/zutty
+update-alternatives 2024-09-28 13:46:27: run with --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/xterm 20 --slave /usr/share/man/man1/x-terminal-emulator.1.gz x-terminal-emulator.1.gz /usr/share/man/man1/xterm.1.gz
+update-alternatives 2024-09-28 13:46:27: run with --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/uxterm 20 --slave /usr/share/man/man1/x-terminal-emulator.1.gz x-terminal-emulator.1.gz /usr/share/man/man1/uxterm.1.gz
+update-alternatives 2024-09-28 13:46:27: run with --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/koi8rxterm 20 --slave /usr/share/man/man1/x-terminal-emulator.1.gz x-terminal-emulator.1.gz /usr/share/man/man1/koi8rxterm.1.gz
+update-alternatives 2024-09-28 13:46:27: run with --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/lxterm 30 --slave /usr/share/man/man1/x-terminal-emulator.1.gz x-terminal-emulator.1.gz /usr/share/man/man1/lxterm.1.gz
+update-alternatives 2024-09-28 13:46:54: run with --quiet --install /lib/cpp cpp /usr/bin/cpp 10
+update-alternatives 2024-09-28 13:46:54: link group cpp updated to point to /usr/bin/cpp
+update-alternatives 2024-09-28 15:04:39: run with --remove x-window-manager /usr/bin/ratpoison
+update-alternatives 2024-09-28 15:04:39: link group x-window-manager fully removed
+update-alternatives 2024-09-28 17:13:53: run with --install /usr/share/icons/default/index.theme x-cursor-theme /etc/X11/cursors/core.theme 30
+update-alternatives 2024-09-28 17:13:53: link group x-cursor-theme updated to point to /etc/X11/cursors/core.theme
+update-alternatives 2024-09-28 17:13:53: run with --install /usr/share/icons/default/index.theme x-cursor-theme /etc/X11/cursors/redglass.theme 20
+update-alternatives 2024-09-28 17:13:53: run with --install /usr/share/icons/default/index.theme x-cursor-theme /etc/X11/cursors/whiteglass.theme 20
+update-alternatives 2024-09-28 17:13:54: run with --install /usr/share/icons/default/index.theme x-cursor-theme /etc/X11/cursors/handhelds.theme 20
+update-alternatives 2024-09-28 17:13:57: run with --install /usr/share/icons/default/index.theme x-cursor-theme /usr/share/icons/Adwaita/cursor.theme 90
+update-alternatives 2024-09-28 17:13:57: link group x-cursor-theme updated to point to /usr/share/icons/Adwaita/cursor.theme
+update-alternatives 2024-09-29 15:57:33: run with --quiet --install /usr/bin/pager pager /usr/bin/less 77 --slave /usr/share/man/man1/pager.1.gz pager.1.gz /usr/share/man/man1/less.1.gz
+update-alternatives 2024-09-29 15:58:44: run with --install /usr/bin/editor editor /usr/bin/vim.tiny 15 --slave /usr/share/man/man1/editor.1.gz editor.1.gz /usr/share/man/man1/vim.1.gz --slave /usr/share/man/da/man1/editor.1.gz editor.da.1.gz /usr/share/man/da/man1/vim.1.gz --slave /usr/share/man/de/man1/editor.1.gz editor.de.1.gz /usr/share/man/de/man1/vim.1.gz --slave /usr/share/man/fr/man1/editor.1.gz editor.fr.1.gz /usr/share/man/fr/man1/vim.1.gz --slave /usr/share/man/it/man1/editor.1.gz editor.it.1.gz /usr/share/man/it/man1/vim.1.gz --slave /usr/share/man/ja/man1/editor.1.gz editor.ja.1.gz /usr/share/man/ja/man1/vim.1.gz --slave /usr/share/man/pl/man1/editor.1.gz editor.pl.1.gz /usr/share/man/pl/man1/vim.1.gz --slave /usr/share/man/ru/man1/editor.1.gz editor.ru.1.gz /usr/share/man/ru/man1/vim.1.gz --slave /usr/share/man/tr/man1/editor.1.gz editor.tr.1.gz /usr/share/man/tr/man1/vim.1.gz
+update-alternatives 2024-09-29 15:58:44: run with --install /usr/bin/ex ex /usr/bin/vim.tiny 15 --slave /usr/share/man/man1/ex.1.gz ex.1.gz /usr/share/man/man1/vim.1.gz --slave /usr/share/man/da/man1/ex.1.gz ex.da.1.gz /usr/share/man/da/man1/vim.1.gz --slave /usr/share/man/de/man1/ex.1.gz ex.de.1.gz /usr/share/man/de/man1/vim.1.gz --slave /usr/share/man/fr/man1/ex.1.gz ex.fr.1.gz /usr/share/man/fr/man1/vim.1.gz --slave /usr/share/man/it/man1/ex.1.gz ex.it.1.gz /usr/share/man/it/man1/vim.1.gz --slave /usr/share/man/ja/man1/ex.1.gz ex.ja.1.gz /usr/share/man/ja/man1/vim.1.gz --slave /usr/share/man/pl/man1/ex.1.gz ex.pl.1.gz /usr/share/man/pl/man1/vim.1.gz --slave /usr/share/man/ru/man1/ex.1.gz ex.ru.1.gz /usr/share/man/ru/man1/vim.1.gz --slave /usr/share/man/tr/man1/ex.1.gz ex.tr.1.gz /usr/share/man/tr/man1/vim.1.gz
+update-alternatives 2024-09-29 15:58:44: run with --install /usr/bin/rview rview /usr/bin/vim.tiny 15
+update-alternatives 2024-09-29 15:58:44: run with --install /usr/bin/vi vi /usr/bin/vim.tiny 15 --slave /usr/share/man/man1/vi.1.gz vi.1.gz /usr/share/man/man1/vim.1.gz --slave /usr/share/man/da/man1/vi.1.gz vi.da.1.gz /usr/share/man/da/man1/vim.1.gz --slave /usr/share/man/de/man1/vi.1.gz vi.de.1.gz /usr/share/man/de/man1/vim.1.gz --slave /usr/share/man/fr/man1/vi.1.gz vi.fr.1.gz /usr/share/man/fr/man1/vim.1.gz --slave /usr/share/man/it/man1/vi.1.gz vi.it.1.gz /usr/share/man/it/man1/vim.1.gz --slave /usr/share/man/ja/man1/vi.1.gz vi.ja.1.gz /usr/share/man/ja/man1/vim.1.gz --slave /usr/share/man/pl/man1/vi.1.gz vi.pl.1.gz /usr/share/man/pl/man1/vim.1.gz --slave /usr/share/man/ru/man1/vi.1.gz vi.ru.1.gz /usr/share/man/ru/man1/vim.1.gz --slave /usr/share/man/tr/man1/vi.1.gz vi.tr.1.gz /usr/share/man/tr/man1/vim.1.gz
+update-alternatives 2024-09-29 15:58:44: run with --install /usr/bin/view view /usr/bin/vim.tiny 15 --slave /usr/share/man/man1/view.1.gz view.1.gz /usr/share/man/man1/vim.1.gz --slave /usr/share/man/da/man1/view.1.gz view.da.1.gz /usr/share/man/da/man1/vim.1.gz --slave /usr/share/man/de/man1/view.1.gz view.de.1.gz /usr/share/man/de/man1/vim.1.gz --slave /usr/share/man/fr/man1/view.1.gz view.fr.1.gz /usr/share/man/fr/man1/vim.1.gz --slave /usr/share/man/it/man1/view.1.gz view.it.1.gz /usr/share/man/it/man1/vim.1.gz --slave /usr/share/man/ja/man1/view.1.gz view.ja.1.gz /usr/share/man/ja/man1/vim.1.gz --slave /usr/share/man/pl/man1/view.1.gz view.pl.1.gz /usr/share/man/pl/man1/vim.1.gz --slave /usr/share/man/ru/man1/view.1.gz view.ru.1.gz /usr/share/man/ru/man1/vim.1.gz --slave /usr/share/man/tr/man1/view.1.gz view.tr.1.gz /usr/share/man/tr/man1/vim.1.gz

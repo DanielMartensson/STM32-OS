@@ -6,23 +6,26 @@ import logging
 from datetime import datetime, timedelta, timezone
 from typing import Callable, Optional
 
-from uaclient import http
+from uaclient import http, log
 from uaclient.config import UAConfig
-from uaclient.exceptions import InvalidFileFormatError
+from uaclient.exceptions import (
+    InvalidFileEncodingError,
+    InvalidFileFormatError,
+)
+from uaclient.files import machine_token
 from uaclient.files.state_files import (
     AllTimerJobsState,
     TimerJobState,
     timer_jobs_state_file,
 )
-from uaclient.log import setup_journald_logging
 from uaclient.timer.metering import metering_enabled_resources
-from uaclient.timer.update_contract_info import update_contract_info
+from uaclient.timer.update_contract_info import validate_release_series
 from uaclient.timer.update_messaging import update_motd_messages
 
 LOG = logging.getLogger("ubuntupro.timer")
 UPDATE_MESSAGING_INTERVAL = 21600  # 6 hours
 METERING_INTERVAL = 14400  # 4 hours
-UPDATE_CONTRACT_INFO_INTERVAL = 86400  # 24 hours
+CHECK_RELEASE_SERIES_INTERVAL = 86400  # 24 hours
 
 
 class TimedJob:
@@ -49,9 +52,9 @@ class TimedJob:
             return False
 
         try:
-            LOG.debug("Running job: %s", self.name)
+            LOG.info("Running job: %s", self.name)
             if self._job_func(cfg=cfg):
-                LOG.debug("Executed job: %s", self.name)
+                LOG.info("Executed job: %s", self.name)
         except Exception as e:
             LOG.error("Error executing job %s: %s", self.name, str(e))
             return False
@@ -95,6 +98,7 @@ class MeteringTimedJob(TimedJob):
         again. Since the user can also configure the timer interval for this
         job, we will select the greater value between those two choices.
         """
+        machine_token_file = machine_token.get_machine_token_file(cfg)
         run_interval_seconds = super().run_interval_seconds(cfg)
 
         if run_interval_seconds == 0:
@@ -103,7 +107,7 @@ class MeteringTimedJob(TimedJob):
             return 0
 
         return max(
-            cfg.machine_token_file.activity_ping_interval or 0,
+            machine_token_file.activity_ping_interval or 0,
             super().run_interval_seconds(cfg),
         )
 
@@ -114,10 +118,10 @@ update_message_job = TimedJob(
     update_motd_messages,
     UPDATE_MESSAGING_INTERVAL,
 )
-update_contract_info_job = TimedJob(
-    "update_contract_info",
-    update_contract_info,
-    UPDATE_CONTRACT_INFO_INTERVAL,
+validate_release_series_job = TimedJob(
+    "validate_release_series",
+    validate_release_series,
+    CHECK_RELEASE_SERIES_INTERVAL,
 )
 
 
@@ -149,11 +153,11 @@ def run_jobs(cfg: UAConfig, current_time: datetime):
     state introspection for jobs which have not yet run.
     """
     jobs_status_obj = None
-    # If the file format is wrong we remove it, and after the jobs are
-    # executed it will be recreated with the proper data.
+    # If the file format or encoding is wrong we remove it.
+    # After the jobs are executed it will be recreated with the proper data.
     try:
         jobs_status_obj = timer_jobs_state_file.read()
-    except InvalidFileFormatError:
+    except (InvalidFileEncodingError, InvalidFileFormatError):
         try:
             timer_jobs_state_file.delete()
         except (OSError, PermissionError) as exception:
@@ -167,7 +171,7 @@ def run_jobs(cfg: UAConfig, current_time: datetime):
         # We do this for the first run of the timer job, where the file
         # doesn't exist
         jobs_status_obj = AllTimerJobsState(
-            metering=None, update_messaging=None, update_contract_info=None
+            metering=None, update_messaging=None, validate_release_series=None
         )
 
     jobs_status_obj.metering = run_job(
@@ -176,14 +180,17 @@ def run_jobs(cfg: UAConfig, current_time: datetime):
     jobs_status_obj.update_messaging = run_job(
         cfg, update_message_job, current_time, jobs_status_obj.update_messaging
     )
+    jobs_status_obj.validate_release_series = run_job(
+        cfg,
+        validate_release_series_job,
+        current_time,
+        jobs_status_obj.validate_release_series,
+    )
     timer_jobs_state_file.write(jobs_status_obj)
 
 
 if __name__ == "__main__":
-    setup_journald_logging(logging.DEBUG, LOG)
-    # Make sure the ubuntupro.timer logger does not generate double logging
-    LOG.propagate = False
-    setup_journald_logging(logging.ERROR, logging.getLogger("ubuntupro"))
+    log.setup_journald_logging()
 
     cfg = UAConfig()
     current_time = datetime.now(timezone.utc)

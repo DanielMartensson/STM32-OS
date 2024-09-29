@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libGLESv2.so.2.1.0
+/usr/share
+/usr/share/bug
+/usr/share/bug/libgles2
+/usr/share/bug/libgles2/control
+/usr/share/doc
+/usr/share/doc/libgles2
+/usr/share/doc/libgles2/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libgles2
+/usr/lib/arm-linux-gnueabihf/libGLESv2.so.2
+/usr/share/doc/libgles2/changelog.Debian.gz

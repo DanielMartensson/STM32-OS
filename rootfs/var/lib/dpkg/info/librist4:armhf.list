@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/librist.so.4.3.1
+/usr/share
+/usr/share/doc
+/usr/share/doc/librist4
+/usr/share/doc/librist4/changelog.Debian.gz
+/usr/share/doc/librist4/copyright
+/usr/lib/arm-linux-gnueabihf/librist.so.4

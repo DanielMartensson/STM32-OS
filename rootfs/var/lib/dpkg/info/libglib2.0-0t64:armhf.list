@@ -16,7 +16,9 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/libglib2.0-0t64
+/usr/share/doc/libglib2.0-0t64/NEWS.gz
 /usr/share/doc/libglib2.0-0t64/README.Debian
+/usr/share/doc/libglib2.0-0t64/README.md
 /usr/share/doc/libglib2.0-0t64/changelog.Debian.gz
 /usr/share/doc/libglib2.0-0t64/copyright
 /usr/share/glib-2.0

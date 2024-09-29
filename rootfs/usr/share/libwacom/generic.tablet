@@ -1,0 +1,10 @@
+[Device]
+Name=Generic
+ModelName=generic
+DeviceMatch=generic
+
+[Features]
+Reversible=true
+Stylus=true
+Ring=true
+NumStrips=2

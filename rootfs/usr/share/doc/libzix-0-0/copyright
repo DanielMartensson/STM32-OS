@@ -1,0 +1,68 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: zix
+Upstream-Contact: David Robillard <d@drobilla.net>
+Source: https://gitlab.com/drobilla/zix
+
+Files: *
+Copyright: 2007-2022 David Robillard <d@drobilla.net>
+License: ISC
+
+Files:
+ .clang-format
+ .clang-tidy
+ .gitignore
+ .gitlab-ci.yml
+ .reuse/dep5
+ benchmark/.clang-tidy
+ benchmark/meson.build
+ doc/.clang-tidy
+ doc/Doxyfile.in
+ doc/_static/custom.css
+ doc/api/meson.build
+ doc/conf.py.in
+ doc/html/meson.build
+ doc/meson.build
+ doc/singlehtml/meson.build
+ doc/xml/meson.build
+ meson.build
+ meson_options.txt
+ scripts/meson.build
+ src/.clang-tidy
+ src/win32/.clang-tidy
+ subprojects/sphinxygen.wrap
+ test/.clang-tidy
+ test/cpp/.clang-tidy
+ test/headers/.clang-tidy
+ test/meson.build
+Copyright: 2007-2022 David Robillard <d@drobilla.net>
+License: 0BSD or ISC
+
+Files: debian/*
+Copyright:
+ Sebastian Ramacher <sramacher@debian.org>
+License: ISC
+
+License: 0BSD
+ Permission to use, copy, modify, and/or distribute this software for any
+ purpose with or without fee is hereby granted.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+ REGARD TO THIS SOFTWARE  INCLUDING ALL IMPLIED WARRANTIES OF  MERCHANTABILITY
+ AND FITNESS.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+ INDIRECT,  OR CONSEQUENTIAL DAMAGES  OR ANY DAMAGES WHATSOEVER RESULTING FROM
+ LOSS OF USE,  DATA OR PROFITS,  WHETHER IN AN ACTION OF CONTRACT,  NEGLIGENCE
+ OR OTHER TORTIOUS ACTION,  ARISING OUT OF  OR IN CONNECTION  WITH THE USE  OR
+ PERFORMANCE OF THIS SOFTWARE.
+
+License: ISC
+ Permission to use, copy, modify, and/or distribute this software for any
+ purpose with or without fee is hereby granted, provided that the above
+ copyright notice and this permission notice appear in all copies.
+ .
+ THIS SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.

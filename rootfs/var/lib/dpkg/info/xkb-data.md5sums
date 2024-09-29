@@ -72,12 +72,12 @@ e360c8cb97139b3fe3edbe69b398daf6  usr/share/X11/xkb/keycodes/xfree86
 1cb4b3e6d56889944af101ba0122f103  usr/share/X11/xkb/rules/README
 ae5ceab72717d5385e3a69bae73e2a5b  usr/share/X11/xkb/rules/base
 9ba14495b8fa56f08c1d1bdec1c89239  usr/share/X11/xkb/rules/base.extras.xml
-03e7e3800f790280f9781ca407ff7109  usr/share/X11/xkb/rules/base.lst
-3a33e59f80e802e9a895f2e754920572  usr/share/X11/xkb/rules/base.xml
+383771af855da77d4cafb46c331c8cf5  usr/share/X11/xkb/rules/base.lst
+b03368f411d07266739458bf9993735f  usr/share/X11/xkb/rules/base.xml
 8078207278372280124f1c300b442a75  usr/share/X11/xkb/rules/evdev
 9ba14495b8fa56f08c1d1bdec1c89239  usr/share/X11/xkb/rules/evdev.extras.xml
-03e7e3800f790280f9781ca407ff7109  usr/share/X11/xkb/rules/evdev.lst
-3a33e59f80e802e9a895f2e754920572  usr/share/X11/xkb/rules/evdev.xml
+383771af855da77d4cafb46c331c8cf5  usr/share/X11/xkb/rules/evdev.lst
+b03368f411d07266739458bf9993735f  usr/share/X11/xkb/rules/evdev.xml
 d8fdac41407c0a6dceda6e5188600658  usr/share/X11/xkb/rules/xfree98
 a0b48dc9ca4e8f6ee5001d39658fd78c  usr/share/X11/xkb/rules/xkb.dtd
 2bef124a8da0b4dc095f5f5e3ddd6da4  usr/share/X11/xkb/symbols/af
@@ -126,7 +126,7 @@ f62d90d8625d308e69345e3e688a0ba5  usr/share/X11/xkb/symbols/eu
 32c5806265a68066acd1225eb5cf54ab  usr/share/X11/xkb/symbols/eurosign
 b8dfd4a498db6e93b0c252e22be71325  usr/share/X11/xkb/symbols/fi
 b7b725e2979a763dcc94bc7fa935ed11  usr/share/X11/xkb/symbols/fo
-5aaee45a36c61bd68fe015edd85d3cc0  usr/share/X11/xkb/symbols/fr
+bb80ff75332615670daaee64ea291886  usr/share/X11/xkb/symbols/fr
 fe2ef8ba5d3b2f487eee5b2feb0fbd81  usr/share/X11/xkb/symbols/fujitsu_vndr/jp
 b33eab69f0dfcdee02a8db5cf9364b67  usr/share/X11/xkb/symbols/fujitsu_vndr/us
 b03ae28fc95fb9810bd9113a16a9ad36  usr/share/X11/xkb/symbols/gb
@@ -290,7 +290,7 @@ e430384f6a4fb8c782b307c88dbb8b78  usr/share/X11/xkb/types/nokia
 1f9251941ccd4e22aff7a1b62816f7b9  usr/share/X11/xkb/types/pc
 88320330f2564f9bca93ccd1154b85b8  usr/share/doc/xkb-data/NEWS.Debian.gz
 ad4a9d326d095726b0d05a3598909d59  usr/share/doc/xkb-data/README.Debian
-02423767df3759ef04a14f3af2f6b037  usr/share/doc/xkb-data/changelog.Debian.gz
+eb86a092d13a051657f79ac59f62ec48  usr/share/doc/xkb-data/changelog.Debian.gz
 624d3d555a66b60624a252c263bc834b  usr/share/doc/xkb-data/copyright
-06a8010400da3e8fb4cbd34db228e7a2  usr/share/man/man7/xkeyboard-config.7.gz
+81968f0986f8f99ca45e9bc69af7adcc  usr/share/man/man7/xkeyboard-config.7.gz
 a60d87bce537e09eff62e2e331d66df9  usr/share/pkgconfig/xkeyboard-config.pc

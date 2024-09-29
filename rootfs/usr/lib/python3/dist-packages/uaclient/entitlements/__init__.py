@@ -1,21 +1,23 @@
 import enum
 import textwrap
-from typing import Dict, List, Type  # noqa: F401
+from collections import defaultdict
+from typing import Dict, List, Optional, Type
 
 from uaclient import exceptions
 from uaclient.config import UAConfig
 from uaclient.entitlements import fips
 from uaclient.entitlements.anbox import AnboxEntitlement
-from uaclient.entitlements.base import UAEntitlement  # noqa: F401
+from uaclient.entitlements.base import UAEntitlement
 from uaclient.entitlements.cc import CommonCriteriaEntitlement
 from uaclient.entitlements.cis import CISEntitlement
+from uaclient.entitlements.entitlement_status import ApplicabilityStatus
 from uaclient.entitlements.esm import ESMAppsEntitlement, ESMInfraEntitlement
 from uaclient.entitlements.landscape import LandscapeEntitlement
 from uaclient.entitlements.livepatch import LivepatchEntitlement
 from uaclient.entitlements.realtime import RealtimeKernelEntitlement
+from uaclient.entitlements.repo import RepoEntitlement
 from uaclient.entitlements.ros import ROSEntitlement, ROSUpdatesEntitlement
 from uaclient.exceptions import EntitlementNotFoundError
-from uaclient.util import is_config_value_true
 
 ENTITLEMENT_CLASSES = [
     AnboxEntitlement,
@@ -34,62 +36,71 @@ ENTITLEMENT_CLASSES = [
 ]  # type: List[Type[UAEntitlement]]
 
 
-def entitlement_factory(cfg: UAConfig, name: str, variant: str = ""):
-    """Returns a UAEntitlement class based on the provided name.
+def entitlement_factory(
+    cfg: UAConfig,
+    name: str,
+    variant: str = "",
+    purge: bool = False,
+    access_only: bool = False,
+    extra_args: Optional[List[str]] = None,
+):
+    """Returns a UAEntitlement object based on the provided name.
 
     The return type is Optional[Type[UAEntitlement]].
     It cannot be explicit because of the Python version on Xenial (3.5.2).
     :param cfg: UAConfig instance
     :param name: The name of the entitlement to return
-    :param not_found_okay: If True and no entitlement with the given name is
-        found, then returns None.
+    :param  variant: The variant name to be used
+    :param purge: If purge operation is enabled
+    :param access_only: If entitlement should be set with access only
+    :param extra_args: Extra parameters to create the entitlement
+
     :raise EntitlementNotFoundError: If not_found_okay is False and no
         entitlement with the given name is found, then raises this error.
     """
+
     for entitlement in ENTITLEMENT_CLASSES:
-        ent = entitlement(cfg=cfg)
+        ent = entitlement(
+            cfg=cfg,
+            access_only=access_only,
+            called_name=name,
+            purge=purge,
+            extra_args=extra_args,
+        )
         if name in ent.valid_names:
             if not variant:
-                return entitlement
+                return ent
             elif variant in ent.variants:
-                return ent.variants[variant]
+                return ent.variants[variant](
+                    cfg=cfg,
+                    called_name=name,
+                    purge=purge,
+                    extra_args=extra_args,
+                )
             else:
                 raise EntitlementNotFoundError(entitlement_name=variant)
     raise EntitlementNotFoundError(entitlement_name=name)
 
 
-def valid_services(
-    cfg: UAConfig, allow_beta: bool = False, all_names: bool = False
-) -> List[str]:
-    """Return a list of valid (non-beta) services.
+def valid_services(cfg: UAConfig, all_names: bool = False) -> List[str]:
+    """Return a list of valid services.
 
     :param cfg: UAConfig instance
-    :param allow_beta: if we should allow beta services to be marked as valid
     :param all_names: if we should return all the names for a service instead
         of just the presentation_name
     """
-    allow_beta_cfg = is_config_value_true(cfg.cfg, "features.allow_beta")
-    allow_beta |= allow_beta_cfg
-
     entitlements = ENTITLEMENT_CLASSES
-    if not allow_beta:
-        entitlements = [
-            entitlement
-            for entitlement in entitlements
-            if not entitlement.is_beta
-        ]
-
     if all_names:
         names = []
-        for entitlement in entitlements:
-            names.extend(entitlement(cfg=cfg).valid_names)
+        for entitlement_cls in entitlements:
+            names.extend(entitlement_cls(cfg=cfg).valid_names)
 
         return sorted(names)
 
     return sorted(
         [
-            entitlement(cfg=cfg).presentation_name
-            for entitlement in entitlements
+            entitlement_cls(cfg=cfg).presentation_name
+            for entitlement_cls in entitlements
         ]
     )
 
@@ -141,10 +152,12 @@ def _sort_entitlements_visit(
     if ent_cls.name in visited:
         return
 
+    ent = ent_cls(cfg)
+
     if sort_order == SortOrder.REQUIRED_SERVICES:
-        cls_list = ent_cls(cfg).required_services
+        cls_list = [e.entitlement for e in ent.required_services]
     else:
-        cls_list = ent_cls(cfg).dependent_services
+        cls_list = list(ent.dependent_services)
 
     for cls_dependency in cls_list:
         if ent_cls.name not in visited:
@@ -185,9 +198,7 @@ def get_valid_entitlement_names(names: List[str], cfg: UAConfig):
     entitlements_found = []
 
     for ent_name in names:
-        if ent_name in valid_services(
-            cfg=cfg, allow_beta=True, all_names=True
-        ):
+        if ent_name in valid_services(cfg=cfg, all_names=True):
             entitlements_found.append(ent_name)
 
     entitlements_not_found = sorted(set(names) - set(entitlements_found))
@@ -196,13 +207,13 @@ def get_valid_entitlement_names(names: List[str], cfg: UAConfig):
 
 
 def create_enable_entitlements_not_found_error(
-    entitlements_not_found, cfg: UAConfig, *, allow_beta: bool
+    entitlements_not_found, cfg: UAConfig
 ) -> exceptions.UbuntuProError:
     """
     Constructs the MESSAGE_INVALID_SERVICE_OP_FAILURE message
     based on the attempted services and valid services.
     """
-    valid_services_names = valid_services(cfg=cfg, allow_beta=allow_beta)
+    valid_services_names = valid_services(cfg=cfg)
     valid_names = ", ".join(valid_services_names)
     service_msg = "\n".join(
         textwrap.wrap(
@@ -217,3 +228,62 @@ def create_enable_entitlements_not_found_error(
         invalid_service=", ".join(entitlements_not_found),
         service_msg=service_msg,
     )
+
+
+# This function is just here to simplify our unittests, as
+# mocking isinstance directly doesn't work here
+def _is_repo_entitlement(ent):
+    return isinstance(ent, RepoEntitlement)
+
+
+def check_entitlement_apt_directives_are_unique(
+    cfg: UAConfig,
+) -> bool:
+    entitlement_directives = defaultdict(list)
+
+    for ent_name in valid_services(cfg):
+        ent = entitlement_factory(cfg, ent_name)
+
+        if not _is_repo_entitlement(ent):
+            continue
+
+        applicability_status, _ = ent.applicability_status()
+
+        if applicability_status == ApplicabilityStatus.APPLICABLE:
+            apt_url = ent.apt_url
+            apt_suites = ent.apt_suites or ()
+
+            for suite in apt_suites:
+                entitlement_directive = ent.repo_policy_check_tmpl.format(
+                    apt_url, suite
+                )
+                entitlement_directives[entitlement_directive].append(
+                    {
+                        "from": ent_name,
+                        "apt_url": apt_url,
+                        "suite": suite,
+                    }
+                )
+
+        for def_path, ent_directive in entitlement_directives.items():
+            if len(ent_directive) > 1:
+                apt_url = ent_directive[0]["apt_url"]
+                suite = ent_directive[0]["suite"]
+
+                raise exceptions.EntitlementsAPTDirectivesAreNotUnique(
+                    url=cfg.contract_url,
+                    names=", ".join(
+                        sorted(ent["from"] for ent in ent_directive)
+                    ),
+                    apt_url=apt_url,
+                    suite=suite,
+                )
+
+    return True
+
+
+def get_title(cfg: UAConfig, ent_name: str, variant=""):
+    try:
+        return entitlement_factory(cfg, ent_name, variant=variant).title
+    except exceptions.UbuntuProError:
+        return ent_name

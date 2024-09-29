@@ -42,6 +42,7 @@ from uaclient.api.u.pro.security.fix._common.plan.v1 import (  # noqa: F401
     FixPlanStep,
     FixPlanUSNResult,
     FixPlanWarning,
+    FixPlanWarningFailUpdatingESMCache,
     FixPlanWarningPackageCannotBeInstalled,
     FixPlanWarningSecurityIssueNotFixed,
     NoOpAlreadyFixedData,
@@ -52,15 +53,19 @@ from uaclient.api.u.pro.security.fix.cve.plan.v1 import CVEFixPlanOptions
 from uaclient.api.u.pro.security.fix.cve.plan.v1 import _plan as cve_plan
 from uaclient.api.u.pro.security.fix.usn.plan.v1 import USNFixPlanOptions
 from uaclient.api.u.pro.security.fix.usn.plan.v1 import _plan as usn_plan
-from uaclient.api.u.pro.status.is_attached.v1 import _is_attached
-from uaclient.cli.constants import NAME, USAGE_TMPL
+from uaclient.api.u.pro.status.is_attached.v1 import (
+    ContractExpiryStatus,
+    _is_attached,
+)
+from uaclient.cli.commands import ProArgument, ProArgumentGroup, ProCommand
+from uaclient.cli.detach import action_detach
+from uaclient.cli.parser import HelpCategory
 from uaclient.clouds.identity import (
     CLOUD_TYPE_TO_TITLE,
     PRO_CLOUD_URLS,
     get_cloud_type,
 )
 from uaclient.config import UAConfig
-from uaclient.contract import ContractExpiryStatus, get_contract_expiry_status
 from uaclient.defaults import PRINT_WRAP_WIDTH
 from uaclient.entitlements import entitlement_factory
 from uaclient.entitlements.entitlement_status import (
@@ -124,9 +129,9 @@ class FixContext:
                     status=status,
                     pkg_index=self.pkg_index,
                     num_pkgs=len(self.affected_pkgs),
-                    pocket_source=get_pocket_description(pocket)
-                    if pocket
-                    else None,
+                    pocket_source=(
+                        get_pocket_description(pocket) if pocket else None
+                    ),
                 )
             )
 
@@ -135,31 +140,6 @@ class FixContext:
             self.unfixed_pkgs.append(
                 UnfixedPackage(pkg=pkg, unfixed_reason=unfixed_reason)
             )
-
-
-def set_fix_parser(subparsers):
-    parser_fix = subparsers.add_parser("fix", help=messages.CLI_ROOT_FIX)
-    parser_fix.set_defaults(action=action_fix)
-    fix_parser(parser_fix)
-
-
-def fix_parser(parser):
-    """Build or extend an arg parser for fix subcommand."""
-    parser.usage = USAGE_TMPL.format(
-        name=NAME, command="fix <CVE-yyyy-nnnn+>|<USN-nnnn-d+>"
-    )
-    parser.prog = "fix"
-    parser.description = messages.CLI_FIX_DESC
-    parser._optionals.title = messages.CLI_FLAGS
-    parser.add_argument("security_issue", help=messages.CLI_FIX_ISSUE)
-    parser.add_argument(
-        "--dry-run", action="store_true", help=messages.CLI_FIX_DRY_RUN
-    )
-    parser.add_argument(
-        "--no-related", action="store_true", help=messages.CLI_FIX_NO_RELATED
-    )
-
-    return parser
 
 
 def print_cve_header(cve: FixPlanResult):
@@ -449,8 +429,11 @@ def _check_subscription_is_expired(cfg: UAConfig, dry_run: bool) -> bool:
 
     :returns: True if subscription is expired and not renewed.
     """
-    contract_expiry_status = get_contract_expiry_status(cfg)
-    if contract_expiry_status[0] == ContractExpiryStatus.EXPIRED:
+    contract_expiry_status = _is_attached(cfg).contract_status
+    if (
+        contract_expiry_status
+        and contract_expiry_status == ContractExpiryStatus.EXPIRED.value
+    ):
         if dry_run:
             print(messages.SECURITY_DRY_RUN_UA_EXPIRED_SUBSCRIPTION)
             return False
@@ -466,8 +449,6 @@ def _prompt_for_new_token(cfg: UAConfig) -> bool:
     """
     import argparse
 
-    from uaclient import cli
-
     _inform_ubuntu_pro_existence_if_applicable()
     print(messages.SECURITY_UPDATE_NOT_INSTALLED_EXPIRED)
     choice = util.prompt_choices(
@@ -478,9 +459,7 @@ def _prompt_for_new_token(cfg: UAConfig) -> bool:
         print(messages.PROMPT_EXPIRED_ENTER_TOKEN)
         token = input("> ")
         print(colorize_commands([["pro", "detach"]]))
-        cli.action_detach(
-            argparse.Namespace(assume_yes=True, format="cli"), cfg
-        )
+        action_detach(argparse.Namespace(assume_yes=True, format="cli"), cfg)
         return _run_ua_attach(cfg, token)
 
     return False
@@ -499,9 +478,7 @@ def _prompt_for_enable(cfg: UAConfig, service: str) -> bool:
 
     if choice == "e":
         print(colorize_commands([["pro", "enable", service]]))
-        ret, reason = enable_entitlement_by_name(
-            cfg=cfg, name=service, assume_yes=True
-        )
+        ret, reason = enable_entitlement_by_name(cfg=cfg, name=service)
 
         if (
             not ret
@@ -522,8 +499,7 @@ def _handle_subscription_for_required_service(
     """
     Verify if the Ubuntu Pro subscription has the required service enabled.
     """
-    ent_cls = entitlement_factory(cfg=cfg, name=service)
-    ent = ent_cls(cfg)
+    ent = entitlement_factory(cfg=cfg, name=service)
     if ent:
         ent_status, _ = ent.user_facing_status()
 
@@ -647,6 +623,15 @@ def _execute_security_issue_not_fixed_step(
         unfixed_reason=status_message(step.data.status),
     )
     fix_context.fix_status = FixStatus.SYSTEM_STILL_VULNERABLE
+
+
+def _execute_fail_updating_esm_cache_step(
+    fix_context: FixContext, step: FixPlanWarningFailUpdatingESMCache
+):
+    if util.we_are_currently_root():
+        print(messages.CLI_FIX_FAIL_UPDATING_ESM_CACHE)
+    else:
+        print("\n" + messages.CLI_FIX_FAIL_UPDATING_ESM_CACHE_NON_ROOT + "\n")
 
 
 def _execute_apt_upgrade_step(
@@ -846,6 +831,8 @@ def execute_fix_plan(
             _execute_package_cannot_be_installed_step(fix_context, step)
         if isinstance(step, FixPlanWarningSecurityIssueNotFixed):
             _execute_security_issue_not_fixed_step(fix_context, step)
+        if isinstance(step, FixPlanWarningFailUpdatingESMCache):
+            _execute_fail_updating_esm_cache_step(fix_context, step)
         if isinstance(step, FixPlanAptUpgradeStep):
             _execute_apt_upgrade_step(fix_context, step)
 
@@ -922,3 +909,29 @@ def action_fix(args, *, cfg, **kwargs):
         )
 
     return status.exit_code
+
+
+fix_command = ProCommand(
+    "fix",
+    help=messages.CLI_ROOT_FIX,
+    description=messages.CLI_FIX_DESC,
+    action=action_fix,
+    help_category=HelpCategory.SECURITY,
+    argument_groups=[
+        ProArgumentGroup(
+            arguments=[
+                ProArgument("security_issue", help=messages.CLI_FIX_ISSUE),
+                ProArgument(
+                    "--dry-run",
+                    help=messages.CLI_FIX_DRY_RUN,
+                    action="store_true",
+                ),
+                ProArgument(
+                    "--no-related",
+                    help=messages.CLI_FIX_NO_RELATED,
+                    action="store_true",
+                ),
+            ]
+        )
+    ],
+)

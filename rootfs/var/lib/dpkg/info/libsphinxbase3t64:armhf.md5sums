@@ -1,0 +1,5 @@
+e8e436f9a00dfed28386924d0ec83833  usr/lib/arm-linux-gnueabihf/libsphinxad.so.3.0.0
+f0952708088ca1b1aaff981fbfa255bb  usr/lib/arm-linux-gnueabihf/libsphinxbase.so.3.0.0
+859dd317a4e4954e5eef983f72ec520f  usr/share/doc/libsphinxbase3t64/changelog.Debian.gz
+31210cd2849564bdfe49e7376d0ebc39  usr/share/doc/libsphinxbase3t64/copyright
+1274021b87e1b1840c6da3e161682069  usr/share/lintian/overrides/libsphinxbase3t64

@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libssh-gcrypt.so.4.9.6
+/usr/share
+/usr/share/doc
+/usr/share/doc/libssh-gcrypt-4
+/usr/share/doc/libssh-gcrypt-4/changelog.Debian.gz
+/usr/share/doc/libssh-gcrypt-4/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libssh-gcrypt-4
+/usr/lib/arm-linux-gnueabihf/libssh-gcrypt.so.4

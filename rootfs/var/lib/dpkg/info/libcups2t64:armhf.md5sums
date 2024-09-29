@@ -1,0 +1,6 @@
+4db0413b266eaf70b54151f5be838ab7  usr/lib/arm-linux-gnueabihf/libcups.so.2
+702214879c4bb2a6d9c1269ce477c0ac  usr/share/doc/libcups2t64/README.Debian.gz
+80e164f0b962dca9a1bab4bc04425dcf  usr/share/doc/libcups2t64/changelog.Debian.gz
+d5c9c7cdb14feef5f2f05d76462f1862  usr/share/doc/libcups2t64/copyright
+31d23e8da708edcf7193f0907ef0d19f  usr/share/doc/libcups2t64/examples/client.conf
+58a1290808ecfad3c579d3f11ce82eb3  usr/share/lintian/overrides/libcups2t64

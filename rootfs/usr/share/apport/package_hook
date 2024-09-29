@@ -1,0 +1,95 @@
+#!/usr/bin/python3
+#
+# Copyright (c) 2007 - 2009 Canonical Ltd.
+# Author: Martin Pitt <martin.pitt@ubuntu.com>
+#
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 2 of the License, or (at your
+# option) any later version.  See http://www.gnu.org/copyleft/gpl.html for
+# the full text of the license.
+
+"""Collect information about a package installation/upgrade failure."""
+
+import argparse
+import os
+import sys
+
+import apport
+import apport.fileutils
+
+
+def mkattrname(path):
+    """Convert a file path to a problem report attribute name."""
+
+    name = ""
+    for directory in path.split(os.sep):
+        if not directory:
+            continue
+        name += "".join(
+            [c for c in directory[0].upper() + directory[1:] if c.isalnum()]
+        )
+    return name
+
+
+def parse_args():
+    """Parse command line options and return arguments."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-p",
+        "--package",
+        required=True,
+        help="Specify the package name which failed to upgrade (mandatory)",
+    )
+    parser.add_argument(
+        "-l",
+        "--log",
+        action="append",
+        dest="logs",
+        help="Append given log file, or, if it is a directory,"
+        " all files in it (can be specified multiple times)",
+    )
+    parser.add_argument(
+        "-t",
+        "--tags",
+        help="Add the following tags to the bug report (comma separated)",
+    )
+    args = parser.parse_args()
+    if args.tags:
+        args.tags = args.tags.split(",")
+    return args
+
+
+# pylint: disable-next=missing-function-docstring
+def main():
+    # parse command line arguments
+    options = parse_args()
+
+    # create report
+    report = apport.Report("Package")
+    report.add_package(options.package)
+    report["SourcePackage"] = apport.packaging.get_source(options.package)
+    report["ErrorMessage"] = (sys.stdin, False)
+
+    if options.tags:
+        report.add_tags(options.tags)
+
+    for line in options.logs or []:
+        if os.path.isfile(line):
+            report[mkattrname(line)] = (line,)
+        elif os.path.isdir(line):
+            for log_file in os.listdir(line):
+                path = os.path.join(line, log_file)
+                if os.path.isfile(path):
+                    report[mkattrname(path)] = (path,)
+
+    # write report
+    try:
+        with apport.fileutils.make_report_file(report) as report_file:
+            report.write(report_file)
+    except OSError as error:
+        apport.fatal("Cannot create report: %s", str(error))
+
+
+if __name__ == "__main__":
+    main()

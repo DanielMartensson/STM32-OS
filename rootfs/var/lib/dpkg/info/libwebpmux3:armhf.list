@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libwebpmux.so.3.0.13
+/usr/share
+/usr/share/doc
+/usr/share/doc/libwebpmux3
+/usr/share/doc/libwebpmux3/copyright
+/usr/lib/arm-linux-gnueabihf/libwebpmux.so.3
+/usr/share/doc/libwebpmux3/changelog.Debian.gz

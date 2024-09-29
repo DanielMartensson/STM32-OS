@@ -1,0 +1,18 @@
+# this is for the Wacom pen + touchscreen
+# as found in the Lenovo ThinkpPad Yoga 260
+# 20FD002HUS (12.5" FHD; 276x155mm).
+# Pen with 2 buttons, no eraser.
+
+[Device]
+Name=Wacom ISDv4 5044
+ModelName=
+DeviceMatch=usb:056a:5044
+Class=ISDV4
+Width=11
+Height=6
+IntegratedIn=Display;System
+Styli=@isdv4-aes;
+
+[Features]
+Stylus=true
+Touch=true

@@ -7,7 +7,7 @@ from typing import Any, DefaultDict, Dict, List, Tuple
 
 import apt_pkg  # type: ignore
 
-from uaclient import exceptions, livepatch, messages
+from uaclient import exceptions, livepatch, messages, util
 from uaclient.api.u.pro.security.status.reboot_required.v1 import (
     _reboot_required,
 )
@@ -32,7 +32,6 @@ from uaclient.system import (
     is_current_series_lts,
     is_supported,
 )
-from uaclient.util import print_package_list
 
 ESM_SERVICES = ("esm-infra", "esm-apps")
 
@@ -43,6 +42,10 @@ class UpdateStatus(Enum):
     UNATTACHED = "pending_attach"
     NOT_ENABLED = "pending_enable"
     UNAVAILABLE = "upgrade_unavailable"
+
+
+def print_package_list(packages):
+    print(util.create_package_list_str(packages))
 
 
 @lru_cache(maxsize=None)
@@ -57,9 +60,9 @@ def get_origin_information_to_service_map():
     }
 
 
-def get_installed_packages_by_origin() -> DefaultDict[
-    "str", List[apt_pkg.Package]
-]:
+def get_installed_packages_by_origin() -> (
+    DefaultDict["str", List[apt_pkg.Package]]
+):
     result = defaultdict(list)
 
     with PreserveAptCfg(get_apt_pkg_cache) as cache:
@@ -470,12 +473,13 @@ def _print_apt_update_call():
 
 
 def security_status(cfg: UAConfig):
-    esm_infra_status = ESMInfraEntitlement(cfg).application_status()[0]
-    esm_infra_applicability = ESMInfraEntitlement(cfg).applicability_status()[
-        0
-    ]
-    esm_apps_status = ESMAppsEntitlement(cfg).application_status()[0]
-    esm_apps_applicability = ESMAppsEntitlement(cfg).applicability_status()[0]
+    esm_infra_ent = ESMInfraEntitlement(cfg)
+    esm_apps_ent = ESMAppsEntitlement(cfg)
+
+    esm_infra_status = esm_infra_ent.application_status()[0]
+    esm_infra_applicability = esm_infra_ent.applicability_status()[0]
+    esm_apps_status = esm_apps_ent.application_status()[0]
+    esm_apps_applicability = esm_apps_ent.applicability_status()[0]
 
     series = get_release_info().series
     is_lts = is_current_series_lts()
@@ -603,10 +607,11 @@ def list_esm_infra_packages(cfg):
     series = get_release_info().series
     is_lts = is_current_series_lts()
 
-    esm_infra_status = ESMInfraEntitlement(cfg).application_status()[0]
-    esm_infra_applicability = ESMInfraEntitlement(cfg).applicability_status()[
-        0
-    ]
+    esm_infra_ent = ESMInfraEntitlement(cfg)
+    esm_apps_ent = ESMAppsEntitlement(cfg)
+
+    esm_infra_status = esm_infra_ent.application_status()[0]
+    esm_infra_applicability = esm_apps_ent.applicability_status()[0]
 
     installed_package_names = sorted(
         [package.name for package in infra_packages]
@@ -692,8 +697,9 @@ def list_esm_apps_packages(cfg):
 
     is_lts = is_current_series_lts()
 
-    esm_apps_status = ESMAppsEntitlement(cfg).application_status()[0]
-    esm_apps_applicability = ESMAppsEntitlement(cfg).applicability_status()[0]
+    esm_apps_ent = ESMAppsEntitlement(cfg)
+    esm_apps_status = esm_apps_ent.application_status()[0]
+    esm_apps_applicability = esm_apps_ent.applicability_status()[0]
 
     installed_package_names = sorted(
         [package.name for package in apps_packages]

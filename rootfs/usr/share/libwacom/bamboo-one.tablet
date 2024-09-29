@@ -1,0 +1,19 @@
+# Wacom
+# Bamboo One
+# CTF-430
+
+[Device]
+Name=Bamboo One
+ModelName=CTF-430
+DeviceMatch=usb:056a:0069
+Class=Bamboo
+Width=5
+Height=4
+IntegratedIn=
+
+[Features]
+Reversible=true
+Stylus=true
+Touch=false
+Ring=false
+NumStrips=0

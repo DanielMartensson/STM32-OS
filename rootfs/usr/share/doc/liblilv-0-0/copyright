@@ -1,0 +1,84 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Lilv
+Upstream-Contact: David Robillard <d@drobilla.net>
+Source: https://drobilla.net/software/lilv.html
+
+Files: *
+Copyright:
+ 2007-2023 David Robillard <https://drobilla.net>
+ 2008 Krzysztof Foltman
+License: ISC
+
+Files:
+ .clang-tidy
+ .gitignore
+ .reuse/dep5
+ bindings/python/Makefile
+ bindings/python/conf.py
+ bindings/python/meson.build
+ doc/Doxyfile.in
+ doc/api/meson.build
+ doc/html/meson.build
+ doc/meson.build
+ doc/singlehtml/meson.build
+ doc/xml/meson.build
+ meson.build
+ meson/suppressions/meson.build
+ meson_options.txt
+ src/.clang-tidy
+ subprojects/sphinxygen.wrap
+ test/.clang-tidy
+ test/bad_syntax.lv2/meson.build
+ test/cpp/.clang-tidy
+ test/cpp/meson.build
+ test/failed_instantiation.lv2/meson.build
+ test/failed_lib_descriptor.lv2/meson.build
+ test/lib_descriptor.lv2/meson.build
+ test/lv2/core.lv2/meson.build
+ test/meson.build
+ test/missing_descriptor.lv2/meson.build
+ test/missing_name.lv2/meson.build
+ test/missing_plugin.lv2/meson.build
+ test/missing_port.lv2/meson.build
+ test/missing_port_name.lv2/meson.build
+ test/new_version.lv2/meson.build
+ test/old_version.lv2/meson.build
+ test/test_plugin.lv2/meson.build
+ tools/.clang-tidy
+ tools/lilv.bash_completion
+ tools/meson.build
+Copyright: 2012-2022, David Robillard <d@drobilla.net>
+           2009, Lars Luthman <lars.luthman@gmail.com>
+License: 0BSD or ISC
+
+Files: debian/*
+Copyright:
+ 2011-2014 Alessio Treglia <alessio@debian.org>
+ 2013-2016 Jaromír Mikeš <mira.mikes@seznam.cz>
+ 2020-2022 Dennis Braun <d_braun@kabelmail.de>
+License: ISC
+
+License: 0BSD
+ Permission to use, copy, modify, and/or distribute this software for any
+ purpose with or without fee is hereby granted.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+ REGARD TO THIS SOFTWARE  INCLUDING ALL IMPLIED WARRANTIES OF  MERCHANTABILITY
+ AND FITNESS.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+ INDIRECT,  OR CONSEQUENTIAL DAMAGES  OR ANY DAMAGES WHATSOEVER RESULTING FROM
+ LOSS OF USE,  DATA OR PROFITS,  WHETHER IN AN ACTION OF CONTRACT,  NEGLIGENCE
+ OR OTHER TORTIOUS ACTION,  ARISING OUT OF  OR IN CONNECTION  WITH THE USE  OR
+ PERFORMANCE OF THIS SOFTWARE.
+
+License: ISC
+ Permission to use, copy, modify, and/or distribute this software for any
+ purpose with or without fee is hereby granted, provided that the above
+ copyright notice and this permission notice appear in all copies.
+ .
+ THIS SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.

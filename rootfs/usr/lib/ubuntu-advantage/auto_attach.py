@@ -13,7 +13,7 @@ their side.
 import logging
 import sys
 
-from uaclient import defaults, http, messages, system
+from uaclient import http, log, messages, system
 from uaclient.api.exceptions import (
     AlreadyAttachedError,
     AutoAttachDisabledError,
@@ -24,14 +24,15 @@ from uaclient.api.u.pro.attach.auto.full_auto_attach.v1 import (
     full_auto_attach,
 )
 from uaclient.config import UAConfig
-from uaclient.daemon import (
-    AUTO_ATTACH_STATUS_MOTD_FILE,
-    retry_auto_attach,
-    setup_logging,
-)
+from uaclient.daemon import AUTO_ATTACH_STATUS_MOTD_FILE, retry_auto_attach
 from uaclient.files import state_files
 
 LOG = logging.getLogger("ubuntupro.lib.auto_attach")
+
+# All known cloud-config keys which provide ubuntu pro configuration directives
+CLOUD_INIT_UA_KEYS = set(
+    ["ubuntu-advantage", "ubuntu_advantage", "ubuntu_pro"]
+)
 
 try:
     import cloudinit.stages as ci_stages  # type: ignore
@@ -54,10 +55,7 @@ def check_cloudinit_userdata_for_ua_info():
     if init is None:
         return False
 
-    if init.cfg and (
-        "ubuntu_advantage" in init.cfg.keys()
-        or "ubuntu-advantage" in init.cfg.keys()
-    ):
+    if init.cfg and CLOUD_INIT_UA_KEYS.intersection(init.cfg):
         return True
 
     return False
@@ -103,16 +101,7 @@ def main(cfg: UAConfig):
 
 
 if __name__ == "__main__":
-    setup_logging(
-        logging.INFO,
-        logging.DEBUG,
-        defaults.CONFIG_DEFAULTS["log_file"],
-    )
+    log.setup_journald_logging()
     cfg = UAConfig()
-    setup_logging(
-        logging.INFO,
-        logging.DEBUG,
-        cfg.log_file,
-    )
     http.configure_web_proxy(cfg.http_proxy, cfg.https_proxy)
     sys.exit(main(cfg))

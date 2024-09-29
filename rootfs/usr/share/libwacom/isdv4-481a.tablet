@@ -1,0 +1,15 @@
+# Active electrostatic (AES) sensor used by the HP EliteBook x360 1030 G2
+
+[Device]
+Name=Wacom ISDv4 481a
+ModelName=
+DeviceMatch=i2c:056a:481a
+Class=ISDV4
+Width=12
+Height=7
+IntegratedIn=Display;System
+Styli=@isdv4-aes;
+
+[Features]
+Stylus=true
+Touch=true

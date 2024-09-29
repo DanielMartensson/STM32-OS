@@ -157,7 +157,7 @@ def destroyer(magic_tag=None):  # ;-)
 
 def main():
     usage = '%prog [-V VERSION] [-p PACKAGE] [DIR_OR_FILE]'
-    parser = optparse.OptionParser(usage, version='%prog 3.12.3-0ubuntu1')
+    parser = optparse.OptionParser(usage, version='%prog 3.12.3-0ubuntu2')
     parser.add_option('-v', '--verbose', action='store_true', dest='verbose',
                       help='turn verbose mode on')
     parser.add_option('-q', '--quiet', action='store_false', dest='verbose',

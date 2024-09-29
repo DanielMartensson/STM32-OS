@@ -1,0 +1,4 @@
+8edf420bad8964c2802d3b0e521e50c6  usr/lib/arm-linux-gnueabihf/libavutil.so.58.29.100
+17828bf859252fe337127898f80c2faa  usr/share/doc/libavutil58/changelog.Debian.gz
+05cd524efab1612c4539c821fc74265a  usr/share/doc/libavutil58/copyright
+a279db3b3d5418f0a7e0672629d68d2c  usr/share/lintian/overrides/libavutil58

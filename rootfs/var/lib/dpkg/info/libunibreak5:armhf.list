@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libunibreak.so.5.0.1
+/usr/share
+/usr/share/doc
+/usr/share/doc/libunibreak5
+/usr/share/doc/libunibreak5/changelog.Debian.gz
+/usr/share/doc/libunibreak5/copyright
+/usr/lib/arm-linux-gnueabihf/libunibreak.so.5

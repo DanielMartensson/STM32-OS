@@ -1,15 +1,17 @@
 import copy
-import enum
 import logging
 import socket
+from collections import namedtuple
 from typing import Any, Dict, List, Optional, Tuple
 
+import uaclient.files.machine_token as mtf
 from uaclient import (
     clouds,
     event_logger,
     exceptions,
     http,
     messages,
+    secret_manager,
     system,
     util,
     version,
@@ -17,13 +19,10 @@ from uaclient import (
 from uaclient.api.u.pro.status.enabled_services.v1 import _enabled_services
 from uaclient.api.u.pro.status.is_attached.v1 import _is_attached
 from uaclient.config import UAConfig
-from uaclient.defaults import (
-    ATTACH_FAIL_DATE_FORMAT,
-    CONTRACT_EXPIRY_GRACE_PERIOD_DAYS,
-    CONTRACT_EXPIRY_PENDING_DAYS,
-)
-from uaclient.files.state_files import attachment_data_file
+from uaclient.defaults import ATTACH_FAIL_DATE_FORMAT
+from uaclient.files.state_files import attachment_data_file, machine_id_file
 from uaclient.http import serviceclient
+from uaclient.log import get_user_or_root_log_file_path
 
 # Here we describe every endpoint from the ua-contracts
 # service that is used by this client implementation.
@@ -59,17 +58,20 @@ event = event_logger.get_event_logger()
 LOG = logging.getLogger(util.replace_top_level_logger_name(__name__))
 
 
-@enum.unique
-class ContractExpiryStatus(enum.Enum):
-    NONE = 0
-    ACTIVE = 1
-    ACTIVE_EXPIRED_SOON = 2
-    EXPIRED_GRACE_PERIOD = 3
-    EXPIRED = 4
+EnableByDefaultService = namedtuple(
+    "EnableByDefaultService", ["name", "variant"]
+)
 
 
 class UAContractClient(serviceclient.UAServiceClient):
     cfg_url_base_attr = "contract_url"
+
+    def __init__(
+        self,
+        cfg: Optional[UAConfig] = None,
+    ) -> None:
+        super().__init__(cfg=cfg)
+        self.machine_token_file = mtf.get_machine_token_file()
 
     @util.retry(socket.timeout, retry_sleeps=[1, 2, 2])
     def add_contract_machine(
@@ -106,8 +108,13 @@ class UAContractClient(serviceclient.UAServiceClient):
                 code=response.code,
                 body=response.body,
             )
-
-        return response.json_dict
+        response_json = response.json_dict
+        secret_manager.secrets.add_secret(
+            response_json.get("machineToken", "")
+        )
+        for token in response_json.get("resourceTokens", []):
+            secret_manager.secrets.add_secret(token.get("token", ""))
+        return response_json
 
     def available_resources(self) -> Dict[str, Any]:
         """Requests list of entitlements available to this machine type."""
@@ -170,15 +177,17 @@ class UAContractClient(serviceclient.UAServiceClient):
                 body=response.body,
             )
 
-        self.cfg.write_cache("contract-token", response.json_dict)
-        return response.json_dict
+        response_json = response.json_dict
+        secret_manager.secrets.add_secret(
+            response_json.get("contractToken", "")
+        )
+        return response_json
 
     def get_resource_machine_access(
         self,
         machine_token: str,
         resource: str,
         machine_id: Optional[str] = None,
-        save_file: bool = True,
     ) -> Dict[str, Any]:
         """Requests machine access context for a given resource
 
@@ -187,7 +196,6 @@ class UAContractClient(serviceclient.UAServiceClient):
         @param resource: Entitlement name.
         @param machine_id: Optional unique system machine id. When absent,
             contents of /etc/machine-id will be used.
-        @save_file: If the machine access should be saved on the user machine
 
         @return: Dict of the JSON response containing entitlement accessInfo.
         """
@@ -207,11 +215,11 @@ class UAContractClient(serviceclient.UAServiceClient):
             )
         if response.headers.get("expires"):
             response.json_dict["expires"] = response.headers["expires"]
-        if save_file:
-            self.cfg.write_cache(
-                "machine-access-{}".format(resource), response.json_dict
-            )
-        return response.json_dict
+
+        response_json = response.json_dict
+        for token in response_json.get("resourceTokens", []):
+            secret_manager.secrets.add_secret(token.get("token", ""))
+        return response_json
 
     def update_activity_token(self):
         """Report current activity token and enabled services.
@@ -219,8 +227,10 @@ class UAContractClient(serviceclient.UAServiceClient):
         This will report to the contracts backend all the current
         enabled services in the system.
         """
-        contract_id = self.cfg.machine_token_file.contract_id
-        machine_token = self.cfg.machine_token.get("machineToken")
+        contract_id = self.machine_token_file.contract_id
+        machine_token = self.machine_token_file.machine_token.get(
+            "machineToken"
+        )
         machine_id = system.get_machine_id(self.cfg)
 
         request_data = self._get_activity_info()
@@ -241,7 +251,7 @@ class UAContractClient(serviceclient.UAServiceClient):
         # a full `activityInfo` object which belongs at the root of
         # `machine-token.json`
         if response.json_dict:
-            machine_token = self.cfg.machine_token
+            machine_token = self.machine_token_file.machine_token
             # The activity information received as a response here
             # will not provide the information inside an activityInfo
             # structure. However, this structure will be reflected when
@@ -249,7 +259,7 @@ class UAContractClient(serviceclient.UAServiceClient):
             # Because of that, we will store the response directly on
             # the activityInfo key
             machine_token["activityInfo"] = response.json_dict
-            self.cfg.machine_token_file.write(machine_token)
+            self.machine_token_file.write(machine_token)
 
     def get_magic_attach_token_info(self, magic_token: str) -> Dict[str, Any]:
         """Request magic attach token info.
@@ -273,8 +283,11 @@ class UAContractClient(serviceclient.UAServiceClient):
                 code=response.code,
                 body=response.body,
             )
-
-        return response.json_dict
+        response_json = response.json_dict
+        secret_fields = ["token", "userCode", "contractToken"]
+        for field in secret_fields:
+            secret_manager.secrets.add_secret(response_json.get(field, ""))
+        return response_json
 
     def new_magic_attach_token(self) -> Dict[str, Any]:
         """Create a magic attach token for the user."""
@@ -293,8 +306,11 @@ class UAContractClient(serviceclient.UAServiceClient):
                 code=response.code,
                 body=response.body,
             )
-
-        return response.json_dict
+        response_json = response.json_dict
+        secret_fields = ["token", "userCode", "contractToken"]
+        for field in secret_fields:
+            secret_manager.secrets.add_secret(response_json.get(field, ""))
+        return response_json
 
     def revoke_magic_attach_token(self, magic_token: str):
         """Revoke a magic attach token for the user."""
@@ -419,18 +435,20 @@ class UAContractClient(serviceclient.UAServiceClient):
             enabled_services = _enabled_services(self.cfg).enabled_services
             attachment_data = attachment_data_file.read()
             activity_info = {
-                "activityID": self.cfg.machine_token_file.activity_id
+                "activityID": self.machine_token_file.activity_id
                 or system.get_machine_id(self.cfg),
-                "activityToken": self.cfg.machine_token_file.activity_token,
+                "activityToken": self.machine_token_file.activity_token,
                 "resources": [service.name for service in enabled_services],
                 "resourceVariants": {
                     service.name: service.variant_name
                     for service in enabled_services
                     if service.variant_enabled
                 },
-                "lastAttachment": attachment_data.attached_at.isoformat()
-                if attachment_data
-                else None,
+                "lastAttachment": (
+                    attachment_data.attached_at.isoformat()
+                    if attachment_data
+                    else None
+                ),
             }
         else:
             activity_info = {}
@@ -492,7 +510,7 @@ def process_entitlements_delta(
     from uaclient.entitlements import entitlements_enable_order
 
     delta_error = False
-    unexpected_error = False
+    unexpected_errors = []
 
     # We need to sort our entitlements because some of them
     # depend on other service to be enable first.
@@ -523,7 +541,7 @@ def process_entitlements_delta(
             )
         except Exception as e:
             LOG.exception(e)
-            unexpected_error = True
+            unexpected_errors.append(e)
             failed_services.append(name)
             LOG.exception(
                 "Unexpected error processing contract delta for %s: %r",
@@ -536,10 +554,17 @@ def process_entitlements_delta(
             if service_enabled and deltas:
                 event.service_processed(name)
     event.services_failed(failed_services)
-    if unexpected_error:
+    if len(unexpected_errors) > 0:
         raise exceptions.AttachFailureUnknownError(
             failed_services=[
-                (name, messages.UNEXPECTED_ERROR) for name in failed_services
+                (
+                    name,
+                    messages.UNEXPECTED_ERROR.format(
+                        error_msg=str(exception),
+                        log_path=get_user_or_root_log_file_path(),
+                    ),
+                )
+                for name, exception in zip(failed_services, unexpected_errors)
             ]
         )
     elif delta_error:
@@ -597,14 +622,17 @@ def process_entitlement_delta(
             .get("use_selector", "")
         )
         try:
-            ent_cls = entitlement_factory(cfg=cfg, name=name, variant=variant)
+            entitlement = entitlement_factory(
+                cfg=cfg,
+                name=name,
+                variant=variant,
+            )
         except exceptions.EntitlementNotFoundError as exc:
             LOG.debug(
                 'Skipping entitlement deltas for "%s". No such class', name
             )
             raise exc
 
-        entitlement = ent_cls(cfg=cfg, assume_yes=allow_enable)
         ret = entitlement.process_contract_deltas(
             orig_access, deltas, allow_enable=allow_enable
         )
@@ -640,36 +668,35 @@ def _raise_attach_forbidden_message(
     raise exceptions.AttachExpiredToken()
 
 
-def refresh(cfg):
+def refresh(cfg: UAConfig):
     """Request contract refresh from ua-contracts service.
-
-    :param cfg: Instance of UAConfig for this machine.
 
     :raise UbuntuProError: on failure to update contract or error processing
         contract deltas
     :raise ConnectivityError: On failure during a connection
     """
-    orig_entitlements = cfg.machine_token_file.entitlements
-    orig_token = cfg.machine_token
+    machine_token_file = mtf.get_machine_token_file(cfg)
+    orig_entitlements = machine_token_file.entitlements()
+    orig_token = machine_token_file.machine_token
     machine_token = orig_token["machineToken"]
     contract_id = orig_token["machineTokenInfo"]["contractInfo"]["id"]
 
-    contract_client = UAContractClient(cfg)
+    contract_client = UAContractClient(cfg=cfg)
     resp = contract_client.update_contract_machine(
         machine_token=machine_token, contract_id=contract_id
     )
 
-    cfg.machine_token_file.write(resp)
+    machine_token_file.write(resp)
     system.get_machine_id.cache_clear()
     machine_id = resp.get("machineTokenInfo", {}).get(
         "machineId", system.get_machine_id(cfg)
     )
-    cfg.write_cache("machine-id", machine_id)
+    machine_id_file.write(machine_id)
 
     process_entitlements_delta(
         cfg,
         orig_entitlements,
-        cfg.machine_token_file.entitlements,
+        machine_token_file.entitlements(),
         allow_enable=False,
     )
 
@@ -685,44 +712,6 @@ def get_contract_information(cfg: UAConfig, token: str) -> Dict[str, Any]:
     """Query contract information for a specific token"""
     client = UAContractClient(cfg)
     return client.get_contract_using_token(token)
-
-
-def is_contract_changed(cfg: UAConfig) -> bool:
-    orig_token = cfg.machine_token
-    orig_entitlements = cfg.machine_token_file.entitlements
-    machine_token = orig_token.get("machineToken", "")
-    contract_id = (
-        orig_token.get("machineTokenInfo", {})
-        .get("contractInfo", {})
-        .get("id", None)
-    )
-    if not contract_id:
-        return False
-
-    contract_client = UAContractClient(cfg)
-    resp = contract_client.get_contract_machine(machine_token, contract_id)
-    resp_expiry = (
-        resp.get("machineTokenInfo", {})
-        .get("contractInfo", {})
-        .get("effectiveTo", None)
-    )
-    new_expiry = (
-        resp_expiry
-        if resp_expiry
-        else cfg.machine_token_file.contract_expiry_datetime
-    )
-    if cfg.machine_token_file.contract_expiry_datetime != new_expiry:
-        return True
-    curr_entitlements = cfg.machine_token_file.get_entitlements_from_token(
-        resp
-    )
-    for name, new_entitlement in sorted(curr_entitlements.items()):
-        deltas = util.get_dict_deltas(
-            orig_entitlements.get(name, {}), new_entitlement
-        )
-        if deltas:
-            return True
-    return False
 
 
 def _get_override_weight(
@@ -751,9 +740,9 @@ def _select_overrides(
 
     series_overrides = entitlement.pop("series", {}).pop(series_name, {})
     if series_overrides:
-        overrides[
-            OVERRIDE_SELECTOR_WEIGHTS["series_overrides"]
-        ] = series_overrides
+        overrides[OVERRIDE_SELECTOR_WEIGHTS["series_overrides"]] = (
+            series_overrides
+        )
 
     general_overrides = copy.deepcopy(entitlement.get("overrides", []))
     for override in general_overrides:
@@ -815,28 +804,32 @@ def apply_contract_overrides(
                 orig_access["entitlement"][key] = value
 
 
-def get_contract_expiry_status(
-    cfg: UAConfig,
-) -> Tuple[ContractExpiryStatus, int]:
-    """Return a tuple [ContractExpiryStatus, num_days]"""
-    if not _is_attached(cfg).is_attached:
-        return ContractExpiryStatus.NONE, 0
+def get_enabled_by_default_services(
+    cfg: UAConfig, entitlements: Dict[str, Any]
+) -> List[EnableByDefaultService]:
+    from uaclient.entitlements import entitlement_factory
 
-    grace_period = CONTRACT_EXPIRY_GRACE_PERIOD_DAYS
-    pending_expiry = CONTRACT_EXPIRY_PENDING_DAYS
-    remaining_days = cfg.machine_token_file.contract_remaining_days
+    enable_by_default_services = []
 
-    # if unknown assume the worst
-    if remaining_days is None:
-        LOG.warning(
-            "contract effectiveTo date is null - assuming it is expired"
-        )
-        return ContractExpiryStatus.EXPIRED, -grace_period
+    for ent_name, ent_value in entitlements.items():
+        variant = ent_value.get("obligations", {}).get("use_selector", "")
 
-    if 0 <= remaining_days <= pending_expiry:
-        return ContractExpiryStatus.ACTIVE_EXPIRED_SOON, remaining_days
-    elif -grace_period <= remaining_days < 0:
-        return ContractExpiryStatus.EXPIRED_GRACE_PERIOD, remaining_days
-    elif remaining_days < -grace_period:
-        return ContractExpiryStatus.EXPIRED, remaining_days
-    return ContractExpiryStatus.ACTIVE, remaining_days
+        try:
+            ent = entitlement_factory(cfg=cfg, name=ent_name, variant=variant)
+        except exceptions.EntitlementNotFoundError:
+            continue
+
+        obligations = ent_value.get("entitlement", {}).get("obligations", {})
+        resourceToken = ent_value.get("resourceToken")
+
+        if ent._should_enable_by_default(obligations, resourceToken):
+            can_enable, _ = ent.can_enable()
+            if can_enable:
+                enable_by_default_services.append(
+                    EnableByDefaultService(
+                        name=ent_name,
+                        variant=variant,
+                    )
+                )
+
+    return enable_by_default_services

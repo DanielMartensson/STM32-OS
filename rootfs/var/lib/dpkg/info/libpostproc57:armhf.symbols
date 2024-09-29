@@ -1,0 +1,13 @@
+libpostproc.so.57 libpostproc57 #MINVER#
+* Build-Depends-Package: libpostproc-dev
+ LIBPOSTPROC_57@LIBPOSTPROC_57 7:6.1.1
+ postproc_configuration@LIBPOSTPROC_57 7:6.0
+ postproc_ffversion@LIBPOSTPROC_57 7:6.0
+ postproc_license@LIBPOSTPROC_57 7:6.0
+ postproc_version@LIBPOSTPROC_57 7:6.0
+ pp_free_context@LIBPOSTPROC_57 7:6.0
+ pp_free_mode@LIBPOSTPROC_57 7:6.0
+ pp_get_context@LIBPOSTPROC_57 7:6.0
+ pp_get_mode_by_name_and_quality@LIBPOSTPROC_57 7:6.0
+ pp_help@LIBPOSTPROC_57 7:6.0
+ pp_postprocess@LIBPOSTPROC_57 7:6.0

@@ -1,6 +1,6 @@
 e1dc7218de7b356ca2ffb6a64f517b50  usr/lib/netplan/PLACEHOLDER
-d2dd9b8876cea4a5149b11db6375cadd  usr/libexec/netplan/generate
-9c561a35625122bf549353e419a80ddc  usr/share/doc/netplan-generator/copyright
+eb978544aa3511635006b696acef7f1c  usr/libexec/netplan/generate
+94d353575ea84eb1e4887271ada2d029  usr/share/doc/netplan-generator/copyright
 c3d475746b73f0c256b1cca940843fef  usr/share/doc/netplan/examples/bonding.yaml
 8d8f8c2ff04d641ffe24070461fb9142  usr/share/doc/netplan/examples/bonding_router.yaml
 1985b13f8ace0bb976dcf6101504d0f7  usr/share/doc/netplan/examples/bridge.yaml
@@ -35,6 +35,6 @@ ba3e2fc26796a9b6db99d90ae2fbc595  usr/share/doc/netplan/examples/vrf.yaml
 4ba5554a2290bc3c01333bf0c2376e98  usr/share/doc/netplan/examples/wireless_wpa3.yaml
 15e1740d2e7d57cf9e06833e621e806a  usr/share/doc/netplan/examples/wpa3_enterprise.yaml
 0056ead0f148c9047eee714d1db6cc3f  usr/share/doc/netplan/examples/wpa_enterprise.yaml
-7a6ba19b14d22a613abc3716624444d7  usr/share/doc/netplan/netplan.html
+e96e0a106c3bbb97572a3cc3ec63e75f  usr/share/doc/netplan/netplan.html
 360bd05e562276a8721a333b4533c875  usr/share/lintian/overrides/netplan-generator
-2d43e92716b94c940c02c213e6f682b7  usr/share/man/man5/netplan.5.gz
+8cee6b886bb9c1e400fee3bbccbee0c4  usr/share/man/man5/netplan.5.gz

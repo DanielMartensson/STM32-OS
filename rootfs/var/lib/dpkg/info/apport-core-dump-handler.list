@@ -1,0 +1,14 @@
+/.
+/etc
+/etc/init.d
+/etc/init.d/apport
+/usr
+/usr/lib
+/usr/lib/systemd
+/usr/lib/systemd/system
+/usr/lib/systemd/system/apport.service
+/usr/share
+/usr/share/doc
+/usr/share/doc/apport-core-dump-handler
+/usr/share/doc/apport-core-dump-handler/changelog.Debian.gz
+/usr/share/doc/apport-core-dump-handler/copyright

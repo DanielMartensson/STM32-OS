@@ -1,7 +1,7 @@
 8e3c39abe0668e3e0c0a94c8e84b956d  usr/share/doc/tzdata/NEWS.Debian.gz
 d00a3476c68bbef5492f01b2dded1aae  usr/share/doc/tzdata/NEWS.gz
 5461b4c9623a1657baf85fbc0c8576b6  usr/share/doc/tzdata/README.Debian
-890eca4c5f8aed45be0a5a0109cee4ee  usr/share/doc/tzdata/changelog.Debian.gz
+8c7bdf1dfb668fd2f0252d1d6402448c  usr/share/doc/tzdata/changelog.Debian.gz
 00afa257d9a543e2a5090eca62f8c29b  usr/share/doc/tzdata/copyright
 99ba64fc15439c4f68346705f7cfd872  usr/share/lintian/overrides/tzdata
 09a9397080948b96d97819d636775e33  usr/share/zoneinfo/Africa/Abidjan
@@ -454,7 +454,7 @@ bdb73167013a1b194793645b70c402a6  usr/share/zoneinfo/Pacific/Wake
 4a8110c945de0681a58ccbdcd6f8bd4d  usr/share/zoneinfo/iso3166.tab
 1fd67b378c361dc54d7d115a5659054f  usr/share/zoneinfo/leap-seconds.list
 2c41a1b9a0d0aee6f7a1406db026f1e6  usr/share/zoneinfo/leapseconds
-7894fff900c7de741c04fb5f2c9ef08e  usr/share/zoneinfo/tzdata.zi
+50fb64cbefb26b9448043ea8fd38de2a  usr/share/zoneinfo/tzdata.zi
 bdcaaded85ea77b872e0be73991a221c  usr/share/zoneinfo/zone.tab
 de5322429c76f4ba9a37eff7a9c0b69c  usr/share/zoneinfo/zone1970.tab
 94910786d17ece93496df6c15ae04781  usr/share/zoneinfo/zonenow.tab

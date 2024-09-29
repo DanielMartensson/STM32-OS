@@ -1,0 +1,10 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libvidstab.so.1.1
+/usr/share
+/usr/share/doc
+/usr/share/doc/libvidstab1.1
+/usr/share/doc/libvidstab1.1/changelog.Debian.gz
+/usr/share/doc/libvidstab1.1/copyright

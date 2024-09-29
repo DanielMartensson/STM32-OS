@@ -1,0 +1,4 @@
+90b28f0cca4941ca06e170a9a72bb411  usr/lib/arm-linux-gnueabihf/blas/libblas.so.3.12.0
+1b4d205ce6c49b7092e75b25de8b24b1  usr/share/doc/libblas3/changelog.Debian.gz
+7f261ca47f2dabe7c7fca7c028e65138  usr/share/doc/libblas3/copyright
+fdf0f0418f059a7a6268705df5c65e21  usr/share/lintian/overrides/libblas3

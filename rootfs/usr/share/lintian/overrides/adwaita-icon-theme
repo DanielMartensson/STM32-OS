@@ -1,0 +1,2 @@
+# postinst creates the /usr/share/icons/default/index.theme symlink
+package-contains-empty-directory [usr/share/icons/default/]

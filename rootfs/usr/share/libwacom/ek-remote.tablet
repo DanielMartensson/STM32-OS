@@ -1,0 +1,35 @@
+# Wacom
+# ExpressKey Remote
+# ACK-411050
+#
+#    C D
+#  B  A  E
+#     F
+#  G  H  I
+#  J  K  L
+#  M  N  O
+#     P
+#  Q     R
+
+[Device]
+Name=Wacom ExpressKey Remote
+ModelName=ACK-411050
+DeviceMatch=usb:056a:0331
+Layout=ek-remote.svg
+Class=Remote
+
+[Features]
+Stylus=false
+Ring=true
+NumStrips=0
+StatusLEDs=Ring
+
+[Buttons]
+Left=A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;Q;R
+EvdevCodes=BTN_0;BTN_1;BTN_2;BTN_3;BTN_4;BTN_5;BTN_6;BTN_7;BTN_8;BTN_9;0x130;0x131;0x132;0x133;0x134;0x135;0x126;0x127
+
+#Note that though this device has 3 ring modes
+#this mode selection does not function the same
+#as previous devices. The EKR's mode is read-only.
+RingNumModes=3
+Ring=A

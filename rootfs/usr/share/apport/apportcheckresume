@@ -1,0 +1,109 @@
+#!/usr/bin/python3
+
+# Copyright (C) 2009 Canonical Ltd.
+# Author: Andy Whitcroft <apw@ubuntu.com>
+#
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 2 of the License, or (at your
+# option) any later version.  See http://www.gnu.org/copyleft/gpl.html for
+# the full text of the license.
+
+"""Detect and report suspend/hibernate/resume failures.
+
+If a suspend/hibernate is marked as still in progress during a normal
+system boot we know that that operation has failed.  Use that to
+generate an apport bug report.
+"""
+
+import datetime
+import os
+import sys
+from gettext import gettext as _
+
+import apport.report
+from apport.hookutils import attach_file_if_exists
+from apport.packaging_impl import impl as packaging
+
+
+# pylint: disable-next=missing-function-docstring
+def main(argv=None):
+    if argv is None:
+        argv = sys.argv
+
+    try:
+        if not packaging.enabled():
+            return -1
+
+        report = apport.report.Report(problem_type="KernelOops")
+
+        libdir = "/var/lib/pm-utils"
+        flagfile = f"{libdir}/status"
+        stresslog = f"{libdir}/stress.log"
+        hanglog = f"{libdir}/resume-hang.log"
+
+        report.add_os_info()
+        report.add_proc_info()
+        report.add_user_info()
+        report.add_package(apport.packaging.get_kernel_package())
+
+        # grab the contents of the suspend/resume flag file
+        attach_file_if_exists(report, flagfile, "Failure")
+
+        # grab the contents of the suspend/hibernate log file
+        attach_file_if_exists(report, "/var/log/pm-suspend.log", "SleepLog")
+
+        # grab the contents of the suspend/resume stress test log if present.
+        attach_file_if_exists(report, stresslog, "StressLog")
+
+        # Ensure we are appropriately tagged.
+        if "Failure" in report:
+            report.add_tags(["resume ", report["Failure"]])
+
+            # Record the failure mode.
+            report["Failure"] += "/resume"
+
+        # If we had a late hang pull in the resume-hang logfile.  Also
+        # add an additional tag so we can pick these out.
+        if os.path.exists(hanglog):
+            attach_file_if_exists(report, hanglog, "ResumeHangLog")
+            report.add_tags(["resume-late-hang"])
+
+        # Generate a sensible report message.
+        if report.get("Failure") == "suspend/resume":
+            report["Annotation"] = _(
+                "This occurred during a previous suspend,"
+                " and prevented the system from resuming properly."
+            )
+        else:
+            report["Annotation"] = _(
+                "This occurred during a previous hibernation,"
+                " and prevented the system from resuming properly."
+            )
+
+        # If we had a late hang make sure the dialog is clear that they may
+        # not have noticed.  Also update the bug title so we notice.
+        if os.path.exists(hanglog):
+            report["Annotation"] += "  " + _(
+                "The resume processing hung very near the end"
+                " and will have appeared to have completed normally."
+            )
+            report["Failure"] = "late resume"
+
+        if report.check_ignored():
+            return 0
+
+        nowtime = datetime.datetime.now()
+        pr_filename = f"/var/crash/susres.{str(nowtime).replace(' ', '_')}.crash"
+        with os.fdopen(
+            os.open(pr_filename, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o640), "wb"
+        ) as report_file:
+            report.write(report_file)
+        return 0
+    except Exception:
+        print("apportcheckresume failed")
+        raise
+
+
+if __name__ == "__main__":
+    sys.exit(main())

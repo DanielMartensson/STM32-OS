@@ -1,0 +1,15 @@
+bca04cfe8e4c835f023e1406cc982345  usr/lib/arm-linux-gnueabihf/libweston-13.so.0.0.0
+ba0f489e19be7a6d70223d21ca4fa100  usr/lib/arm-linux-gnueabihf/libweston-13/color-lcms.so
+bc5cd09caed1793e9081200d26b0fcd6  usr/lib/arm-linux-gnueabihf/libweston-13/drm-backend.so
+3cb926e4170a8a1bc8912b9b553fdd2f  usr/lib/arm-linux-gnueabihf/libweston-13/gl-renderer.so
+442ac78f96273b251b8ac48307b58a9b  usr/lib/arm-linux-gnueabihf/libweston-13/headless-backend.so
+63bb4b9669265990d40f4a0744b5f1ee  usr/lib/arm-linux-gnueabihf/libweston-13/pipewire-backend.so
+21ef8973e71b3fe31c67d001401e361d  usr/lib/arm-linux-gnueabihf/libweston-13/pipewire-plugin.so
+f116e02d4facd6a566b2ae59ad0b05ac  usr/lib/arm-linux-gnueabihf/libweston-13/rdp-backend.so
+84c983b76bb506a74535c360572c7457  usr/lib/arm-linux-gnueabihf/libweston-13/remoting-plugin.so
+e5646e69bd8041985c29ba4e93bcdaf9  usr/lib/arm-linux-gnueabihf/libweston-13/vnc-backend.so
+6735a87448c5da48faa77b330f1c4ea8  usr/lib/arm-linux-gnueabihf/libweston-13/wayland-backend.so
+842676bc9650d41163b49fccde8055eb  usr/lib/arm-linux-gnueabihf/libweston-13/x11-backend.so
+63d04b75be0044ac29ab88989f09eafc  usr/lib/arm-linux-gnueabihf/libweston-13/xwayland.so
+80fafba528210956d88dc1693c2ae179  usr/share/doc/libweston-13-0/changelog.Debian.gz
+4736f8430262e69508931ed5567c7778  usr/share/doc/libweston-13-0/copyright

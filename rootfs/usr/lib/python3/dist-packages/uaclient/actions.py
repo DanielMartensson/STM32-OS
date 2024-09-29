@@ -1,36 +1,41 @@
 import datetime
 import glob
+import json
 import logging
 import os
 import re
 import shutil
-from typing import List, Optional  # noqa: F401
+from typing import List, Optional
 
 from uaclient import (
+    api,
     clouds,
     config,
     contract,
     entitlements,
+    event_logger,
     exceptions,
     livepatch,
 )
 from uaclient import log as pro_log
+from uaclient import messages, secret_manager
 from uaclient import status as ua_status
 from uaclient import system, timer, util
-from uaclient.clouds import AutoAttachCloudInstance  # noqa: F401
-from uaclient.clouds import identity
 from uaclient.defaults import (
     APPARMOR_PROFILES,
     CLOUD_BUILD_INFO,
     DEFAULT_CONFIG_FILE,
     DEFAULT_LOG_PREFIX,
 )
+from uaclient.files import machine_token, notices
 from uaclient.files.state_files import (
     AttachmentData,
     attachment_data_file,
+    machine_id_file,
     timer_jobs_state_file,
 )
 
+event = event_logger.get_event_logger()
 LOG = logging.getLogger(util.replace_top_level_logger_name(__name__))
 
 
@@ -48,8 +53,90 @@ UA_SERVICES = (
 USER_LOG_COLLECTED_LIMIT = 10
 
 
+def _handle_partial_attach(
+    cfg: config.UAConfig,
+    contract_client: contract.UAContractClient,
+    attached_at: datetime.datetime,
+):
+    from uaclient.timer.update_messaging import update_motd_messages
+
+    attachment_data_file.write(AttachmentData(attached_at=attached_at))
+    ua_status.status(cfg=cfg)
+    update_motd_messages(cfg)
+    contract_client.update_activity_token()
+
+
+def _enable_default_services(
+    cfg: config.UAConfig,
+    services_to_be_enabled: List[contract.EnableByDefaultService],
+    contract_client: contract.UAContractClient,
+    attached_at: datetime.datetime,
+    silent: bool = False,
+):
+    ret = True
+    failed_services = []
+    unexpected_errors = []
+
+    try:
+        for enable_by_default_service in services_to_be_enabled:
+            ent_ret, reason = enable_entitlement_by_name(
+                cfg=cfg,
+                name=enable_by_default_service.name,
+                variant=enable_by_default_service.variant,
+                silent=silent,
+            )
+            ret &= ent_ret
+
+            if not ent_ret:
+                failed_services.append(enable_by_default_service.name)
+            else:
+                event.service_processed(service=enable_by_default_service.name)
+    except exceptions.ConnectivityError as exc:
+        event.service_failed(enable_by_default_service.name)
+        _handle_partial_attach(cfg, contract_client, attached_at)
+        raise exc
+    except exceptions.UbuntuProError:
+        failed_services.append(enable_by_default_service.name)
+        ret = False
+    except Exception as e:
+        ret = False
+        failed_services.append(enable_by_default_service.name)
+        unexpected_errors.append(e)
+
+    if not ret:
+        # Persist updated status in the event of partial attach
+        _handle_partial_attach(cfg, contract_client, attached_at)
+        event.services_failed(failed_services)
+
+        if unexpected_errors:
+            raise exceptions.AttachFailureUnknownError(
+                failed_services=[
+                    (
+                        name,
+                        messages.UNEXPECTED_ERROR.format(
+                            error_msg=str(exception),
+                            log_path=pro_log.get_user_or_root_log_file_path(),
+                        ),
+                    )
+                    for name, exception in zip(
+                        failed_services, unexpected_errors
+                    )
+                ]
+            )
+        else:
+            raise exceptions.AttachFailureDefaultServices(
+                failed_services=[
+                    (name, messages.E_ATTACH_FAILURE_DEFAULT_SERVICES)
+                    for name in failed_services
+                ]
+            )
+
+
 def attach_with_token(
-    cfg: config.UAConfig, token: str, allow_enable: bool
+    cfg: config.UAConfig,
+    token: str,
+    allow_enable: bool,
+    silent: bool = False,
 ) -> None:
     """
     Common functionality to take a token and attach via contract backend
@@ -58,43 +145,70 @@ def attach_with_token(
     :raise ContractAPIError: On unexpected errors when talking to the contract
         server.
     """
+    from uaclient.entitlements import (
+        check_entitlement_apt_directives_are_unique,
+    )
     from uaclient.timer.update_messaging import update_motd_messages
 
+    secret_manager.secrets.add_secret(token)
+    machine_token_file = machine_token.get_machine_token_file(cfg)
     contract_client = contract.UAContractClient(cfg)
     attached_at = datetime.datetime.now(tz=datetime.timezone.utc)
     new_machine_token = contract_client.add_contract_machine(
         contract_token=token, attachment_dt=attached_at
     )
+    current_series = system.get_release_info().series
 
-    cfg.machine_token_file.write(new_machine_token)
+    contractInfo = new_machine_token.get("machineTokenInfo", {}).get(
+        "contractInfo", {}
+    )
+    support_resource = dict(
+        (e.get("type"), e)
+        for e in contractInfo.get("resourceEntitlements", [])
+        if e.get("type") == "support"
+    )
+    only_series = (
+        support_resource.get("support", {})
+        .get("affordances", {})
+        .get("onlySeries", None)
+    )
+    if only_series:
+        allowed_release = system.get_distro_info(only_series)
+        if only_series != current_series:
+            raise exceptions.AttachFailureRestrictedRelease(
+                release=allowed_release.release,
+                series_codename=allowed_release.series_codename,
+            )
+        notices.add(
+            notices.Notice.LIMITED_TO_RELEASE,
+            release=allowed_release.release,
+            series_codename=allowed_release.series_codename,
+        )
+
+    machine_token_file.write(new_machine_token)
+    try:
+        check_entitlement_apt_directives_are_unique(cfg)
+    except exceptions.EntitlementsAPTDirectivesAreNotUnique as e:
+        machine_token_file.delete()
+        raise e
 
     system.get_machine_id.cache_clear()
     machine_id = new_machine_token.get("machineTokenInfo", {}).get(
         "machineId", system.get_machine_id(cfg)
     )
-    cfg.write_cache("machine-id", machine_id)
+    machine_id_file.write(machine_id)
 
-    try:
-        contract.process_entitlements_delta(
-            cfg,
-            {},
-            # we load from the file here instead of using the response
-            # so that we get any machine_token_overlay present during testing
-            # TODO: decide if there is a better way to do this
-            cfg.machine_token_file.entitlements,
-            allow_enable,
+    if allow_enable:
+        services_to_be_enabled = contract.get_enabled_by_default_services(
+            cfg, machine_token_file.entitlements()
         )
-    except (exceptions.ConnectivityError, exceptions.UbuntuProError) as exc:
-        # Persist updated status in the event of partial attach
-        attachment_data_file.write(AttachmentData(attached_at=attached_at))
-        ua_status.status(cfg=cfg)
-        update_motd_messages(cfg)
-        contract_client.update_activity_token()
-        raise exc
-
-    current_iid = identity.get_instance_id()
-    if current_iid:
-        cfg.write_cache("instance-id", current_iid)
+        _enable_default_services(
+            cfg=cfg,
+            services_to_be_enabled=services_to_be_enabled,
+            contract_client=contract_client,
+            attached_at=attached_at,
+            silent=silent,
+        )
 
     attachment_data_file.write(AttachmentData(attached_at=attached_at))
     update_motd_messages(cfg)
@@ -128,10 +242,9 @@ def enable_entitlement_by_name(
     cfg: config.UAConfig,
     name: str,
     *,
-    assume_yes: bool = False,
-    allow_beta: bool = False,
     access_only: bool = False,
     variant: str = "",
+    silent: bool = False,
     extra_args: Optional[List[str]] = None
 ):
     """
@@ -140,18 +253,23 @@ def enable_entitlement_by_name(
     :raise EntitlementNotFoundError: If no entitlement with the given name is
         found, then raises this error.
     """
-    ent_cls = entitlements.entitlement_factory(
-        cfg=cfg, name=name, variant=variant
-    )
-    entitlement = ent_cls(
-        cfg,
-        assume_yes=assume_yes,
-        allow_beta=allow_beta,
-        called_name=name,
+    entitlement = entitlements.entitlement_factory(
+        cfg=cfg,
+        name=name,
+        variant=variant,
         access_only=access_only,
         extra_args=extra_args,
     )
-    return entitlement.enable()
+
+    if not silent:
+        event.info(messages.ENABLING_TMPL.format(title=entitlement.title))
+
+    ent_ret, reason = entitlement.enable(api.ProgressWrapper())
+
+    if ent_ret and not silent:
+        event.info(messages.ENABLED_TMPL.format(title=entitlement.title))
+
+    return ent_ret, reason
 
 
 def status(
@@ -183,6 +301,7 @@ def _write_apparmor_logs_to_file(filename: str) -> None:
     """
     # can't use journalctl's --grep, because xenial doesn't support it :/
     cmd = ["journalctl", "-b", "-k", "--since=1 day ago"]
+    # all profiles are prefixed with "ubuntu_pro_"
     apparmor_re = r"apparmor=\".*(profile=\"ubuntu_pro_|name=\"ubuntu_pro_)"
     kernel_logs = None
     try:
@@ -205,11 +324,13 @@ def _write_command_output_to_file(
 ) -> None:
     """Helper which runs a command and writes output or error to filename."""
     try:
-        out, _ = system.subp(cmd.split(), rcs=return_codes)
+        out, err = system.subp(cmd.split(), rcs=return_codes)
     except exceptions.ProcessExecutionError as e:
         system.write_file("{}-error".format(filename), str(e))
     else:
-        system.write_file(filename, out)
+        system.write_file(
+            filename, "stdout:\n{}\n\nstderr:\n{}".format(out, err)
+        )
 
 
 def _get_state_files(cfg: config.UAConfig):
@@ -220,9 +341,9 @@ def _get_state_files(cfg: config.UAConfig):
         timer_jobs_state_file.ua_file.path,
         CLOUD_BUILD_INFO,
         *(
-            entitlement(cfg).repo_file
-            for entitlement in entitlements.ENTITLEMENT_CLASSES
-            if issubclass(entitlement, entitlements.repo.RepoEntitlement)
+            entitlement_cls(cfg).repo_file
+            for entitlement_cls in entitlements.ENTITLEMENT_CLASSES
+            if issubclass(entitlement_cls, entitlements.repo.RepoEntitlement)
         ),
     ]
 
@@ -233,9 +354,6 @@ def collect_logs(cfg: config.UAConfig, output_dir: str):
     """
     _write_command_output_to_file(
         "cloud-id", "{}/cloud-id.txt".format(output_dir)
-    )
-    _write_command_output_to_file(
-        "pro status --format json", "{}/ua-status.json".format(output_dir)
     )
     _write_command_output_to_file(
         "{} status".format(livepatch.LIVEPATCH_CMD),
@@ -268,6 +386,16 @@ def collect_logs(cfg: config.UAConfig, output_dir: str):
             "{}/{}.txt".format(output_dir, service),
             return_codes=[0, 3],
         )
+    pro_status, _ = status(cfg=cfg, show_all=False)
+    system.write_file(
+        "{}/pro-status.json".format(output_dir),
+        json.dumps(pro_status, cls=util.DatetimeAwareJSONEncoder),
+    )
+    env_vars = util.get_pro_environment()
+    system.write_file(
+        "{}/environment_vars.json".format(output_dir),
+        json.dumps(env_vars),
+    )
 
     state_files = _get_state_files(cfg)
     user_log_files = (

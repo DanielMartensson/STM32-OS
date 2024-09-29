@@ -48,9 +48,9 @@ libnettle.so.8 libnettle8t64 #MINVER#
  _nettle_salsa20_crypt_2core@NETTLE_INTERNAL_8_8 3.9.1~
  _nettle_sha1_compress_armv6@NETTLE_INTERNAL_8_8 3.9.1~
  _nettle_sha1_compress_c@NETTLE_INTERNAL_8_8 3.9.1~
- _nettle_sha256_compress_n@NETTLE_INTERNAL_8_8 3.9.1-2.2build1
- _nettle_sha256_compress_n_armv6@NETTLE_INTERNAL_8_8 3.9.1-2.2build1
- _nettle_sha256_compress_n_c@NETTLE_INTERNAL_8_8 3.9.1-2.2build1
+ _nettle_sha256_compress_n@NETTLE_INTERNAL_8_8 3.9.1-2.2build1.1
+ _nettle_sha256_compress_n_armv6@NETTLE_INTERNAL_8_8 3.9.1-2.2build1.1
+ _nettle_sha256_compress_n_c@NETTLE_INTERNAL_8_8 3.9.1-2.2build1.1
  _nettle_sha3_pad@NETTLE_INTERNAL_8_8 3.9.1~
  _nettle_sha3_permute_c@NETTLE_INTERNAL_8_8 3.9.1~
  _nettle_sha3_permute_neon@NETTLE_INTERNAL_8_8 3.9.1~

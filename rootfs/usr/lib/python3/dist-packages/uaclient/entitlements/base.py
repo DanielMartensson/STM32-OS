@@ -6,6 +6,7 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional, Set, Tuple, Type, Union
 
 from uaclient import (
+    api,
     apt,
     config,
     contract,
@@ -28,14 +29,15 @@ from uaclient.entitlements.entitlement_status import (
     ContractStatus,
     UserFacingStatus,
 )
+from uaclient.files import machine_token
+from uaclient.files.state_files import status_cache_file
 from uaclient.types import MessagingOperationsDict, StaticAffordance
-from uaclient.util import is_config_value_true
 
 event = event_logger.get_event_logger()
 LOG = logging.getLogger(util.replace_top_level_logger_name(__name__))
 
 
-class IncompatibleService:
+class EntitlementWithMessage:
     def __init__(
         self,
         entitlement: Type["UAEntitlement"],
@@ -46,14 +48,11 @@ class IncompatibleService:
 
 
 class UAEntitlement(metaclass=abc.ABCMeta):
+    # Required: short name of the entitlement
+    name = None  # type: str
+
     # Optional URL for top-level product service information
     help_doc_url = None  # type: str
-
-    # Whether to assume yes to any messaging prompts
-    assume_yes = False
-
-    # Whether that entitlement is in beta stage
-    is_beta = False
 
     # Whether the entitlement supports the --access-only flag
     supports_access_only = False
@@ -65,10 +64,10 @@ class UAEntitlement(metaclass=abc.ABCMeta):
     help_text = ""
 
     # List of services that are incompatible with this service
-    _incompatible_services = ()  # type: Tuple[IncompatibleService, ...]
+    _incompatible_services = ()  # type: Tuple[EntitlementWithMessage, ...]
 
     # List of services that must be active before enabling this service
-    _required_services = ()  # type: Tuple[Type[UAEntitlement], ...]
+    _required_services = ()  # type: Tuple[EntitlementWithMessage, ...]
 
     # List of services that depend on this service
     _dependent_services = ()  # type: Tuple[Type[UAEntitlement], ...]
@@ -80,12 +79,6 @@ class UAEntitlement(metaclass=abc.ABCMeta):
 
     # Determine if the service is a variant of an existing service
     is_variant = False
-
-    @property
-    @abc.abstractmethod
-    def name(self) -> str:
-        """The lowercase name of this entitlement"""
-        pass
 
     @property
     def variant_name(self) -> str:
@@ -117,7 +110,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
         """The user-facing name shown for this entitlement"""
         if self.is_variant:
             return self.variant_name
-        elif self.cfg.machine_token_file.is_present:
+        elif self.machine_token_file.is_present:
             return (
                 self.entitlement_cfg.get("entitlement", {})
                 .get("affordances", {})
@@ -163,7 +156,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
         return ()
 
     @property
-    def incompatible_services(self) -> Tuple[IncompatibleService, ...]:
+    def incompatible_services(self) -> Tuple[EntitlementWithMessage, ...]:
         """
         Return a list of packages that aren't compatible with the entitlement.
         When we are enabling the entitlement we can directly ask the user
@@ -173,7 +166,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
         return self._incompatible_services
 
     @property
-    def required_services(self) -> Tuple[Type["UAEntitlement"], ...]:
+    def required_services(self) -> Tuple[EntitlementWithMessage, ...]:
         """
         Return a list of packages that must be active before enabling this
         service. When we are enabling the entitlement we can directly ask
@@ -261,14 +254,33 @@ class UAEntitlement(metaclass=abc.ABCMeta):
                 continue
             variant = variant_cls(
                 cfg=self.cfg,
-                assume_yes=self.assume_yes,
-                allow_beta=self.allow_beta,
                 called_name=self._called_name,
                 access_only=self.access_only,
             )
             status, _ = variant.application_status()
             if status == ApplicationStatus.ENABLED:
                 return variant
+        return None
+
+    def variant_auto_select(self) -> bool:
+        """
+        Only implemented on variant classes.
+        Returns True if this variant should be auto-selected.
+        """
+        return False
+
+    @property
+    def default_variant(self):
+        """
+        Cannot actually set the return type because
+        https://github.com/python/typing/issues/266
+        affects xenial.
+
+        :rtype: Optional[Type["UAEntitlement"]]
+        """
+        variants = list(self.variants.values())
+        if variants:
+            return variants[0]
         return None
 
     # Any custom messages to emit to the console or callables which are
@@ -280,8 +292,6 @@ class UAEntitlement(metaclass=abc.ABCMeta):
     def __init__(
         self,
         cfg: Optional[config.UAConfig] = None,
-        assume_yes: bool = False,
-        allow_beta: bool = False,
         called_name: str = "",
         access_only: bool = False,
         purge: bool = False,
@@ -294,8 +304,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
         if not cfg:
             cfg = config.UAConfig()
         self.cfg = cfg
-        self.assume_yes = assume_yes
-        self.allow_beta = allow_beta
+        self.machine_token_file = machine_token.get_machine_token_file()
         self.access_only = access_only
         self.purge = purge
         if extra_args is not None:
@@ -306,21 +315,9 @@ class UAEntitlement(metaclass=abc.ABCMeta):
         self._valid_service = None  # type: Optional[bool]
         self._is_sources_list_updated = False
 
-    @property
-    def valid_service(self):
-        """Check if the service is marked as valid (non-beta)"""
-        if self._valid_service is None:
-            self._valid_service = (
-                not self.is_beta
-                or self.allow_beta
-                or is_config_value_true(self.cfg.cfg, "features.allow_beta")
-            )
-
-        return self._valid_service
-
     def _base_entitlement_cfg(self):
         return copy.deepcopy(
-            self.cfg.machine_token_file.entitlements.get(self.name, {})
+            self.machine_token_file.entitlements().get(self.name, {})
         )
 
     @property
@@ -335,6 +332,54 @@ class UAEntitlement(metaclass=abc.ABCMeta):
         )
 
         return entitlement_cfg
+
+    @abc.abstractmethod
+    def enable_steps(self) -> int:
+        """
+        The number of steps that are reported as progress while enabling
+        this specific entitlement that are not shared with other entitlements.
+        """
+        pass
+
+    @abc.abstractmethod
+    def disable_steps(self) -> int:
+        """
+        The number of steps that are reported as progress while disabling
+        this specific entitlement that are not shared with other entitlements.
+        """
+        pass
+
+    def calculate_total_enable_steps(self) -> int:
+        total_steps = self.enable_steps()
+        required_snaps = (
+            self.entitlement_cfg.get("entitlement", {})
+            .get("directives", {})
+            .get("requiredSnaps")
+        )
+        if required_snaps is not None and len(required_snaps) > 0:
+            total_steps += 1
+        required_packages = (
+            self.entitlement_cfg.get("entitlement", {})
+            .get("directives", {})
+            .get("requiredPackages")
+        )
+        if required_packages is not None and len(required_packages) > 0:
+            total_steps += 1
+        for incompatible_service in self.blocking_incompatible_services():
+            total_steps += incompatible_service.entitlement(
+                self.cfg,
+            ).disable_steps()
+        for required_service in self.blocking_required_services():
+            total_steps += required_service.entitlement(
+                self.cfg
+            ).enable_steps()
+        return total_steps
+
+    def calculate_total_disable_steps(self) -> int:
+        total_steps = self.disable_steps()
+        for dependent_service in self.blocking_dependent_services():
+            total_steps += dependent_service(self.cfg).disable_steps()
+        return total_steps
 
     def can_enable(self) -> Tuple[bool, Optional[CanEnableFailure]]:
         """
@@ -367,9 +412,6 @@ class UAEntitlement(metaclass=abc.ABCMeta):
                     message=messages.ALREADY_ENABLED.format(title=self.title),
                 ),
             )
-
-        if not self.valid_service:
-            return (False, CanEnableFailure(CanEnableFailureReason.IS_BETA))
 
         applicability_status, details = self.applicability_status()
         if applicability_status == ApplicabilityStatus.INAPPLICABLE:
@@ -415,7 +457,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
     # support additional reason types in the future.
     def enable(
         self,
-        silent: bool = False,
+        progress: api.ProgressWrapper,
     ) -> Tuple[bool, Union[None, CanEnableFailure]]:
         """Enable specific entitlement.
 
@@ -426,9 +468,9 @@ class UAEntitlement(metaclass=abc.ABCMeta):
                 include other types of reasons in the future.
         """
 
-        msg_ops = self.messaging.get("pre_can_enable", [])
-        if not util.handle_message_operations(msg_ops):
-            return False, None
+        progress.emit(
+            "message_operation", self.messaging.get("pre_can_enable")
+        )
 
         can_enable, fail = self.can_enable()
         if not can_enable:
@@ -437,7 +479,9 @@ class UAEntitlement(metaclass=abc.ABCMeta):
                 return False, None
             elif fail.reason == CanEnableFailureReason.INCOMPATIBLE_SERVICE:
                 # Try to disable those services before proceeding with enable
-                incompat_ret, error = self.handle_incompatible_services()
+                incompat_ret, error = self.handle_incompatible_services(
+                    progress
+                )
                 if not incompat_ret:
                     fail.message = error
                     return False, fail
@@ -446,7 +490,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
                 == CanEnableFailureReason.INACTIVE_REQUIRED_SERVICES
             ):
                 # Try to enable those services before proceeding with enable
-                req_ret, error = self._enable_required_services()
+                req_ret, error = self._enable_required_services(progress)
                 if not req_ret:
                     fail.message = error
                     return False, fail
@@ -454,31 +498,25 @@ class UAEntitlement(metaclass=abc.ABCMeta):
                 # every other reason means we can't continue
                 return False, fail
 
-        msg_ops = self.messaging.get("pre_enable", [])
-        if not util.handle_message_operations(msg_ops):
-            return False, None
+        progress.emit("message_operation", self.messaging.get("pre_enable"))
 
         # TODO: Move all logic from RepoEntitlement that
         # handles the additionalPackages and APT directives
         # to the base class. The additionalSnaps handling
         # is a step on that direction
         if not self.access_only:
-            if not self.handle_required_snaps():
+            if not self.handle_required_snaps(progress):
                 return False, None
-            if not self.handle_required_packages():
+            if not self.handle_required_packages(progress):
                 return False, None
 
-        ret = self._perform_enable(silent=silent)
+        ret = self._perform_enable(progress)
         if not ret:
-            return False, None
-
-        msg_ops = self.messaging.get("post_enable", [])
-        if not util.handle_message_operations(msg_ops):
             return False, None
 
         return True, None
 
-    def handle_required_snaps(self) -> bool:
+    def handle_required_snaps(self, progress: api.ProgressWrapper) -> bool:
         """ "install snaps necessary to enable a service."""
         required_snaps = (
             self.entitlement_cfg.get("entitlement", {})
@@ -492,24 +530,28 @@ class UAEntitlement(metaclass=abc.ABCMeta):
             return True
 
         if not snap.is_snapd_installed():
-            event.info(messages.INSTALLING_PACKAGES.format(packages="snapd"))
+            progress.emit(
+                "info", messages.INSTALLING_PACKAGES.format(packages="snapd")
+            )
             snap.install_snapd()
 
         if not snap.is_snapd_installed_as_a_snap():
-            event.info(
-                messages.INSTALLING_PACKAGES.format(packages="snapd snap")
+            progress.emit(
+                "info",
+                messages.INSTALLING_PACKAGES.format(packages="snapd snap"),
             )
             try:
                 snap.install_snap("snapd")
             except exceptions.ProcessExecutionError as e:
                 LOG.warning("Failed to install snapd as a snap", exc_info=e)
-                event.info(
+                progress.emit(
+                    "info",
                     messages.EXECUTING_COMMAND_FAILED.format(
                         command="snap install snapd"
-                    )
+                    ),
                 )
 
-        snap.run_snapd_wait_cmd()
+        snap.run_snapd_wait_cmd(progress)
 
         try:
             snap.refresh_snap("snapd")
@@ -534,7 +576,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
         )
 
         if required_snaps:
-            event.info(messages.INSTALLING_REQUIRED_SNAPS)
+            progress.progress(messages.INSTALLING_REQUIRED_SNAPS)
 
         for snap_pkg in sorted(required_snaps, key=lambda x: x.get("name")):
             # The name field should always be delivered by the contract side
@@ -547,10 +589,11 @@ class UAEntitlement(metaclass=abc.ABCMeta):
                 )
                 channel = snap_pkg.get("channel")
 
-                event.info(
+                progress.emit(
+                    "info",
                     messages.INSTALLING_REQUIRED_SNAP_PACKAGE.format(
                         snap=snap_name
-                    )
+                    ),
                 )
                 snap.install_snap(
                     snap_name,
@@ -580,7 +623,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
             [required in installed_packages for required in package_names]
         )
 
-    def handle_required_packages(self) -> bool:
+    def handle_required_packages(self, progress: api.ProgressWrapper) -> bool:
         """install packages necessary to enable a service."""
         required_packages = (
             self.entitlement_cfg.get("entitlement", {})
@@ -593,11 +636,11 @@ class UAEntitlement(metaclass=abc.ABCMeta):
         if not required_packages:
             return True
 
-        self._update_sources_list()
+        self._update_sources_list(progress)
 
         package_names = [package["name"] for package in required_packages]
         LOG.debug("Installing packages %r", package_names)
-        event.info(
+        progress.progress(
             messages.INSTALLING_PACKAGES.format(
                 packages=" ".join(package_names)
             )
@@ -644,7 +687,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
         return True
 
     @abc.abstractmethod
-    def _perform_enable(self, silent: bool = False) -> bool:
+    def _perform_enable(self, progress: api.ProgressWrapper) -> bool:
         """
         Enable specific entitlement. This should be implemented by subclasses.
         This method does the actual enablement, and does not check can_enable
@@ -654,45 +697,15 @@ class UAEntitlement(metaclass=abc.ABCMeta):
         """
         pass
 
-    def detect_dependent_services(self) -> bool:
-        """
-        Check for depedent services.
-
-        :return:
-            True if there are dependent services enabled
-            False if there are no dependent services enabled
-        """
-        for dependent_service_cls in self.dependent_services:
-            ent_status, _ = dependent_service_cls(
-                self.cfg
-            ).application_status()
-            if ent_status == ApplicationStatus.ENABLED:
-                return True
-
-        return False
-
-    def check_required_services_active(self):
-        """
-        Check if all required services are active
-
-        :return:
-            True if all required services are active
-            False is at least one of the required services is disabled
-        """
-        for required_service_cls in self.required_services:
-            ent_status, _ = required_service_cls(self.cfg).application_status()
-            if ent_status != ApplicationStatus.ENABLED:
-                return False
-
-        return True
-
-    def blocking_incompatible_services(self) -> List[IncompatibleService]:
+    def blocking_incompatible_services(self) -> List[EntitlementWithMessage]:
         """
         :return: List of incompatible services that are enabled
         """
         ret = []
         for service in self.incompatible_services:
-            ent_status, _ = service.entitlement(self.cfg).application_status()
+            ent_status, _ = service.entitlement(
+                cfg=self.cfg,
+            ).application_status()
             if ent_status in (
                 ApplicationStatus.ENABLED,
                 ApplicationStatus.WARNING,
@@ -713,6 +726,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
 
     def handle_incompatible_services(
         self,
+        progress: api.ProgressWrapper,
     ) -> Tuple[bool, Optional[messages.NamedMessage]]:
         """
         Prompt user when incompatible services are found during enable.
@@ -733,14 +747,9 @@ class UAEntitlement(metaclass=abc.ABCMeta):
             path_to_value="features.block_disable_on_enable",
         )
         for service in self.blocking_incompatible_services():
-            ent = service.entitlement(self.cfg, assume_yes=True)
+            ent = service.entitlement(self.cfg)
 
-            user_msg = messages.INCOMPATIBLE_SERVICE.format(
-                service_being_enabled=self.title,
-                incompatible_service=ent.title,
-            )
-
-            e_msg = messages.INCOMPATIBLE_SERVICE_STOPS_ENABLE.format(
+            e_msg = messages.E_INCOMPATIBLE_SERVICE_STOPS_ENABLE.format(
                 service_being_enabled=self.title,
                 incompatible_service=ent.title,
             )
@@ -748,25 +757,46 @@ class UAEntitlement(metaclass=abc.ABCMeta):
             if cfg_block_disable_on_enable:
                 return False, e_msg
 
-            if not util.prompt_for_confirmation(
-                msg=user_msg, assume_yes=self.assume_yes
-            ):
-                return False, e_msg
-
-            event.info(
+            progress.emit(
+                "info",
                 messages.DISABLING_INCOMPATIBLE_SERVICE.format(
                     service=ent.title
-                )
+                ),
             )
 
-            ret = ent.disable(silent=True)
+            ret, fail = ent.disable(progress)
             if not ret:
-                return ret, None
+                return (ret, fail.message if fail else None)
 
         return True, None
 
+    def check_required_services_active(self):
+        """
+        Check if all required services are active
+
+        :return:
+            True if all required services are active
+            False is at least one of the required services is disabled
+        """
+        return len(self.blocking_required_services()) == 0
+
+    def blocking_required_services(self):
+        """
+        :return: List of required services that are disabled
+        """
+        ret = []
+        for service in self.required_services:
+            ent_status, _ = service.entitlement(self.cfg).application_status()
+            if ent_status not in (
+                ApplicationStatus.ENABLED,
+                ApplicationStatus.WARNING,
+            ):
+                ret.append(service)
+        return ret
+
     def _enable_required_services(
         self,
+        progress: api.ProgressWrapper,
     ) -> Tuple[bool, Optional[messages.NamedMessage]]:
         """
         Prompt user when required services are found during enable.
@@ -775,44 +805,24 @@ class UAEntitlement(metaclass=abc.ABCMeta):
         that must be enabled first. In that situation, we can ask the user
         if the required service should be enabled before proceeding.
         """
-        for required_service_cls in self.required_services:
-            ent = required_service_cls(self.cfg, allow_beta=True)
-
-            is_service_disabled = (
-                ent.application_status()[0] == ApplicationStatus.DISABLED
+        for required_service in self.blocking_required_services():
+            ent = required_service.entitlement(
+                cfg=self.cfg,
             )
+            progress.emit(
+                "info",
+                messages.ENABLING_REQUIRED_SERVICE.format(service=ent.title),
+            )
+            ret, fail = ent.enable(progress)
+            if not ret:
+                error_msg = ""
+                if fail and fail.message and fail.message.msg:
+                    error_msg = "\n" + fail.message.msg
 
-            if is_service_disabled:
-                user_msg = messages.REQUIRED_SERVICE.format(
-                    service_being_enabled=self.title,
-                    required_service=ent.title,
+                msg = messages.ERROR_ENABLING_REQUIRED_SERVICE.format(
+                    error=error_msg, service=ent.title
                 )
-
-                e_msg = messages.REQUIRED_SERVICE_STOPS_ENABLE.format(
-                    service_being_enabled=self.title,
-                    required_service=ent.title,
-                )
-
-                if not util.prompt_for_confirmation(
-                    msg=user_msg, assume_yes=self.assume_yes
-                ):
-                    return False, e_msg
-
-                event.info(
-                    messages.ENABLING_REQUIRED_SERVICE.format(
-                        service=ent.title
-                    )
-                )
-                ret, fail = ent.enable(silent=True)
-                if not ret:
-                    error_msg = ""
-                    if fail and fail.message and fail.message.msg:
-                        error_msg = "\n" + fail.message.msg
-
-                    msg = messages.ERROR_ENABLING_REQUIRED_SERVICE.format(
-                        error=error_msg, service=ent.title
-                    )
-                    return ret, msg
+                return ret, msg
 
         return True, None
 
@@ -880,7 +890,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
         return True, None
 
     def disable(
-        self, silent: bool = False
+        self, progress: api.ProgressWrapper
     ) -> Tuple[bool, Optional[CanDisableFailure]]:
         """Disable specific entitlement
 
@@ -892,9 +902,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
                 populated CanDisableFailure reason. This may expand to
                 include other types of reasons in the future.
         """
-        msg_ops = self.messaging.get("pre_disable", [])
-        if not util.handle_message_operations(msg_ops):
-            return False, None
+        progress.emit("message_operation", self.messaging.get("pre_disable"))
 
         can_disable, fail = self.can_disable()
         if not can_disable:
@@ -905,7 +913,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
                 fail.reason
                 == CanDisableFailureReason.ACTIVE_DEPENDENT_SERVICES
             ):
-                ret, msg = self._disable_dependent_services(silent=silent)
+                ret, msg = self._disable_dependent_services(progress)
                 if not ret:
                     fail.message = msg
                     return False, fail
@@ -913,23 +921,18 @@ class UAEntitlement(metaclass=abc.ABCMeta):
                 # every other reason means we can't continue
                 return False, fail
 
-        if not self._perform_disable(silent=silent):
+        if not self._perform_disable(progress):
             return False, None
 
         if not self.handle_removing_required_packages():
             return False, None
 
-        msg_ops = self.messaging.get("post_disable", [])
-        if not util.handle_message_operations(msg_ops):
-            return False, None
+        progress.emit("message_operation", self.messaging.get("post_disable"))
 
-        self._check_for_reboot_msg(
-            operation="disable operation", silent=silent
-        )
         return True, None
 
     @abc.abstractmethod
-    def _perform_disable(self, silent: bool = False) -> bool:
+    def _perform_disable(self, progress: api.ProgressWrapper) -> bool:
         """
         Disable specific entitlement. This should be implemented by subclasses.
         This method does the actual disable, and does not check can_disable
@@ -941,8 +944,33 @@ class UAEntitlement(metaclass=abc.ABCMeta):
         """
         pass
 
+    def detect_dependent_services(self) -> bool:
+        """
+        Check for depedent services.
+
+        :return:
+            True if there are dependent services enabled
+            False if there are no dependent services enabled
+        """
+        return len(self.blocking_dependent_services()) > 0
+
+    def blocking_dependent_services(self) -> List[Type["UAEntitlement"]]:
+        """
+        Return list of depedent services that must be disabled
+        before disabling this service.
+        """
+        blocking = []
+        for dependent_service_cls in self.dependent_services:
+            ent_status, _ = dependent_service_cls(
+                self.cfg
+            ).application_status()
+            if ent_status == ApplicationStatus.ENABLED:
+                blocking.append(dependent_service_cls)
+
+        return blocking
+
     def _disable_dependent_services(
-        self, silent: bool
+        self, progress: api.ProgressWrapper
     ) -> Tuple[bool, Optional[messages.NamedMessage]]:
         """
         Disable dependent services
@@ -955,52 +983,32 @@ class UAEntitlement(metaclass=abc.ABCMeta):
 
         @param silent: Boolean set True to silence print/log of messages
         """
-        for dependent_service_cls in self.dependent_services:
-            ent = dependent_service_cls(cfg=self.cfg, assume_yes=True)
+        for dependent_service_cls in self.blocking_dependent_services():
+            ent = dependent_service_cls(cfg=self.cfg)
 
-            is_service_enabled = (
-                ent.application_status()[0] == ApplicationStatus.ENABLED
+            progress.emit(
+                "info",
+                messages.DISABLING_DEPENDENT_SERVICE.format(
+                    required_service=ent.title
+                ),
             )
 
-            if is_service_enabled:
-                user_msg = messages.DEPENDENT_SERVICE.format(
-                    dependent_service=ent.title,
-                    service_being_disabled=self.title,
+            ret, fail = ent.disable(progress)
+            if not ret:
+                error_msg = ""
+                if fail and fail.message and fail.message.msg:
+                    error_msg = "\n" + fail.message.msg
+
+                msg = messages.FAILED_DISABLING_DEPENDENT_SERVICE.format(
+                    error=error_msg, required_service=ent.title
                 )
-
-                e_msg = messages.DEPENDENT_SERVICE_STOPS_DISABLE.format(
-                    service_being_disabled=self.title,
-                    dependent_service=ent.title,
-                )
-
-                if not util.prompt_for_confirmation(
-                    msg=user_msg, assume_yes=self.assume_yes
-                ):
-                    return False, e_msg
-
-                if not silent:
-                    event.info(
-                        messages.DISABLING_DEPENDENT_SERVICE.format(
-                            required_service=ent.title
-                        )
-                    )
-
-                ret, fail = ent.disable(silent=True)
-                if not ret:
-                    error_msg = ""
-                    if fail and fail.message and fail.message.msg:
-                        error_msg = "\n" + fail.message.msg
-
-                    msg = messages.FAILED_DISABLING_DEPENDENT_SERVICE.format(
-                        error=error_msg, required_service=ent.title
-                    )
-                    return False, msg
+                return False, msg
 
         return True, None
 
     def _check_for_reboot(self) -> bool:
-        """Check if system needs to be rebooted."""
-        return system.should_reboot()
+        """Check if system needs to be rebooted because of this service."""
+        return False
 
     def _check_for_reboot_msg(
         self, operation: str, silent: bool = False
@@ -1206,7 +1214,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
 
     def _check_application_status_on_cache(self) -> ApplicationStatus:
         """Check on the state of application on the status cache."""
-        status_cache = self.cfg.read_cache("status-cache")
+        status_cache = status_cache_file.read()
 
         if status_cache is None:
             return ApplicationStatus.DISABLED
@@ -1253,7 +1261,7 @@ class UAEntitlement(metaclass=abc.ABCMeta):
 
         delta_entitlement = deltas.get("entitlement", {})
         delta_directives = delta_entitlement.get("directives", {})
-        status_cache = self.cfg.read_cache("status-cache")
+        status_cache = status_cache_file.read()
 
         transition_to_unentitled = bool(delta_entitlement == util.DROPPED_KEY)
         if not transition_to_unentitled:
@@ -1272,33 +1280,32 @@ class UAEntitlement(metaclass=abc.ABCMeta):
                 application_status, _ = self.application_status()
 
             if application_status != ApplicationStatus.DISABLED:
-                if self.can_disable():
+                can_disable, fail = self.can_disable()
+                if can_disable:
                     LOG.info(
-                        "Disabling %s after refresh transition to unentitled"
+                        "Disabling %s after refresh transition to unentitled",
+                        self.name,
                     )
-                    self.disable()
-                    msg = (
-                        "Due to contract refresh, " "'{}' is now disabled."
-                    ).format(self.name)
+                    self.disable(api.ProgressWrapper())
                     event.info(
                         messages.DISABLE_DURING_CONTRACT_REFRESH.format(
                             service=self.name
                         )
                     )
                 else:
+                    fail_msg = fail.message_value if fail else ""
+
                     LOG.warning(
                         "Cannot disable %s after refresh transition to "
-                        "unentitled"
+                        "unentitled.\nReason: %s",
+                        self.name,
+                        fail_msg,
                     )
                     event.info(
                         messages.UNABLE_TO_DISABLE_DURING_CONTRACT_REFRESH.format(  # noqa: E501
                             service=self.name
                         )
                     )
-            # Clean up former entitled machine-access-<name> response cache
-            # file because uaclient doesn't access machine-access-* routes or
-            # responses on unentitled services.
-            self.cfg.delete_cache_key("machine-access-{}".format(self.name))
             return True
 
         resourceToken = orig_access.get("resourceToken")
@@ -1309,16 +1316,14 @@ class UAEntitlement(metaclass=abc.ABCMeta):
             delta_obligations, resourceToken
         )
 
-        if enable_by_default:
-            self.allow_beta = True
-
         can_enable, _ = self.can_enable()
         if can_enable and enable_by_default:
             if allow_enable:
                 msg = messages.ENABLE_BY_DEFAULT_TMPL.format(name=self.name)
 
                 event.info(msg, file_type=sys.stderr)
-                self.enable()
+                self.enable(api.ProgressWrapper())
+                event.info(messages.ENABLED_TMPL.format(title=self.title))
             else:
                 msg = messages.ENABLE_BY_DEFAULT_MANUAL_TMPL.format(
                     name=self.name
@@ -1328,9 +1333,11 @@ class UAEntitlement(metaclass=abc.ABCMeta):
 
         return False
 
-    def _update_sources_list(self):
+    def _update_sources_list(self, progress: api.ProgressWrapper):
         if self._is_sources_list_updated:
             return
-        event.info(messages.APT_UPDATING_LIST.format(name="standard Ubuntu"))
+        progress.emit(
+            "info", messages.APT_UPDATING_LIST.format(name="standard Ubuntu")
+        )
         apt.update_sources_list(apt.get_system_sources_file())
         self._is_sources_list_updated = True

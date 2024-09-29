@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libxcb-xkb.so.1.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libxcb-xkb1
+/usr/share/doc/libxcb-xkb1/copyright
+/usr/lib/arm-linux-gnueabihf/libxcb-xkb.so.1
+/usr/share/doc/libxcb-xkb1/changelog.Debian.gz

@@ -1,0 +1,3244 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: FreeRDP
+Upstream-Contact: FreeRDP project <freerdp-devel@lists.sourceforge.net>
+Source: https://github.com/FreeRDP/FreeRDP
+Files-Excluded:
+ ci
+ client/Android
+ client/iOS
+ client/Mac
+ client/Windows
+ cmake/ConfigOptionsAndroid.cmake
+ cmake/ios.toolchain.cmake
+ docs/FreeRDP.vsd
+ docs/README.android
+ docs/README.ios
+ docs/README.macOS
+ packaging
+ server/Sample/rfx_test.pcap
+ resources/FreeRDP_OSX.icns
+ resources/FreeRDP_Logo_Icon.ai
+ scripts/OpenSSL-DownloadAndBuild.command
+ scripts/android-*
+ winpr/libwinpr/crt/utf.*
+
+Files: .clang-format
+ .github/ISSUE_TEMPLATE.md
+ .github/ISSUE_TEMPLATE/bug_report.md
+ .github/ISSUE_TEMPLATE/feature_request.md
+ .github/PULL_REQUEST_TEMPLATE.md
+ .github/workflows/codeql-analysis.yml
+ .gitignore
+ .travis.yml
+ channels/client/.gitignore
+ client/.gitignore
+ client/X11/.gitignore
+ client/X11/cli/.gitignore
+ client/common/test/.gitignore
+ libfreerdp/codec/test/.gitignore
+ libfreerdp/common/test/.gitignore
+ libfreerdp/core/test/.gitignore
+ libfreerdp/crypto/test/.gitignore
+ libfreerdp/gdi/test/.gitignore
+ libfreerdp/primitives/test/.gitignore
+ libfreerdp/utils/test/.gitignore
+ rdtk/librdtk/test/.gitignore
+ rdtk/sample/.gitignore
+ scripts/.gitignore
+ server/.gitignore
+ server/Mac/.gitignore
+ server/shadow/.gitignore
+ third-party/.gitignore
+ uwac/libuwac/.gitignore
+ winpr/.gitignore
+ winpr/include/winpr/.gitignore
+ winpr/libwinpr/asn1/test/.gitignore
+ winpr/libwinpr/clipboard/test/.gitignore
+ winpr/libwinpr/comm/test/.gitignore
+ winpr/libwinpr/credui/test/.gitignore
+ winpr/libwinpr/crt/test/.gitignore
+ winpr/libwinpr/crypto/test/.gitignore
+ winpr/libwinpr/dsparse/test/.gitignore
+ winpr/libwinpr/environment/test/.gitignore
+ winpr/libwinpr/error/test/.gitignore
+ winpr/libwinpr/file/test/.gitignore
+ winpr/libwinpr/interlocked/test/.gitignore
+ winpr/libwinpr/io/test/.gitignore
+ winpr/libwinpr/library/test/.gitignore
+ winpr/libwinpr/locale/test/.gitignore
+ winpr/libwinpr/memory/test/.gitignore
+ winpr/libwinpr/nt/test/.gitignore
+ winpr/libwinpr/path/test/.gitignore
+ winpr/libwinpr/pipe/test/.gitignore
+ winpr/libwinpr/pool/test/.gitignore
+ winpr/libwinpr/security/test/.gitignore
+ winpr/libwinpr/smartcard/test/.gitignore
+ winpr/libwinpr/sspi/test/.gitignore
+ winpr/libwinpr/synch/test/.gitignore
+ winpr/libwinpr/sysinfo/test/.gitignore
+ winpr/libwinpr/thread/test/.gitignore
+ winpr/libwinpr/utils/test/.gitignore
+ winpr/libwinpr/wnd/test/.gitignore
+ winpr/libwinpr/wtsapi/test/.gitignore
+ winpr/test/.gitignore
+ winpr/tools/.gitignore
+ winpr/tools/makecert/.gitignore
+ CMakeCPack.cmake
+ CMakeCPackOptions.cmake.in
+ ChangeLog
+ README.md
+ buildflags.h.in
+ channels/ainput/ChannelOptions.cmake
+ channels/audin/ChannelOptions.cmake
+ channels/cliprdr/ChannelOptions.cmake
+ channels/disp/ChannelOptions.cmake
+ channels/drdynvc/ChannelOptions.cmake
+ channels/drive/ChannelOptions.cmake
+ channels/echo/ChannelOptions.cmake
+ channels/encomsp/ChannelOptions.cmake
+ channels/geometry/ChannelOptions.cmake
+ channels/parallel/ChannelOptions.cmake
+ channels/printer/ChannelOptions.cmake
+ channels/rail/ChannelOptions.cmake
+ channels/rdp2tcp/ChannelOptions.cmake
+ channels/rdpdr/ChannelOptions.cmake
+ channels/rdpecam/ChannelOptions.cmake
+ channels/rdpei/ChannelOptions.cmake
+ channels/rdpgfx/ChannelOptions.cmake
+ channels/rdpsnd/ChannelOptions.cmake
+ channels/remdesk/ChannelOptions.cmake
+ channels/serial/ChannelOptions.cmake
+ channels/smartcard/ChannelOptions.cmake
+ channels/sshagent/ChannelOptions.cmake
+ channels/telemetry/ChannelOptions.cmake
+ channels/tsmf/ChannelOptions.cmake
+ channels/urbdrc/ChannelOptions.cmake
+ channels/video/ChannelOptions.cmake
+ client/FreeRDP-ClientConfig.cmake.in
+ client/Sample/ModuleOptions.cmake
+ client/Wayland/wlfreerdp.1.in
+ client/X11/ModuleOptions.cmake
+ client/X11/generate_argument_docbook.c
+ client/X11/resource/close.xbm
+ client/X11/resource/lock.xbm
+ client/X11/resource/minimize.xbm
+ client/X11/resource/restore.xbm
+ client/X11/resource/unlock.xbm
+ client/X11/xfreerdp-channels.1.xml
+ client/X11/xfreerdp-envvar.1.xml
+ client/X11/xfreerdp-examples.1.xml
+ client/X11/xfreerdp.1.xml.in
+ client/common/test/CMakeLists.txt
+ client/common/test/TestClientChannels.c
+ client/common/test/TestClientCmdLine.c
+ client/common/test/TestClientRdpFile.c
+ client/freerdp-client.pc.in
+ cmake/ClangFormat.cmake
+ cmake/ClangToolchain.cmake
+ cmake/ComplexLibrary.cmake
+ cmake/ConfigOptions.cmake
+ cmake/EchoTarget.cmake
+ cmake/FindFAAC.cmake
+ cmake/FindFAAD2.cmake
+ cmake/FindFFmpeg.cmake
+ cmake/FindFeature.cmake
+ cmake/FindGSM.cmake
+ cmake/FindGSSAPI.cmake
+ cmake/FindGlib.cmake
+ cmake/FindLAME.cmake
+ cmake/FindMbedTLS.cmake
+ cmake/FindOSS.cmake
+ cmake/FindOpenH264.cmake
+ cmake/FindOpenSLES.cmake
+ cmake/FindPAM.cmake
+ cmake/FindPCSC.cmake
+ cmake/FindPCSCWinPR.cmake
+ cmake/FindPulse.cmake
+ cmake/FindSWScale.cmake
+ cmake/Findlibsystemd.cmake
+ cmake/GNUInstallDirsWrapper.cmake
+ cmake/InstallFreeRDPMan.cmake
+ cmake/LibFindMacros.cmake
+ cmake/MSVCRuntime.cmake
+ cmake/SetFreeRDPCMakeInstallDir.cmake
+ cmake/WindowsDLLVersion.rc.in
+ cmake/compat_2.8.11/BasicConfigVersion-AnyNewerVersion.cmake.in
+ cmake/compat_2.8.11/BasicConfigVersion-ExactVersion.cmake.in
+ cmake/compat_2.8.11/BasicConfigVersion-SameMajorVersion.cmake.in
+ cmake/compat_3.7.0/FindICU.cmake
+ cmake/today.cmake
+ config.h.in
+ docs/PrintFormatSpecifiers.md
+ docs/README.timezones
+ docs/valgrind.supp
+ docs/version_detection.md
+ docs/wlog.md
+ external/README
+ include/freerdp/build-config.h.in
+ libfreerdp/FreeRDPConfig.cmake.in
+ libfreerdp/codec/test/CMakeLists.txt
+ libfreerdp/codec/test/TestFreeRDPCodecClear.c
+ libfreerdp/codec/test/TestFreeRDPCodecInterleaved.c
+ libfreerdp/codec/test/TestFreeRDPCodecMppc.c
+ libfreerdp/codec/test/TestFreeRDPCodecNCrush.c
+ libfreerdp/codec/test/TestFreeRDPCodecPlanar.c
+ libfreerdp/codec/test/TestFreeRDPCodecProgressive.c
+ libfreerdp/codec/test/TestFreeRDPCodecRemoteFX.c
+ libfreerdp/codec/test/TestFreeRDPCodecXCrush.c
+ libfreerdp/codec/test/TestFreeRDPCodecZGfx.c
+ libfreerdp/codec/test/rfx.bmp
+ libfreerdp/codec/test/progressive.bmp
+ libfreerdp/codec/test/test01.bmp
+ libfreerdp/codec/yuv.c
+ libfreerdp/common/test/CMakeLists.txt
+ libfreerdp/common/test/TestCommonAssistance.c
+ libfreerdp/core/test/CMakeLists.txt
+ libfreerdp/core/test/TestConnect.c
+ libfreerdp/core/test/TestSettings.c
+ libfreerdp/core/test/TestVersion.c
+ libfreerdp/core/test/settings_property_lists.h
+ libfreerdp/crypto/test/CMakeLists.txt
+ libfreerdp/crypto/test/Test_x509_cert_info.c
+ libfreerdp/crypto/test/Test_x509_cert_info.pem
+ libfreerdp/crypto/test/known_hosts/known_hosts
+ libfreerdp/crypto/test/known_hosts/known_hosts.v2
+ libfreerdp/freerdp.pc.in
+ libfreerdp/gdi/test/CMakeLists.txt
+ libfreerdp/gdi/test/TestGdiBitBlt.c
+ libfreerdp/gdi/test/TestGdiClip.c
+ libfreerdp/gdi/test/TestGdiCreate.c
+ libfreerdp/gdi/test/TestGdiEllipse.c
+ libfreerdp/gdi/test/TestGdiLine.c
+ libfreerdp/gdi/test/TestGdiRect.c
+ libfreerdp/gdi/test/TestGdiRegion.c
+ libfreerdp/gdi/test/TestGdiRop3.c
+ libfreerdp/primitives/README.txt
+ libfreerdp/primitives/test/CMakeLists.txt
+ libfreerdp/primitives/test/TestPrimitivesYCbCr.c
+ libfreerdp/primitives/test/TestPrimitivesYUV.c
+ libfreerdp/utils/test/CMakeLists.txt
+ rdtk/librdtk/test/CMakeLists.txt
+ rdtk/librdtk/test/TestRdTkNinePatch.c
+ resources/FreeRDP.ico
+ resources/FreeRDP-fav.ico
+ resources/FreeRDP_Icon.png
+ resources/FreeRDP_Icon.svg
+ resources/FreeRDP_Icon_256px.h
+ resources/FreeRDP_Icon_256px.png
+ resources/FreeRDP_Icon_256px.xpm
+ resources/FreeRDP_Icon_96px.ico
+ resources/FreeRDP_Install.bmp
+ resources/FreeRDP_Logo.png
+ resources/FreeRDP_Logo.svg
+ resources/FreeRDP_Logo_Icon.svg
+ scripts/LECHash.c
+ scripts/LOMHash.c
+ scripts/blacklist-address-sanitizer.txt
+ scripts/blacklist-memory-sanitizer.txt
+ scripts/blacklist-thread-sanitizer.txt
+ scripts/create_release_taball.sh
+ scripts/specBytesToCode.py
+ scripts/toolchains_path.py
+ scripts/update-settings-tests
+ server/FreeRDP-ServerConfig.cmake.in
+ server/Mac/ModuleOptions.cmake
+ server/Mac/mf_interface.c
+ server/Mac/server.crt
+ server/Mac/server.key
+ server/Sample/ModuleOptions.cmake
+ server/Sample/server.crt
+ server/Sample/server.key
+ server/Sample/test_icon.ppm
+ server/Windows/ModuleOptions.cmake
+ server/Windows/server.crt
+ server/Windows/server.key
+ server/Windows/wf_directsound.c
+ server/Windows/wf_directsound.h
+ server/Windows/wf_wasapi.c
+ server/Windows/wf_wasapi.h
+ server/freerdp-server.pc.in
+ server/proxy/config.ini
+ server/proxy/modules/README.md
+ server/proxy/server.crt
+ server/proxy/server.key
+ server/proxy/session-capture/requirements.txt
+ server/shadow/FreeRDP-ShadowConfig.cmake.in
+ server/shadow/freerdp-shadow-cli.1.in
+ server/shadow/freerdp-shadow.pc.in
+ uwac/protocols/fullscreen-shell-unstable-v1.xml
+ uwac/uwac.pc.in
+ uwac/uwacConfig.cmake.in
+ uwac/uwacVersion.cmake
+ winpr/WinPRConfig.cmake.in
+ winpr/libwinpr/asn1/ModuleOptions.cmake
+ winpr/libwinpr/asn1/test/CMakeLists.txt
+ winpr/libwinpr/asn1/test/TestAsn1BerDec.c
+ winpr/libwinpr/asn1/test/TestAsn1BerEnc.c
+ winpr/libwinpr/asn1/test/TestAsn1Compare.c
+ winpr/libwinpr/asn1/test/TestAsn1Decode.c
+ winpr/libwinpr/asn1/test/TestAsn1Decoder.c
+ winpr/libwinpr/asn1/test/TestAsn1DerDec.c
+ winpr/libwinpr/asn1/test/TestAsn1DerEnc.c
+ winpr/libwinpr/asn1/test/TestAsn1Encode.c
+ winpr/libwinpr/asn1/test/TestAsn1Encoder.c
+ winpr/libwinpr/asn1/test/TestAsn1Integer.c
+ winpr/libwinpr/asn1/test/TestAsn1Module.c
+ winpr/libwinpr/asn1/test/TestAsn1String.c
+ winpr/libwinpr/bcrypt/ModuleOptions.cmake
+ winpr/libwinpr/clipboard/ModuleOptions.cmake
+ winpr/libwinpr/clipboard/test/CMakeLists.txt
+ winpr/libwinpr/clipboard/test/TestClipboardFormats.c
+ winpr/libwinpr/comm/ModuleOptions.cmake
+ winpr/libwinpr/comm/test/CMakeLists.txt
+ winpr/libwinpr/comm/test/TestCommMonitor.c
+ winpr/libwinpr/credentials/ModuleOptions.cmake
+ winpr/libwinpr/credui/ModuleOptions.cmake
+ winpr/libwinpr/credui/test/CMakeLists.txt
+ winpr/libwinpr/credui/test/TestCredUICmdLinePromptForCredentials.c
+ winpr/libwinpr/credui/test/TestCredUIConfirmCredentials.c
+ winpr/libwinpr/credui/test/TestCredUIParseUserName.c
+ winpr/libwinpr/credui/test/TestCredUIPromptForCredentials.c
+ winpr/libwinpr/crt/ModuleOptions.cmake
+ winpr/libwinpr/crt/test/CMakeLists.txt
+ winpr/libwinpr/crt/test/TestAlignment.c
+ winpr/libwinpr/crt/test/TestFormatSpecifiers.c
+ winpr/libwinpr/crt/test/TestString.c
+ winpr/libwinpr/crt/test/TestTypes.c
+ winpr/libwinpr/crt/test/TestUnicodeConversion.c
+ winpr/libwinpr/crypto/ModuleOptions.cmake
+ winpr/libwinpr/crypto/hmac_md5.c
+ winpr/libwinpr/crypto/hmac_md5.h
+ winpr/libwinpr/crypto/test/CMakeLists.txt
+ winpr/libwinpr/crypto/test/TestCryptoCertEnumCertificatesInStore.c
+ winpr/libwinpr/crypto/test/TestCryptoCipher.c
+ winpr/libwinpr/crypto/test/TestCryptoHash.c
+ winpr/libwinpr/crypto/test/TestCryptoProtectData.c
+ winpr/libwinpr/crypto/test/TestCryptoProtectMemory.c
+ winpr/libwinpr/crypto/test/TestCryptoRand.c
+ winpr/libwinpr/dsparse/ModuleOptions.cmake
+ winpr/libwinpr/dsparse/test/CMakeLists.txt
+ winpr/libwinpr/dsparse/test/TestDsCrackNames.c
+ winpr/libwinpr/dsparse/test/TestDsMakeSpn.c
+ winpr/libwinpr/dummy.c
+ winpr/libwinpr/environment/ModuleOptions.cmake
+ winpr/libwinpr/environment/test/CMakeLists.txt
+ winpr/libwinpr/environment/test/TestEnvironmentGetEnvironmentStrings.c
+ winpr/libwinpr/environment/test/TestEnvironmentGetSetEB.c
+ winpr/libwinpr/environment/test/TestEnvironmentMergeEnvironmentStrings.c
+ winpr/libwinpr/environment/test/TestEnvironmentSetEnvironmentVariable.c
+ winpr/libwinpr/error/ModuleOptions.cmake
+ winpr/libwinpr/error/test/CMakeLists.txt
+ winpr/libwinpr/file/ModuleOptions.cmake
+ winpr/libwinpr/file/test/CMakeLists.txt
+ winpr/libwinpr/file/test/TestFileCreateFile.c
+ winpr/libwinpr/file/test/TestFileDeleteFile.c
+ winpr/libwinpr/file/test/TestFileFindFirstFile.c
+ winpr/libwinpr/file/test/TestFileFindFirstFileEx.c
+ winpr/libwinpr/file/test/TestFileFindNextFile.c
+ winpr/libwinpr/file/test/TestFilePatternMatch.c
+ winpr/libwinpr/file/test/TestFileReadFile.c
+ winpr/libwinpr/file/test/TestFileWriteFile.c
+ winpr/libwinpr/file/test/TestSetFileAttributes.c
+ winpr/libwinpr/handle/ModuleOptions.cmake
+ winpr/libwinpr/heap/ModuleOptions.cmake
+ winpr/libwinpr/input/ModuleOptions.cmake
+ winpr/libwinpr/interlocked/ModuleOptions.cmake
+ winpr/libwinpr/interlocked/module_5.1.def
+ winpr/libwinpr/interlocked/test/CMakeLists.txt
+ winpr/libwinpr/interlocked/test/TestInterlockedAccess.c
+ winpr/libwinpr/interlocked/test/TestInterlockedDList.c
+ winpr/libwinpr/interlocked/test/TestInterlockedSList.c
+ winpr/libwinpr/io/ModuleOptions.cmake
+ winpr/libwinpr/io/test/CMakeLists.txt
+ winpr/libwinpr/io/test/TestIoDevice.c
+ winpr/libwinpr/io/test/TestIoGetOverlappedResult.c
+ winpr/libwinpr/library/ModuleOptions.cmake
+ winpr/libwinpr/library/test/CMakeLists.txt
+ winpr/libwinpr/library/test/TestLibraryA/TestLibraryA.c
+ winpr/libwinpr/library/test/TestLibraryB/TestLibraryB.c
+ winpr/libwinpr/library/test/TestLibraryGetModuleFileName.c
+ winpr/libwinpr/library/test/TestLibraryGetProcAddress.c
+ winpr/libwinpr/library/test/TestLibraryLoadLibrary.c
+ winpr/libwinpr/locale/ModuleOptions.cmake
+ winpr/libwinpr/locale/test/CMakeLists.txt
+ winpr/libwinpr/locale/test/TestLocaleFormatMessage.c
+ winpr/libwinpr/memory/ModuleOptions.cmake
+ winpr/libwinpr/memory/test/CMakeLists.txt
+ winpr/libwinpr/memory/test/TestMemoryCreateFileMapping.c
+ winpr/libwinpr/nt/ModuleOptions.cmake
+ winpr/libwinpr/nt/test/CMakeLists.txt
+ winpr/libwinpr/nt/test/TestNtCreateFile.c
+ winpr/libwinpr/nt/test/TestNtCurrentTeb.c
+ winpr/libwinpr/path/ModuleOptions.cmake
+ winpr/libwinpr/path/include/PathAllocCombine.c
+ winpr/libwinpr/path/include/PathCchAddExtension.c
+ winpr/libwinpr/path/include/PathCchAddSeparator.c
+ winpr/libwinpr/path/include/PathCchAddSeparatorEx.c
+ winpr/libwinpr/path/include/PathCchAppend.c
+ winpr/libwinpr/path/shell_ios.h
+ winpr/libwinpr/path/test/CMakeLists.txt
+ winpr/libwinpr/path/test/TestPathAllocCanonicalize.c
+ winpr/libwinpr/path/test/TestPathAllocCombine.c
+ winpr/libwinpr/path/test/TestPathCchAddBackslash.c
+ winpr/libwinpr/path/test/TestPathCchAddBackslashEx.c
+ winpr/libwinpr/path/test/TestPathCchAddExtension.c
+ winpr/libwinpr/path/test/TestPathCchAppend.c
+ winpr/libwinpr/path/test/TestPathCchAppendEx.c
+ winpr/libwinpr/path/test/TestPathCchCanonicalize.c
+ winpr/libwinpr/path/test/TestPathCchCanonicalizeEx.c
+ winpr/libwinpr/path/test/TestPathCchCombine.c
+ winpr/libwinpr/path/test/TestPathCchCombineEx.c
+ winpr/libwinpr/path/test/TestPathCchFindExtension.c
+ winpr/libwinpr/path/test/TestPathCchIsRoot.c
+ winpr/libwinpr/path/test/TestPathCchRemoveBackslash.c
+ winpr/libwinpr/path/test/TestPathCchRemoveBackslashEx.c
+ winpr/libwinpr/path/test/TestPathCchRemoveExtension.c
+ winpr/libwinpr/path/test/TestPathCchRemoveFileSpec.c
+ winpr/libwinpr/path/test/TestPathCchRenameExtension.c
+ winpr/libwinpr/path/test/TestPathCchSkipRoot.c
+ winpr/libwinpr/path/test/TestPathCchStripPrefix.c
+ winpr/libwinpr/path/test/TestPathCchStripToRoot.c
+ winpr/libwinpr/path/test/TestPathIsUNCEx.c
+ winpr/libwinpr/path/test/TestPathMakePath.c
+ winpr/libwinpr/path/test/TestPathShell.c
+ winpr/libwinpr/pipe/ModuleOptions.cmake
+ winpr/libwinpr/pipe/test/CMakeLists.txt
+ winpr/libwinpr/pipe/test/TestPipeCreateNamedPipe.c
+ winpr/libwinpr/pipe/test/TestPipeCreateNamedPipeOverlapped.c
+ winpr/libwinpr/pipe/test/TestPipeCreatePipe.c
+ winpr/libwinpr/pool/ModuleOptions.cmake
+ winpr/libwinpr/pool/test/CMakeLists.txt
+ winpr/libwinpr/pool/test/TestPoolIO.c
+ winpr/libwinpr/pool/test/TestPoolSynch.c
+ winpr/libwinpr/pool/test/TestPoolThread.c
+ winpr/libwinpr/pool/test/TestPoolTimer.c
+ winpr/libwinpr/pool/test/TestPoolWork.c
+ winpr/libwinpr/registry/ModuleOptions.cmake
+ winpr/libwinpr/rpc/ModuleOptions.cmake
+ winpr/libwinpr/security/ModuleOptions.cmake
+ winpr/libwinpr/security/test/CMakeLists.txt
+ winpr/libwinpr/security/test/TestSecurityToken.c
+ winpr/libwinpr/shell/ModuleOptions.cmake
+ winpr/libwinpr/smartcard/ModuleOptions.cmake
+ winpr/libwinpr/smartcard/test/CMakeLists.txt
+ winpr/libwinpr/smartcard/test/TestSmartCardListReaders.c
+ winpr/libwinpr/smartcard/test/TestSmartCardStatus.c
+ winpr/libwinpr/sspi/ModuleOptions.cmake
+ winpr/libwinpr/sspi/test/CMakeLists.txt
+ winpr/libwinpr/sspi/test/TestAcquireCredentialsHandle.c
+ winpr/libwinpr/sspi/test/TestCredSSP.c
+ winpr/libwinpr/sspi/test/TestEnumerateSecurityPackages.c
+ winpr/libwinpr/sspi/test/TestInitializeSecurityContext.c
+ winpr/libwinpr/sspi/test/TestNTLM.c
+ winpr/libwinpr/sspi/test/TestQuerySecurityPackageInfo.c
+ winpr/libwinpr/sspi/test/TestSchannel.c
+ winpr/libwinpr/sspicli/ModuleOptions.cmake
+ winpr/libwinpr/synch/ModuleOptions.cmake
+ winpr/libwinpr/synch/pollset.c
+ winpr/libwinpr/synch/test/CMakeLists.txt
+ winpr/libwinpr/synch/test/TestSynchBarrier.c
+ winpr/libwinpr/synch/test/TestSynchCritical.c
+ winpr/libwinpr/synch/test/TestSynchEvent.c
+ winpr/libwinpr/synch/test/TestSynchInit.c
+ winpr/libwinpr/synch/test/TestSynchMultipleThreads.c
+ winpr/libwinpr/synch/test/TestSynchMutex.c
+ winpr/libwinpr/synch/test/TestSynchSemaphore.c
+ winpr/libwinpr/synch/test/TestSynchThread.c
+ winpr/libwinpr/synch/test/TestSynchTimerQueue.c
+ winpr/libwinpr/synch/test/TestSynchWaitableTimer.c
+ winpr/libwinpr/synch/test/TestSynchWaitableTimerAPC.c
+ winpr/libwinpr/sysinfo/ModuleOptions.cmake
+ winpr/libwinpr/sysinfo/cpufeatures/README
+ winpr/libwinpr/sysinfo/test/CMakeLists.txt
+ winpr/libwinpr/sysinfo/test/TestCPUFeatures.c
+ winpr/libwinpr/sysinfo/test/TestGetComputerName.c
+ winpr/libwinpr/sysinfo/test/TestGetNativeSystemInfo.c
+ winpr/libwinpr/sysinfo/test/TestLocalTime.c
+ winpr/libwinpr/sysinfo/test/TestSystemTime.c
+ winpr/libwinpr/thread/ModuleOptions.cmake
+ winpr/libwinpr/thread/test/CMakeLists.txt
+ winpr/libwinpr/thread/test/TestThreadCommandLineToArgv.c
+ winpr/libwinpr/thread/test/TestThreadCreateProcess.c
+ winpr/libwinpr/timezone/ModuleOptions.cmake
+ winpr/libwinpr/utils/ModuleOptions.cmake
+ winpr/libwinpr/utils/test/CMakeLists.txt
+ winpr/libwinpr/utils/test/TestArrayList.c
+ winpr/libwinpr/utils/test/TestBacktrace.c
+ winpr/libwinpr/utils/test/TestBipBuffer.c
+ winpr/libwinpr/utils/test/TestBitStream.c
+ winpr/libwinpr/utils/test/TestBufferPool.c
+ winpr/libwinpr/utils/test/TestCmdLine.c
+ winpr/libwinpr/utils/test/TestHashTable.c
+ winpr/libwinpr/utils/test/TestImage.c
+ winpr/libwinpr/utils/test/TestIni.c
+ winpr/libwinpr/utils/test/TestLinkedList.c
+ winpr/libwinpr/utils/test/TestListDictionary.c
+ winpr/libwinpr/utils/test/TestMessagePipe.c
+ winpr/libwinpr/utils/test/TestMessageQueue.c
+ winpr/libwinpr/utils/test/TestPrint.c
+ winpr/libwinpr/utils/test/TestPubSub.c
+ winpr/libwinpr/utils/test/TestQueue.c
+ winpr/libwinpr/utils/test/TestStream.c
+ winpr/libwinpr/utils/test/TestStreamPool.c
+ winpr/libwinpr/utils/test/TestVersion.c
+ winpr/libwinpr/utils/test/TestWLog.c
+ winpr/libwinpr/utils/test/TestWLogCallback.c
+ winpr/libwinpr/utils/test/lodepng_32bit.bmp
+ winpr/libwinpr/utils/test/lodepng_32bit.png
+ winpr/libwinpr/winhttp/ModuleOptions.cmake
+ winpr/libwinpr/winsock/ModuleOptions.cmake
+ winpr/libwinpr/wnd/ModuleOptions.cmake
+ winpr/libwinpr/wnd/test/CMakeLists.txt
+ winpr/libwinpr/wnd/test/TestWndCreateWindowEx.c
+ winpr/libwinpr/wnd/test/TestWndWmCopyData.c
+ winpr/libwinpr/wtsapi/ModuleOptions.cmake
+ winpr/libwinpr/wtsapi/test/CMakeLists.txt
+ winpr/libwinpr/wtsapi/test/TestWtsApiEnumerateProcesses.c
+ winpr/libwinpr/wtsapi/test/TestWtsApiEnumerateSessions.c
+ winpr/libwinpr/wtsapi/test/TestWtsApiExtraDisconnectSession.c
+ winpr/libwinpr/wtsapi/test/TestWtsApiExtraDynamicVirtualChannel.c
+ winpr/libwinpr/wtsapi/test/TestWtsApiExtraLogoffSession.c
+ winpr/libwinpr/wtsapi/test/TestWtsApiExtraSendMessage.c
+ winpr/libwinpr/wtsapi/test/TestWtsApiExtraStartRemoteSessionEx.c
+ winpr/libwinpr/wtsapi/test/TestWtsApiExtraVirtualChannel.c
+ winpr/libwinpr/wtsapi/test/TestWtsApiQuerySessionInformation.c
+ winpr/libwinpr/wtsapi/test/TestWtsApiSessionNotification.c
+ winpr/libwinpr/wtsapi/test/TestWtsApiShutdownSystem.c
+ winpr/libwinpr/wtsapi/test/TestWtsApiWaitSystemEvent.c
+ winpr/test/CMakeLists.txt
+ winpr/test/TestIntrinsics.c
+ winpr/tools/hash-cli/winpr-hash.1.in
+ winpr/tools/makecert-cli/winpr-makecert.1.in
+ winpr/tools/winpr-tools.pc.in
+ winpr/winpr.pc.in
+ winpr/wlog.7
+Copyright: *No copyright*
+License: Apache-2.0
+Comment:
+ No license header present. Assuming license from LICENSE file.
+ No explicit copyright notice.
+
+Files: docs/Doxyfile
+ libfreerdp/common/settings_getters.c
+ libfreerdp/common/settings_str.c
+ scripts/fetch_language_identifiers.py
+ scripts/gprof_generate.sh.cmake
+ scripts/update-rdpSettings
+ scripts/update-windows-zones.py
+ scripts/xcode.sh
+ server/proxy/session-capture/generate_video_from_frames.py
+ winpr/libwinpr/timezone/TimeZones.c
+ winpr/libwinpr/timezone/TimeZones.h
+ winpr/libwinpr/timezone/WindowsZones.c
+ winpr/libwinpr/timezone/WindowsZones.h
+Copyright: *No copyright*
+License: Apache-2.0
+Comment:
+ Generated files.
+ .
+ No license header present. Assuming license from LICENSE file.
+ No explicit copyright notice.
+
+Files: channels/CMakeLists.txt
+ channels/audin/CMakeLists.txt
+ channels/audin/client/CMakeLists.txt
+ channels/audin/client/alsa/CMakeLists.txt
+ channels/audin/client/pulse/CMakeLists.txt
+ channels/audin/client/winmm/CMakeLists.txt
+ channels/audin/server/CMakeLists.txt
+ channels/client/CMakeLists.txt
+ channels/client/addin.h
+ channels/client/tables.h
+ channels/cliprdr/CMakeLists.txt
+ channels/cliprdr/client/CMakeLists.txt
+ channels/cliprdr/server/CMakeLists.txt
+ channels/cliprdr/server/cliprdr_main.h
+ channels/disp/CMakeLists.txt
+ channels/disp/client/CMakeLists.txt
+ channels/drdynvc/CMakeLists.txt
+ channels/drdynvc/client/CMakeLists.txt
+ channels/drdynvc/server/CMakeLists.txt
+ channels/drdynvc/server/drdynvc_main.h
+ channels/drive/CMakeLists.txt
+ channels/drive/client/CMakeLists.txt
+ channels/echo/CMakeLists.txt
+ channels/echo/client/CMakeLists.txt
+ channels/echo/server/CMakeLists.txt
+ channels/encomsp/CMakeLists.txt
+ channels/encomsp/client/CMakeLists.txt
+ channels/encomsp/server/CMakeLists.txt
+ channels/encomsp/server/encomsp_main.h
+ channels/parallel/CMakeLists.txt
+ channels/parallel/client/CMakeLists.txt
+ channels/printer/CMakeLists.txt
+ channels/printer/client/CMakeLists.txt
+ channels/rail/CMakeLists.txt
+ channels/rail/client/CMakeLists.txt
+ channels/rdp2tcp/CMakeLists.txt
+ channels/rdp2tcp/client/CMakeLists.txt
+ channels/rdpdr/CMakeLists.txt
+ channels/rdpdr/server/CMakeLists.txt
+ channels/rdpei/CMakeLists.txt
+ channels/rdpei/client/CMakeLists.txt
+ channels/rdpei/client/rdpei_main.h
+ channels/rdpgfx/CMakeLists.txt
+ channels/rdpgfx/client/CMakeLists.txt
+ channels/rdpgfx/client/rdpgfx_main.h
+ channels/rdpsnd/CMakeLists.txt
+ channels/rdpsnd/client/CMakeLists.txt
+ channels/rdpsnd/client/alsa/CMakeLists.txt
+ channels/rdpsnd/client/pulse/CMakeLists.txt
+ channels/rdpsnd/client/winmm/CMakeLists.txt
+ channels/rdpsnd/server/CMakeLists.txt
+ channels/remdesk/CMakeLists.txt
+ channels/remdesk/client/CMakeLists.txt
+ channels/remdesk/server/CMakeLists.txt
+ channels/remdesk/server/remdesk_main.h
+ channels/serial/CMakeLists.txt
+ channels/serial/client/CMakeLists.txt
+ channels/server/CMakeLists.txt
+ channels/smartcard/CMakeLists.txt
+ channels/smartcard/client/CMakeLists.txt
+ channels/tsmf/CMakeLists.txt
+ channels/tsmf/client/alsa/CMakeLists.txt
+ channels/tsmf/client/ffmpeg/CMakeLists.txt
+ channels/tsmf/client/pulse/CMakeLists.txt
+ channels/urbdrc/CMakeLists.txt
+ client/CMakeLists.txt
+ client/Sample/CMakeLists.txt
+ client/Wayland/wlf_channels.c
+ client/Wayland/wlf_channels.h
+ client/X11/cli/CMakeLists.txt
+ client/X11/xf_channels.c
+ client/X11/xf_channels.h
+ client/X11/xf_client.h
+ client/X11/xf_event.c
+ client/X11/xf_event.h
+ client/X11/xf_graphics.h
+ client/X11/xf_keyboard.c
+ client/X11/xf_keyboard.h
+ client/X11/xf_monitor.h
+ client/X11/xf_rail.c
+ client/X11/xf_rail.h
+ client/X11/xf_window.h
+ client/common/CMakeLists.txt
+ client/common/client.c
+ client/common/compatibility.h
+ client/common/file.c
+ include/freerdp/addin.h
+ include/freerdp/altsec.h
+ include/freerdp/assistance.h
+ include/freerdp/cache/bitmap.h
+ include/freerdp/cache/brush.h
+ include/freerdp/cache/cache.h
+ include/freerdp/cache/glyph.h
+ include/freerdp/cache/nine_grid.h
+ include/freerdp/cache/offscreen.h
+ include/freerdp/cache/palette.h
+ include/freerdp/cache/pointer.h
+ include/freerdp/channels/cliprdr.h
+ include/freerdp/channels/encomsp.h
+ include/freerdp/channels/rail.h
+ include/freerdp/channels/rdpgfx.h
+ include/freerdp/channels/remdesk.h
+ include/freerdp/client.h
+ include/freerdp/client/channels.h
+ include/freerdp/client/cmdline.h
+ include/freerdp/client/file.h
+ include/freerdp/client/rail.h
+ include/freerdp/client/remdesk.h
+ include/freerdp/codec/audio.h
+ include/freerdp/codec/bulk.h
+ include/freerdp/codec/clear.h
+ include/freerdp/codec/interleaved.h
+ include/freerdp/codec/mppc.h
+ include/freerdp/codec/ncrush.h
+ include/freerdp/codec/progressive.h
+ include/freerdp/codec/xcrush.h
+ include/freerdp/codec/zgfx.h
+ include/freerdp/codecs.h
+ include/freerdp/constants.h
+ include/freerdp/crypto/ber.h
+ include/freerdp/crypto/certificate.h
+ include/freerdp/crypto/crypto.h
+ include/freerdp/crypto/er.h
+ include/freerdp/crypto/per.h
+ include/freerdp/crypto/tls.h
+ include/freerdp/error.h
+ include/freerdp/event.h
+ include/freerdp/gdi/gfx.h
+ include/freerdp/gdi/pen.h
+ include/freerdp/gdi/shape.h
+ include/freerdp/input.h
+ include/freerdp/locale/keyboard.h
+ include/freerdp/locale/locale.h
+ include/freerdp/message.h
+ include/freerdp/metrics.h
+ include/freerdp/pointer.h
+ include/freerdp/primary.h
+ include/freerdp/scancode.h
+ include/freerdp/secondary.h
+ include/freerdp/server/channels.h
+ include/freerdp/server/shadow.h
+ include/freerdp/update.h
+ include/freerdp/utils/pcap.h
+ include/freerdp/window.h
+ libfreerdp/CMakeLists.txt
+ libfreerdp/cache/CMakeLists.txt
+ libfreerdp/cache/bitmap.c
+ libfreerdp/cache/brush.c
+ libfreerdp/cache/cache.c
+ libfreerdp/cache/glyph.c
+ libfreerdp/cache/nine_grid.c
+ libfreerdp/cache/offscreen.c
+ libfreerdp/cache/palette.c
+ libfreerdp/cache/pointer.c
+ libfreerdp/codec/audio.c
+ libfreerdp/codec/mppc.c
+ libfreerdp/common/CMakeLists.txt
+ libfreerdp/common/addin.c
+ libfreerdp/common/assistance.c
+ libfreerdp/core/CMakeLists.txt
+ libfreerdp/core/activation.c
+ libfreerdp/core/activation.h
+ libfreerdp/core/bulk.c
+ libfreerdp/core/bulk.h
+ libfreerdp/core/capabilities.c
+ libfreerdp/core/capabilities.h
+ libfreerdp/core/certificate.h
+ libfreerdp/core/client.h
+ libfreerdp/core/codecs.c
+ libfreerdp/core/connection.h
+ libfreerdp/core/errinfo.c
+ libfreerdp/core/errinfo.h
+ libfreerdp/core/gateway/http.c
+ libfreerdp/core/gateway/http.h
+ libfreerdp/core/gateway/ncacn_http.c
+ libfreerdp/core/gateway/ncacn_http.h
+ libfreerdp/core/gateway/rpc_bind.c
+ libfreerdp/core/gateway/rpc_bind.h
+ libfreerdp/core/gateway/rpc_client.c
+ libfreerdp/core/gateway/rpc_client.h
+ libfreerdp/core/gateway/rpc_fault.c
+ libfreerdp/core/gateway/rpc_fault.h
+ libfreerdp/core/gateway/rts.c
+ libfreerdp/core/gateway/rts.h
+ libfreerdp/core/gateway/rts_signature.c
+ libfreerdp/core/gateway/rts_signature.h
+ libfreerdp/core/gcc.h
+ libfreerdp/core/graphics.c
+ libfreerdp/core/info.h
+ libfreerdp/core/input.c
+ libfreerdp/core/input.h
+ libfreerdp/core/license.h
+ libfreerdp/core/message.h
+ libfreerdp/core/metrics.c
+ libfreerdp/core/nego.h
+ libfreerdp/core/nla.h
+ libfreerdp/core/redirection.c
+ libfreerdp/core/redirection.h
+ libfreerdp/core/security.h
+ libfreerdp/core/timezone.c
+ libfreerdp/core/timezone.h
+ libfreerdp/core/tpdu.c
+ libfreerdp/core/tpdu.h
+ libfreerdp/core/tpkt.c
+ libfreerdp/core/tpkt.h
+ libfreerdp/core/update.h
+ libfreerdp/crypto/CMakeLists.txt
+ libfreerdp/crypto/base64.c
+ libfreerdp/crypto/ber.c
+ libfreerdp/crypto/crypto.c
+ libfreerdp/crypto/er.c
+ libfreerdp/crypto/per.c
+ libfreerdp/crypto/tls.c
+ libfreerdp/gdi/CMakeLists.txt
+ libfreerdp/gdi/gdi.h
+ libfreerdp/gdi/pen.c
+ libfreerdp/locale/CMakeLists.txt
+ libfreerdp/locale/keyboard.c
+ libfreerdp/locale/keyboard_layout.c
+ libfreerdp/locale/keyboard_sun.c
+ libfreerdp/locale/keyboard_sun.h
+ libfreerdp/locale/keyboard_x11.c
+ libfreerdp/locale/keyboard_x11.h
+ libfreerdp/locale/keyboard_xkbfile.c
+ libfreerdp/locale/keyboard_xkbfile.h
+ libfreerdp/locale/liblocale.h
+ libfreerdp/locale/xkb_layout_ids.h
+ libfreerdp/utils/CMakeLists.txt
+ libfreerdp/utils/pcap.c
+ rdtk/CMakeLists.txt
+ rdtk/include/rdtk/api.h
+ rdtk/include/rdtk/rdtk.h
+ rdtk/librdtk/CMakeLists.txt
+ rdtk/librdtk/rdtk_button.c
+ rdtk/librdtk/rdtk_button.h
+ rdtk/librdtk/rdtk_engine.c
+ rdtk/librdtk/rdtk_engine.h
+ rdtk/librdtk/rdtk_font.c
+ rdtk/librdtk/rdtk_font.h
+ rdtk/librdtk/rdtk_label.c
+ rdtk/librdtk/rdtk_label.h
+ rdtk/librdtk/rdtk_nine_patch.c
+ rdtk/librdtk/rdtk_nine_patch.h
+ rdtk/librdtk/rdtk_resources.c
+ rdtk/librdtk/rdtk_resources.h
+ rdtk/librdtk/rdtk_surface.c
+ rdtk/librdtk/rdtk_surface.h
+ rdtk/librdtk/rdtk_text_field.c
+ rdtk/librdtk/rdtk_text_field.h
+ rdtk/sample/CMakeLists.txt
+ rdtk/sample/rdtk_x11.c
+ scripts/TimeZones.csx
+ scripts/xkb.pl
+ server/CMakeLists.txt
+ server/Mac/CMakeLists.txt
+ server/Mac/mf_rdpsnd.h
+ server/Sample/CMakeLists.txt
+ server/Sample/sf_audin.h
+ server/Sample/sf_encomsp.h
+ server/Sample/sf_rdpsnd.h
+ server/Sample/sfreerdp.h
+ server/Windows/CMakeLists.txt
+ server/Windows/cli/CMakeLists.txt
+ server/Windows/cli/wfreerdp.c
+ server/Windows/cli/wfreerdp.h
+ server/Windows/wf_input.c
+ server/Windows/wf_input.h
+ server/Windows/wf_peer.h
+ server/Windows/wf_rdpsnd.h
+ server/Windows/wf_settings.c
+ server/Windows/wf_settings.h
+ server/Windows/wf_update.h
+ server/common/CMakeLists.txt
+ server/common/server.c
+ server/shadow/CMakeLists.txt
+ server/shadow/Mac/mac_shadow.c
+ server/shadow/Mac/mac_shadow.h
+ server/shadow/Win/win_dxgi.c
+ server/shadow/Win/win_dxgi.h
+ server/shadow/Win/win_rdp.c
+ server/shadow/Win/win_rdp.h
+ server/shadow/Win/win_shadow.c
+ server/shadow/Win/win_shadow.h
+ server/shadow/Win/win_wds.c
+ server/shadow/Win/win_wds.h
+ server/shadow/X11/x11_shadow.h
+ server/shadow/shadow.c
+ server/shadow/shadow.h
+ server/shadow/shadow_capture.c
+ server/shadow/shadow_capture.h
+ server/shadow/shadow_channels.c
+ server/shadow/shadow_channels.h
+ server/shadow/shadow_client.h
+ server/shadow/shadow_encoder.c
+ server/shadow/shadow_encoder.h
+ server/shadow/shadow_encomsp.h
+ server/shadow/shadow_input.c
+ server/shadow/shadow_input.h
+ server/shadow/shadow_lobby.c
+ server/shadow/shadow_lobby.h
+ server/shadow/shadow_remdesk.h
+ server/shadow/shadow_screen.c
+ server/shadow/shadow_screen.h
+ server/shadow/shadow_subsystem.c
+ server/shadow/shadow_subsystem.h
+ server/shadow/shadow_surface.c
+ server/shadow/shadow_surface.h
+ third-party/CMakeLists.txt
+ winpr/CMakeLists.txt
+ winpr/include/CMakeLists.txt
+ winpr/include/winpr/asn1.h
+ winpr/include/winpr/bcrypt.h
+ winpr/include/winpr/bitstream.h
+ winpr/include/winpr/clipboard.h
+ winpr/include/winpr/cmdline.h
+ winpr/include/winpr/collections.h
+ winpr/include/winpr/credentials.h
+ winpr/include/winpr/credui.h
+ winpr/include/winpr/crt.h
+ winpr/include/winpr/crypto.h
+ winpr/include/winpr/custom-crypto.h
+ winpr/include/winpr/dsparse.h
+ winpr/include/winpr/endian.h
+ winpr/include/winpr/error.h
+ winpr/include/winpr/handle.h
+ winpr/include/winpr/heap.h
+ winpr/include/winpr/image.h
+ winpr/include/winpr/ini.h
+ winpr/include/winpr/input.h
+ winpr/include/winpr/interlocked.h
+ winpr/include/winpr/io.h
+ winpr/include/winpr/library.h
+ winpr/include/winpr/locale.h
+ winpr/include/winpr/memory.h
+ winpr/include/winpr/midl.h
+ winpr/include/winpr/ndr.h
+ winpr/include/winpr/nt.h
+ winpr/include/winpr/ntlm.h
+ winpr/include/winpr/pack.h
+ winpr/include/winpr/path.h
+ winpr/include/winpr/pipe.h
+ winpr/include/winpr/platform.h
+ winpr/include/winpr/pool.h
+ winpr/include/winpr/print.h
+ winpr/include/winpr/registry.h
+ winpr/include/winpr/rpc.h
+ winpr/include/winpr/sam.h
+ winpr/include/winpr/schannel.h
+ winpr/include/winpr/security.h
+ winpr/include/winpr/spec.h
+ winpr/include/winpr/sspi.h
+ winpr/include/winpr/sspicli.h
+ winpr/include/winpr/sysinfo.h
+ winpr/include/winpr/tchar.h
+ winpr/include/winpr/thread.h
+ winpr/include/winpr/timezone.h
+ winpr/include/winpr/tools/makecert.h
+ winpr/include/winpr/wincrypt.h
+ winpr/include/winpr/windows.h
+ winpr/include/winpr/winhttp.h
+ winpr/include/winpr/winpr.h
+ winpr/include/winpr/winsock.h
+ winpr/include/winpr/wtypes.h.in
+ winpr/libwinpr/CMakeLists.txt
+ winpr/libwinpr/asn1/CMakeLists.txt
+ winpr/libwinpr/asn1/asn1.c
+ winpr/libwinpr/bcrypt/CMakeLists.txt
+ winpr/libwinpr/bcrypt/bcrypt.c
+ winpr/libwinpr/clipboard/CMakeLists.txt
+ winpr/libwinpr/clipboard/clipboard.c
+ winpr/libwinpr/clipboard/clipboard.h
+ winpr/libwinpr/clipboard/synthetic.c
+ winpr/libwinpr/comm/CMakeLists.txt
+ winpr/libwinpr/credentials/CMakeLists.txt
+ winpr/libwinpr/credentials/credentials.c
+ winpr/libwinpr/credui/CMakeLists.txt
+ winpr/libwinpr/credui/credui.c
+ winpr/libwinpr/crt/CMakeLists.txt
+ winpr/libwinpr/crt/alignment.c
+ winpr/libwinpr/crt/buffer.c
+ winpr/libwinpr/crt/conversion.c
+ winpr/libwinpr/crt/memory.c
+ winpr/libwinpr/crt/string.c
+ winpr/libwinpr/crt/unicode.c
+ winpr/libwinpr/crypto/CMakeLists.txt
+ winpr/libwinpr/crypto/cert.c
+ winpr/libwinpr/crypto/cipher.c
+ winpr/libwinpr/crypto/crypto.c
+ winpr/libwinpr/crypto/crypto.h
+ winpr/libwinpr/crypto/hash.c
+ winpr/libwinpr/crypto/rand.c
+ winpr/libwinpr/dsparse/CMakeLists.txt
+ winpr/libwinpr/dsparse/dsparse.c
+ winpr/libwinpr/environment/CMakeLists.txt
+ winpr/libwinpr/error/CMakeLists.txt
+ winpr/libwinpr/error/error.c
+ winpr/libwinpr/file/CMakeLists.txt
+ winpr/libwinpr/file/pattern.c
+ winpr/libwinpr/heap/CMakeLists.txt
+ winpr/libwinpr/handle/handle.h
+ winpr/libwinpr/heap/heap.c
+ winpr/libwinpr/input/CMakeLists.txt
+ winpr/libwinpr/input/keycode.c
+ winpr/libwinpr/input/scancode.c
+ winpr/libwinpr/input/virtualkey.c
+ winpr/libwinpr/interlocked/CMakeLists.txt
+ winpr/libwinpr/interlocked/interlocked.c
+ winpr/libwinpr/io/CMakeLists.txt
+ winpr/libwinpr/io/device.c
+ winpr/libwinpr/io/io.c
+ winpr/libwinpr/io/io.h
+ winpr/libwinpr/library/CMakeLists.txt
+ winpr/libwinpr/library/library.c
+ winpr/libwinpr/library/test/TestLibraryA/CMakeLists.txt
+ winpr/libwinpr/library/test/TestLibraryB/CMakeLists.txt
+ winpr/libwinpr/locale/CMakeLists.txt
+ winpr/libwinpr/locale/locale.c
+ winpr/libwinpr/memory/CMakeLists.txt
+ winpr/libwinpr/memory/memory.c
+ winpr/libwinpr/memory/memory.h
+ winpr/libwinpr/nt/CMakeLists.txt
+ winpr/libwinpr/path/CMakeLists.txt
+ winpr/libwinpr/path/path.c
+ winpr/libwinpr/pipe/CMakeLists.txt
+ winpr/libwinpr/pipe/pipe.h
+ winpr/libwinpr/pool/CMakeLists.txt
+ winpr/libwinpr/pool/callback.c
+ winpr/libwinpr/pool/callback_cleanup.c
+ winpr/libwinpr/pool/cleanup_group.c
+ winpr/libwinpr/pool/io.c
+ winpr/libwinpr/pool/pool.c
+ winpr/libwinpr/pool/pool.h
+ winpr/libwinpr/pool/synch.c
+ winpr/libwinpr/pool/timer.c
+ winpr/libwinpr/pool/work.c
+ winpr/libwinpr/registry/CMakeLists.txt
+ winpr/libwinpr/registry/registry.c
+ winpr/libwinpr/registry/registry_reg.c
+ winpr/libwinpr/registry/registry_reg.h
+ winpr/libwinpr/rpc/CMakeLists.txt
+ winpr/libwinpr/rpc/midl.c
+ winpr/libwinpr/rpc/ndr.c
+ winpr/libwinpr/rpc/ndr_array.c
+ winpr/libwinpr/rpc/ndr_array.h
+ winpr/libwinpr/rpc/ndr_context.c
+ winpr/libwinpr/rpc/ndr_context.h
+ winpr/libwinpr/rpc/ndr_correlation.c
+ winpr/libwinpr/rpc/ndr_correlation.h
+ winpr/libwinpr/rpc/ndr_pointer.c
+ winpr/libwinpr/rpc/ndr_pointer.h
+ winpr/libwinpr/rpc/ndr_private.c
+ winpr/libwinpr/rpc/ndr_private.h
+ winpr/libwinpr/rpc/ndr_simple.c
+ winpr/libwinpr/rpc/ndr_simple.h
+ winpr/libwinpr/rpc/ndr_string.c
+ winpr/libwinpr/rpc/ndr_string.h
+ winpr/libwinpr/rpc/ndr_structure.c
+ winpr/libwinpr/rpc/ndr_structure.h
+ winpr/libwinpr/rpc/ndr_union.c
+ winpr/libwinpr/rpc/ndr_union.h
+ winpr/libwinpr/rpc/rpc.c
+ winpr/libwinpr/security/CMakeLists.txt
+ winpr/libwinpr/security/security.c
+ winpr/libwinpr/security/security.h
+ winpr/libwinpr/smartcard/CMakeLists.txt
+ winpr/libwinpr/smartcard/smartcard.h
+ winpr/libwinpr/smartcard/smartcard_winscard.c
+ winpr/libwinpr/smartcard/smartcard_winscard.h
+ winpr/libwinpr/sspi/CMakeLists.txt
+ winpr/libwinpr/sspi/CredSSP/credssp.c
+ winpr/libwinpr/sspi/CredSSP/credssp.h
+ winpr/libwinpr/sspi/NTLM/ntlm.c
+ winpr/libwinpr/sspi/NTLM/ntlm.h
+ winpr/libwinpr/sspi/NTLM/ntlm_av_pairs.c
+ winpr/libwinpr/sspi/NTLM/ntlm_av_pairs.h
+ winpr/libwinpr/sspi/NTLM/ntlm_compute.c
+ winpr/libwinpr/sspi/NTLM/ntlm_compute.h
+ winpr/libwinpr/sspi/NTLM/ntlm_message.c
+ winpr/libwinpr/sspi/NTLM/ntlm_message.h
+ winpr/libwinpr/sspi/Schannel/schannel.c
+ winpr/libwinpr/sspi/Schannel/schannel.h
+ winpr/libwinpr/sspi/Schannel/schannel_openssl.c
+ winpr/libwinpr/sspi/Schannel/schannel_openssl.h
+ winpr/libwinpr/sspi/sspi.c
+ winpr/libwinpr/sspi/sspi.h
+ winpr/libwinpr/sspi/sspi_export.c
+ winpr/libwinpr/sspi/sspi_winpr.h
+ winpr/libwinpr/sspicli/CMakeLists.txt
+ winpr/libwinpr/sspicli/sspicli.c
+ winpr/libwinpr/synch/CMakeLists.txt
+ winpr/libwinpr/synch/address.c
+ winpr/libwinpr/synch/mutex.c
+ winpr/libwinpr/synch/semaphore.c
+ winpr/libwinpr/synch/sleep.c
+ winpr/libwinpr/synch/synch.h
+ winpr/libwinpr/synch/timer.c
+ winpr/libwinpr/sysinfo/CMakeLists.txt
+ winpr/libwinpr/thread/CMakeLists.txt
+ winpr/libwinpr/thread/argv.c
+ winpr/libwinpr/thread/processor.c
+ winpr/libwinpr/thread/tls.c
+ winpr/libwinpr/timezone/CMakeLists.txt
+ winpr/libwinpr/timezone/timezone.c
+ winpr/libwinpr/utils/CMakeLists.txt
+ winpr/libwinpr/utils/cmdline.c
+ winpr/libwinpr/utils/collections/ArrayList.c
+ winpr/libwinpr/utils/collections/BipBuffer.c
+ winpr/libwinpr/utils/collections/BitStream.c
+ winpr/libwinpr/utils/collections/BufferPool.c
+ winpr/libwinpr/utils/collections/CountdownEvent.c
+ winpr/libwinpr/utils/collections/HashTable.c
+ winpr/libwinpr/utils/collections/LinkedList.c
+ winpr/libwinpr/utils/collections/ListDictionary.c
+ winpr/libwinpr/utils/collections/MessagePipe.c
+ winpr/libwinpr/utils/collections/MessageQueue.c
+ winpr/libwinpr/utils/collections/ObjectPool.c
+ winpr/libwinpr/utils/collections/PubSub.c
+ winpr/libwinpr/utils/collections/Queue.c
+ winpr/libwinpr/utils/collections/Reference.c
+ winpr/libwinpr/utils/collections/Stack.c
+ winpr/libwinpr/utils/collections/StreamPool.c
+ winpr/libwinpr/utils/ini.c
+ winpr/libwinpr/utils/ntlm.c
+ winpr/libwinpr/utils/print.c
+ winpr/libwinpr/utils/sam.c
+ winpr/libwinpr/utils/wlog/Appender.c
+ winpr/libwinpr/utils/wlog/Appender.h
+ winpr/libwinpr/utils/wlog/BinaryAppender.h
+ winpr/libwinpr/utils/wlog/ConsoleAppender.c
+ winpr/libwinpr/utils/wlog/ConsoleAppender.h
+ winpr/libwinpr/utils/wlog/DataMessage.c
+ winpr/libwinpr/utils/wlog/DataMessage.h
+ winpr/libwinpr/utils/wlog/FileAppender.c
+ winpr/libwinpr/utils/wlog/FileAppender.h
+ winpr/libwinpr/utils/wlog/ImageMessage.c
+ winpr/libwinpr/utils/wlog/ImageMessage.h
+ winpr/libwinpr/utils/wlog/Layout.c
+ winpr/libwinpr/utils/wlog/Layout.h
+ winpr/libwinpr/utils/wlog/Message.c
+ winpr/libwinpr/utils/wlog/Message.h
+ winpr/libwinpr/utils/wlog/PacketMessage.h
+ winpr/libwinpr/utils/wlog/wlog.c
+ winpr/libwinpr/utils/wlog/wlog.h
+ winpr/libwinpr/winhttp/CMakeLists.txt
+ winpr/libwinpr/winhttp/winhttp.c
+ winpr/libwinpr/winsock/CMakeLists.txt
+ winpr/libwinpr/winsock/winsock.c
+ winpr/libwinpr/wnd/CMakeLists.txt
+ winpr/libwinpr/wnd/wnd.c
+ winpr/libwinpr/wnd/wnd.h
+ winpr/libwinpr/wtsapi/CMakeLists.txt
+ winpr/libwinpr/wtsapi/wtsapi_win32.c
+ winpr/libwinpr/wtsapi/wtsapi_win32.h
+ winpr/tools/hash-cli/CMakeLists.txt
+ winpr/tools/hash-cli/hash.c
+ winpr/tools/makecert/CMakeLists.txt
+ winpr/tools/makecert-cli/main.c
+ winpr/tools/makecert/makecert.c
+Copyright: 2009, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2009-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2010-2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2010-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2010-2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011-2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012-2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012-2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2013-2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+License: Apache-2.0
+
+Files: channels/audin/client/mac/CMakeLists.txt
+ channels/audin/client/mac/audin_mac.m
+ channels/printer/client/cups/CMakeLists.txt
+ channels/printer/client/win/CMakeLists.txt
+ channels/rdpsnd/client/fake/CMakeLists.txt
+ channels/rdpsnd/client/fake/rdpsnd_fake.c
+ channels/rdpsnd/client/proxy/CMakeLists.txt
+ channels/rdpsnd/common/CMakeLists.txt
+ channels/rdpsnd/common/rdpsnd_common.h
+ channels/tsmf/client/gstreamer/tsmf_X11.c
+ channels/tsmf/client/gstreamer/tsmf_platform.h
+ channels/urbdrc/common/CMakeLists.txt
+ channels/urbdrc/common/urbdrc_helpers.c
+ channels/urbdrc/common/urbdrc_helpers.h
+ client/Sample/tf_channels.c
+ client/Sample/tf_channels.h
+ client/Sample/tf_freerdp.h
+ client/Wayland/wlf_cliprdr.c
+ client/Wayland/wlf_cliprdr.h
+ client/Wayland/wlf_disp.c
+ client/Wayland/wlf_disp.h
+ client/Wayland/wlf_pointer.c
+ client/Wayland/wlf_pointer.h
+ cmake/Findsoxr.cmake
+ include/freerdp/channels/tsmf.h
+ include/freerdp/channels/urbdrc.h
+ include/freerdp/server/server-common.h
+ include/freerdp/utils/cliprdr_utils.h
+ include/freerdp/utils/string.h
+ libfreerdp/cache/bitmap.h
+ libfreerdp/cache/brush.h
+ libfreerdp/cache/cache.h
+ libfreerdp/cache/glyph.h
+ libfreerdp/cache/palette.h
+ libfreerdp/cache/pointer.h
+ libfreerdp/codec/dsp.h
+ libfreerdp/codec/dsp_ffmpeg.c
+ libfreerdp/codec/dsp_ffmpeg.h
+ libfreerdp/core/errbase.c
+ libfreerdp/core/errconnect.c
+ libfreerdp/core/settings.h
+ libfreerdp/core/utils.c
+ libfreerdp/core/utils.h
+ libfreerdp/crypto/test/TestKnownHosts.c
+ libfreerdp/gdi/test/helpers.c
+ libfreerdp/gdi/test/helpers.h
+ libfreerdp/utils/string.c
+ scripts/test-scard.cpp
+ winpr/include/winpr/assert.h
+ winpr/include/winpr/debug.h
+ winpr/libwinpr/nt/ntstatus.c
+ winpr/libwinpr/sysinfo/cpufeatures/CMakeLists.txt
+ winpr/libwinpr/utils/corkscrew/debug.c
+ winpr/libwinpr/utils/corkscrew/debug.h
+ winpr/libwinpr/utils/debug.c
+ winpr/libwinpr/utils/execinfo/debug.c
+ winpr/libwinpr/utils/execinfo/debug.h
+ winpr/libwinpr/utils/unwind/debug.c
+ winpr/libwinpr/utils/unwind/debug.h
+ winpr/libwinpr/utils/windows/debug.c
+ winpr/libwinpr/utils/windows/debug.h
+ winpr/libwinpr/utils/winpr.c
+Copyright: 2013, Armin Novak <armin.novak@thincast.com>
+  2013, Thincast Technologies GmbH
+  2014, Armin Novak <armin.novak@thincast.com>
+  2014, Thincast Technologies GmbH
+  2015, Armin Novak <armin.novak@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, Armin Novak <armin.novak@thincast.com>
+  2016, Thincast Technologies GmbH
+  2017, Armin Novak <armin.novak@thincast.com>
+  2017, Thincast Technologies GmbH
+  2018, Armin Novak <armin.novak@thincast.com>
+  2018, Thincast Technologies GmbH
+  2019, Armin Novak <armin.novak@thincast.com>
+  2019, Thincast Technologies GmbH
+  2020, Armin Novak <armin.novak@thincast.com>
+  2020, Thincast Technologies GmbH
+  2021, Armin Novak <armin.novak@thincast.com>
+  2021, Thincast Technologies GmbH
+  2022, Armin Novak <armin.novak@thincast.com>
+  2022, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: client/Sample/tf_freerdp.c
+ client/X11/xf_gdi.h
+ client/X11/xf_gfx.c
+ client/X11/xf_gfx.h
+ client/X11/xf_graphics.c
+ client/X11/xfreerdp.h
+ client/common/compatibility.c
+ include/freerdp/codec/color.h
+ include/freerdp/codec/planar.h
+ include/freerdp/gdi/bitmap.h
+ include/freerdp/gdi/dc.h
+ include/freerdp/gdi/gdi.h
+ include/freerdp/gdi/region.h
+ include/freerdp/graphics.h
+ libfreerdp/codec/clear.c
+ libfreerdp/codec/color.c
+ libfreerdp/codec/ncrush.c
+ libfreerdp/codec/planar.c
+ libfreerdp/codec/progressive.c
+ libfreerdp/codec/xcrush.c
+ libfreerdp/codec/zgfx.c
+ libfreerdp/core/message.c
+ libfreerdp/core/orders.c
+ libfreerdp/core/orders.h
+ libfreerdp/core/update.c
+ libfreerdp/gdi/bitmap.c
+ libfreerdp/gdi/brush.c
+ libfreerdp/gdi/brush.h
+ libfreerdp/gdi/clipping.c
+ libfreerdp/gdi/clipping.h
+ libfreerdp/gdi/dc.c
+ libfreerdp/gdi/drawing.c
+ libfreerdp/gdi/drawing.h
+ libfreerdp/gdi/gdi.c
+ libfreerdp/gdi/gfx.c
+ libfreerdp/gdi/graphics.c
+ libfreerdp/gdi/graphics.h
+ libfreerdp/gdi/line.c
+ libfreerdp/gdi/line.h
+ libfreerdp/gdi/region.c
+ libfreerdp/gdi/shape.c
+ server/shadow/X11/x11_shadow.c
+ server/shadow/shadow_client.c
+ server/shadow/shadow_server.c
+ winpr/include/winpr/smartcard.h
+ winpr/libwinpr/pipe/pipe.c
+ winpr/libwinpr/smartcard/smartcard.c
+ winpr/libwinpr/smartcard/smartcard_inspect.c
+ winpr/libwinpr/smartcard/smartcard_inspect.h
+ winpr/libwinpr/smartcard/smartcard_pcsc.c
+ winpr/libwinpr/smartcard/smartcard_pcsc.h
+ winpr/libwinpr/synch/event.c
+Copyright: 2010, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2010-2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011-2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2016, 2018, Armin Novak <armin.novak@thincast.com>
+  2016, 2018, Thincast Technologies GmbH
+  2016, Armin Novak <armin.novak@thincast.com>
+  2016, Thincast Technologies GmbH
+  2017, Armin Novak <armin.novak@thincast.com>
+  2017, Thincast Technologies GmbH
+  2019, Armin Novak <armin.novak@thincast.com>
+  2019, Thincast Technologies GmbH
+  2020, Armin Novak <armin.novak@thincast.com>
+  2020, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/audin/client/audin_main.h
+ channels/tsmf/client/alsa/tsmf_alsa.c
+ channels/tsmf/client/ffmpeg/tsmf_ffmpeg.c
+ channels/tsmf/client/pulse/tsmf_pulse.c
+ channels/tsmf/client/tsmf_audio.c
+ channels/tsmf/client/tsmf_audio.h
+ channels/tsmf/client/tsmf_codec.h
+ channels/tsmf/client/tsmf_decoder.c
+ channels/tsmf/client/tsmf_types.h
+ client/X11/xf_cliprdr.h
+ client/X11/xf_tsmf.c
+ client/X11/xf_tsmf.h
+ include/freerdp/channels/audin.h
+ include/freerdp/channels/rdpsnd.h
+ include/freerdp/channels/wtsvc.h
+ include/freerdp/client/tsmf.h
+ include/freerdp/codec/dsp.h
+ include/freerdp/extension.h
+ include/freerdp/listener.h
+ include/freerdp/peer.h
+ libfreerdp/codec/dsp.c
+ libfreerdp/codec/nsc_sse2.c
+ libfreerdp/codec/nsc_sse2.h
+ libfreerdp/codec/rfx_bitstream.h
+ libfreerdp/codec/rfx_decode.h
+ libfreerdp/codec/rfx_differential.h
+ libfreerdp/codec/rfx_dwt.c
+ libfreerdp/codec/rfx_dwt.h
+ libfreerdp/codec/rfx_encode.h
+ libfreerdp/codec/rfx_quantization.c
+ libfreerdp/codec/rfx_quantization.h
+ libfreerdp/codec/rfx_rlgr.c
+ libfreerdp/codec/rfx_rlgr.h
+ libfreerdp/codec/rfx_types.h
+ libfreerdp/core/channels.h
+ libfreerdp/core/fastpath.h
+ libfreerdp/core/listener.c
+ libfreerdp/core/listener.h
+ libfreerdp/core/peer.h
+ libfreerdp/core/surface.c
+ libfreerdp/core/surface.h
+ libfreerdp/core/transport.c
+ libfreerdp/core/transport.h
+Copyright: 2010-2011, Vic Lee
+  2011, Vic Lee
+  2011-2012, Vic Lee
+  2012, Vic Lee
+License: Apache-2.0
+
+Files: channels/client/addin.c
+ channels/client/tables.c.in
+ channels/cliprdr/server/cliprdr_main.c
+ channels/disp/client/disp_main.h
+ channels/drdynvc/server/drdynvc_main.c
+ channels/encomsp/client/encomsp_main.c
+ channels/encomsp/client/encomsp_main.h
+ channels/encomsp/server/encomsp_main.c
+ channels/rdpei/client/rdpei_main.c
+ channels/rdpgfx/client/rdpgfx_codec.c
+ channels/rdpgfx/client/rdpgfx_codec.h
+ channels/rdpgfx/rdpgfx_common.c
+ channels/rdpgfx/rdpgfx_common.h
+ channels/remdesk/client/remdesk_main.c
+ channels/remdesk/client/remdesk_main.h
+ channels/remdesk/server/remdesk_main.c
+ include/freerdp/client/ainput.h
+ include/freerdp/client/disp.h
+ include/freerdp/client/drdynvc.h
+ include/freerdp/client/encomsp.h
+ include/freerdp/client/rdpei.h
+ include/freerdp/client/rdpgfx.h
+ include/freerdp/server/cliprdr.h
+ include/freerdp/server/drdynvc.h
+ include/freerdp/server/encomsp.h
+ include/freerdp/server/remdesk.h
+ libfreerdp/core/client.c
+ libfreerdp/core/connection.c
+ libfreerdp/core/freerdp.c
+ libfreerdp/core/info.c
+ libfreerdp/core/mcs.h
+ libfreerdp/core/server.c
+ server/Mac/mf_audin.c
+ server/Mac/mf_rdpsnd.c
+ server/Sample/sf_audin.c
+ server/Sample/sf_encomsp.c
+ server/Sample/sf_rdpsnd.c
+ server/shadow/shadow_encomsp.c
+ server/shadow/shadow_remdesk.c
+ winpr/include/winpr/environment.h
+ winpr/libwinpr/environment/environment.c
+ winpr/libwinpr/utils/wlog/BinaryAppender.c
+ winpr/libwinpr/utils/wlog/PacketMessage.c
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2013, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2013, Thincast Technologies GmbH
+  2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/tsmf/client/gstreamer/CMakeLists.txt
+ include/freerdp/primitives.h
+ libfreerdp/primitives/prim_YCoCg.c
+ libfreerdp/primitives/prim_YCoCg_opt.c
+ libfreerdp/primitives/prim_add.c
+ libfreerdp/primitives/prim_add_opt.c
+ libfreerdp/primitives/prim_alphaComp.c
+ libfreerdp/primitives/prim_alphaComp_opt.c
+ libfreerdp/primitives/prim_andor.c
+ libfreerdp/primitives/prim_andor_opt.c
+ libfreerdp/primitives/prim_copy.c
+ libfreerdp/primitives/prim_internal.h
+ libfreerdp/primitives/prim_set.c
+ libfreerdp/primitives/prim_set_opt.c
+ libfreerdp/primitives/prim_shift.c
+ libfreerdp/primitives/prim_shift_opt.c
+ libfreerdp/primitives/prim_sign.c
+ libfreerdp/primitives/prim_sign_opt.c
+ libfreerdp/primitives/prim_templates.h
+ libfreerdp/primitives/test/TestPrimitivesAdd.c
+ libfreerdp/primitives/test/TestPrimitivesAlphaComp.c
+ libfreerdp/primitives/test/TestPrimitivesAndOr.c
+ libfreerdp/primitives/test/TestPrimitivesColors.c
+ libfreerdp/primitives/test/TestPrimitivesCopy.c
+ libfreerdp/primitives/test/TestPrimitivesSet.c
+ libfreerdp/primitives/test/TestPrimitivesShift.c
+ libfreerdp/primitives/test/TestPrimitivesSign.c
+ libfreerdp/primitives/test/TestPrimitivesYCoCg.c
+ libfreerdp/primitives/test/measure.h
+ libfreerdp/primitives/test/prim_test.c
+ libfreerdp/primitives/test/prim_test.h
+ winpr/libwinpr/comm/comm_io.c
+ winpr/libwinpr/comm/comm_sercx2_sys.h
+ winpr/libwinpr/comm/comm_sercx_sys.h
+ winpr/libwinpr/comm/comm_serial_sys.h
+ winpr/libwinpr/comm/test/TestCommDevice.c
+ winpr/libwinpr/comm/test/TestControlSettings.c
+ winpr/libwinpr/comm/test/TestGetCommState.c
+ winpr/libwinpr/comm/test/TestHandflow.c
+ winpr/libwinpr/comm/test/TestSerialChars.c
+ winpr/libwinpr/comm/test/TestSetCommState.c
+ winpr/libwinpr/comm/test/TestTimeouts.c
+Copyright: 2012, Hewlett-Packard Development Company, L.P.
+  2014, Hewlett-Packard Development Company, L.P.
+License: Apache-2.0
+
+Files: channels/geometry/CMakeLists.txt
+ channels/geometry/client/CMakeLists.txt
+ channels/geometry/client/geometry_main.c
+ channels/geometry/client/geometry_main.h
+ channels/printer/printer.h
+ channels/video/CMakeLists.txt
+ channels/video/client/CMakeLists.txt
+ channels/video/client/video_main.c
+ channels/video/client/video_main.h
+ client/X11/xf_disp.c
+ client/X11/xf_disp.h
+ client/X11/xf_video.c
+ client/X11/xf_video.h
+ client/common/geometry.c
+ include/freerdp/channels/geometry.h
+ include/freerdp/channels/video.h
+ include/freerdp/client/geometry.h
+ include/freerdp/client/video.h
+ include/freerdp/codec/yuv.h
+ include/freerdp/gdi/video.h
+ include/freerdp/license.h
+ libfreerdp/gdi/video.c
+ winpr/libwinpr/synch/event.h
+ winpr/libwinpr/synch/pollset.h
+ winpr/libwinpr/synch/test/TestSynchAPC.c
+ winpr/libwinpr/thread/apc.c
+ winpr/libwinpr/thread/apc.h
+Copyright: 2015, David Fort <contact@hardening-consulting.com>
+  2016, David Fort <contact@hardening-consulting.com>
+  2017, David Fort <contact@hardening-consulting.com>
+  2018, David Fort <contact@hardening-consulting.com>
+  2021, David Fort <contact@hardening-consulting.com>
+License: Apache-2.0
+
+Files: channels/disp/disp_common.c
+ channels/disp/disp_common.h
+ channels/disp/server/CMakeLists.txt
+ channels/disp/server/disp_main.c
+ channels/disp/server/disp_main.h
+ channels/rdpsnd/client/proxy/rdpsnd_proxy.c
+ include/freerdp/channels/disp.h
+ include/freerdp/display.h
+ include/freerdp/server/disp.h
+ libfreerdp/core/display.c
+ libfreerdp/core/display.h
+ server/proxy/modules/CMakeLists.txt
+ server/proxy/modules/capture/CMakeLists.txt
+ server/proxy/modules/capture/cap_config.c
+ server/proxy/modules/capture/cap_config.h
+ server/proxy/modules/capture/cap_main.c
+ server/proxy/modules/capture/cap_protocol.c
+ server/proxy/modules/capture/cap_protocol.h
+ server/proxy/modules/demo/CMakeLists.txt
+ server/proxy/modules/demo/demo.cpp
+ server/proxy/pf_capture.c
+ server/proxy/pf_capture.h
+ server/proxy/pf_disp.c
+ server/proxy/pf_disp.h
+ server/proxy/pf_rdpsnd.c
+ server/proxy/pf_rdpsnd.h
+Copyright: 2019, Kobi Mizrachi <kmizrachi18@gmail.com>
+License: Apache-2.0
+
+Files: server/proxy/CMakeLists.txt
+ server/proxy/freerdp_proxy.c
+ server/proxy/pf_channels.c
+ server/proxy/pf_channels.h
+ server/proxy/pf_client.c
+ server/proxy/pf_client.h
+ server/proxy/pf_context.c
+ server/proxy/pf_context.h
+ server/proxy/pf_gdi.c
+ server/proxy/pf_gdi.h
+ server/proxy/pf_graphics.c
+ server/proxy/pf_graphics.h
+ server/proxy/pf_input.c
+ server/proxy/pf_input.h
+ server/proxy/pf_log.h
+ server/proxy/pf_rail.c
+ server/proxy/pf_rail.h
+ server/proxy/pf_rdpgfx.c
+ server/proxy/pf_rdpgfx.h
+ server/proxy/pf_server.c
+ server/proxy/pf_server.h
+ server/proxy/pf_update.c
+ server/proxy/pf_update.h
+Copyright: 2019, Idan Freiberg <speidy@gmail.com>
+  2019, Kobi Mizrachi <kmizrachi18@gmail.com>
+  2019, Mati Shabtay <matishabtay@gmail.com>
+License: Apache-2.0
+
+Files: channels/audin/client/alsa/audin_alsa.c
+ channels/audin/client/pulse/audin_pulse.c
+ channels/audin/server/audin.c
+ channels/drdynvc/client/drdynvc_main.c
+ channels/drdynvc/client/drdynvc_main.h
+ channels/echo/server/echo_main.c
+ channels/rdpsnd/client/pulse/rdpsnd_pulse.c
+ channels/rdpsnd/server/rdpsnd_main.c
+ channels/tsmf/client/tsmf_ifman.h
+ channels/tsmf/client/tsmf_main.c
+ channels/tsmf/client/tsmf_main.h
+ client/X11/xf_cliprdr.c
+ include/freerdp/client/audin.h
+ include/freerdp/client/cliprdr.h
+ include/freerdp/dvc.h
+ include/freerdp/server/audin.h
+ include/freerdp/server/echo.h
+ include/freerdp/server/rdpsnd.h
+Copyright: 2010-2011, Vic Lee
+  2011, Vic Lee
+  2012, Vic Lee
+  2014, Vic Lee
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: client/X11/xf_input.c
+ client/X11/xf_input.h
+ server/Mac/mf_event.c
+ server/Mac/mf_event.h
+ server/Mac/mf_info.c
+ server/Mac/mf_info.h
+ server/Mac/mf_input.c
+ server/Mac/mf_input.h
+ server/Mac/mf_mountain_lion.c
+ server/Mac/mf_mountain_lion.h
+ server/Mac/mf_peer.c
+ server/Mac/mf_peer.h
+ server/Windows/wf_dxgi.c
+ server/Windows/wf_dxgi.h
+ server/Windows/wf_info.c
+ server/Windows/wf_info.h
+Copyright: 2012, Corey Clayton <can.of.tuna@gmail.com>
+  2013, Corey Clayton <can.of.tuna@gmail.com>
+License: Apache-2.0
+
+Files: channels/rdpgfx/server/CMakeLists.txt
+ channels/rdpgfx/server/rdpgfx_main.c
+ channels/rdpgfx/server/rdpgfx_main.h
+ include/freerdp/server/rdpgfx.h
+ server/shadow/shadow_audin.c
+ server/shadow/shadow_audin.h
+ server/shadow/shadow_mcevent.c
+ server/shadow/shadow_mcevent.h
+ server/shadow/shadow_rdpgfx.c
+ server/shadow/shadow_rdpgfx.h
+ server/shadow/shadow_rdpsnd.c
+ server/shadow/shadow_rdpsnd.h
+ server/shadow/shadow_subsystem_builtin.c
+Copyright: 2015, Jiang Zihao <zihao.jiang@yahoo.com>
+  2016, Jiang Zihao <zihao.jiang@yahoo.com>
+License: Apache-2.0
+
+Files: channels/urbdrc/client/CMakeLists.txt
+ channels/urbdrc/client/data_transfer.c
+ channels/urbdrc/client/data_transfer.h
+ channels/urbdrc/client/libusb/CMakeLists.txt
+ channels/urbdrc/client/libusb/libusb_udevice.c
+ channels/urbdrc/client/libusb/libusb_udevice.h
+ channels/urbdrc/client/libusb/libusb_udevman.c
+ channels/urbdrc/client/urbdrc_main.c
+ channels/urbdrc/client/urbdrc_main.h
+ channels/urbdrc/common/msusb.c
+ channels/urbdrc/common/msusb.h
+ channels/urbdrc/common/urbdrc_types.h
+Copyright: 2012, Alfred Liu <alfred.liu@atruscorp.com>
+  2012, Atrust corp.
+License: Apache-2.0
+
+Files: channels/ainput/CMakeLists.txt
+ channels/ainput/client/CMakeLists.txt
+ channels/ainput/client/ainput_main.c
+ channels/ainput/client/ainput_main.h
+ channels/ainput/common/ainput_common.h
+ channels/ainput/server/CMakeLists.txt
+ channels/ainput/server/ainput_main.c
+ include/freerdp/channels/ainput.h
+ include/freerdp/channels/echo.h
+ include/freerdp/server/ainput.h
+ libfreerdp/codec/h264.h
+ libfreerdp/codec/progressive.h
+Copyright: 2017, Armin Novak <anovak@thincast.com>
+  2017, Thincast Technologies GmbH
+  2018, Armin Novak <anovak@thincast.com>
+  2018, Thincast Technologies GmbH
+  2020, Armin Novak <anovak@thincast.com>
+  2020, Thincast Technologies GmbH
+  2022, Armin Novak <anovak@thincast.com>
+  2022, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: client/X11/CMakeLists.txt
+ server/Mac/mf_audin.h
+ server/Mac/mf_interface.h
+ server/Mac/mfreerdp.c
+ server/Mac/mfreerdp.h
+ server/Windows/wf_interface.c
+ server/Windows/wf_interface.h
+ server/Windows/wf_mirage.c
+ server/Windows/wf_mirage.h
+ server/Windows/wf_peer.c
+ server/Windows/wf_rdpsnd.c
+ server/Windows/wf_update.c
+Copyright: 2012, Corey Clayton <can.of.tuna@gmail.com>
+  2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012-2013, Corey Clayton <can.of.tuna@gmail.com>
+  2013, Corey Clayton <can.of.tuna@gmail.com>
+License: Apache-2.0
+
+Files: channels/rdpecam/CMakeLists.txt
+ channels/rdpecam/server/CMakeLists.txt
+ channels/rdpecam/server/camera_device_enumerator_main.c
+ channels/rdpecam/server/camera_device_main.c
+ channels/telemetry/CMakeLists.txt
+ channels/telemetry/server/CMakeLists.txt
+ channels/telemetry/server/telemetry_main.c
+ include/freerdp/channels/rdpecam.h
+ include/freerdp/channels/telemetry.h
+ include/freerdp/server/rdpecam-enumerator.h
+ include/freerdp/server/rdpecam.h
+ include/freerdp/server/telemetry.h
+Copyright: 2022, Pascal Nowack <Pascal.Nowack@gmx.de>
+License: Apache-2.0
+
+Files: cmake/FindX11.cmake
+ cmake/FindXKBFile.cmake
+ cmake/FindXShm.cmake
+ cmake/FindXTest.cmake
+ cmake/FindXcursor.cmake
+ cmake/FindXdamage.cmake
+ cmake/FindXext.cmake
+ cmake/FindXfixes.cmake
+ cmake/FindXinerama.cmake
+ cmake/FindXv.cmake
+ include/CMakeLists.txt
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011, O.S. Systems Software Ltda.
+  2011, Otavio Salvador <otavio@ossystems.com.br>
+License: Apache-2.0
+
+Files: channels/rdpdr/client/irp.h
+ channels/rdpsnd/client/rdpsnd_main.h
+ channels/rdpsnd/server/rdpsnd_main.h
+ channels/server/channels.c
+ channels/server/channels.h
+ include/freerdp/client/rdpsnd.h
+ libfreerdp/core/tcp.c
+ libfreerdp/core/tcp.h
+ winpr/libwinpr/utils/stream.c
+Copyright: 2010-2011, Vic Lee
+  2010-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011, Vic Lee
+  2011-2012, Vic Lee
+  2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012, Vic Lee
+  2012-2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+License: Apache-2.0
+
+Files: uwac/include/uwac/uwac-tools.h
+ uwac/include/uwac/uwac.h
+ uwac/libuwac/uwac-display.c
+ uwac/libuwac/uwac-input.c
+ uwac/libuwac/uwac-output.c
+ uwac/libuwac/uwac-priv.h
+ uwac/libuwac/uwac-tools.c
+ uwac/libuwac/uwac-utils.h
+ uwac/libuwac/uwac-window.c
+Copyright: 2014, David FORT <contact@hardening-consulting.com>
+  2014-2015, David FORT <contact@hardening-consulting.com>
+  2015, David FORT <contact@hardening-consulting.com>
+License: X11
+
+Files: include/freerdp/heartbeat.h
+ libfreerdp/core/autodetect.c
+ libfreerdp/core/autodetect.h
+ libfreerdp/core/heartbeat.c
+ libfreerdp/core/heartbeat.h
+ libfreerdp/core/multitransport.c
+ libfreerdp/core/multitransport.h
+ winpr/libwinpr/shell/CMakeLists.txt
+ winpr/libwinpr/shell/shell.c
+Copyright: 2014, Dell Software <Mike.McDonald@software.dell.com>
+  2015, Dell Software <Mike.McDonald@software.dell.com>
+License: Apache-2.0
+
+Files: libfreerdp/core/rdp.c
+ libfreerdp/core/rdp.h
+ winpr/include/winpr/user.h
+ winpr/include/winpr/wnd.h
+ winpr/libwinpr/handle/CMakeLists.txt
+ winpr/libwinpr/handle/handle.c
+ winpr/libwinpr/thread/process.c
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+License: Apache-2.0
+
+Files: server/proxy/modules/modules_api.h
+ server/proxy/pf_cliprdr.c
+ server/proxy/pf_cliprdr.h
+ server/proxy/pf_config.c
+ server/proxy/pf_config.h
+ server/proxy/pf_modules.c
+ server/proxy/pf_modules.h
+Copyright: 2019, Idan Freiberg <speidy@gmail.com>
+  2019, Kobi Mizrachi <kmizrachi18@gmail.com>
+License: Apache-2.0
+
+Files: winpr/include/winpr/comm.h
+ winpr/libwinpr/comm/comm.c
+ winpr/libwinpr/comm/comm_ioctl.c
+ winpr/libwinpr/comm/comm_sercx2_sys.c
+ winpr/libwinpr/comm/comm_sercx_sys.c
+ winpr/libwinpr/comm/comm_serial_sys.c
+Copyright: 2011, Eduardo Fiss Beloni <beloni@ossystems.com.br>
+  2011, O.S. Systems Software Ltda.
+  2014, Hewlett-Packard Development Company, L.P.
+  2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+License: Apache-2.0
+
+Files: winpr/libwinpr/sysinfo/cpufeatures/NOTICE
+ winpr/libwinpr/utils/corkscrew/backtrace.h
+ winpr/libwinpr/utils/corkscrew/demangle.h
+ winpr/libwinpr/utils/corkscrew/map_info.h
+ winpr/libwinpr/utils/corkscrew/ptrace.h
+ winpr/libwinpr/utils/corkscrew/symbol_table.h
+Copyright: 2011, The Android Open Source Project
+  2016, The Android Open Source Project
+License: Apache-2.0
+
+Files: winpr/libwinpr/utils/trio/strio.h
+ winpr/libwinpr/utils/trio/trio.c
+ winpr/libwinpr/utils/trio/trio.h
+ winpr/libwinpr/utils/trio/triop.h
+ winpr/libwinpr/utils/trio/triostr.c
+ winpr/libwinpr/utils/trio/triostr.h
+Copyright: 1998, 2009, Bjorn Reese and Daniel Stenberg.
+  1998, Bjorn Reese and Daniel Stenberg.
+  2000, Bjorn Reese and Daniel Stenberg.
+  2001, Bjorn Reese and Daniel Stenberg.
+License: ISC
+
+Files: channels/audin/client/opensles/CMakeLists.txt
+ channels/rdpsnd/client/opensles/CMakeLists.txt
+ include/freerdp/channels/log.h
+ include/freerdp/log.h
+ winpr/libwinpr/log.h
+Copyright: 2013, Armin Novak <armin.novak@gmail.com>
+  2014, Armin Novak <armin.novak@gmail.com>
+License: Apache-2.0
+
+Files: channels/rdpgfx/client/rdpgfx_main.c
+ channels/smartcard/client/smartcard_pack.c
+ channels/smartcard/client/smartcard_pack.h
+ libfreerdp/codec/interleaved.c
+ libfreerdp/core/mcs.c
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2013-2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, Armin Novak <armin.novak@thincast.com>
+  2016, Thincast Technologies GmbH
+  2017, Armin Novak <armin.novak@thincast.com>
+  2017, Thincast Technologies GmbH
+  2020, Armin Novak <armin.novak@thincast.com>
+  2020, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: client/common/cmdline.h
+ include/freerdp/version.h.in
+ winpr/include/winpr/intrin.h
+ winpr/include/winpr/version.h.in
+ winpr/libwinpr/file/test/TestFileGetStdHandle.c
+Copyright: 2013, Bernhard Miklautz <bernhard.miklautz@thincast.com>
+  2013, Thincast Technologies GmbH
+  2015, Bernhard Miklautz <bernhard.miklautz@thincast.com>
+  2015, Thincast Technologies GmbH
+  2018, Bernhard Miklautz <bernhard.miklautz@thincast.com>
+  2018, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/core/gateway/ntlm.c
+ libfreerdp/core/gateway/ntlm.h
+ libfreerdp/core/gateway/rpc.c
+ libfreerdp/core/gateway/rpc.h
+ libfreerdp/core/gateway/tsg.h
+Copyright: 2012, Dmitrij Jasnov <dmitrij.jasnov@ts.fujitsu.com>
+  2012, Fujitsu Technology Solutions GmbH
+  2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+License: Apache-2.0
+
+Files: include/freerdp/utils/ringbuffer.h
+ libfreerdp/codec/test/TestFreeRDPRegion.c
+ libfreerdp/crypto/test/TestBase64.c
+ libfreerdp/utils/ringbuffer.c
+ libfreerdp/utils/test/TestRingBuffer.c
+Copyright: 2014, Hardening <contact@hardening-consulting.com>
+  2014, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/tsmf/client/CMakeLists.txt
+ winpr/libwinpr/comm/comm.h
+ winpr/libwinpr/comm/test/TestCommConfig.c
+ winpr/libwinpr/thread/thread.c
+ winpr/libwinpr/thread/thread.h
+Copyright: 2012, Hewlett-Packard Development Company, L.P.
+  2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, Hewlett-Packard Development Company, L.P.
+  2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, Hewlett-Packard Development Company, L.P.
+License: Apache-2.0
+
+Files: client/X11/xf_gdi.c
+ winpr/include/winpr/synch.h
+ winpr/libwinpr/error/test/TestErrorSetLastError.c
+ winpr/libwinpr/nt/nt.c
+ winpr/libwinpr/synch/init.c
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2013, Norbert Federa <norbert.federa@thincast.com>
+  2013, Thincast Technologies GmbH
+  2014, Norbert Federa <norbert.federa@thincast.com>
+  2014, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: include/freerdp/utils/profiler.h
+ include/freerdp/utils/stopwatch.h
+ libfreerdp/codec/rfx_sse2.h
+ libfreerdp/utils/profiler.c
+ libfreerdp/utils/stopwatch.c
+Copyright: 2011, Stephen Erisman
+License: Apache-2.0
+
+Files: channels/cliprdr/client/cliprdr_format.c
+ channels/cliprdr/client/cliprdr_format.h
+ channels/cliprdr/client/cliprdr_main.c
+ channels/rdpsnd/client/alsa/rdpsnd_alsa.c
+Copyright: 2009-2011, Jay Sorg
+  2010-2011, Vic Lee
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/rdpdr/client/devman.h
+ channels/rdpdr/client/irp.c
+ channels/rdpdr/client/rdpdr_capabilities.h
+ include/freerdp/channels/rdpdr.h
+Copyright: 2010-2011, Vic Lee
+  2010-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: include/freerdp/codec/bitmap.h
+ include/freerdp/codec/jpeg.h
+ libfreerdp/codec/bitmap.c
+ libfreerdp/codec/jpeg.c
+Copyright: 2004-2012, Jay Sorg <jay.sorg@gmail.com>
+  2011, Jay Sorg <jay.sorg@gmail.com>
+  2012, Jay Sorg <jay.sorg@gmail.com>
+License: Apache-2.0
+
+Files: channels/rail/server/CMakeLists.txt
+ channels/rail/server/rail_main.c
+ channels/rail/server/rail_main.h
+ include/freerdp/server/rail.h
+Copyright: 2019, Mati Shabtay <matishabtay@gmail.com>
+License: Apache-2.0
+
+Files: channels/audin/client/oss/CMakeLists.txt
+ channels/rdpsnd/client/oss/CMakeLists.txt
+ channels/tsmf/client/oss/CMakeLists.txt
+ channels/tsmf/client/oss/tsmf_oss.c
+Copyright: 2015, Rozhuk Ivan <rozhuk.im@gmail.com>
+License: Apache-2.0
+
+Files: include/freerdp/utils/passphrase.h
+ include/freerdp/utils/signal.h
+ libfreerdp/utils/passphrase.c
+ libfreerdp/utils/signal.c
+Copyright: 2011, Shea Levy <shea@shealevy.com>
+License: Apache-2.0
+
+Files: channels/audin/client/opensles/opensl_io.c
+ channels/audin/client/opensles/opensl_io.h
+ channels/rdpsnd/client/opensles/opensl_io.c
+ channels/rdpsnd/client/opensles/opensl_io.h
+Copyright: 2012, Victor Lazzarini
+License: BSD-3-clause
+
+Files: winpr/libwinpr/crypto/md4.c
+ winpr/libwinpr/crypto/md4.h
+ winpr/libwinpr/crypto/md5.c
+ winpr/libwinpr/crypto/md5.h
+Copyright: 2001, Alexander Peslyak and it is hereby released to the
+License: public-domain
+
+Files: include/freerdp/codec/rfx.h
+ libfreerdp/codec/nsc_encode.c
+ libfreerdp/codec/nsc_encode.h
+Copyright: 2011, Vic Lee
+  2012, Vic Lee
+  2016, Armin Novak <armin.novak@thincast.com>
+  2016, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/rdpdr/server/rdpdr_main.c
+ channels/rdpdr/server/rdpdr_main.h
+ include/freerdp/server/rdpdr.h
+Copyright: 2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, Dell Software <Mike.McDonald@software.dell.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/tsmf/client/tsmf_ifman.c
+ channels/tsmf/client/tsmf_media.c
+ channels/tsmf/client/tsmf_media.h
+Copyright: 2010-2011, Vic Lee
+  2012, Hewlett-Packard Development Company, L.P.
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/rail/client/rail_main.h
+ channels/rail/rail_common.c
+ channels/rail/rail_common.h
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011, Roman Barabanov <romanbarabanov@gmail.com>
+  2011, Vic Lee
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: winpr/libwinpr/utils/wlog/JournaldAppender.c
+ winpr/libwinpr/utils/wlog/SyslogAppender.c
+ winpr/libwinpr/utils/wlog/UdpAppender.c
+Copyright: 2015, David FORT <contact@hardening-consulting.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: client/Wayland/CMakeLists.txt
+ client/Wayland/wlf_input.c
+ client/Wayland/wlf_input.h
+Copyright: 2014, Manuel Bachmann <tarnyko@tarnyko.net>
+  2015, David Fort <contact@hardening-consulting.com>
+License: Apache-2.0
+
+Files: winpr/include/winpr/file.h
+ winpr/include/winpr/string.h
+ winpr/libwinpr/path/shell.c
+Copyright: 2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+License: Apache-2.0
+
+Files: channels/tsmf/client/tsmf_codec.c
+ channels/tsmf/client/tsmf_constants.h
+ channels/tsmf/client/tsmf_decoder.h
+Copyright: 2010-2011, Vic Lee
+  2012, Hewlett-Packard Development Company, L.P.
+License: Apache-2.0
+
+Files: libfreerdp/core/security.c
+ winpr/libwinpr/synch/barrier.c
+ winpr/libwinpr/synch/critical.c
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2013, Norbert Federa <norbert.federa@thincast.com>
+  2014, Norbert Federa <norbert.federa@thincast.com>
+  2016, Norbert Federa <norbert.federa@thincast.com>
+License: Apache-2.0
+
+Files: include/freerdp/rail.h
+ libfreerdp/core/window.c
+ libfreerdp/core/window.h
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011, Roman Barabanov <romanbarabanov@gmail.com>
+License: Apache-2.0
+
+Files: cmake/ConfigOptionsiOS.cmake
+ libfreerdp/locale/keyboard_apple.c
+ libfreerdp/locale/keyboard_apple.h
+Copyright: 2013, Martin Fleisz <martin.fleisz@thincast.com>
+  2013, Thincast Technologies GmbH
+  2021, Martin Fleisz <martin.fleisz@thincast.com>
+  2021, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: winpr/include/winpr/ssl.h
+ winpr/libwinpr/utils/ssl.c
+ winpr/test/TestTypes.c
+Copyright: 2014, Norbert Federa <norbert.federa@thincast.com>
+  2014, Thincast Technologies GmbH
+  2015, Norbert Federa <norbert.federa@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: client/X11/xf_floatbar.c
+ client/X11/xf_floatbar.h
+Copyright: *No copyright*
+License: Apache-2.0
+
+Files: winpr/libwinpr/utils/wlog/JournaldAppender.h
+ winpr/libwinpr/utils/wlog/SyslogAppender.h
+ winpr/libwinpr/utils/wlog/UdpAppender.h
+Copyright: 2015, David FORT <contact@hardening-consulting.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: winpr/libwinpr/utils/trio/triodef.h
+ winpr/libwinpr/utils/trio/trionan.c
+ winpr/libwinpr/utils/trio/trionan.h
+Copyright: 2001, Bjorn Reese <breese@users.sourceforge.net>
+License: ISC
+
+Files: winpr/libwinpr/sspi/Kerberos/kerberos.c
+ winpr/libwinpr/sspi/Kerberos/kerberos.h
+Copyright: 2015, ANSSI, Author Thomas Calderon
+  2017, Dorian Ducournau <dorian.ducournau@gmail.com>
+License: Apache-2.0
+
+Files: winpr/libwinpr/sspi/sspi_gss.c
+ winpr/libwinpr/sspi/sspi_gss.h
+Copyright: 2015, ANSSI, Author Thomas Calderon
+  2015, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2017, Dorian Ducournau <dorian.ducournau@gmail.com>
+License: Apache-2.0
+
+Files: winpr/libwinpr/clipboard/posix.c
+ winpr/libwinpr/clipboard/posix.h
+Copyright: 2017, Alexei Lozovsky <a.lozovsky@gmail.com>
+License: Apache-2.0
+
+Files: channels/audin/client/opensles/audin_opensl_es.c
+ channels/rdpsnd/client/opensles/rdpsnd_opensles.c
+Copyright: 2013, Armin Novak <armin.novak@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/printer/client/cups/printer_cups.c
+ include/freerdp/client/printer.h
+Copyright: 2010-2011, Vic Lee
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, Armin Novak <armin.novak@gmail.com>
+License: Apache-2.0
+
+Files: include/freerdp/session.h
+ uwac/CMakeLists.txt
+ uwac/include/CMakeLists.txt
+Copyright: 2015, David FORT <contact@hardening-consulting.com>
+  2016, David FORT <contact@hardening-consulting.com>
+License: Apache-2.0
+
+Files: winpr/libwinpr/utils/wlog/CallbackAppender.c
+ winpr/libwinpr/utils/wlog/CallbackAppender.h
+Copyright: 2014, Armin Novak <armin.novak@thincast.com>
+License: Apache-2.0
+
+Files: libfreerdp/primitives/prim_YUV_neon.c
+ libfreerdp/primitives/prim_YUV_ssse3.c
+Copyright: 2014, Thomas Erbesdobler
+  2016-2017, Armin Novak <armin.novak@thincast.com>
+  2016-2017, Norbert Federa <norbert.federa@thincast.com>
+  2016-2017, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: include/freerdp/codec/nsc.h
+ libfreerdp/codec/nsc.c
+Copyright: 2011, Samsung, Author Jiten Pathy
+  2012, Vic Lee
+  2016, Armin Novak <armin.novak@thincast.com>
+  2016, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/sshagent/CMakeLists.txt
+ channels/sshagent/client/CMakeLists.txt
+Copyright: 2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2017, Ben Cohen
+License: Apache-2.0
+
+Files: libfreerdp/core/proxy.c
+ libfreerdp/core/proxy.h
+Copyright: 2014, Christian Plattner <ccpp@gmx.at>
+  2016, Christian Plattner <ccpp@gmx.at>
+License: Apache-2.0
+
+Files: winpr/include/winpr/wtsapi.h
+ winpr/libwinpr/wtsapi/wtsapi.c
+Copyright: 2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, Copyright 2015 Thincast Technologies GmbH
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+License: Apache-2.0
+
+Files: channels/rdpsnd/client/ios/CMakeLists.txt
+ channels/rdpsnd/client/mac/CMakeLists.txt
+Copyright: 2012, Laxmikant Rashinkar <LK.Rashinkar@gmail.com>
+  2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2013, Corey Clayton <can.of.tuna@gmail.com>
+License: Apache-2.0
+
+Files: winpr/libwinpr/handle/nonehandle.c
+ winpr/libwinpr/handle/nonehandle.h
+Copyright: 2014, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+License: Apache-2.0
+
+Files: channels/rdpei/server/rdpei_main.c
+ include/freerdp/server/rdpei.h
+Copyright: 2014, David FORT <contact@hardening-consulting.com>
+  2014, Thincast Technologies Gmbh.
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/parallel/client/parallel_main.c
+ channels/smartcard/client/smartcard_main.h
+ channels/smartcard/client/smartcard_operations.h
+Copyright: 2010, Eduardo Fiss Beloni <beloni@ossystems.com.br>
+  2010, O.S. Systems Software Ltda.
+  2011, Eduardo Fiss Beloni <beloni@ossystems.com.br>
+  2011, O.S. Systems Software Ltda.
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: include/freerdp/freerdp.h
+ include/freerdp/svc.h
+Copyright: 2009-2011, Jay Sorg
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/cliprdr/cliprdr_common.c
+ channels/cliprdr/cliprdr_common.h
+Copyright: 2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2019, Kobi Mizrachi <kmizrachi18@gmail.com>
+License: Apache-2.0
+
+Files: channels/audin/client/oss/audin_oss.c
+ channels/rdpsnd/client/oss/rdpsnd_oss.c
+Copyright: 2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Rozhuk Ivan <rozhuk.im@gmail.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/rdpei/rdpei_common.c
+ channels/rdpei/rdpei_common.h
+Copyright: 2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, David Fort <contact@hardening-consulting.com>
+License: Apache-2.0
+
+Files: libfreerdp/primitives/prim_YUV_opencl.c
+ libfreerdp/primitives/primitives.cl
+Copyright: 2019, David Fort <contact@hardening-consulting.com>
+  2019, Rangee Gmbh
+License: Apache-2.0
+
+Files: channels/rdpdr/client/CMakeLists.txt
+ winpr/libwinpr/utils/image.c
+Copyright: 2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+  2016, Inuvika Inc.
+License: Apache-2.0
+
+Files: libfreerdp/core/gateway/rdg.c
+ libfreerdp/core/gateway/rdg.h
+Copyright: 2015, Denis Vincent <dvincent@devolutions.net>
+License: Apache-2.0
+
+Files: winpr/libwinpr/sspi/Negotiate/negotiate.c
+ winpr/libwinpr/sspi/sspi_winpr.c
+Copyright: 2011-2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012-2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2017, Dorian Ducournau <dorian.ducournau@gmail.com>
+License: Apache-2.0
+
+Files: channels/serial/client/serial_main.c
+ winpr/libwinpr/comm/comm_ioctl.h
+Copyright: 2011, Eduardo Fiss Beloni <beloni@ossystems.com.br>
+  2011, O.S. Systems Software Ltda.
+  2014, Hewlett-Packard Development Company, L.P.
+License: Apache-2.0
+
+Files: libfreerdp/primitives/prim_colors.c
+ libfreerdp/primitives/prim_colors_opt.c
+Copyright: 2011, Martin Fleisz <martin.fleisz@thincast.com>
+  2011, Norbert Federa <norbert.federa@thincast.com>
+  2011, Stephen Erisman
+  2012, Hewlett-Packard Development Company, L.P.
+License: Apache-2.0
+
+Files: include/freerdp/api.h
+ libfreerdp/core/settings.c
+Copyright: 2009-2011, Jay Sorg
+License: Apache-2.0
+
+Files: winpr/tools/CMakeLists.txt
+ winpr/tools/makecert-cli/CMakeLists.txt
+Copyright: 2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2016, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/codec/rfx_neon.c
+ libfreerdp/codec/rfx_neon.h
+Copyright: 2011, Martin Fleisz <martin.fleisz@thincast.com>
+License: Apache-2.0
+
+Files: libfreerdp/crypto/opensslcompat.c
+ libfreerdp/crypto/opensslcompat.h
+Copyright: 2016, Norbert Federa <norbert.federa@thincast.com>
+License: Apache-2.0
+
+Files: libfreerdp/codec/rfx_decode.c
+ libfreerdp/codec/rfx_encode.c
+Copyright: 2011, Norbert Federa <norbert.federa@thincast.com>
+  2011, Vic Lee
+License: Apache-2.0
+
+Files: winpr/include/winpr/strlst.h
+ winpr/libwinpr/utils/strlst.c
+Copyright: 2018, Pascal Bourguignon <pjb@informatimago.com>
+License: Apache-2.0
+
+Files: include/freerdp/crypto/der.h
+ libfreerdp/crypto/der.c
+Copyright: 2011, Samsung, Author Jiten Pathy
+License: Apache-2.0
+
+Files: winpr/libwinpr/sysinfo/cpufeatures/cpu-features.c
+ winpr/libwinpr/sysinfo/cpufeatures/cpu-features.h
+Copyright: 2010, The Android Open Source Project
+License: BSD-2-clause
+
+Files: channels/rdpsnd/client/ios/TPCircularBuffer.c
+ channels/rdpsnd/client/ios/TPCircularBuffer.h
+Copyright: 2012-2013, A Tasty Pixel
+License: zlib/libpng
+
+Files: winpr/libwinpr/utils/lodepng/lodepng.c
+ winpr/libwinpr/utils/lodepng/lodepng.h
+Copyright: 2005-2014, Lode Vandevenne
+  2015, Armin Novak <armin.novak@thincast.com>
+License: zlib/libpng
+
+Files: cmake/FindXRandR.cmake
+Copyright: 2012, Alam Arias <Alam.GBC@gmail.com>
+License: Apache-2.0
+
+Files: resources/conv_to_ewm_prop.py
+Copyright: 2011, Anthony Tong <atong@trustedcs.com>
+License: Apache-2.0
+
+Files: channels/smartcard/client/smartcard_operations.c
+Copyright: 2011, Anthony Tong <atong@trustedcs.com>
+  2011, O.S. Systems Software Ltda.
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2017, Armin Novak <armin.novak@thincast.com>
+  2017, Thincast Technologies GmbH
+  Alexi Volkov <alexi@myrealbox.com> 2006
+License: Apache-2.0
+
+Files: channels/smartcard/client/smartcard_main.c
+Copyright: 2011, Anthony Tong <atong@trustedcs.com>
+  2011, Eduardo Fiss Beloni <beloni@ossystems.com.br>
+  2011, O.S. Systems Software Ltda.
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+License: Apache-2.0
+
+Files: libfreerdp/utils/cliprdr_utils.c
+Copyright: 2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2022, Armin Novak <anovak@thincast.com
+  2022, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/printer/client/printer_main.c
+Copyright: 2010-2011, Vic Lee
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, Armin Novak <armin.novak@gmail.com>
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+License: Apache-2.0
+
+Files: channels/printer/client/win/printer_win.c
+Copyright: 2012, Gerald Richter
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, Armin Novak <armin.novak@gmail.com>
+License: Apache-2.0
+
+Files: channels/rdpdr/client/devman.c
+Copyright: 2010-2011, Vic Lee
+  2010-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, Armin Novak <armin.novak@gmail.com>
+License: Apache-2.0
+
+Files: include/freerdp/settings.h
+Copyright: 2009-2011, Jay Sorg
+  2010-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2016, Armin Novak <armin.novak@gmail.com>
+License: Apache-2.0
+
+Files: libfreerdp/common/settings.c
+Copyright: 2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2016, Armin Novak <armin.novak@gmail.com>
+License: Apache-2.0
+
+Files: client/common/cmdline.c
+Copyright: 2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, Norbert Federa <norbert.federa@thincast.com>
+  2016, Armin Novak <armin.novak@gmail.com>
+License: Apache-2.0
+
+Files: libfreerdp/codec/h264_openh264.c
+Copyright: 2014, Armin Novak <armin.novak@gmail.com>
+  2014, Mike McDonald <Mike.McDonald@software.dell.com>
+  2015, Vic Lee <llyzs.vic@gmail.com>
+License: Apache-2.0
+
+Files: client/X11/xf_client.c
+Copyright: 2013, Corey Clayton <can.of.tuna@gmail.com>
+  2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, Norbert Federa <norbert.federa@thincast.com>
+  2014, Thincast Technologies GmbH
+  2016, Armin Novak <armin.novak@thincast.com>
+  2016, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/drive/client/drive_file.c
+Copyright: 2010-2011, Vic Lee
+  2010-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012, Gerald Richter
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+  2016, Inuvika Inc.
+  2017, Armin Novak <armin.novak@thincast.com>
+  2017, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/rdpdr/client/rdpdr_main.c
+Copyright: 2010-2011, Vic Lee
+  2010-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015-2016, Thincast Technologies GmbH
+  2016, Armin Novak <armin.novak@thincast.com>
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+License: Apache-2.0
+
+Files: channels/rail/client/rail_orders.c
+Copyright: 2009, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011, Roman Barabanov <romanbarabanov@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2017, Armin Novak <armin.novak@thincast.com>
+  2017, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/rail/client/rail_main.c
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011, Roman Barabanov <romanbarabanov@gmail.com>
+  2011, Vic Lee
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2017, Armin Novak <armin.novak@thincast.com>
+  2017, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/rdpdr/client/rdpdr_capabilities.c
+Copyright: 2010-2011, Vic Lee
+  2010-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015-2016, Thincast Technologies GmbH
+  2016, Armin Novak <armin.novak@thincast.com>
+License: Apache-2.0
+
+Files: channels/audin/client/audin_main.c
+Copyright: 2010-2011, Vic Lee
+  2015, Armin Novak <armin.novak@thincast.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: winpr/libwinpr/file/file.h
+Copyright: 2015, Armin Novak <armin.novak@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+License: Apache-2.0
+
+Files: client/X11/xf_window.c
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012, HP Development Company, LLC
+  2016, Armin Novak <armin.novak@thincast.com>
+  2016, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/tsmf/client/gstreamer/tsmf_gstreamer.c
+Copyright: 2012, HP Development Company, LLC
+  2014, Armin Novak <armin.novak@thincast.com>
+  2014, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/codec/region.c
+Copyright: 2014, Hardening <contact@hardening-consulting.com>
+  2014, Thincast Technologies GmbH
+  2017, Armin Novak <armin.novak@thincast.com>
+  2017, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/codec/include/bitmap.c
+Copyright: 2011, Jay Sorg <jay.sorg@gmail.com>
+  2016, Armin Novak <armin.novak@thincast.com>
+  2016, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: client/Wayland/wlfreerdp.c
+Copyright: 2014, Manuel Bachmann <tarnyko@tarnyko.net>
+  2016, Armin Novak <armin.novak@thincast.com>
+  2016, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/primitives/prim_YUV.c
+Copyright: 2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015-2017, Armin Novak <armin.novak@thincast.com>
+  2015-2017, Norbert Federa <norbert.federa@thincast.com>
+  2015-2017, Thincast Technologies GmbH
+  2015-2017, Vic Lee
+License: Apache-2.0
+
+Files: winpr/include/winpr/stream.h
+Copyright: 2011, Vic Lee
+  2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2017, Armin Novak <armin.novak@thincast.com>
+  2017, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/core/fastpath.c
+Copyright: 2011, Vic Lee
+  2014, Norbert Federa <norbert.federa@thincast.com>
+  2017, Armin Novak <armin.novak@thincast.com>
+  2017, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/core/graphics.h
+Copyright: 2016, Armin Novak <armin.novak@thincast.com>
+  2016, Thinast Technologies GmbH
+License: Apache-2.0
+
+Files: winpr/libwinpr/path/shell_ios.m
+Copyright: 2016, Armin Novak <armin.novak@thincast.om>
+  2016, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/rdp2tcp/client/rdp2tcp_main.c
+Copyright: 2017, Artur Zaprzala
+License: Apache-2.0
+
+Files: include/freerdp/client/sshagent.h
+Copyright: 2017, Ben Cohen
+License: Apache-2.0
+
+Files: channels/sshagent/client/sshagent_main.h
+Copyright: 2013, Christian Hofstaedtler
+  2017, Ben Cohen
+License: Apache-2.0
+
+Files: channels/sshagent/client/sshagent_main.c
+Copyright: 2013, Christian Hofstaedtler
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2017, Ben Cohen
+License: Apache-2.0
+
+Files: cmake/CheckCmakeCompat.cmake
+Copyright: 2012, Bernhard Miklautz <bernhard.miklautz@thincast.com>
+License: Apache-2.0
+
+Files: winpr/libwinpr/file/file.c
+Copyright: 2015, Bernhard Miklautz <bernhard.miklautz@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+License: Apache-2.0
+
+Files: winpr/libwinpr/sysinfo/sysinfo.c
+Copyright: 2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2013, Bernhard Miklautz <bernhard.miklautz@thincast.com>
+License: Apache-2.0
+
+Files: winpr/include/winpr/wlog.h
+Copyright: 2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, Bernhard Miklautz <bernhard.miklautz@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/echo/client/echo_main.h
+Copyright: 2013, Christian Hofstaedtler
+License: Apache-2.0
+
+Files: channels/echo/client/echo_main.c
+Copyright: 2013, Christian Hofstaedtler
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/core/server.h
+Copyright: 2014, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, Copyright 2015 Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/core/channels.c
+Copyright: 2011, Vic Lee
+  2015, Copyright 2015 Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: cmake/FindXi.cmake
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011, O.S. Systems Software Ltda.
+  2011, Otavio Salvador <otavio@ossystems.com.br>
+  2013, Corey Clayton <can.of.tuna@gmail.com>
+License: Apache-2.0
+
+Files: channels/rdpei/server/rdpei_main.h
+Copyright: 2014, David Fort <contact@hardening-consulting.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/drive/client/drive_file.h
+Copyright: 2010-2011, Vic Lee
+  2010-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012, Gerald Richter
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+  2016, Inuvika Inc.
+License: Apache-2.0
+
+Files: channels/rdpsnd/client/mac/rdpsnd_mac.m
+Copyright: 2012, Laxmikant Rashinkar <LK.Rashinkar@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+  2016, Inuvika Inc.
+License: Apache-2.0
+
+Files: channels/rdpdr/client/rdpdr_main.h
+Copyright: 2010-2011, Vic Lee
+  2010-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+  2016, Inuvika Inc.
+License: Apache-2.0
+
+Files: channels/rdpsnd/client/rdpsnd_main.c
+Copyright: 2009-2011, Jay Sorg
+  2010-2011, Vic Lee
+  2012-2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+License: Apache-2.0
+
+Files: channels/rdpsnd/client/winmm/rdpsnd_winmm.c
+Copyright: 2009-2012, Jay Sorg
+  2010-2012, Vic Lee
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+License: Apache-2.0
+
+Files: channels/disp/client/disp_main.c
+Copyright: 2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+License: Apache-2.0
+
+Files: channels/drive/client/drive_main.c
+Copyright: 2010-2011, Vic Lee
+  2010-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+License: Apache-2.0
+
+Files: channels/rdpsnd/client/ios/rdpsnd_ios.c
+Copyright: 2013, Dell Software <Mike.McDonald@software.dell.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/core/gateway/tsg.c
+Copyright: 2012, Dmitrij Jasnov <dmitrij.jasnov@ts.fujitsu.com>
+  2012, Fujitsu Technology Solutions GmbH
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/core/nla.c
+Copyright: 2010-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+  2016, Martin Fleisz <martin.fleisz@thincast.com>
+  2017, Dorian Ducournau <dorian.ducournau@gmail.com>
+License: Apache-2.0
+
+Files: channels/cliprdr/client/cliprdr_main.h
+Copyright: 2009-2011, Jay Sorg
+  2010-2011, Vic Lee
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+License: Apache-2.0
+
+Files: libfreerdp/core/certificate.c
+Copyright: 2011, Jiten Pathy
+  2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/core/gcc.c
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2014, Norbert Federa <norbert.federa@thincast.com>
+License: Apache-2.0
+
+Files: libfreerdp/core/nego.c
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, Norbert Federa <norbert.federa@thincast.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/rail/client/rail_orders.h
+Copyright: 2009, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011, Roman Barabanov <romanbarabanov@gmail.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: channels/audin/client/winmm/audin_winmm.c
+Copyright: 2013, Zhang Zhaolong <zhangzl2013@126.com>
+  2015, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/core/peer.c
+Copyright: 2011, Vic Lee
+  2014, DI (FH) Martin Haimberger <martin.haimberger@thincast.com>
+License: Apache-2.0
+
+Files: include/freerdp/channels/rdpei.h
+Copyright: 2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, David FORT <contact@hardening-consulting.com>
+  2014, Thincast Technologies Gmbh.
+License: Apache-2.0
+
+Files: channels/rdpei/server/CMakeLists.txt
+Copyright: 2014, David FORT <contact@hardening-consulting.com>
+  2014, Thincast Technologies Gmbh.
+License: Apache-2.0
+
+Files: libfreerdp/primitives/primitives.c
+Copyright: 2011, Martin Fleisz <martin.fleisz@thincast.com>
+  2012, Hewlett-Packard Development Company, L.P.
+  2019, David Fort <contact@hardening-consulting.com>
+License: Apache-2.0
+
+Files: client/X11/xf_monitor.c
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2017, David Fort <contact@hardening-consulting.com>
+  2018, Kai Harms <kharms@rangee.com>
+License: Apache-2.0
+
+Files: libfreerdp/core/license.c
+Copyright: 2011-2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, Norbert Federa <norbert.federa@thincast.com>
+  2018, David Fort <contact@hardening-consulting.com>
+License: Apache-2.0
+
+Files: libfreerdp/codec/h264.c
+Copyright: 2014, Mike McDonald <Mike.McDonald@software.dell.com>
+  2017, David Fort <contact@hardening-consulting.com>
+License: Apache-2.0
+
+Files: winpr/include/winpr/shell.h
+Copyright: 2015, Dell Software <Mike.McDonald@software.dell.com>
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+License: Apache-2.0
+
+Files: winpr/libwinpr/file/generic.c
+Copyright: 2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, Hewlett-Packard Development Company, L.P.
+  2016, David PHAM-VAN <d.phamvan@inuvika.com>
+License: Apache-2.0
+
+Files: include/freerdp/autodetect.h
+Copyright: 2014, Dell Software <Mike.McDonald@software.dell.com>
+  2014, Vic Lee
+License: Apache-2.0
+
+Files: CMakeLists.txt
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011, O.S. Systems Software Ltda.
+  2011, Otavio Salvador <otavio@ossystems.com.br>
+  2012, HP Development Company, LLC
+License: Apache-2.0
+
+Files: libfreerdp/codec/h264_mediacodec.c
+Copyright: 2022, Ely Ronnen <elyronnen@gmail.com>
+License: Apache-2.0
+
+Files: client/X11/cli/xfreerdp.c
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2012, HP Development Company, LLC
+License: Apache-2.0
+
+Files: winpr/libwinpr/synch/wait.c
+Copyright: 2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, Hardening <contact@hardening-consulting.com>
+License: Apache-2.0
+
+Files: winpr/libwinpr/file/namedPipeClient.c
+Copyright: 2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2014, Hewlett-Packard Development Company, L.P.
+  2015, Thincast Technologies GmbH
+  2015, bernhard.miklautz@thincast.com
+License: Apache-2.0
+
+Files: include/freerdp/types.h
+Copyright: 2009-2011, Jay Sorg
+  2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+License: Apache-2.0
+
+Files: include/freerdp/channels/channels.h
+Copyright: 2009-2011, Jay Sorg
+  2010-2011, Vic Lee
+License: Apache-2.0
+
+Files: winpr/libwinpr/sspi/Negotiate/negotiate.h
+Copyright: 2011-2012, Jiten Pathy
+License: Apache-2.0
+
+Files: libfreerdp/crypto/certificate.c
+Copyright: 2011, Jiten Pathy
+  2011-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+License: Apache-2.0
+
+Files: client/Wayland/wlfreerdp.h
+Copyright: 2014, Manuel Bachmann <tarnyko@tarnyko.net>
+License: Apache-2.0
+
+Files: libfreerdp/locale/locale.c
+Copyright: 2009-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2021, Martin Fleisz <martin.fleisz@thincast.com>
+  2021, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: server/Sample/sfreerdp.c
+Copyright: 2011, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+  2011, Vic Lee
+  2014, Norbert Federa <norbert.federa@thincast.com>
+License: Apache-2.0
+
+Files: include/freerdp/codec/h264.h
+ libfreerdp/codec/h264_mf.c
+Copyright: 2014, Mike McDonald <Mike.McDonald@software.dell.com>
+License: Apache-2.0
+
+Files: libfreerdp/codec/h264_ffmpeg.c
+Copyright: 2014, Mike McDonald <Mike.McDonald@software.dell.com>
+  2014, erbth <t.erbesdobler@team103.com>
+  2015, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+License: Apache-2.0
+
+Files: cmake/FindXmlto.cmake
+Copyright: 2011, Nils Andresen <nils@nils-andresen.de>
+License: Apache-2.0
+
+Files: libfreerdp/codec/rfx_sse2.c
+Copyright: 2011, Norbert Federa <norbert.federa@thincast.com>
+  2011, Stephen Erisman
+License: Apache-2.0
+
+Files: libfreerdp/codec/rfx.c
+Copyright: 2011, Vic Lee
+  2015, Norbert Federa <norbert.federa@thincast.com>
+  2015, Thincast Technologies GmbH
+License: Apache-2.0
+
+Files: libfreerdp/codec/nsc_types.h
+Copyright: 2011, Samsung, Author Jiten Pathy
+  2012, Vic Lee
+License: Apache-2.0
+
+Files: libfreerdp/codec/rfx_constants.h
+Copyright: 2011, Vic Lee
+License: Apache-2.0
+
+Files: uwac/libuwac/CMakeLists.txt
+Copyright: 2015, David FORT <contact@hardening-consulting.com>
+License: Apache-2.0
+Comment:
+ Generate file.
+
+Files: libfreerdp/locale/xkb_layout_ids.c
+Copyright: 2009-2012, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+License: Apache-2.0
+Comment:
+ Generate file.
+
+Files: cmake/FindGStreamer_1_0.cmake
+Copyright: 2012, Raphael Kubo da Costa <rakuco@webkit.org>
+License: BSD-2-clause
+
+Files: cmake/Findlibusb-1.0.cmake
+Copyright: 2006, Andreas Schneider <mail@cynapses.org>
+  2008, Kyle Machulis <kyle@nonpolynomial.com>
+License: BSD-3-clause
+
+Files: winpr/libwinpr/crt/casing.c
+Copyright: *No Copyright*
+License: public-domain
+Comment:
+ This code is generated by wine's make_unicode script
+ which downloads data from unicode.org and produces
+ readily usable conversion tables.
+ .
+ After asking permission from Alexandre Julliard in May 2011,
+ it was clarified that no copyright was claimed by the wine
+ project on the script's generated output.
+ .
+ Assuming the public-domain license as the one known giving
+ most freedom.
+
+Files: uwac/protocols/server-decoration.xml
+Copyright: 2015, Martin Gräßlin
+License: LGPL-2.1+
+
+Files: uwac/libuwac/uwac-clipboard.c
+Copyright: 2018, Armin Novak <armin.novak@thincast.com>
+  2018, Thincast Technologies GmbH
+License: NTP~legal-disclaimer
+
+Files: uwac/libuwac/uwac-os.c
+Copyright: 2012, Collabora, Ltd.
+License: X11
+
+Files: uwac/libuwac/uwac-os.h
+Copyright: 2012, Collabora, Ltd.
+  2014, David FORT <contact@hardening-consulting.com>
+License: X11
+
+Files: uwac/libuwac/uwac-utils.c
+Copyright: 2008, Kristian HÃ¸gsberg
+  2012, Collabora, Ltd.
+  2014, David FORT <contact@hardening-consulting.com>
+License: X11
+
+Files: include/freerdp/codec/region.h
+Copyright: 2014, Hardening <contact@hardening-consulting.com>
+  2014, Thincast Technologies GmbH
+License: X11
+
+Files: cmake/FindCairo.cmake
+Copyright: 2012, Dmitry Baryshnikov <polimax at mail dot ru>
+License: BSD-3-clause
+
+Files: winpr/libwinpr/thread/test/TestThreadExitThread.c
+Copyright: 2015, Hewlett-Packard Development Company, L.P.
+License: Apache-2.0
+
+Files: cmake/FindDBus.cmake
+Copyright: 2008, Kevin Kofler, <kevin.kofler@chello.at>
+  2006, Alexander Neundorf, <neundorf@kde.org>
+License: BSD-3-clause
+Comment: modeled after FindLibArt.cmake
+
+Files: cmake/FindDbusGlib.cmake
+Copyright: 2013 Thincast Technologies GmbH
+  2013, Armin Novak <armin.novak@thincast.com>
+License: Apache-2.0
+
+Files: uwac/protocols/keyboard-shortcuts-inhibit-unstable-v1.xml
+Copyright: 2017, Red Hat Inc.
+License: Expat
+
+Files: cmake/FindDevD.cmake
+Copyright: 2015, Rozhuk Ivan <rozhuk.im@gmail.com>
+License: BSD-3-clause
+
+Files: uwac/protocols/xdg-decoration-unstable-v1.xml
+Copyright: 2018, Simon Ser
+License: Expat
+
+Files: cmake/FindDocBookXSL.cmake
+Copyright: 2010, Luigi Toscano, <luigi.toscano@tiscali.it>
+License: BSD-3-clause
+
+Files: cmake/FindGStreamer_0_10.cmake
+Copyright: 2006, Tim Beaulen <tbscope@gmail.com>
+License: BSD-3-clause
+
+Files: cmake/FindIPP.cmake
+Copyright: 2010, Vladimir Dudnik (vladimir.dudnik@intel.com)
+License: BSD-3-clause
+
+Files: cmake/FindImageMagick.cmake
+Copyright: 2007-2009, Kitware, Inc.
+  2007-2008, Miguel A. Figueroa-Villanueva <miguelf at ieee dot org>
+  2012, Rolf Eike Beer <eike@sf-mail.de>
+License: BSD-3-clause
+
+Files: cmake/FindOpenSSL.cmake
+Copyright: 2006-2009, Kitware, Inc.
+  2006, Alexander Neundorf <neundorf@kde.org>
+  2009-2011, Mathieu Malaterre <mathieu.malaterre@gmail.com>
+License: BSD-3-clause
+
+Files: cmake/FindPixman.cmake
+Copyright: 2013, Marc-Andre Moreau <marcandre.moreau@gmail.com>
+License: Apache-2.0
+
+Files: cmake/FindUDev.cmake
+Copyright: 2011, Petr Vanek <petr@scribus.info>
+License: BSD-3-clause
+
+Files: cmake/FindUUID.cmake
+Copyright: 2006, Andreas Schneider <mail@cynapses.org>
+License: BSD-3-clause
+
+Files: cmake/FindWayland.cmake
+Copyright: 2015, David Fort <contact@hardening-consulting.com>
+License: Apache-2.0
+
+Files: cmake/FindXrender.cmake
+Copyright: 2013, Corey Clayton <can.of.tuna@gmail.com>
+License: Apache-2.0
+
+Files: cmake/GetGitRevisionDescription.cmake
+ cmake/GetGitRevisionDescription.cmake.in
+Copyright: 2009-2010, Ryan Pavlik <rpavlik@iastate.edu> <abiryan@ryand.net>
+  2009-2010, Iowa State University
+License: BSL-1.0
+
+Files: cmake/MergeStaticLibs.cmake
+Copyright: 2012, Modelon AB
+License: FMILIB
+
+Files: uwac/protocols/xdg-shell.xml
+Copyright: 2008-2013, Kristian Høgsberg
+  2013, Rafael Antognolli
+  2013, Jasper St. Pierre
+  2010-2013, Intel Corporation
+License: Expat
+
+Files: uwac/protocols/ivi-application.xml
+Copyright: 2013, DENSO CORPORATION
+ 2013, BMW Car IT GmbH
+License: Expat
+
+Files: cmake/compat_2.8.11/CMakePackageConfigHelpers.cmake
+Copyright: 2012, Alexander Neundorf <neundorf@kde.org>
+License: BSD-3-clause
+
+Files: cmake/compat_2.8.2/FindPkgConfig.cmake
+Copyright: 2006-2009, Kitware, Inc.
+  2006, Enrico Scholz <enrico.scholz@informatik.tu-chemnitz.de>
+License: BSD-3-clause
+
+Files: cmake/compat_2.8.11/WriteBasicConfigVersionFile.cmake
+Copyright: 2008-2011, Alexander Neundorf, <neundorf@kde.org>
+  2004-2009, Kitware, Inc.
+License: BSD-3-clause
+
+Files: cmake/compat_2.8.3/CMakeParseArguments.cmake
+Copyright: 2010, Alexander Neundorf <neundorf@kde.org>
+License: BSD-3-clause
+
+Files: cmake/compat_2.8.3/FindPackageHandleStandardArgs.cmake
+ cmake/compat_2.8.6/FeatureSummary.cmake
+Copyright: 2007-2009, Kitware, Inc.
+License: BSD-3-clause
+
+Files: debian/*
+Copyright: 2015-2018, Bernhard Miklautz <bernhard.miklautz@thincast.com>
+  2016-2022, Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
+License: Apache-2.0 or BSD-2-clause or BSD-3-clause or BSL-1.0 or Expat or ISC or X11 or zlib/libpng or public-domain
+
+License: Apache-2.0
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ .
+      http://www.apache.org/licenses/LICENSE-2.0
+ .
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ .
+ On Debian systems, the complete text of the Apache 2.0 License
+ can be found in /usr/share/common-licenses/Apache-2.0 file.
+
+License: BSD-2-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+ 1. Redistributions of source code must retain the above copyright notice, this
+    list of conditions and the following disclaimer.
+ .
+ 2. Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+License: BSD-3-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+ 1.  Redistributions of source code must retain the above copyright notice,
+     this list of conditions and the following disclaimer.
+ .
+ 2.  Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution.
+ .
+ 3.  The name of the copyright holders may be used to endorse or promote
+     products derived from this software without specific prior written
+     permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+
+License: ISC
+ Permission to use, copy, modify, and distribute this software for any
+ purpose with or without fee is hereby granted, provided that the above
+ copyright notice and this permission notice appear in all copies.
+ .
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+ MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE AUTHORS AND
+ CONTRIBUTORS ACCEPT NO RESPONSIBILITY IN ANY CONCEIVABLE MANNER.
+
+License: X11
+ Permission to use, copy, modify, distribute, and sell this software and its
+ documentation for any purpose is hereby granted without fee, provided that
+ the above copyright notice appear in all copies and that both that copyright
+ notice and this permission notice appear in supporting documentation, and
+ that the name of the copyright holders not be used in advertising or
+ publicity pertaining to distribution of the software without specific,
+ written prior permission.  The copyright holders make no representations
+ about the suitability of this software for any purpose.  It is provided "as
+ is" without express or implied warranty.
+ .
+ THE COPYRIGHT HOLDERS DISCLAIM ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
+ INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO
+ EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY SPECIAL, INDIRECT OR
+ CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
+ DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+ TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE
+ OF THIS SOFTWARE.
+
+License: zlib/libpng
+ This software is provided 'as-is', without any express or implied
+ warranty. In no event will the authors be held liable for any damages
+ arising from the use of this software.
+ .
+ Permission is granted to anyone to use this software for any purpose,
+ including commercial applications, and to alter it and redistribute it
+ freely, subject to the following restrictions:
+ .
+  1. The origin of this software must not be misrepresented; you must not
+  claim that you wrote the original software. If you use this software
+  in a product, an acknowledgment in the product documentation would be
+  appreciated but is not required.
+ .
+  2. Altered source versions must be plainly marked as such, and must not be
+  m.isrepresented as being the original software.
+ .
+  3. This notice may not be removed or altered from any source
+  distribution.
+
+License: public-domain
+ This software is in the public domain, furnished "as is", without technical
+ support, and with no warranty, express or implied, as to its usefulness for
+ any purpose.
+
+License: FMILIB
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:\n
+ - Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.\n
+ - Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.\n
+ - Neither the name of the Modelon AB nor the
+   names of its contributors may be used to endorse or promote products
+   derived from this software without specific prior written permission.\n
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED. IN NO EVENT SHALL MODELON AB BE LIABLE FOR ANY
+ DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining a
+ copy of this software and associated documentation files (the "Software"),
+ to deal in the Software without restriction, including without limitation
+ the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice (including the next
+ paragraph) shall be included in all copies or substantial portions of the
+ Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ DEALINGS IN THE SOFTWARE.
+
+License: BSL-1.0
+ Permission is hereby granted, free of charge, to any person or organization
+ obtaining a copy of the software and accompanying documentation covered by
+ this license (the "Software") to use, reproduce, display, distribute,
+ execute, and transmit the Software, and to prepare derivative works of the
+ Software, and to permit third-parties to whom the Software is furnished to
+ do so, all subject to the following:
+ .
+ The copyright notices in the Software and this entire statement, including
+ the above license grant, this restriction and the following disclaimer,
+ must be included in all copies of the Software, in whole or in part, and
+ all derivative works of the Software, unless such copies or derivative
+ works are solely in the form of machine-executable object code generated by
+ a source language processor.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+ SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+ FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ DEALINGS IN THE SOFTWARE.
+
+License: NTP~legal-disclaimer
+ Permission to use, copy, modify, distribute, and sell this software and its
+ documentation for any purpose is hereby granted without fee, provided that
+ the above copyright notice appear in all copies and that both that copyright
+ notice and this permission notice appear in supporting documentation, and
+ that the name of the copyright holders not be used in advertising or
+ publicity pertaining to distribution of the software without specific,
+ written prior permission.  The copyright holders make no representations
+ about the suitability of this software for any purpose.  It is provided "as
+ is" without express or implied warranty.
+ .
+ THE COPYRIGHT HOLDERS DISCLAIM ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
+ INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO
+ EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY SPECIAL, INDIRECT OR
+ CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
+ DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+ TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE
+ OF THIS SOFTWARE.
+
+License: LGPL-2.1+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ .
+ On Debian systems, the full text of the GNU Lesser General Public License
+ version 2.1 can be found in the file /usr/share/common-licenses/LGPL-2.1.

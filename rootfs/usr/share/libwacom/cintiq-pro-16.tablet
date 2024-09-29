@@ -1,0 +1,45 @@
+# Wacom
+# Cintiq Pro 16
+# DTH-1620
+#
+#                       K K K K K
+#          *-----------------------*
+#          |                       |
+#          |                       |
+#          |                       |
+#          |                       |
+#          |                       |
+#          |        DISPLAY        |
+#          |                       |
+#          |                       |
+#          |                       |
+#          |                       |
+#          |                       |
+#          *-----------------------*
+#
+# Note: The device has 5 keys as shown above. Their
+#       intended uses are, from left to right,:
+#       1. Mode change (Display/Opaque)
+#       2. Wacom Desktop Center
+#       3. On screen keyboard
+#       4. Wacom display settings
+#       5. Touch on/off
+#
+
+[Device]
+Name=Wacom Cintiq Pro 16
+ModelName=DTH-1620
+Class=Cintiq
+DeviceMatch=usb:056a:0350
+PairedID=usb:056a:0354
+Width=14
+Height=8
+# No pad buttons, so no layout
+Styli=@intuos5;@mobilestudio;@propengen2;
+IntegratedIn=Display
+
+[Features]
+Stylus=true
+Reversible=false
+Touch=true
+Ring=false

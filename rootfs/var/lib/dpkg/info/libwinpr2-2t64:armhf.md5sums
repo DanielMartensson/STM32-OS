@@ -1,0 +1,6 @@
+dc52b30ce033b368fc19477057db1904  usr/lib/arm-linux-gnueabihf/libwinpr2.so.2.11.5
+4d3b7eb4ccf646bda8bd165d8922959d  usr/share/doc/libwinpr2-2t64/NOTICE
+30ddc4a7b1e9b25049d4b16f203e1302  usr/share/doc/libwinpr2-2t64/changelog.Debian.gz
+442134bb08f91b1d090d736596e720b0  usr/share/doc/libwinpr2-2t64/copyright
+b79ee43c0d65c0afe8a1e500c95d41ba  usr/share/lintian/overrides/libwinpr2-2t64
+9d0b01287b30c499b306cb2a0a704787  usr/share/man/man7/wlog.7.gz

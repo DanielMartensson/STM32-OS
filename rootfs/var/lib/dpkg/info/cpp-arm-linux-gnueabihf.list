@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/bin
+/usr/share
+/usr/share/doc
+/usr/share/doc/cpp-arm-linux-gnueabihf
+/usr/share/doc/cpp-arm-linux-gnueabihf/changelog.gz
+/usr/share/doc/cpp-arm-linux-gnueabihf/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/cpp-arm-linux-gnueabihf
+/usr/share/man
+/usr/share/man/man1
+/usr/bin/arm-linux-gnueabihf-cpp
+/usr/share/man/man1/arm-linux-gnueabihf-cpp.1.gz

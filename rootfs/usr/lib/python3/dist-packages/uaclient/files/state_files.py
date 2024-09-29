@@ -12,7 +12,7 @@ from uaclient.data_types import (
     data_list,
 )
 from uaclient.files.data_types import DataObjectFile, DataObjectFileFormat
-from uaclient.files.files import UAFile, UserCacheFile
+from uaclient.files.files import ProJSONFile, UAFile, UserCacheFile
 
 SERVICES_ONCE_ENABLED = "services-once-enabled"
 
@@ -114,18 +114,18 @@ class AllTimerJobsState(DataObject):
     fields = [
         Field("metering", TimerJobState, required=False),
         Field("update_messaging", TimerJobState, required=False),
-        Field("update_contract_info", TimerJobState, required=False),
+        Field("validate_release_series", TimerJobState, required=False),
     ]
 
     def __init__(
         self,
         metering: Optional[TimerJobState],
         update_messaging: Optional[TimerJobState],
-        update_contract_info: Optional[TimerJobState],
+        validate_release_series: Optional[TimerJobState],
     ):
         self.metering = metering
         self.update_messaging = update_messaging
-        self.update_contract_info = update_contract_info
+        self.validate_release_series = validate_release_series
 
 
 timer_jobs_state_file = DataObjectFile(
@@ -173,66 +173,6 @@ livepatch_support_cache = DataObjectFile(
     UserCacheFile("livepatch-kernel-support-cache.json"),
     file_format=DataObjectFileFormat.JSON,
 )
-
-
-class UserConfigData(DataObject):
-    fields = [
-        Field("apt_http_proxy", StringDataValue, required=False),
-        Field("apt_https_proxy", StringDataValue, required=False),
-        Field("global_apt_http_proxy", StringDataValue, required=False),
-        Field("global_apt_https_proxy", StringDataValue, required=False),
-        Field("ua_apt_http_proxy", StringDataValue, required=False),
-        Field("ua_apt_https_proxy", StringDataValue, required=False),
-        Field("http_proxy", StringDataValue, required=False),
-        Field("https_proxy", StringDataValue, required=False),
-        Field("apt_news", BoolDataValue, required=False),
-        Field("apt_news_url", StringDataValue, required=False),
-        Field("poll_for_pro_license", BoolDataValue, required=False),
-        Field("polling_error_retry_delay", IntDataValue, required=False),
-        Field("metering_timer", IntDataValue, required=False),
-        Field("update_messaging_timer", IntDataValue, required=False),
-    ]
-
-    def __init__(
-        self,
-        apt_http_proxy: Optional[str] = None,
-        apt_https_proxy: Optional[str] = None,
-        global_apt_http_proxy: Optional[str] = None,
-        global_apt_https_proxy: Optional[str] = None,
-        ua_apt_http_proxy: Optional[str] = None,
-        ua_apt_https_proxy: Optional[str] = None,
-        http_proxy: Optional[str] = None,
-        https_proxy: Optional[str] = None,
-        apt_news: Optional[bool] = None,
-        apt_news_url: Optional[str] = None,
-        poll_for_pro_license: Optional[bool] = None,
-        polling_error_retry_delay: Optional[int] = None,
-        metering_timer: Optional[int] = None,
-        update_messaging_timer: Optional[int] = None,
-    ):
-        self.apt_http_proxy = apt_http_proxy
-        self.apt_https_proxy = apt_https_proxy
-        self.global_apt_http_proxy = global_apt_http_proxy
-        self.global_apt_https_proxy = global_apt_https_proxy
-        self.ua_apt_http_proxy = ua_apt_http_proxy
-        self.ua_apt_https_proxy = ua_apt_https_proxy
-        self.http_proxy = http_proxy
-        self.https_proxy = https_proxy
-        self.apt_news = apt_news
-        self.apt_news_url = apt_news_url
-        self.poll_for_pro_license = poll_for_pro_license
-        self.polling_error_retry_delay = polling_error_retry_delay
-        self.metering_timer = metering_timer
-        self.update_messaging_timer = update_messaging_timer
-
-
-user_config_file = DataObjectFile(
-    UserConfigData,
-    UAFile("user-config.json", private=True),
-    DataObjectFileFormat.JSON,
-    optional_type_errors_become_null=True,
-)
-
 
 reboot_cmd_marker_file = UAFile("marker-reboot-cmds-required")
 
@@ -283,3 +223,26 @@ attachment_data_file = DataObjectFile(
     UAFile("attachment.json", private=False),
     DataObjectFileFormat.JSON,
 )
+
+
+status_cache_file = ProJSONFile(
+    pro_file=UAFile(
+        name="status.json",
+        private=False,
+    )
+)
+
+machine_id_file = UAFile(
+    "machine-id",
+    defaults.DEFAULT_PRIVATE_DATA_DIR,
+    private=True,
+)
+
+
+def delete_state_files():
+    machine_id_file.delete()
+    status_cache_file.delete()
+    attachment_data_file.delete()
+    anbox_cloud_credentials_file.delete()
+    reboot_cmd_marker_file.delete()
+    status_cache_file.delete()

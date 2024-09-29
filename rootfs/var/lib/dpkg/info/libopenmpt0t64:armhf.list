@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libopenmpt.so.0.4.4
+/usr/share
+/usr/share/doc
+/usr/share/doc/libopenmpt0t64
+/usr/share/doc/libopenmpt0t64/changelog.Debian.gz
+/usr/share/doc/libopenmpt0t64/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libopenmpt0t64
+/usr/lib/arm-linux-gnueabihf/libopenmpt.so.0

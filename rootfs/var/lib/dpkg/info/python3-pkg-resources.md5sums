@@ -41,6 +41,6 @@ f3c0afd331cbf291fbc236857d26a1c1  usr/lib/python3/dist-packages/pkg_resources/_v
 1cafc3c9e0f2a1aefa053401f4e29749  usr/lib/python3/dist-packages/pkg_resources/_vendor/typing_extensions.py
 873640dc68df8f121d1bd22159a2e1f0  usr/lib/python3/dist-packages/pkg_resources/_vendor/zipp.py
 d0ed4d53c3e7d55751a3834ffb866878  usr/lib/python3/dist-packages/pkg_resources/extern/__init__.py
-7b7b9d2669b2a1aa33130caa3529c80c  usr/share/doc/python3-pkg-resources/changelog.Debian.gz
+cc3fbe1ab0dcc2e537ef955c88a76707  usr/share/doc/python3-pkg-resources/changelog.Debian.gz
 353b293e6d68879e4786da42c3886cdc  usr/share/doc/python3-pkg-resources/copyright
 5f9ca2aa7fedfe81f3c1c66d76a6061a  usr/share/doc/python3-pkg-resources/pkg_resources.rst.gz

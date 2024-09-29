@@ -3537,6 +3537,18 @@
         </variant>
         <variant>
           <configItem>
+            <name>ergol</name>
+            <description>French (Ergo‑L)</description>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem>
+            <name>ergol_iso</name>
+            <description>French (Ergo‑L, ISO variant)</description>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem>
             <name>mac</name>
             <description>French (Macintosh)</description>
           </configItem>

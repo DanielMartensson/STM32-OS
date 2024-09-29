@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libpgm-5.3.so.0.0.128
+/usr/share
+/usr/share/doc
+/usr/share/doc/libpgm-5.3-0t64
+/usr/share/doc/libpgm-5.3-0t64/changelog.Debian.gz
+/usr/share/doc/libpgm-5.3-0t64/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libpgm-5.3-0t64
+/usr/lib/arm-linux-gnueabihf/libpgm-5.3.so.0

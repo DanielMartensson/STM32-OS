@@ -1,0 +1,4 @@
+0b9fc091e0ab4103efaa7837c5d2cece  usr/lib/arm-linux-gnueabihf/libturbojpeg.so.0.2.0
+2e7f7257bb258ac913b7d8ed29dd77a2  usr/share/doc/libturbojpeg/changelog.Debian.gz
+4043538cf7c867d54f119d6ea1f8d6d4  usr/share/doc/libturbojpeg/copyright
+418d9f7a340054c73117db9abb1a724b  usr/share/lintian/overrides/libturbojpeg

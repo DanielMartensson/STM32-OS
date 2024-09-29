@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libdw-0.190.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/libdw1t64
+/usr/share/doc/libdw1t64/copyright
+/usr/lib/arm-linux-gnueabihf/libdw.so.1
+/usr/share/doc/libdw1t64/changelog.Debian.gz

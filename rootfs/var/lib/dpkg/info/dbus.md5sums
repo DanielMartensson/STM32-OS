@@ -1,4 +1,4 @@
-1affaed7a948c59d30adeed7c979bad4  usr/lib/dbus-1.0/dbus-daemon-launch-helper
+8026eaf15573197dd517489620c4979e  usr/lib/dbus-1.0/dbus-daemon-launch-helper
 9ada4627b4793917f3fb2bf8d7afa3ce  usr/lib/systemd/system/dbus.service
 4246bbf0501d8ff1657f404ab07cc6a3  usr/share/bug/dbus/control
 579f5d069b3bb8bb81d12b7dbe713cb6  usr/share/doc/dbus/README.Debian

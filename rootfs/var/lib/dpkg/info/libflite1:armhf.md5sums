@@ -1,0 +1,16 @@
+2cd01b6182a2e4522ba16414b5fcfe77  usr/lib/arm-linux-gnueabihf/libflite.so.2.2
+165600334e1a281e2af75340ded369d4  usr/lib/arm-linux-gnueabihf/libflite_cmu_grapheme_lang.so.2.2
+a702ab90045bbe99cdd5859a4d5e7a38  usr/lib/arm-linux-gnueabihf/libflite_cmu_grapheme_lex.so.2.2
+6a14c3512c80cd685b927f5484209d06  usr/lib/arm-linux-gnueabihf/libflite_cmu_indic_lang.so.2.2
+8fee4609013a945639abdf23e23a9421  usr/lib/arm-linux-gnueabihf/libflite_cmu_indic_lex.so.2.2
+124cda919a4dd3e2f5bc46978a49772a  usr/lib/arm-linux-gnueabihf/libflite_cmu_time_awb.so.2.2
+c7576fe3cd804b9cd6d196c412d1d281  usr/lib/arm-linux-gnueabihf/libflite_cmu_us_awb.so.2.2
+3b9bcaa8837071d6d12de36e7a43a92f  usr/lib/arm-linux-gnueabihf/libflite_cmu_us_kal.so.2.2
+6d1d60dc393ac77b83a6b3feb827d6be  usr/lib/arm-linux-gnueabihf/libflite_cmu_us_kal16.so.2.2
+b8e1e7011fd3e605e646b16f7d4c7246  usr/lib/arm-linux-gnueabihf/libflite_cmu_us_rms.so.2.2
+8c5d225028014fdfc9996f4957d34674  usr/lib/arm-linux-gnueabihf/libflite_cmu_us_slt.so.2.2
+21cebb90b4b83f6ee1476d7ff8a7bf06  usr/lib/arm-linux-gnueabihf/libflite_cmulex.so.2.2
+6d4b2eb342f3c8a357bdeeaf6b946ecb  usr/lib/arm-linux-gnueabihf/libflite_usenglish.so.2.2
+54aa0a0f3a6b5e89067e77a97308bc2f  usr/share/doc/libflite1/changelog.Debian.gz
+acd99635aa34b1da748899191cd2be04  usr/share/doc/libflite1/copyright
+801fe0640ed4f5f5b21849ef39f5dc2f  usr/share/lintian/overrides/libflite1

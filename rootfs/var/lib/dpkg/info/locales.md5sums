@@ -3,7 +3,8 @@ e79f3200bb7853d75765c64debad5bd7  usr/sbin/update-locale
 7010120ebf1f15324671f1abed1099ce  usr/sbin/validlocale
 e63c0592c221c1eea8e77b5ee6cbab27  usr/share/doc/locales/NEWS.Debian.gz
 b415ff89ec09853e5604ced91827d627  usr/share/doc/locales/README.Debian
-a7f9ba936a9cb5e778911fadcdeac0fc  usr/share/doc/locales/changelog.Debian.gz
+4616c003594227b17bf9ad038c78ca49  usr/share/doc/locales/changelog.Debian.gz
+48d68260ab7331ccff4ff77677d7607d  usr/share/doc/locales/changelog.gz
 86b2eaa030ceefc59ea39579ec51120d  usr/share/doc/locales/copyright
 3d60fcbf3127f4c4bdaaedcd881c46e6  usr/share/i18n/SUPPORTED
 fab628282c088a86c73ac438b1524c7f  usr/share/i18n/charmaps/ANSI_X3.110-1983.gz

@@ -1497,6 +1497,29 @@ Homepage: https://github.com/crowdsecurity/cs-firewall-bouncer
 Description: CrowdSec bouncer for firewalls
 Description-md5: 3dd9b54fa4f50547088af8b51d83c1f3
 
+Package: cups-browsed-tests
+Architecture: all
+Version: 2.0.0-0ubuntu10.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/utils
+Source: cups-browsed
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 60
+Depends: cups-browsed, cups (>= 2.4.6-0ubuntu3), cups-ipp-utils (>= 2.4.6-0ubuntu3), libcups2-dev (>= 2.4.6-0ubuntu3), avahi-daemon, pkgconf
+Filename: pool/universe/c/cups-browsed/cups-browsed-tests_2.0.0-0ubuntu10.1_all.deb
+Size: 11188
+MD5sum: 7f11c2e574be902178bef7b80d942cf4
+SHA1: abdfdcfc427869062efd8f24b1c58aacc69b2168
+SHA256: 781ea54fc7457c127b5995005a9ed3103e035b5de929c4181a31d971c6f947a3
+SHA512: 0ce0239bf03f573f755301f8dcb599cddce9454f3445f624206963ca54803bd48f5051400e69cf34b435db70604b13b5a267aca954117159a7bb4d28c585bdca
+Homepage: http://www.openprinting.org/
+Description: OpenPrinting cups-browsed - Test script for autopkgtests
+Description-md5: a98d690349003fa24f51871870d532c8
+
 Package: dasel
 Architecture: armhf
 Version: 2.6.0-1ubuntu0.1
@@ -10880,6 +10903,29 @@ Description: Plasma Workspace for KF5 library
 Task: kubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop
 Description-md5: e9e5299834d00e49b98f0cc27ce7a598
 
+Package: libcupsfilters-tests
+Architecture: armhf
+Version: 2.0.0-0ubuntu7.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/utils
+Source: libcupsfilters
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 392
+Depends: libc6 (>= 2.38), libcupsfilters2t64 (>= 2.0~b4-0ubuntu1), fonts-dejavu-core
+Filename: pool/universe/libc/libcupsfilters/libcupsfilters-tests_2.0.0-0ubuntu7.1_armhf.deb
+Size: 139578
+MD5sum: ae97d7d3512770b3e7d7e6f46db54f0b
+SHA1: 25dfdeb5ba68c6ddc8189461071f2cfbd5bb9d1d
+SHA256: 04c5470a211b9b375b0c639bba5fc6cca0665053472074a4f9b592d92d357283
+SHA512: c7db3c44c2ef6e82334682764c43f774ec320b458ceaa67ab9d934bf123f641fa0c7f4beb17c8afa8177efd3b33c2d00b34728ef9e578cf25bc0aa4aaf5f6966
+Homepage: http://www.openprinting.org/
+Description: OpenPrinting libcupsfilters - Test programs for autopkgtests
+Description-md5: 14ad6a58b3641ba0e086ef4929e4d29d
+
 Package: libfreerdp-shadow-subsystem3-3
 Architecture: armhf
 Version: 3.5.1+dfsg1-0ubuntu1
@@ -11656,6 +11702,125 @@ Homepage: https://libvirt.org/
 Description: nss plugins providing IP address resolution for virtual machines
 Description-md5: 600b29d53c1dad3be832c6eca2a12669
 
+Package: libopenjp2-tools
+Architecture: armhf
+Version: 2.5.0-2ubuntu0.1
+Multi-Arch: foreign
+Priority: extra
+Section: universe/graphics
+Source: openjpeg2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian PhotoTools Maintainers <pkg-phototools-devel@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 301
+Depends: libc6 (>= 2.34), liblcms2-2 (>= 2.2+git20110628), libopenjp2-7 (>= 2.5.0), libpng16-16t64 (>= 1.6.2), libtiff6 (>= 4.0.3)
+Filename: pool/universe/o/openjpeg2/libopenjp2-tools_2.5.0-2ubuntu0.1_armhf.deb
+Size: 88170
+MD5sum: 73721b3f4385f64d5a211f1e3fd30ba0
+SHA1: 28cf5bc41d254ea77937104a76a1e691efd9903b
+SHA256: ac275bd336d4a1775f39f4f93937955ad0c78c1d99edf28a65310be17150677f
+SHA512: bd87189a9915b175e0b539b7a6f07a51febc7544f288578a4c68a250c8794a85b0afd6526095beb6f5e60ffe2577e97cb9b90dc454cc2e3b271f6b82a7c6e9e8
+Homepage: https://www.openjpeg.org
+Description: command-line tools using the JPEG 2000 library
+Description-md5: f29e7484a0cd49077edc02dc570a9a4b
+
+Package: libopenjpip-dec-server
+Architecture: armhf
+Version: 2.5.0-2ubuntu0.1
+Multi-Arch: foreign
+Priority: extra
+Section: universe/graphics
+Source: openjpeg2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian PhotoTools Maintainers <pkg-phototools-devel@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 86
+Depends: libc6 (>= 2.34), libopenjpip7 (>= 2.1.0)
+Conflicts: openjpip-dec-server
+Filename: pool/universe/o/openjpeg2/libopenjpip-dec-server_2.5.0-2ubuntu0.1_armhf.deb
+Size: 15540
+MD5sum: b75e647cc975559aab63a625fbf060d8
+SHA1: 086c4114e30adf4b14f6a737108935f7082486eb
+SHA256: 61f8a99a1ba6a4f881db80efceb35d1cbd6a8f7681b7219756f3c7c791a33f15
+SHA512: f5b0f8666677801d6b6ce9a9afc396dfc97d91c0c07fb17f61be353abb1ee3c038ca767865727b8f7d799f89a6566f85479dd6384b7148acf42598bafb3a4f79
+Homepage: https://www.openjpeg.org
+Description: tool to allow caching of JPEG 2000 files using JPIP protocol
+Description-md5: 200d1d78759ac8db1c5fffc4421914fa
+
+Package: libopenjpip-server
+Architecture: armhf
+Version: 2.5.0-2ubuntu0.1
+Multi-Arch: foreign
+Priority: extra
+Section: universe/graphics
+Source: openjpeg2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian PhotoTools Maintainers <pkg-phototools-devel@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 112
+Depends: libwww-perl, spawn-fcgi (>= 1.6.1), libc6 (>= 2.34), libcurl3t64-gnutls (>= 7.16.2), libfcgi0t64 (>= 2.4.2)
+Recommends: apache2 (>= 2.4.6-4~) | httpd
+Conflicts: openjpip-server
+Filename: pool/universe/o/openjpeg2/libopenjpip-server_2.5.0-2ubuntu0.1_armhf.deb
+Size: 39422
+MD5sum: 43d1e1ebfe7ee058044df3363a82f34a
+SHA1: e90ba9a9d24b227b05762434898e15db8a5c3935
+SHA256: 15187d164a9f78895e120eeeed260ea11d6764ef3b8063a941fe5cf519909cd1
+SHA512: 3367a8343fb910395c13d18f77141e3039d119117691c3c1d03296eb2d408a464827d04fbe28d158d5dd5be31ec2ddf78c776c0b5f6354abcfa67fe63c4033e2
+Homepage: https://www.openjpeg.org
+Description: JPIP server for JPEG 2000 files
+Description-md5: a1ff98fe57f04dbd0d10223568f211fe
+
+Package: libopenjpip-viewer
+Architecture: all
+Version: 2.5.0-2ubuntu0.1
+Priority: extra
+Section: universe/graphics
+Source: openjpeg2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian PhotoTools Maintainers <pkg-phototools-devel@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 79
+Depends: libopenjpip-dec-server, default-jre | java8-runtime | java9-runtime | java10-runtime | java11-runtime, jarwrapper (>= 0.5), libxerces2-java
+Suggests: libopenjp2-tools
+Conflicts: openjpip-viewer
+Filename: pool/universe/o/openjpeg2/libopenjpip-viewer_2.5.0-2ubuntu0.1_all.deb
+Size: 33636
+MD5sum: 3401c585cea4b141c889315b3d6d3fa4
+SHA1: 06b29a36b3eed84d1a7ead3eb5a61aae0fae1dc2
+SHA256: ad26285000347989c4b54d968f797bd7a4ebb5ee905d57bef49564cdc7f1f81c
+SHA512: 6a9ad813d82a1cd007127bf036d88265a90ec7d259b93b09f2cbc0089d3849c81b285992df070a6c13938fd9a1fdfe273c97e5722d8b8bf50cf9390ecb3fabcb
+Homepage: https://www.openjpeg.org
+Description: JPEG 2000 java based viewer for advanced remote JPIP access
+Description-md5: 5afa12d72ab835df2e19149b8ff31d51
+
+Package: libopenjpip7
+Architecture: armhf
+Version: 2.5.0-2ubuntu0.1
+Multi-Arch: same
+Priority: extra
+Section: universe/libs
+Source: openjpeg2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian PhotoTools Maintainers <pkg-phototools-devel@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 122
+Depends: libc6 (>= 2.34), libopenjp2-7 (>= 2.0.0)
+Filename: pool/universe/o/openjpeg2/libopenjpip7_2.5.0-2ubuntu0.1_armhf.deb
+Size: 46902
+MD5sum: 0c67068c8ebe0a5294f3823e08d2c93a
+SHA1: d8de62db1cb82e6004ab6481e9053fdc3d682101
+SHA256: bb960764477154aa16a7d0edfc50bafd761dc93e2ffce7a64034e6dff51e9173
+SHA512: a7f4c222c9cb54e5199264ebfc4e39ec93c97f03f29ad5f89a55186e70a9b6923b93e52e8ec47723f07d71572759f6ae111acdb0f9f0f504b4e9c5865daea988
+Homepage: https://www.openjpeg.org
+Description: JPEG 2000 Interactive Protocol
+Description-md5: 50cc5e723cb5be57e1d384f85d8d78f9
+
 Package: libphp8.3-embed
 Architecture: armhf
 Version: 8.3.6-0ubuntu0.24.04.1
@@ -11822,6 +11987,55 @@ SHA512: d31fb8d7201b2916c1804a993e4e8c9447305abd20b14c1f8f80b2c9719e822700273180
 Homepage: https://poppler.freedesktop.org/
 Description: PDF rendering library -- development files (Qt 6 interface)
 Description-md5: d697e5693c5678626b355602947110a5
+
+Package: libppd-tests
+Architecture: armhf
+Version: 2:2.0.0-0ubuntu4.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/utils
+Source: libppd
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 73
+Depends: libc6 (>= 2.38), libcups2t64 (>= 1.4.0), libppd2 (>= 2:2.0~b4-0ubuntu1)
+Filename: pool/universe/libp/libppd/libppd-tests_2.0.0-0ubuntu4.1_armhf.deb
+Size: 19782
+MD5sum: 94c99b993fced961e0084380c8228fff
+SHA1: d13fbdfd9f55bf83a8d4df83ef048a5aea3ff84b
+SHA256: 96d89a49e0fb2f50c00985c8030b98e5fad3bd767f45b637c7afaffded3f9943
+SHA512: d5a3cf6b892998891afade7554e50af5d62978b02d1608c7406ad36d81bcfe59fbe4c76cb134e988554c8187ad1e33c69ee2c2940589e6322415aec75f81b1cf
+Homepage: http://www.openprinting.org/
+Description: OpenPrinting libppd - Upstream test programs for autopkgtests
+Description-md5: a30cdd50425510de61c40aa7f0de6a34
+
+Package: libppd-utils
+Architecture: armhf
+Version: 2:2.0.0-0ubuntu4.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/utils
+Source: libppd
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 76
+Provides: cups-ppdc
+Depends: libppd2-common (>= 2:2.0.0-0ubuntu4.1), libc6 (>= 2.34), libcups2t64 (>= 1.4.0), libgcc-s1 (>= 3.5), libppd2 (>= 2:2.0~b4-0ubuntu1), libstdc++6 (>= 5)
+Breaks: cups-ppdc (<< 2:2~), ppdc (<< 2:2.0~b4~)
+Replaces: cups-ppdc (<< 2:2~), ppdc (<< 2:2.0~b4~)
+Filename: pool/universe/libp/libppd/libppd-utils_2.0.0-0ubuntu4.1_armhf.deb
+Size: 17460
+MD5sum: 4796784b544c61841aa75d53b046ae18
+SHA1: 7aa875ffb4081969594d9e35203d71457e487369
+SHA256: 4410ebc6ba2c18e3c95dfa9bf161890c1a517c0f63355488642f624da0f416a3
+SHA512: b3baf047dd69aef992078ff96ddf094637c736f844ef0f53ac7bc511fedac6f6ef2fa9cd79f2853e63f2835e5c9dcdd7d168ea0ec46720dbb752ffee21d41301
+Homepage: http://www.openprinting.org/
+Description: OpenPrinting libppd - PPD manipulation and test utilities
+Description-md5: 9f3a670fe142c6ba86028f0bed73dccb
 
 Package: libpython3.12-testsuite
 Architecture: all
@@ -13242,6 +13456,29 @@ Description: TIFF manipulation and conversion tools
 Task: ubuntustudio-photography, ubuntustudio-graphics, ubuntustudio-publishing
 Description-md5: f333fccce3ca049190b80f117d3faa92
 
+Package: libtomcat9-java
+Architecture: all
+Version: 9.0.70-2ubuntu0.1
+Priority: optional
+Section: universe/java
+Source: tomcat9
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 8092
+Depends: libeclipse-jdt-core-java (>= 3.26.0)
+Suggests: tomcat9 (>= 9.0.70-2ubuntu0.1)
+Filename: pool/universe/t/tomcat9/libtomcat9-java_9.0.70-2ubuntu0.1_all.deb
+Size: 6161094
+MD5sum: c786c2b45b66514329d3e4e39cce0d7e
+SHA1: 547fd1a16010b747f9ada3cb533136c810286a0c
+SHA256: d00cb4140f6e3ac387907e3d01e55de92fe3f7e1a8c9c0e00d6a0db6dc30dcd9
+SHA512: bdd722ac0b06aa6f3a68c94dcbd4f21be2d46b0e066bc35742dcf18cbbcc597c4a2ab264d036f4e815ddb2ca34e4573f77edabbcd3e8b47af088355468498cf4
+Homepage: http://tomcat.apache.org
+Description: Apache Tomcat 9 - Servlet and JSP engine -- core libraries
+Description-md5: 00d5ea98b1d596ecf9152383a3eafc0d
+
 Package: libunoil-java
 Architecture: all
 Version: 4:24.2.5-0ubuntu0.24.04.2
@@ -13678,6 +13915,70 @@ SHA256: 4f11f8fd1028c4b3f4a47a656aa45ca5b10dfd14c2b4ec55c3e56986b194a4e7
 SHA512: 3c068e823ed8a27fe69edccb2fe83464f307f0353b329de6a3d210626bf16291edfb150fe9ad10f9147dde649402cebedb3655489014772d0b8c8b3b4a4c84cb
 Description: Header files related to Linux kernel version 6.8.0
 Description-md5: bbb56eb87bf4820c4a6daac54d54437f
+
+Package: linux-xilinx-headers-6.8.0-1008
+Architecture: all
+Version: 6.8.0-1008.9
+Multi-Arch: foreign
+Priority: optional
+Section: universe/devel
+Source: linux-xilinx
+Origin: Ubuntu
+Maintainer: Ubuntu Kernel Team <kernel-team@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 85955
+Depends: coreutils
+Filename: pool/universe/l/linux-xilinx/linux-xilinx-headers-6.8.0-1008_6.8.0-1008.9_all.deb
+Size: 13728666
+MD5sum: 6a6911ac8fa009629e921ad2a9427884
+SHA1: da0d546f515fcd08d65eda27c1305147829e09ce
+SHA256: 3644a29a5a4fd19d3c7ff874bc718c702a9fbde96253de95faca51e94bf705e8
+SHA512: 032a001a0309656b7e28a475d35a7230ee808c54bf121a431fe45c3f0d5cec845cdf6dbcf343af00f884eeb079eb143607f987c842def62f8ae1d9044b314654
+Description: Header files related to Linux kernel version 6.8.0
+Description-md5: 7283ae4caebf04fc39513cf998f8691f
+
+Package: linux-xilinx-tools-common
+Architecture: all
+Version: 6.8.0-1008.9
+Multi-Arch: foreign
+Priority: optional
+Section: universe/kernel
+Source: linux-xilinx
+Origin: Ubuntu
+Maintainer: Ubuntu Kernel Team <kernel-team@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 647
+Provides: bpftool
+Depends: lsb-release, hwdata
+Filename: pool/universe/l/linux-xilinx/linux-xilinx-tools-common_6.8.0-1008.9_all.deb
+Size: 265464
+MD5sum: 8a0718b9877b98cedd0f9bbcb4625897
+SHA1: 942e3d562b65dd5a041b05b19016bcf1fd6d270d
+SHA256: 042ae540fed6fe86fee150224b59ace05e5af190b34b97000905c61720eefb85
+SHA512: 14c0284b7df499e27c3b08aa425a8a2c0f5df0357282cae7feaf814b8c627073f38f0f849339c3c748a5d2ca1f3591315a5d0c44b70fc12e80ace7f3f228f381
+Description: Linux kernel version specific tools for version 6.8.0
+Description-md5: aee6cd2d95f555559f899e9ee0c4e27a
+
+Package: linux-xilinx-tools-host
+Architecture: all
+Version: 6.8.0-1008.9
+Multi-Arch: foreign
+Priority: optional
+Section: universe/kernel
+Source: linux-xilinx
+Origin: Ubuntu
+Maintainer: Ubuntu Kernel Team <kernel-team@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 647
+Depends: python3
+Filename: pool/universe/l/linux-xilinx/linux-xilinx-tools-host_6.8.0-1008.9_all.deb
+Size: 265384
+MD5sum: 1f562ab64c37cdcd0b3c77c31f50a41c
+SHA1: e2eadab464ea1f76b3528c71fbb0af685b0dc6f2
+SHA256: e84a5b4d9d18f3740156c34a546cf5d7f816472f770ccc9bcd1172aa88d4094e
+SHA512: 7ad76d34e095a6e727a8046946b9261d0a1d7ea06a5a587f39545314099525e35ac9914cb36d2dd7840f38e8dd8bb141603ba06e11ba2ae34cb0f21daace764b
+Description: Linux kernel VM host tools
+Description-md5: d29120b11150b79af4338241d0a5dc74
 
 Package: lltsv
 Architecture: armhf
@@ -17061,6 +17362,28 @@ SHA512: 6b86656b0d22cd7a13bacfc721031bd242494a2b6d5a20ac136ef01a886fa2bdaabc3faf
 Homepage: http://www.postgresql.org/
 Description: development files for PostgreSQL 16 server-side programming
 Description-md5: b9e02b587bceefc788c1c12d54570ddd
+
+Package: ppdc
+Architecture: all
+Version: 2:2.0.0-0ubuntu4.1
+Priority: optional
+Section: universe/utils
+Source: libppd
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 15
+Depends: libppd-utils (>= 2:2.0~b4~)
+Filename: pool/universe/libp/libppd/ppdc_2.0.0-0ubuntu4.1_all.deb
+Size: 2570
+MD5sum: ad2b8b1f637b794bfd83b3a9238e54a5
+SHA1: 6b9963685a70fc6702a805f52f449aa58da3d2ab
+SHA256: 2c84cb73782f4a5789f56803e5ea2732885a03e192266cba438f6f101135968d
+SHA512: dc2c17200caaa6aec605861b73f35abb22809d31ef95f4e94d3f92448a9f32283cc40d319d24214c122a3e4b465e6fc840a0482102b43425ffcba1a5e3b47791
+Homepage: http://www.openprinting.org/
+Description: OpenPrinting libppd - PPD utilities (transitional package)
+Description-md5: e7f99ec45e57c5a517be9d38459a27ea
 
 Package: prometheus
 Architecture: armhf

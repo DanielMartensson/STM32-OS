@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+
+
+case "$1" in
+    (purge)
+        if [ -d /usr/lib/arm-linux-gnueabihf/gtk-3.0/3.0.0 ] && ! [ -e /usr/lib/arm-linux-gnueabihf/gtk-3.0/3.0.0/immodules ]; then
+            # Purge the cache, but only do this if no more IM modules exist.
+            rm -f /usr/lib/arm-linux-gnueabihf/gtk-3.0/3.0.0/immodules.cache
+            rmdir -p --ignore-fail-on-non-empty /usr/lib/arm-linux-gnueabihf/gtk-3.0/3.0.0
+        fi
+        ;;
+esac

@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libsharpyuv.so.0.0.1
+/usr/share
+/usr/share/doc
+/usr/share/doc/libsharpyuv0
+/usr/share/doc/libsharpyuv0/changelog.Debian.gz
+/usr/share/doc/libsharpyuv0/copyright
+/usr/lib/arm-linux-gnueabihf/libsharpyuv.so.0

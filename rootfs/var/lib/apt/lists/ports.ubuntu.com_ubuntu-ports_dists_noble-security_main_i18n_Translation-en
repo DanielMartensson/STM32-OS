@@ -437,6 +437,23 @@ Description-en: Common UNIX Printing System(tm) - PPD/driver support, web interf
  This package provides the parts of CUPS which are needed for using printer
  drivers.
 
+Package: cups-browsed
+Description-md5: 3af514f472464a69f1e9d19adc048309
+Description-en: OpenPrinting cups-browsed
+ This package provides cups-browsed, a daemon which browses the Bonjour
+ broadcasts of shared remote CUPS printers and makes the printers
+ available locally, replacing the CUPS broadcasting/browsing which was
+ dropped in CUPS 1.6.x. This way the old behavior of having the remote
+ printers available automatically is now re-implemented with Bonjour.
+ .
+ cups-browsed is also useful with a CUPS >= 1.6 client to allow the
+ latter to browse the printer list of CUPS < 1.6 servers (by using the
+ old 'cups' protocol in BrowseRemoteProtocols).
+ .
+ cups-browsed is also useful with a CUPS >= 1.6 server to allow CUPS <
+ 1.6 clients to browse its printer list (by using the old 'cups'
+ protocol in BrowseLocalProtocols).
+
 Package: cups-bsd
 Description-md5: 8ca999eda442e2096dafa2745e4db8de
 Description-en: Common UNIX Printing System(tm) - BSD commands
@@ -1536,6 +1553,22 @@ Description-en: server-side, HTML-embedded scripting language (Apache 2 module)
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
+Package: libapr1-dev
+Description-md5: 7242f99e86343755e74ffc6220d354b1
+Description-en: Apache Portable Runtime Library - Development Headers
+ APR is Apache's Portable Runtime Library, designed to be a support library
+ that provides a predictable and consistent interface to underlying
+ platform-specific implementations.
+ .
+ This package contains development headers for APR.
+
+Package: libapr1t64
+Description-md5: daaca3900e2bd4d38f204bf1b0ef044a
+Description-en: Apache Portable Runtime Library
+ APR is Apache's Portable Runtime Library, designed to be a support library
+ that provides a predictable and consistent interface to underlying
+ platform-specific implementations.
+
 Package: libarchive-dev
 Description-md5: 68ad6870c167e8363f56ccdc0da60667
 Description-en: Multi-format archive and compression library (development files)
@@ -1796,6 +1829,35 @@ Description-en: Common UNIX Printing System(tm) - Core library
  handling various document types.
  .
  This package provides the base shared libraries for CUPS.
+
+Package: libcupsfilters-dev
+Description-md5: 50eb3ef2144508d75441454f8b541098
+Description-en: OpenPrinting libcupsfilters - Development files for the library
+ This library contains filter functions doing all kinds of file format
+ conversion used for printing and scanning, to be used in Printer
+ Applications, CUPS filters, printer drivers, ... also other commonly
+ used functions for handling print data, like color space/depth
+ conversion, dithering, IPP message parsing, ... are available.
+ .
+ This package contains the header files to develop applications (Printer
+ Applications, CUPS filters, printer drivers) using libcupsfilters.
+
+Package: libcupsfilters2-common
+Description-md5: df2fd2462a88370368491efd2b1d3ef3
+Description-en: OpenPrinting libcupsfilters - Auxiliary files
+ This package contains system-architecture-independent auxiliary files
+ for libcupsfilters. These are character sets for the
+ cfFilterTextToPDF() filter function and banner/test page instruction
+ files and templates for the cfFilterBannerToPDF() filter function.
+
+Package: libcupsfilters2t64
+Description-md5: e1e27c063450f47b5ec3b25ecc3f523c
+Description-en: OpenPrinting libcupsfilters - Shared library
+ This library contains filter functions doing all kinds of file format
+ conversion used for printing and scanning, to be used in Printer
+ Applications, CUPS filters, printer drivers, ... also other commonly
+ used functions for handling print data, like color space/depth
+ conversion, dithering, IPP message parsing, ... are available.
 
 Package: libcupsimage2-dev
 Description-md5: 419c750b3360d0933e0bbc9e17913244
@@ -2894,6 +2956,28 @@ Description-en: generic Java Bean wrapper for LibreOffice components
  This package contains the Java library for the LibreOffice Office Bean
  for embedding LibreOffice in custom Java applications.
 
+Package: libopenjp2-7
+Description-md5: bebeaaa50dd1a5685a0f67da93d3ac4b
+Description-en: JPEG 2000 image compression/decompression library
+ OpenJPEG is a library for handling the JPEG 2000 image compression format.
+ JPEG 2000 is a wavelet-based image compression standard and permits progressive
+ transmission by pixel and resolution accuracy for progressive downloads of an
+ encoded image. It supports lossless and lossy compression, supports higher
+ compression than JPEG 1991, and has resilience to errors in the image.
+ .
+ This package contains the runtime files for openjpeg 2.x
+
+Package: libopenjp2-7-dev
+Description-md5: b3467bb9ada27076b0852a6582c60027
+Description-en: development files for OpenJPEG, a JPEG 2000 image library
+ OpenJPEG is a library for handling the JPEG 2000 image compression format.
+ JPEG 2000 is a wavelet-based image compression standard and permits progressive
+ transmission by pixel and resolution accuracy for progressive downloads of an
+ encoded image. It supports lossless and lossy compression, supports higher
+ compression than JPEG 1991, and has resilience to errors in the image.
+ .
+ This package contains the development files for openjpeg 2.x
+
 Package: liborc-0.4-0t64
 Description-md5: 9d0d502b84711965362c2261cc943821
 Description-en: Library of Optimized Inner Loops Runtime Compiler
@@ -3014,6 +3098,59 @@ Description-en: PDF rendering library
  Poppler is a PDF rendering library based on Xpdf PDF viewer.
  .
  This package contains the shared core library.
+
+Package: libppd-dev
+Description-md5: 49b20e97a32af61b522e7320ab5b49d8
+Description-en: OpenPrinting libppd - Development files for the library
+ This library contains everything needed to support PPD (PostScript
+ Printer Description) files, reading and parsing, handling collections
+ of PPD files, building PPD files from printer IPP attributes and from
+ *.drv files.
+ .
+ It contains the full PPD file and PostScript output functionality of
+ CUPS 2.x (libcups, ppdc) and cups-filters 1.x, so that the functionality
+ stays available for retro-fitting classic CUPS drivers after switching
+ to CUPS 3.x which has all PPD file support removed.
+ .
+ This library contains filter functions doing all kinds of file format
+ conversion used for printing and scanning, to be used in Printer
+ Applications, CUPS filters, printer drivers, ... also other commonly
+ used functions for handling print data, like color space/depth
+ conversion, dithering, IPP message parsing, ... are available.
+ .
+ This package contains the header files to develop applications (Printer
+ Applications, CUPS filters, printer drivers) using libppd.
+
+Package: libppd2
+Description-md5: b326a4ec86bd67a9bb11e40e6886f8f4
+Description-en: OpenPrinting libppd - Shared library
+ This library contains everything needed to support PPD (PostScript
+ Printer Description) files, reading and parsing, handling collections
+ of PPD files, building PPD files from printer IPP attributes and from
+ *.drv files.
+ .
+ It contains the full PPD file and PostScript output functionality of
+ CUPS 2.x (libcups, ppdc) and cups-filters 1.x, so that the functionality
+ stays available for retro-fitting classic CUPS drivers after switching
+ to CUPS 3.x which has all PPD file support removed.
+ .
+ This package contains the library itself.
+
+Package: libppd2-common
+Description-md5: c1ff808b68ddf5fa64d37fa5127ff165
+Description-en: OpenPrinting libppd - Auxiliary files
+ This library contains everything needed to support PPD (PostScript
+ Printer Description) files, reading and parsing, handling collections
+ of PPD files, building PPD files from printer IPP attributes and from
+ *.drv files.
+ .
+ It contains the full PPD file and PostScript output functionality of
+ CUPS 2.x (libcups, ppdc) and cups-filters 1.x, so that the functionality
+ stays available for retro-fitting classic CUPS drivers after switching
+ to CUPS 3.x which has all PPD file support removed.
+ .
+ This package contains system-architecture-independent auxiliary files for
+ the library, needed for generating PPD files from *.drv files.
 
 Package: libpq-dev
 Description-md5: 7f4362b106aae6b219ccc880faa1f04c
@@ -17130,6 +17267,17 @@ Description-en: OpenJDK Java runtime, using Hotspot JIT (headless)
  Minimal Java runtime - needed for executing non GUI Java programs,
  using Hotspot JIT.
 
+Package: openjpeg-doc
+Description-md5: bda29ee10aae8ae267a80975460c93ea
+Description-en: JPEG 2000 image compression/decompression library
+ OpenJPEG is a library for handling the JPEG 2000 image compression format.
+ JPEG 2000 is a wavelet-based image compression standard and permits progressive
+ transmission by pixel and resolution accuracy for progressive downloads of an
+ encoded image. It supports lossless and lossy compression, supports higher
+ compression than JPEG 1991, and has resilience to errors in the image.
+ .
+ This package installs the documentation files.
+
 Package: openssh-client
 Description-md5: 8cde3280ebad71c16b3e8c661dae6c6d
 Description-en: secure shell (SSH) client, for secure access to remote machines
@@ -17513,6 +17661,13 @@ Description-en: PL/Tcl procedural language for PostgreSQL 16
  PostgreSQL 16 functions that use the languages pltcl or pltclu.
  .
  PostgreSQL is an object-relational SQL database management system.
+
+Package: puma
+Description-md5: a880ef9b62abf78a6c07f8b7c78eaa59
+Description-en: threaded HTTP 1.1 server for Ruby/Rack applications
+ Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for
+ Ruby/Rack applications. Puma is intended for use in both development and
+ production environments.
 
 Package: python-cryptography-doc
 Description-md5: 01d5fc7b691eaf06e0673b2c84d70749
@@ -19124,6 +19279,14 @@ Description-en: Linux kernel buildinfo for version 6.8.0 on ARMv8 SMP
  .
  You likely do not want to install this package.
 
+Package: linux-buildinfo-6.8.0-1011-raspi
+Description-md5: 5a6366eac80524daf4fff1198b9b2a45
+Description-en: Linux kernel buildinfo for version 6.8.0 on ARMv8 SMP
+ This package contains the Linux kernel buildinfo for version 6.8.0 on
+ ARMv8 SMP.
+ .
+ You likely do not want to install this package.
+
 Package: linux-buildinfo-6.8.0-1012-aws
 Description-md5: 5a6366eac80524daf4fff1198b9b2a45
 Description-en: Linux kernel buildinfo for version 6.8.0 on ARMv8 SMP
@@ -19189,6 +19352,14 @@ Description-en: Linux kernel buildinfo for version 6.8.0 on ARMv8 SMP
  You likely do not want to install this package.
 
 Package: linux-buildinfo-6.8.0-1012-oracle-64k
+Description-md5: 5a6366eac80524daf4fff1198b9b2a45
+Description-en: Linux kernel buildinfo for version 6.8.0 on ARMv8 SMP
+ This package contains the Linux kernel buildinfo for version 6.8.0 on
+ ARMv8 SMP.
+ .
+ You likely do not want to install this package.
+
+Package: linux-buildinfo-6.8.0-1012-raspi
 Description-md5: 5a6366eac80524daf4fff1198b9b2a45
 Description-en: Linux kernel buildinfo for version 6.8.0 on ARMv8 SMP
  This package contains the Linux kernel buildinfo for version 6.8.0 on
@@ -20293,6 +20464,15 @@ Description-en: Oracle Linux kernel headers for version 6.8.0 on ARMv8 SMP
  This is for sites that want the latest kernel headers.  Please read
  /usr/share/doc/linux-headers-6.8.0-1011/debian.README.gz for details.
 
+Package: linux-headers-6.8.0-1011-raspi
+Description-md5: 092f602874e2274c9e8a70619b633299
+Description-en: Linux kernel headers for version 6.8.0 on ARMv8 SMP
+ This package provides kernel header files for version 6.8.0 on
+ ARMv8 SMP.
+ .
+ This is for sites that want the latest kernel headers.  Please read
+ /usr/share/doc/linux-headers-6.8.0-1011/debian.README.gz for details.
+
 Package: linux-headers-6.8.0-1012-aws
 Description-md5: c62041c9fb1442eb4742f25b5e824ace
 Description-en: Linux kernel headers for version 6.8.0 on ARMv8 SMP
@@ -20368,6 +20548,15 @@ Description-en: Oracle Linux kernel headers for version 6.8.0 on ARMv8 SMP
 Package: linux-headers-6.8.0-1012-oracle-64k
 Description-md5: 3102392c1796f101df406976eed91191
 Description-en: Oracle Linux kernel headers for version 6.8.0 on ARMv8 SMP
+ This package provides kernel header files for version 6.8.0 on
+ ARMv8 SMP.
+ .
+ This is for sites that want the latest kernel headers.  Please read
+ /usr/share/doc/linux-headers-6.8.0-1012/debian.README.gz for details.
+
+Package: linux-headers-6.8.0-1012-raspi
+Description-md5: c62041c9fb1442eb4742f25b5e824ace
+Description-en: Linux kernel headers for version 6.8.0 on ARMv8 SMP
  This package provides kernel header files for version 6.8.0 on
  ARMv8 SMP.
  .
@@ -21067,6 +21256,20 @@ Description-en: Signed kernel image oracle-64k
  A kernel image for oracle-64k.  This version of it is signed with
  Canonical's signing key.
 
+Package: linux-image-6.8.0-1011-raspi
+Description-md5: 92f8d2d5b1b822c6e9703c906054dd98
+Description-en: Linux kernel image for version 6.8.0 on ARMv8 SMP
+ This package contains the Linux kernel image for version 6.8.0 on
+ ARMv8 SMP.
+ .
+ Supports Raspberry Pi processors.
+ .
+ Geared toward desktop and server systems.
+ .
+ You likely do not want to install this package directly. Instead, install
+ the linux-raspi meta-package, which will ensure that upgrades work
+ correctly, and that supporting packages are also installed.
+
 Package: linux-image-6.8.0-1012-nvidia-64k
 Description-md5: 68e850f54b91c96311bbb7767ba9050f
 Description-en: Signed kernel image nvidia-64k
@@ -21084,6 +21287,20 @@ Description-md5: 2bf5e89dfc56b1568cc40978070ffc7d
 Description-en: Signed kernel image oracle-64k
  A kernel image for oracle-64k.  This version of it is signed with
  Canonical's signing key.
+
+Package: linux-image-6.8.0-1012-raspi
+Description-md5: 92f8d2d5b1b822c6e9703c906054dd98
+Description-en: Linux kernel image for version 6.8.0 on ARMv8 SMP
+ This package contains the Linux kernel image for version 6.8.0 on
+ ARMv8 SMP.
+ .
+ Supports Raspberry Pi processors.
+ .
+ Geared toward desktop and server systems.
+ .
+ You likely do not want to install this package directly. Instead, install
+ the linux-raspi meta-package, which will ensure that upgrades work
+ correctly, and that supporting packages are also installed.
 
 Package: linux-image-6.8.0-1013-nvidia-64k
 Description-md5: 68e850f54b91c96311bbb7767ba9050f
@@ -23621,6 +23838,21 @@ Description-en: Oracle Linux kernel extra modules for version 6.8.0 on ARMv8 SMP
  the linux-oracle-64k meta-package, which will ensure that upgrades work
  correctly, and that supporting packages are also installed.
 
+Package: linux-modules-6.8.0-1011-raspi
+Description-md5: d2317ced5a87ce1ec5d0d4dd0ee57d8b
+Description-en: Linux kernel modules for version 6.8.0 on ARMv8 SMP
+ Contains the corresponding System.map file, the modules built by the
+ packager, and scripts that try to ensure that the system is not left in an
+ unbootable state after an update.
+ .
+ Supports Raspberry Pi processors.
+ .
+ Geared toward desktop and server systems.
+ .
+ You likely do not want to install this package directly. Instead, install
+ the linux-raspi meta-package, which will ensure that upgrades work
+ correctly, and that supporting packages are also installed.
+
 Package: linux-modules-6.8.0-1012-aws
 Description-md5: 7387bf25ece78cf65b14041ea55d265b
 Description-en: Linux kernel extra modules for version 6.8.0 on ARMv8 SMP
@@ -23754,6 +23986,21 @@ Description-en: Oracle Linux kernel extra modules for version 6.8.0 on ARMv8 SMP
  .
  You likely do not want to install this package directly. Instead, install
  the linux-oracle-64k meta-package, which will ensure that upgrades work
+ correctly, and that supporting packages are also installed.
+
+Package: linux-modules-6.8.0-1012-raspi
+Description-md5: d2317ced5a87ce1ec5d0d4dd0ee57d8b
+Description-en: Linux kernel modules for version 6.8.0 on ARMv8 SMP
+ Contains the corresponding System.map file, the modules built by the
+ packager, and scripts that try to ensure that the system is not left in an
+ unbootable state after an update.
+ .
+ Supports Raspberry Pi processors.
+ .
+ Geared toward desktop and server systems.
+ .
+ You likely do not want to install this package directly. Instead, install
+ the linux-raspi meta-package, which will ensure that upgrades work
  correctly, and that supporting packages are also installed.
 
 Package: linux-modules-6.8.0-1013-aws
@@ -26046,6 +26293,20 @@ Description-en: Header files related to Linux kernel version 6.8.0
  that want the latest kernel headers. Please read
  /usr/share/doc/linux-raspi-headers-6.8.0-1010/debian.README.gz for details
 
+Package: linux-raspi-headers-6.8.0-1011
+Description-md5: 5b0e4339a618a4c85b717a0b387f3fbc
+Description-en: Header files related to Linux kernel version 6.8.0
+ This package provides kernel header files for version 6.8.0, for sites
+ that want the latest kernel headers. Please read
+ /usr/share/doc/linux-raspi-headers-6.8.0-1011/debian.README.gz for details
+
+Package: linux-raspi-headers-6.8.0-1012
+Description-md5: 83de538b0e1ca19481d8a83423c0b2d8
+Description-en: Header files related to Linux kernel version 6.8.0
+ This package provides kernel header files for version 6.8.0, for sites
+ that want the latest kernel headers. Please read
+ /usr/share/doc/linux-raspi-headers-6.8.0-1012/debian.README.gz for details
+
 Package: linux-raspi-tools-6.8.0-1005
 Description-md5: 3d5a25ca2499ccb81a81a7fc1fbdcec9
 Description-en: Linux kernel version specific tools for version 6.8.0-1005
@@ -26099,6 +26360,24 @@ Description-en: Linux kernel version specific tools for version 6.8.0-1010
  version 6.8.0-1010 on
  ARMv8.
  You probably want to install linux-tools-6.8.0-1010-<flavour>.
+
+Package: linux-raspi-tools-6.8.0-1011
+Description-md5: 21c7127352e57c2b832a7f4768c2a078
+Description-en: Linux kernel version specific tools for version 6.8.0-1011
+ This package provides the architecture dependant parts for kernel
+ version locked tools (such as perf and x86_energy_perf_policy) for
+ version 6.8.0-1011 on
+ ARMv8.
+ You probably want to install linux-tools-6.8.0-1011-<flavour>.
+
+Package: linux-raspi-tools-6.8.0-1012
+Description-md5: 4a7191d4a35a91301fc0899d14c7160d
+Description-en: Linux kernel version specific tools for version 6.8.0-1012
+ This package provides the architecture dependant parts for kernel
+ version locked tools (such as perf and x86_energy_perf_policy) for
+ version 6.8.0-1012 on
+ ARMv8.
+ You probably want to install linux-tools-6.8.0-1012-<flavour>.
 
 Package: linux-tools-6.8.0-1004-gke
 Description-md5: 18d0a7c00aa9e65e761c88d84a741b73
@@ -26468,6 +26747,14 @@ Description-en: Oracle Linux kernel version specific tools for version 6.8.0-101
  version 6.8.0-1011 on
  ARMv8.
 
+Package: linux-tools-6.8.0-1011-raspi
+Description-md5: e6f522c2203726cc9358160047911a04
+Description-en: Linux kernel version specific tools for version 6.8.0-1011
+ This package provides the architecture dependant parts for kernel
+ version locked tools (such as perf and x86_energy_perf_policy) for
+ version 6.8.0-1011 on
+ ARMv8.
+
 Package: linux-tools-6.8.0-1012-aws
 Description-md5: 74fe9b07ce71a9db8871be94c66cc42f
 Description-en: Linux kernel version specific tools for version 6.8.0-1012
@@ -26535,6 +26822,14 @@ Description-en: Oracle Linux kernel version specific tools for version 6.8.0-101
 Package: linux-tools-6.8.0-1012-oracle-64k
 Description-md5: f7079d09af3ac805e725cf5c66479955
 Description-en: Oracle Linux kernel version specific tools for version 6.8.0-1012
+ This package provides the architecture dependant parts for kernel
+ version locked tools (such as perf and x86_energy_perf_policy) for
+ version 6.8.0-1012 on
+ ARMv8.
+
+Package: linux-tools-6.8.0-1012-raspi
+Description-md5: 74fe9b07ce71a9db8871be94c66cc42f
+Description-en: Linux kernel version specific tools for version 6.8.0-1012
  This package provides the architecture dependant parts for kernel
  version locked tools (such as perf and x86_energy_perf_policy) for
  version 6.8.0-1012 on

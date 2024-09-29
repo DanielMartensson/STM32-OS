@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+update-alternatives --install /usr/lib/arm-linux-gnueabihf/libblas.so.3 \
+                    libblas.so.3-arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf/blas/libblas.so.3 10
+
+
+
+exit 0

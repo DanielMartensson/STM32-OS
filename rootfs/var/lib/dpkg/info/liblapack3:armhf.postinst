@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+update-alternatives --install /usr/lib/arm-linux-gnueabihf/liblapack.so.3 \
+                    liblapack.so.3-arm-linux-gnueabihf \
+	            /usr/lib/arm-linux-gnueabihf/lapack/liblapack.so.3 10
+
+
+
+exit 0

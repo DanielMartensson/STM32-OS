@@ -1,0 +1,5 @@
+786a407822537d4e90e2dd336b5cf153  lib/udev/rules.d/60-xserver-xorg-video-armsoc-exynos.rules
+208c1204956b2e56a7caf9b0ae35a10c  usr/lib/xorg/modules/drivers/armsoc_drv.so
+2fcf9e490a759fe719301c60a764e3bd  usr/share/doc/xserver-xorg-video-armsoc-exynos/changelog.Debian.gz
+4372e61801243e9a99dc3454ebe68671  usr/share/doc/xserver-xorg-video-armsoc-exynos/copyright
+332dda66cdccc896f7391296dc818df5  usr/share/man/man4/armsoc.4.gz

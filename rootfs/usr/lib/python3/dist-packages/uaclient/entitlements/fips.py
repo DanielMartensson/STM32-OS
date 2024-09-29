@@ -1,12 +1,13 @@
 import logging
 import os
+import re
 from itertools import groupby
-from typing import List, Optional, Tuple  # noqa: F401
+from typing import List, Optional, Tuple
 
-from uaclient import apt, event_logger, exceptions, messages, system, util
+from uaclient import api, apt, event_logger, exceptions, messages, system, util
 from uaclient.clouds.identity import NoCloudTypeReason, get_cloud_type
 from uaclient.entitlements import repo
-from uaclient.entitlements.base import IncompatibleService
+from uaclient.entitlements.base import EntitlementWithMessage
 from uaclient.entitlements.entitlement_status import ApplicationStatus
 from uaclient.files import notices
 from uaclient.files.notices import Notice
@@ -34,19 +35,12 @@ CONDITIONAL_PACKAGES_OPENSSH_HMAC = [
     "openssh-client-hmac",
     "openssh-server-hmac",
 ]
-CONDITIONAL_PACKAGES_JAMMY = [
-    "libnettle8",
-    "libhogweed6",
-    "libgnutls30",
-    "libgmp10",
-]
 FIPS_CONDITIONAL_PACKAGES = {
     "xenial": CONDITIONAL_PACKAGES_EVERYWHERE
     + CONDITIONAL_PACKAGES_OPENSSH_HMAC,
     "bionic": CONDITIONAL_PACKAGES_EVERYWHERE
     + CONDITIONAL_PACKAGES_OPENSSH_HMAC,
     "focal": CONDITIONAL_PACKAGES_EVERYWHERE,
-    "jammy": CONDITIONAL_PACKAGES_EVERYWHERE + CONDITIONAL_PACKAGES_JAMMY,
 }
 
 
@@ -77,15 +71,6 @@ UBUNTU_FIPS_METAPACKAGE_DEPENDS_FOCAL = [
     "libgcrypt20",
     "libgcrypt20-hmac",
 ]
-UBUNTU_FIPS_METAPACKAGE_DEPENDS_JAMMY = [
-    "gawk",
-    "update-notifier-common",
-    "openssl",
-    "openssl-fips-module-3",
-    "libssl3",
-    "libgcrypt20",
-    "libgcrypt20-hmac",
-]
 FIPS_CONTAINER_CONDITIONAL_PACKAGES = {
     "xenial": CONDITIONAL_PACKAGES_EVERYWHERE
     + CONDITIONAL_PACKAGES_OPENSSH_HMAC
@@ -95,9 +80,6 @@ FIPS_CONTAINER_CONDITIONAL_PACKAGES = {
     + UBUNTU_FIPS_METAPACKAGE_DEPENDS_BIONIC,
     "focal": CONDITIONAL_PACKAGES_EVERYWHERE
     + UBUNTU_FIPS_METAPACKAGE_DEPENDS_FOCAL,
-    "jammy": CONDITIONAL_PACKAGES_EVERYWHERE
-    + CONDITIONAL_PACKAGES_JAMMY
-    + UBUNTU_FIPS_METAPACKAGE_DEPENDS_JAMMY,
 }
 
 
@@ -105,6 +87,7 @@ class FIPSCommonEntitlement(repo.RepoEntitlement):
     repo_pin_priority = 1001
     repo_key_file = "ubuntu-pro-fips.gpg"  # Same for fips & fips-updates
     FIPS_PROC_FILE = "/proc/sys/crypto/fips_enabled"
+    pre_enable_msg = messages.PROMPT_FIPS_PRE_ENABLE
 
     # RELEASE_BLOCKER GH: #104, don't prompt for conf differences in FIPS
     # Review this fix to see if we want more general functionality for all
@@ -115,25 +98,110 @@ class FIPSCommonEntitlement(repo.RepoEntitlement):
 
     fips_pro_package_holds = [
         "fips-initramfs",
+        "fips-initramfs-generic",
+        "libgcrypt20",
+        "libgcrypt20-hmac",
+        "libgmp10",
+        "libgnutls30",
+        "libhogweed6",
+        "libnettle8",
+        "libssl1.0.0",
+        "libssl1.0.0-hmac",
+        "libssl1.0.0",
+        "libssl1.0.0-hmac",
         "libssl1.1",
         "libssl1.1-hmac",
-        "libssl1.0.0",
-        "libssl1.0.0-hmac",
-        "libssl1.0.0",
-        "libssl1.0.0-hmac",
+        "libssl3",
         "linux-fips",
         "openssh-client",
         "openssh-client-hmac",
         "openssh-server",
         "openssh-server-hmac",
         "openssl",
+        "openssl-fips-module-3",
+        "shim-signed",
         "strongswan",
         "strongswan-hmac",
-        "libgcrypt20",
-        "libgcrypt20-hmac",
-        "fips-initramfs-generic",
-        "shim-signed",
+        "ubuntu-fips",
+        "ubuntu-aws-fips",
+        "ubuntu-azure-fips",
+        "ubuntu-gcp-fips",
     ]
+
+    @property
+    def messaging(self) -> MessagingOperationsDict:
+        post_enable = None  # type: Optional[MessagingOperations]
+        if system.is_container():
+            pre_enable_prompt = (
+                messages.PROMPT_FIPS_CONTAINER_PRE_ENABLE.format(
+                    title=self.title
+                )
+            )
+            if not self.auto_upgrade_all_on_enable():
+                post_enable = [messages.FIPS_RUN_APT_UPGRADE]
+        else:
+            pre_enable_prompt = self.pre_enable_msg
+
+        pre_disable = None  # type: Optional[MessagingOperations]
+        if not self.purge:
+            pre_disable = [
+                (
+                    util.prompt_for_confirmation,
+                    {
+                        "msg": messages.PROMPT_FIPS_PRE_DISABLE.format(
+                            title=self.title
+                        ),
+                    },
+                )
+            ]
+
+        messaging = {
+            "pre_enable": [
+                (
+                    util.prompt_for_confirmation,
+                    {"msg": pre_enable_prompt},
+                )
+            ],
+            "pre_install": [
+                (
+                    self.prompt_if_kernel_downgrade,
+                    {},
+                )
+            ],
+            "post_enable": post_enable,
+            "pre_disable": pre_disable,
+        }  # type: MessagingOperationsDict
+
+        if len(self.packages) == 1:
+            # that is the kernel "ubuntu-fips" or "ubuntu-${cloud}-fips"
+            ubuntu_fips_package_name = self.packages[0]
+            ubuntu_fips_package_flavor_match = re.match(
+                "ubuntu-([a-z]+)-fips", ubuntu_fips_package_name
+            )
+            if ubuntu_fips_package_flavor_match:
+                ubuntu_fips_package_flavor = (
+                    ubuntu_fips_package_flavor_match.group(1)
+                )
+            else:
+                ubuntu_fips_package_flavor = "generic"
+            current_flavor = system.get_kernel_info().flavor
+            if ubuntu_fips_package_flavor != current_flavor:
+                pre_enable = messaging.get("pre_enable") or []
+                msg = messages.KERNEL_FLAVOR_CHANGE_WARNING_PROMPT.format(
+                    variant=ubuntu_fips_package_flavor,
+                    service=self.name,
+                    base_flavor=ubuntu_fips_package_flavor,
+                    current_flavor=current_flavor or "unknown",
+                )
+                pre_enable.append(
+                    (
+                        util.prompt_for_confirmation,
+                        {"msg": msg},
+                    )
+                )
+                messaging["pre_enable"] = pre_enable
+
+        return messaging
 
     @property
     def conditional_packages(self):
@@ -154,32 +222,55 @@ class FIPSCommonEntitlement(repo.RepoEntitlement):
 
         return FIPS_CONDITIONAL_PACKAGES.get(series, [])
 
-    def install_packages(
-        self,
-        package_list: Optional[List[str]] = None,
-        cleanup_on_failure: bool = True,
-        verbose: bool = True,
-    ) -> None:
-        """Install contract recommended packages for the entitlement.
-
-        :param package_list: Optional package list to use instead of
-            self.packages.
-        :param cleanup_on_failure: Cleanup apt files if apt install fails.
-        :param verbose: If true, print messages to stdout
+    def prompt_if_kernel_downgrade(self, *, assume_yes: bool) -> bool:
+        """Check if installing a FIPS kernel will downgrade the kernel
+        and prompt for confirmation if it will.
         """
-        if verbose:
-            event.info(
-                messages.INSTALLING_SERVICE_PACKAGES.format(title=self.title)
-            )
-
-        # We need to guarantee that the metapackage is installed.
-        # While the other packages should still be installed, if they
-        # fail, we should not block the enable operation.
-        mandatory_packages = self.packages
-        super().install_packages(
-            package_list=mandatory_packages, verbose=False
+        # Prior to installing packages, check if the kernel is being downgraded
+        # and if so verify that the user wants to continue
+        our_full_kernel_str = (
+            system.get_kernel_info().proc_version_signature_version
         )
+        if our_full_kernel_str is None:
+            LOG.warning("Cannot gather kernel information")
+            return False
+        our_m = re.search(
+            r"(?P<kernel_version>\d+\.\d+\.\d+)", our_full_kernel_str
+        )
+        fips_kernel_version_str = apt.get_pkg_candidate_version("linux-fips")
+        if our_m is not None and fips_kernel_version_str is not None:
+            our_kernel_version_str = our_m.group("kernel_version")
+            LOG.debug(
+                "Kernel information: cur='%s' and fips='%s'",
+                our_full_kernel_str,
+                fips_kernel_version_str,
+            )
+            if (
+                apt.version_compare(
+                    fips_kernel_version_str, our_kernel_version_str
+                )
+                < 0
+            ):
+                event.info(
+                    messages.KERNEL_DOWNGRADE_WARNING.format(
+                        current_version=our_kernel_version_str,
+                        new_version=fips_kernel_version_str,
+                    )
+                )
+                return util.prompt_for_confirmation(
+                    msg=messages.PROMPT_YES_NO, assume_yes=assume_yes
+                )
+        else:
+            LOG.warning(
+                "Cannot gather kernel information for '%s' and '%s'",
+                our_full_kernel_str,
+                fips_kernel_version_str,
+            )
+        return True
 
+    def hardcoded_install_conditional_packages(
+        self, progress: api.ProgressWrapper
+    ):
         # Any conditional packages should still be installed, but if
         # they fail to install we should not block the enable operation.
         desired_packages = []  # type: List[str]
@@ -195,15 +286,108 @@ class FIPSCommonEntitlement(repo.RepoEntitlement):
 
         for pkg in desired_packages:
             try:
-                super().install_packages(
-                    package_list=[pkg], cleanup_on_failure=False, verbose=False
+                apt.run_apt_install_command(
+                    packages=[pkg],
+                    override_env_vars={"DEBIAN_FRONTEND": "noninteractive"},
+                    apt_options=[
+                        "--allow-downgrades",
+                        '-o Dpkg::Options::="--force-confdef"',
+                        '-o Dpkg::Options::="--force-confold"',
+                    ],
                 )
             except exceptions.UbuntuProError:
-                event.info(
+                progress.emit(
+                    "info",
                     messages.FIPS_PACKAGE_NOT_AVAILABLE.format(
                         service=self.title, pkg=pkg
-                    )
+                    ),
                 )
+
+    def auto_upgrade_all_on_enable(self) -> bool:
+        install_all_updates_override = util.is_config_value_true(
+            config=self.cfg.cfg, path_to_value="features.fips_auto_upgrade_all"
+        )
+        # noble onward automatically uses new auto-upgrade logic
+        hardcoded_release = system.get_release_info().series in {
+            "xenial",
+            "bionic",
+            "focal",
+        }
+        return install_all_updates_override or not hardcoded_release
+
+    def install_all_available_fips_upgrades(
+        self, progress: api.ProgressWrapper
+    ):
+        to_upgrade = [
+            package.name
+            for package in apt.get_installed_packages_with_uninstalled_candidate_in_origin(  # noqa: E501
+                self.origin
+            )
+        ]
+
+        to_upgrade.sort()
+        if len(to_upgrade) > 0:
+            try:
+                progress.emit(
+                    "info",
+                    messages.INSTALLING_PACKAGES.format(
+                        packages=" ".join(to_upgrade)
+                    ),
+                )
+                self.unhold_packages(to_upgrade)
+                apt.run_apt_install_command(
+                    packages=to_upgrade,
+                    override_env_vars={"DEBIAN_FRONTEND": "noninteractive"},
+                    apt_options=[
+                        "--allow-downgrades",
+                        '-o Dpkg::Options::="--force-confdef"',
+                        '-o Dpkg::Options::="--force-confold"',
+                    ],
+                )
+            except exceptions.UbuntuProError:
+                progress.emit("info", messages.FIPS_PACKAGES_UPGRADE_FAILURE)
+
+    def install_packages(
+        self,
+        progress: api.ProgressWrapper,
+        package_list: Optional[List[str]] = None,
+        cleanup_on_failure: bool = True,
+    ) -> None:
+        """Install contract recommended packages for the entitlement.
+
+        :param package_list: Optional package list to use instead of
+            self.packages.
+        :param cleanup_on_failure: Cleanup apt files if apt install fails.
+        """
+        # We need to guarantee that the metapackage is installed.
+        # While the other packages should still be installed, if they
+        # fail, we should not block the enable operation.
+        mandatory_packages = self.packages
+        if mandatory_packages:
+            super().install_packages(
+                progress,
+                package_list=mandatory_packages,
+            )
+        else:
+            # then this won't get printed by install_packages, so do it here
+            # instead
+            progress.progress(
+                messages.INSTALLING_SERVICE_PACKAGES.format(title=self.title)
+            )
+
+        if self.auto_upgrade_all_on_enable():
+            self.install_all_available_fips_upgrades(progress)
+        else:
+            self.hardcoded_install_conditional_packages(progress)
+
+        if self._check_for_reboot():
+            notices.add(
+                Notice.FIPS_SYSTEM_REBOOT_REQUIRED,
+            )
+
+    def _check_for_reboot(self) -> bool:
+        """Check if system needs to be rebooted because of this service."""
+        return system.should_reboot()
 
     def _check_for_reboot_msg(
         self, operation: str, silent: bool = False
@@ -213,7 +397,7 @@ class FIPSCommonEntitlement(repo.RepoEntitlement):
         @param operation: The operation being executed.
         @param silent: Boolean set True to silence print/log of messages
         """
-        reboot_required = system.should_reboot()
+        reboot_required = self._check_for_reboot()
         event.needs_reboot(reboot_required)
         if reboot_required:
             if not silent:
@@ -222,11 +406,7 @@ class FIPSCommonEntitlement(repo.RepoEntitlement):
                         operation=operation
                     )
                 )
-            if operation == "install":
-                notices.add(
-                    Notice.FIPS_SYSTEM_REBOOT_REQUIRED,
-                )
-            elif operation == "disable operation":
+            if operation == "disable operation":
                 notices.add(
                     Notice.FIPS_DISABLE_REBOOT_REQUIRED,
                 )
@@ -346,8 +526,8 @@ class FIPSCommonEntitlement(repo.RepoEntitlement):
                 messages.DISABLE_FAILED_TMPL.format(title=self.title),
             )
 
-    def _perform_enable(self, silent: bool = False) -> bool:
-        if super()._perform_enable(silent=silent):
+    def _perform_enable(self, progress: api.ProgressWrapper) -> bool:
+        if super()._perform_enable(progress):
             notices.remove(
                 Notice.WRONG_FIPS_METAPACKAGE_ON_CLOUD,
             )
@@ -357,14 +537,17 @@ class FIPSCommonEntitlement(repo.RepoEntitlement):
 
         return False
 
-    def setup_apt_config(self, silent: bool = False) -> None:
-        """Setup apt config based on the resourceToken and directives.
+    def _perform_disable(self, progress: api.ProgressWrapper) -> bool:
+        if super()._perform_disable(progress):
+            if self._check_for_reboot():
+                notices.add(
+                    Notice.FIPS_DISABLE_REBOOT_REQUIRED,
+                )
+            return True
 
-        FIPS-specifically handle apt-mark unhold
+        return False
 
-        :raise UbuntuProError: on failure to setup any aspect of this apt
-           configuration
-        """
+    def unhold_packages(self, package_names):
         cmd = ["apt-mark", "showholds"]
         holds = apt.run_apt_command(
             cmd,
@@ -372,7 +555,7 @@ class FIPSCommonEntitlement(repo.RepoEntitlement):
         )
         unholds = []
         for hold in holds.splitlines():
-            if hold in self.fips_pro_package_holds:
+            if hold in package_names:
                 unholds.append(hold)
         if unholds:
             unhold_cmd = ["apt-mark", "unhold"] + unholds
@@ -382,7 +565,17 @@ class FIPSCommonEntitlement(repo.RepoEntitlement):
                     command=" ".join(unhold_cmd)
                 ),
             )
-        super().setup_apt_config(silent=silent)
+
+    def setup_apt_config(self, progress: api.ProgressWrapper) -> None:
+        """Setup apt config based on the resourceToken and directives.
+
+        FIPS-specifically handle apt-mark unhold
+
+        :raise UbuntuProError: on failure to setup any aspect of this apt
+           configuration
+        """
+        self.unhold_packages(self.fips_pro_package_holds)
+        super().setup_apt_config(progress)
 
 
 class FIPSEntitlement(FIPSCommonEntitlement):
@@ -394,18 +587,18 @@ class FIPSEntitlement(FIPSCommonEntitlement):
     pre_enable_msg = messages.PROMPT_FIPS_PRE_ENABLE
 
     @property
-    def incompatible_services(self) -> Tuple[IncompatibleService, ...]:
+    def incompatible_services(self) -> Tuple[EntitlementWithMessage, ...]:
         from uaclient.entitlements.livepatch import LivepatchEntitlement
         from uaclient.entitlements.realtime import RealtimeKernelEntitlement
 
         return (
-            IncompatibleService(
+            EntitlementWithMessage(
                 LivepatchEntitlement, messages.LIVEPATCH_INVALIDATES_FIPS
             ),
-            IncompatibleService(
+            EntitlementWithMessage(
                 FIPSUpdatesEntitlement, messages.FIPS_UPDATES_INVALIDATES_FIPS
             ),
-            IncompatibleService(
+            EntitlementWithMessage(
                 RealtimeKernelEntitlement, messages.REALTIME_FIPS_INCOMPATIBLE
             ),
         )
@@ -414,7 +607,7 @@ class FIPSEntitlement(FIPSCommonEntitlement):
     def static_affordances(self) -> Tuple[StaticAffordance, ...]:
         static_affordances = super().static_affordances
 
-        fips_updates = FIPSUpdatesEntitlement(self.cfg)
+        fips_updates = FIPSUpdatesEntitlement(cfg=self.cfg)
         enabled_status = ApplicationStatus.ENABLED
         is_fips_updates_enabled = bool(
             fips_updates.application_status()[0] == enabled_status
@@ -444,45 +637,7 @@ class FIPSEntitlement(FIPSCommonEntitlement):
             ),
         )
 
-    @property
-    def messaging(self) -> MessagingOperationsDict:
-        post_enable = None  # type: Optional[MessagingOperations]
-        if system.is_container():
-            pre_enable_prompt = (
-                messages.PROMPT_FIPS_CONTAINER_PRE_ENABLE.format(
-                    title=self.title
-                )
-            )
-            post_enable = [messages.FIPS_RUN_APT_UPGRADE]
-        else:
-            pre_enable_prompt = self.pre_enable_msg
-
-        pre_disable = None  # type: Optional[MessagingOperations]
-        if not self.purge:
-            pre_disable = [
-                (
-                    util.prompt_for_confirmation,
-                    {
-                        "msg": messages.PROMPT_FIPS_PRE_DISABLE.format(
-                            title=self.title
-                        ),
-                        "assume_yes": self.assume_yes,
-                    },
-                )
-            ]
-
-        return {
-            "pre_enable": [
-                (
-                    util.prompt_for_confirmation,
-                    {"msg": pre_enable_prompt, "assume_yes": self.assume_yes},
-                )
-            ],
-            "post_enable": post_enable,
-            "pre_disable": pre_disable,
-        }
-
-    def _perform_enable(self, silent: bool = False) -> bool:
+    def _perform_enable(self, progress: api.ProgressWrapper) -> bool:
         cloud_type, error = get_cloud_type()
         if cloud_type is None and error == NoCloudTypeReason.CLOUD_ID_ERROR:
             LOG.warning(
@@ -490,7 +645,7 @@ class FIPSEntitlement(FIPSCommonEntitlement):
                 "defaulting to generic FIPS package."
             )
             event.info(messages.FIPS_COULD_NOT_DETERMINE_CLOUD_DEFAULT_PACKAGE)
-        if super()._perform_enable(silent=silent):
+        if super()._perform_enable(progress):
             notices.remove(
                 Notice.FIPS_INSTALL_OUT_OF_DATE,
             )
@@ -505,69 +660,24 @@ class FIPSUpdatesEntitlement(FIPSCommonEntitlement):
     origin = "UbuntuFIPSUpdates"
     description = messages.FIPS_UPDATES_DESCRIPTION
     help_text = messages.FIPS_UPDATES_HELP_TEXT
+    pre_enable_msg = messages.PROMPT_FIPS_UPDATES_PRE_ENABLE
 
     @property
-    def incompatible_services(self) -> Tuple[IncompatibleService, ...]:
+    def incompatible_services(self) -> Tuple[EntitlementWithMessage, ...]:
         from uaclient.entitlements.realtime import RealtimeKernelEntitlement
 
         return (
-            IncompatibleService(
+            EntitlementWithMessage(
                 FIPSEntitlement, messages.FIPS_INVALIDATES_FIPS_UPDATES
             ),
-            IncompatibleService(
+            EntitlementWithMessage(
                 RealtimeKernelEntitlement,
                 messages.REALTIME_FIPS_UPDATES_INCOMPATIBLE,
             ),
         )
 
-    @property
-    def messaging(self) -> MessagingOperationsDict:
-        post_enable = None  # type: Optional[MessagingOperations]
-        if system.is_container():
-            pre_enable_prompt = (
-                messages.PROMPT_FIPS_CONTAINER_PRE_ENABLE.format(
-                    title=self.title
-                )
-            )
-            post_enable = [messages.FIPS_RUN_APT_UPGRADE]
-        else:
-            pre_enable_prompt = messages.PROMPT_FIPS_UPDATES_PRE_ENABLE
-
-        pre_disable = None  # type: Optional[MessagingOperations]
-        if not self.purge:
-            pre_disable = [
-                (
-                    util.prompt_for_confirmation,
-                    {
-                        "msg": messages.PROMPT_FIPS_PRE_DISABLE.format(
-                            title=self.title
-                        ),
-                        "assume_yes": self.assume_yes,
-                    },
-                )
-            ]
-
-        return {
-            "pre_enable": [
-                (
-                    util.prompt_for_confirmation,
-                    {"msg": pre_enable_prompt, "assume_yes": self.assume_yes},
-                )
-            ],
-            "post_enable": post_enable,
-            "pre_disable": pre_disable,
-        }
-
-    def _perform_enable(self, silent: bool = False) -> bool:
-        if super()._perform_enable(silent=silent):
-            services_once_enabled = (
-                self.cfg.read_cache("services-once-enabled") or {}
-            )
-            services_once_enabled.update({self.name: True})
-            self.cfg.write_cache(
-                key="services-once-enabled", content=services_once_enabled
-            )
-
+    def _perform_enable(self, progress: api.ProgressWrapper) -> bool:
+        if super()._perform_enable(progress=progress):
             services_once_enabled_file.write(
                 ServicesOnceEnabledData(fips_updates=True)
             )
@@ -586,9 +696,9 @@ class FIPSPreviewEntitlement(FIPSEntitlement):
     repo_key_file = "ubuntu-pro-fips-preview.gpg"
 
     @property
-    def incompatible_services(self) -> Tuple[IncompatibleService, ...]:
+    def incompatible_services(self) -> Tuple[EntitlementWithMessage, ...]:
         return super().incompatible_services + (
-            IncompatibleService(
+            EntitlementWithMessage(
                 FIPSEntitlement, messages.FIPS_INVALIDATES_FIPS_UPDATES
             ),
         )

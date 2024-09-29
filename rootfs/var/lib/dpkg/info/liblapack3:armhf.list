@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/lapack
+/usr/lib/arm-linux-gnueabihf/lapack/liblapack.so.3.12.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/liblapack3
+/usr/share/doc/liblapack3/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/liblapack3
+/usr/lib/arm-linux-gnueabihf/lapack/liblapack.so.3
+/usr/share/doc/liblapack3/changelog.Debian.gz

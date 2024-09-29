@@ -963,15 +963,15 @@ be used.</p>
 <blockquote>
 <p>Takes a boolean. Configures whether traffic may be sent back out of
 the bridge port on which it was received. When this flag is false, then
-the bridge will not forward traffic back out of the receiving port. When
-unset, the backend’s default will be used.</p>
+the bridge does not forward traffic back out of the receiving port. When
+unset, the back end <code>default</code> is used.</p>
 </blockquote></li>
 <li><p><strong><code>port-mac-learning</code></strong> (scalar) – since
 <strong>1.0</strong></p>
 <blockquote>
 <p>Takes a boolean. Configures whether MAC address learning is enabled
-for this bridge port. When unset, the kernel’s default will be used.
-Currently supported on the <code>networkd</code> backend only.</p>
+for this bridge port. When unset, the kernel default is used. Currently
+supported on the <code>networkd</code> back end only.</p>
 </blockquote></li>
 </ul>
 <h2 id="dhcp-overrides">DHCP Overrides</h2>
@@ -1766,8 +1766,9 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb27-1"><a href=
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> enp5s0</span></span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> enp5s1</span></span>
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> enp5s2</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">mode</span><span class="kw">:</span><span class="at"> active-backup</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="at">      ...</span></span></code></pre></div>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">parameters</span><span class="kw">:</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">mode</span><span class="kw">:</span><span class="at"> active-backup</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="at">      ...</span></span></code></pre></div>
 <p>When applied, a virtual interface of type bond called
 <code>bond0</code> will be created in the system.</p>
 <p>The specific settings for bonds are defined below.</p>

@@ -1,0 +1,12 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libbdplus.so.0.2.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libbdplus0
+/usr/share/doc/libbdplus0/README.md.gz
+/usr/share/doc/libbdplus0/changelog.Debian.gz
+/usr/share/doc/libbdplus0/copyright
+/usr/lib/arm-linux-gnueabihf/libbdplus.so.0

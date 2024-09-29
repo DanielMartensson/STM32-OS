@@ -1,8 +1,9 @@
-from typing import Any, Dict, Optional, Tuple, Type  # noqa: F401
+import logging
+from typing import Any, Dict, Optional, Tuple, Type
 
 from uaclient import apt, event_logger, messages, system, util
 from uaclient.entitlements import repo
-from uaclient.entitlements.base import IncompatibleService, UAEntitlement
+from uaclient.entitlements.base import EntitlementWithMessage, UAEntitlement
 from uaclient.types import (  # noqa: F401
     MessagingOperations,
     MessagingOperationsDict,
@@ -10,6 +11,7 @@ from uaclient.types import (  # noqa: F401
 )
 
 event = event_logger.get_event_logger()
+LOG = logging.getLogger(util.replace_top_level_logger_name(__name__))
 
 
 class RealtimeKernelEntitlement(repo.RepoEntitlement):
@@ -42,7 +44,13 @@ class RealtimeKernelEntitlement(repo.RepoEntitlement):
         }
 
     @property
-    def incompatible_services(self) -> Tuple[IncompatibleService, ...]:
+    def default_variant(self):
+        if self.access_only:
+            return None
+        return GenericRealtime
+
+    @property
+    def incompatible_services(self) -> Tuple[EntitlementWithMessage, ...]:
         from uaclient.entitlements.fips import (
             FIPSEntitlement,
             FIPSUpdatesEntitlement,
@@ -50,14 +58,14 @@ class RealtimeKernelEntitlement(repo.RepoEntitlement):
         from uaclient.entitlements.livepatch import LivepatchEntitlement
 
         return (
-            IncompatibleService(
+            EntitlementWithMessage(
                 FIPSEntitlement, messages.REALTIME_FIPS_INCOMPATIBLE
             ),
-            IncompatibleService(
+            EntitlementWithMessage(
                 FIPSUpdatesEntitlement,
                 messages.REALTIME_FIPS_UPDATES_INCOMPATIBLE,
             ),
-            IncompatibleService(
+            EntitlementWithMessage(
                 LivepatchEntitlement, messages.REALTIME_LIVEPATCH_INCOMPATIBLE
             ),
         )
@@ -83,7 +91,6 @@ class RealtimeKernelEntitlement(repo.RepoEntitlement):
                     util.prompt_for_confirmation,
                     {
                         "msg": messages.REALTIME_PROMPT,
-                        "assume_yes": self.assume_yes,
                         "default": True,
                     },
                 )
@@ -96,7 +103,6 @@ class RealtimeKernelEntitlement(repo.RepoEntitlement):
                     util.prompt_for_confirmation,
                     {
                         "msg": messages.REALTIME_PRE_DISABLE_PROMPT,
-                        "assume_yes": self.assume_yes,
                     },
                 )
             ]
@@ -119,10 +125,10 @@ class RealtimeKernelEntitlement(repo.RepoEntitlement):
 
 class RealtimeVariant(RealtimeKernelEntitlement):
     @property
-    def incompatible_services(self) -> Tuple[IncompatibleService, ...]:
+    def incompatible_services(self) -> Tuple[EntitlementWithMessage, ...]:
         incompatible_variants = tuple(
             [
-                IncompatibleService(
+                EntitlementWithMessage(
                     cls,
                     messages.REALTIME_VARIANT_INCOMPATIBLE.format(
                         service=self.title, variant=cls.title
@@ -141,6 +147,29 @@ class GenericRealtime(RealtimeVariant):
     is_variant = True
     check_packages_are_installed = True
 
+    @property
+    def messaging(
+        self,
+    ) -> MessagingOperationsDict:
+        messaging = super().messaging
+        current_flavor = system.get_kernel_info().flavor
+        if current_flavor != "generic":
+            pre_enable = messaging.get("pre_enable") or []
+            msg = messages.KERNEL_FLAVOR_CHANGE_WARNING_PROMPT.format(
+                variant=self.variant_name,
+                service=self.name,
+                base_flavor="generic",
+                current_flavor=current_flavor or "unknown",
+            )
+            pre_enable.append(
+                (
+                    util.prompt_for_confirmation,
+                    {"msg": msg},
+                )
+            )
+            messaging["pre_enable"] = pre_enable
+        return messaging
+
 
 class NvidiaTegraRealtime(RealtimeVariant):
     variant_name = "nvidia-tegra"
@@ -151,11 +180,20 @@ class NvidiaTegraRealtime(RealtimeVariant):
 
 
 class RaspberryPiRealtime(RealtimeVariant):
-    variant_name = "rpi"
+    variant_name = "raspi"
     title = messages.REALTIME_RASPI_TITLE
     description = messages.REALTIME_RASPI_DESCRIPTION
     is_variant = True
     check_packages_are_installed = True
+
+    def variant_auto_select(self) -> bool:
+        proc_file_path = "/proc/device-tree/model"
+        try:
+            model = system.load_file(proc_file_path).strip().lower()
+            return "raspberry pi 4" in model or "raspberry pi 5" in model
+        except Exception as e:
+            LOG.info("Error while detecting if raspberry pi: %r", e)
+            return False
 
 
 class IntelIotgRealtime(RealtimeVariant):

@@ -1,0 +1,4 @@
+e29d791cb0d0d790b9dadaffbbd2c196  usr/lib/arm-linux-gnueabihf/libnorm.so.1
+50382e6d38d781626fe50804e73f7a98  usr/share/doc/libnorm1t64/changelog.Debian.gz
+12ea452049c5c5bd0e7f8d6975127b71  usr/share/doc/libnorm1t64/copyright
+a20ac20694c8b797761389b78e56c07a  usr/share/lintian/overrides/libnorm1t64

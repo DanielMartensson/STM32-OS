@@ -1,0 +1,3 @@
+# False positive - symbols file missing build-depends-package field
+libzvbi0t64: symbols-file-missing-build-depends-package-field libzvbi.so.0 [symbols]
+libzvbi0t64: package-name-doesnt-match-sonames libzvbi-chains0 libzvbi0

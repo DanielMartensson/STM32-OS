@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libatspi.so.0.0.1
+/usr/share
+/usr/share/doc
+/usr/share/doc/libatspi2.0-0t64
+/usr/share/doc/libatspi2.0-0t64/changelog.Debian.gz
+/usr/share/doc/libatspi2.0-0t64/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libatspi2.0-0t64
+/usr/lib/arm-linux-gnueabihf/libatspi.so.0

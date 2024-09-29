@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libatk-bridge-2.0.so.0.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libatk-bridge2.0-0t64
+/usr/share/doc/libatk-bridge2.0-0t64/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libatk-bridge2.0-0t64
+/usr/lib/arm-linux-gnueabihf/libatk-bridge-2.0.so.0
+/usr/share/doc/libatk-bridge2.0-0t64/changelog.Debian.gz

@@ -1,0 +1,12 @@
+69939f71b61883293422d74a1465c707  usr/lib/arm-linux-gnueabihf/gstreamer-1.0/libgstcoreelements.so
+c67735155f7ae354d38d69560fb573de  usr/lib/arm-linux-gnueabihf/gstreamer-1.0/libgstcoretracers.so
+d15607d8ae8f483e21e9e13d670a2f87  usr/lib/arm-linux-gnueabihf/gstreamer1.0/gstreamer-1.0/gst-plugin-scanner
+c7d81ebf93d41644b5558586b219778a  usr/lib/arm-linux-gnueabihf/gstreamer1.0/gstreamer-1.0/gst-ptp-helper
+9e1ae0bda3b82174f4c0fbf068ab8bee  usr/lib/arm-linux-gnueabihf/libgstbase-1.0.so.0.2402.0
+0962bf7f592dc4d7f19d7448cc73831d  usr/lib/arm-linux-gnueabihf/libgstcheck-1.0.so.0.2402.0
+88ed0400c335e732848ceb56e742a474  usr/lib/arm-linux-gnueabihf/libgstcontroller-1.0.so.0.2402.0
+0e259a37748e120a50b74cdc4b36c948  usr/lib/arm-linux-gnueabihf/libgstnet-1.0.so.0.2402.0
+85f5ff8a716d196b23f9a2239c06f144  usr/lib/arm-linux-gnueabihf/libgstreamer-1.0.so.0.2402.0
+0b8c3d30cccb2795b6bdb86f19ca3bf9  usr/share/doc/libgstreamer1.0-0/changelog.Debian.gz
+671f06bafc93d6ffbeb9cbedf403c6df  usr/share/doc/libgstreamer1.0-0/copyright
+63a6e2a35497e58b0000aca4ffbbd1bf  usr/share/lintian/overrides/libgstreamer1.0-0

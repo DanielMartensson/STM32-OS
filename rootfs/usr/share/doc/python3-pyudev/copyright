@@ -1,0 +1,46 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: pyudev
+Upstream-Contact: Sebastian Wiesner <lunaryorn@gmail.com>
+Source: http://pypi.python.org/pypi/pyudev
+Comment: This work was packaged for Debian by:
+    Felix Geyer <debfx-pkg@fobos.de> on Wed, 09 Feb 2011
+
+Files: *
+Copyright: Copyright (C) 2010-2013, Sebastian Wiesner <lunaryorn@googlemail.com>
+License: LGPL-2.1+
+
+Files:
+    src/pyudev/_ctypeslib/__init__.py
+    src/pyudev/_errors.py
+    src/pyudev/_os/__init__.py
+    src/pyudev/device/*
+    src/pyudev/discover.py
+    src/pyudev/version.py
+    tests/_constants.py
+    tests/_device_tests/__init__.py
+    tests/test_discover.py
+    tests/utils/*
+Copyright: Copyright (C) 2015 Anne Mulhern <amulhern@redhat.com>
+License: LGPL-2.1+
+
+Files: debian/*
+Copyright: Copyright (C) 2011, Felix Geyer <debfx-pkg@fobos.de>
+License: LGPL-2.1+
+
+License: LGPL-2.1+
+    This library is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as published by the
+    Free Software Foundation; either version 2.1 of the License, or (at your
+    option) any later version.
+ .
+    This library is distributed in the hope that it will be useful, but WITHOUT
+    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License
+    for more details.
+ .
+    You should have received a copy of the GNU Lesser General Public License
+    along with this library; if not, write to the Free Software Foundation,
+    Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+ .
+    On Debian systems, the complete text of the GNU Lesser General Public License
+    can be found in `/usr/share/common-licenses/LGPL-2.1'.

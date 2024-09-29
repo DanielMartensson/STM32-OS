@@ -1558,6 +1558,21 @@ Description-en: disk encryption support - suspend mode integration
  and requires systemd.  Moreover, this is an early implementation and may not
  be as mature as the other cryptsetup-* packages yet.
 
+Package: cups-browsed-tests
+Description-md5: a98d690349003fa24f51871870d532c8
+Description-en: OpenPrinting cups-browsed - Test script for autopkgtests
+ This package provides cups-browsed, a daemon which browses the Bonjour
+ broadcasts of shared remote CUPS printers and makes the printers
+ available locally, replacing the CUPS broadcasting/browsing which was
+ dropped in CUPS 1.6.x. This way the old behavior of having the remote
+ printers available automatically is now re-implemented with Bonjour.
+ .
+ This package contains a test script from the upstream code which is used
+ for the autopkgtests.
+ .
+ For using cups-browsed you do not need to install this package. It does not
+ contain anything useful for end users.
+
 Package: dasel
 Description-md5: 3f8318fcd9c3319a6a0449e33c591271
 Description-en: Query, update and convert data structures from the command line (program)
@@ -3723,6 +3738,75 @@ Description-en: Go programming language compiler, linker, compiled stdlib
  add /usr/lib/go-1.21/bin/ to PATH, or invoke /usr/lib/go-1.21/bin/go directly.
 
 Package: golang-1.21-src
+Description-md5: 641317c503e9fe0a9039cd8790bb4657
+Description-en: Go programming language - source files
+ The Go programming language is an open source project to make programmers more
+ productive. Go is expressive, concise, clean, and efficient. Its concurrency
+ mechanisms make it easy to write programs that get the most out of multicore
+ and networked machines, while its novel type system enables flexible and
+ modular program construction. Go compiles quickly to machine code yet has the
+ convenience of garbage collection and the power of run-time reflection. It's a
+ fast, statically typed, compiled language that feels like a dynamically typed,
+ interpreted language.
+ .
+ This package provides the Go programming language source files needed for
+ compilation.
+
+Package: golang-1.23
+Description-md5: 2c7ce3ff5b43d6c7ec658f8c9efa57c5
+Description-en: Go programming language compiler - metapackage
+ The Go programming language is an open source project to make
+ programmers more productive. Go is expressive, concise, clean, and
+ efficient. Its concurrency mechanisms make it easy to write programs
+ that get the most out of multicore and networked machines, while its
+ novel type system enables flexible and modular program construction.
+ Go compiles quickly to machine code yet has the convenience of
+ garbage collection and the power of run-time reflection. It's a
+ fast, statically typed, compiled language that feels like a
+ dynamically typed, interpreted language.
+ .
+ This package is a metapackage that, when installed, guarantees
+ that (most of) a full Go development environment is installed.
+ .
+ To use this version, instead of the default one provided by golang-go
+ package, add /usr/lib/go-1.23/bin/ to PATH, or invoke /usr/lib/go-1.23/bin/go
+ directly.
+
+Package: golang-1.23-doc
+Description-md5: 70faba58bee63cd1d9d375165fa0d6d6
+Description-en: Go programming language - documentation
+ The Go programming language is an open source project to make
+ programmers more productive. Go is expressive, concise, clean, and
+ efficient. Its concurrency mechanisms make it easy to write programs
+ that get the most out of multicore and networked machines, while its
+ novel type system enables flexible and modular program construction.
+ Go compiles quickly to machine code yet has the convenience of
+ garbage collection and the power of run-time reflection. It's a fast,
+ statically typed, compiled language that feels like a dynamically
+ typed, interpreted language.
+ .
+ This package provides the documentation for the Go programming
+ language.
+
+Package: golang-1.23-go
+Description-md5: 0d4767af95aacf3b4f904796db316559
+Description-en: Go programming language compiler, linker, compiled stdlib
+ The Go programming language is an open source project to make programmers more
+ productive. Go is expressive, concise, clean, and efficient. Its concurrency
+ mechanisms make it easy to write programs that get the most out of multicore
+ and networked machines, while its novel type system enables flexible and
+ modular program construction. Go compiles quickly to machine code yet has the
+ convenience of garbage collection and the power of run-time reflection. It's a
+ fast, statically typed, compiled language that feels like a dynamically typed,
+ interpreted language.
+ .
+ This package provides an assembler, compiler, linker, and compiled libraries
+ for the Go programming language.
+ .
+ To use this version, instead of the default one provided by golang-go package,
+ add /usr/lib/go-1.23/bin/ to PATH, or invoke /usr/lib/go-1.23/bin/go directly.
+
+Package: golang-1.23-src
 Description-md5: 641317c503e9fe0a9039cd8790bb4657
 Description-en: Go programming language - source files
  The Go programming language is an open source project to make programmers more
@@ -7833,6 +7917,21 @@ Description-en: Plasma Workspace for KF5 library
  .
  This package contains library files.
 
+Package: libcupsfilters-tests
+Description-md5: 14ad6a58b3641ba0e086ef4929e4d29d
+Description-en: OpenPrinting libcupsfilters - Test programs for autopkgtests
+ This library contains filter functions doing all kinds of file format
+ conversion used for printing and scanning, to be used in Printer
+ Applications, CUPS filters, printer drivers, ... also other commonly
+ used functions for handling print data, like color space/depth
+ conversion, dithering, IPP message parsing, ... are available.
+ .
+ This package contains test programs from the upstream code which are used
+ for the autopkgtests.
+ .
+ For using libcupsfilters you do not need to install this package. It does not
+ contain anything useful for end users.
+
 Package: libdeflate-tools
 Description-md5: 638ff9ba1a6c2de85e12cc1db779f062
 Description-en: tools for whole-buffer compression and decompression library
@@ -8864,6 +8963,73 @@ Description-en: AFS distributed filesystem development libraries
  This package provides static development libraries and headers
  needed to compile AFS applications.
 
+Package: libopenjp2-tools
+Description-md5: f29e7484a0cd49077edc02dc570a9a4b
+Description-en: command-line tools using the JPEG 2000 library
+ This package provides with command-line tools allowing for conversions between
+ several formats and also provides tools for encoding and decoding
+ motion-jpeg2000 video formats:
+ .
+  - opj_decompress: decodes j2k, jp2, and jpt files to pgm, ppm, pnm,
+                  pgx, and bmp.
+  - opj_compress: encodes pnm, pgm, pgx, bmp, and ppm files to j2k,
+                  and jp2.
+  - opj_dump: dump information contains in j2k and jp2.
+  - index_create: create jp2 with JPIP index file from a j2k file.
+  - frames_to_mj2: convert YUV video streams to mj2 format.
+  - mj2_to_frames: convert mj2 video streams to YUV format.
+  - wrap_j2k_in_mj2: wrap j2k codestreams into mj2 format.
+  - extract-j2k-from_mj2: extract j2k codestreams from the mj2 format.
+
+Package: libopenjpip-dec-server
+Description-md5: 200d1d78759ac8db1c5fffc4421914fa
+Description-en: tool to allow caching of JPEG 2000 files using JPIP protocol
+ This is client side application for caching remote JPEG 2000 using the JPIP
+ protocol. This command line application needs to run on the client side to
+ allow application such as opj_viewer to view images.
+
+Package: libopenjpip-server
+Description-md5: a1ff98fe57f04dbd0d10223568f211fe
+Description-en: JPIP server for JPEG 2000 files
+ OpenJPIP software is an implementation of JPEG 2000 Part9: Interactivity tools,
+ APIs and protocols (JPIP). For more info about JPIP, check the website:
+ http://www.jpeg.org/jpeg2000/j2kpart9.html. The current implementation uses
+ some results from the 2KAN project (http://www.2kan.org).
+ .
+ First Version covers:
+ .
+  - JPT-stream (Tile based) and JPP-stream (Precinct based) media types
+  - Session, channels, cache model managements
+  - JPIP over HTTP
+  - Indexing JPEG 2000 files
+  - Embedding XML formatted metadata
+  - Region Of Interest (ROI) requests
+
+Package: libopenjpip-viewer
+Description-md5: 5afa12d72ab835df2e19149b8ff31d51
+Description-en: JPEG 2000 java based viewer for advanced remote JPIP access
+ Java based client to view remote JPEG 2000 using JPIP protocol.
+ This is a simple java viewer to allow:
+ .
+  - Scale up request: Enlarge the window
+  - ROI request: Select a region by mouse click and drag, then click inside the
+    red frame of the selected region
+  - Annotate image with ROI information in XML metadata: Click button "Region
+    Of Interest"
+  - Open a new window presenting an aligned image with a locally stored image:
+    Click button "Image Registration" (Under Construction)
+
+Package: libopenjpip7
+Description-md5: 50cc5e723cb5be57e1d384f85d8d78f9
+Description-en: JPEG 2000 Interactive Protocol
+ OpenJPEG is a library for handling the JPEG 2000 image compression format.
+ JPEG 2000 is a wavelet-based image compression standard and permits progressive
+ transmission by pixel and resolution accuracy for progressive downloads of an
+ encoded image. It supports lossless and lossy compression, supports higher
+ compression than JPEG 1991, and has resilience to errors in the image.
+ .
+ This is an implementation of the JPEG 2000 Interactive Protocol (Part-9)
+
 Package: libpathplan4
 Description-md5: 3b349696750e1cfac5e966e847c18e9c
 Description-en: rich set of graph drawing tools - pathplan library
@@ -8957,6 +9123,44 @@ Description-en: PDF rendering library -- development files (Qt 6 interface)
  .
  This package contains the headers and development libraries needed to
  build applications using the Qt 6-based Poppler interface.
+
+Package: libppd-tests
+Description-md5: a30cdd50425510de61c40aa7f0de6a34
+Description-en: OpenPrinting libppd - Upstream test programs for autopkgtests
+ This library contains everything needed to support PPD (PostScript
+ Printer Description) files, reading and parsing, handling collections
+ of PPD files, building PPD files from printer IPP attributes and from
+ *.drv files.
+ .
+ It contains the full PPD file and PostScript output functionality of
+ CUPS 2.x (libcups, ppdc) and cups-filters 1.x, so that the functionality
+ stays available for retro-fitting classic CUPS drivers after switching
+ to CUPS 3.x which has all PPD file support removed.
+ .
+ This package contains test programs from the upstream code which are used
+ for the autopkgtests.
+ .
+ For using libppd you do not need to install this package. It does not
+ contain anything useful for end users.
+
+Package: libppd-utils
+Description-md5: 9f3a670fe142c6ba86028f0bed73dccb
+Description-en: OpenPrinting libppd - PPD manipulation and test utilities
+ This library contains everything needed to support PPD (PostScript
+ Printer Description) files, reading and parsing, handling collections
+ of PPD files, building PPD files from printer IPP attributes and from
+ *.drv files.
+ .
+ It contains the full PPD file and PostScript output functionality of
+ CUPS 2.x (libcups, ppdc) and cups-filters 1.x, so that the functionality
+ stays available for retro-fitting classic CUPS drivers after switching
+ to CUPS 3.x which has all PPD file support removed.
+ .
+ This package provides the test utility testppdfile which replaces
+ the cupstestppd utility of CUPS 2.x. It also provides command line
+ utilities to generate and manipulate PPD files and convert between PPD
+ files and *.drv files. The core functionality of these utilities is
+ implemented in libppd.
 
 Package: libpython3.12-testsuite
 Description-md5: ad730db5e04da1131b8cceebc4970626
@@ -9716,6 +9920,16 @@ Description-en: TIFF manipulation and conversion tools
  includes tools for converting TIFF images to and from other formats
  and tools for doing simple manipulations of TIFF images.  See also
  libtiff-opengl.
+
+Package: libtomcat9-java
+Description-md5: 00d5ea98b1d596ecf9152383a3eafc0d
+Description-en: Apache Tomcat 9 - Servlet and JSP engine -- core libraries
+ Apache Tomcat implements the Java Servlet and the JavaServer Pages (JSP)
+ specifications from Oracle, and provides a "pure Java" HTTP web
+ server environment for Java code to run.
+ .
+ This package contains the Tomcat core classes which can be used by other
+ Java applications to embed Tomcat.
 
 Package: libuhd-dev
 Description-md5: f8edaf46d0a638913587db84e0747e63
@@ -12983,6 +13197,12 @@ Description-en: disables a PPA and reverts to official packages
  system back to the official Ubuntu packages. You can use this to return your
  system to normal after testing a new version from a PPA.
 
+Package: ppdc
+Description-md5: e7f99ec45e57c5a517be9d38459a27ea
+Description-en: OpenPrinting libppd - PPD utilities (transitional package)
+ This is a transitional package and can safely be removed once no other
+ packages depend on it.
+
 Package: prometheus
 Description-md5: ed8e3840401470b3bc3fb55243535f98
 Description-en: monitoring system and time series database
@@ -16184,6 +16404,11 @@ Description-en: Toolkit for nucleic acid k-mer analysis
  sequences, and LCA (Lowest Common Ancestor) is computed during set
  opertions including computing union, intersecton, set difference,
  unique and repeated k-mers.
+
+Package: unity-greeter
+Description-md5: 9877c73111a0ce6340336dbc65020a9e
+Description-en: Unity Greeter
+ The greeter for the Unity desktop.
 
 Package: unixodbc
 Description-md5: c4c9c0f96d11d7fc6b79cd43715167b8

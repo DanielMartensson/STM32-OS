@@ -9,5 +9,13 @@ if [ "$1" = configure ] || [ "$1" = abort-upgrade ]; then
 fi
 # end-remove-after
 
+# Calling the generator after installation to mitigate CVE-2022-4968
+# We avoid calling the generator if the system doesn't have networkd files to be fixed (LP: #2071333)
+if [ "$1" = configure ]; then
+    FILES=$(find /run/systemd/network/ -type f -regex ".*-netplan.*\.\(network\|netdev\)" 2>/dev/null || true)
+    if [ -n "${FILES}" ]; then
+        /usr/libexec/netplan/generate 2>/dev/null || echo "WARNING: Netplan could not re-generate network configuration. Please run 'netplan generate' to see details."
+    fi
+fi
 
 

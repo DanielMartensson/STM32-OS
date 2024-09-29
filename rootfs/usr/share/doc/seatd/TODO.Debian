@@ -1,0 +1,4 @@
+seatd packaging TODO
+====================
+
+ * Don't run as root.

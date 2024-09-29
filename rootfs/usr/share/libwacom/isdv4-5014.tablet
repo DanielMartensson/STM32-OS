@@ -1,0 +1,16 @@
+# Active electrostatic (AES) sensor used by some versions of the
+# Lenovo ThinkPad Helix 2
+
+[Device]
+Name=Wacom ISDv4 5014
+ModelName=
+DeviceMatch=i2c:056a:5014
+Class=ISDV4
+Width=10
+Height=6
+IntegratedIn=Display;System
+Styli=@isdv4-aes;
+
+[Features]
+Stylus=true
+Touch=true

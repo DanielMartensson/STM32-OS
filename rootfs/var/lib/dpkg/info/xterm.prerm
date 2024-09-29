@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_installalternatives/13.14.1ubuntu5
+if [ "$1" = "remove" ]; then
+	update-alternatives --remove x-terminal-emulator /usr/bin/lxterm
+fi
+# End automatically added section
+# Automatically added by dh_installalternatives/13.14.1ubuntu5
+if [ "$1" = "remove" ]; then
+	update-alternatives --remove x-terminal-emulator /usr/bin/koi8rxterm
+fi
+# End automatically added section
+# Automatically added by dh_installalternatives/13.14.1ubuntu5
+if [ "$1" = "remove" ]; then
+	update-alternatives --remove x-terminal-emulator /usr/bin/uxterm
+fi
+# End automatically added section
+# Automatically added by dh_installalternatives/13.14.1ubuntu5
+if [ "$1" = "remove" ]; then
+	update-alternatives --remove x-terminal-emulator /usr/bin/xterm
+fi
+# End automatically added section

@@ -1,22 +1,22 @@
 Package: adsys
 Architecture: armhf
-Version: 0.14.1ubuntu0.24.04.1
-Built-Using: golang-1.22 (= 1.22.2-2ubuntu0.1)
+Version: 0.14.2~24.04
+Built-Using: golang-1.22 (= 1.22.2-2ubuntu0.2)
 Priority: optional
 Section: admin
 Origin: Ubuntu
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
-Installed-Size: 25676
+Installed-Size: 25672
 Depends: libc6 (>= 2.34), libglib2.0-0t64 (>= 2.16.0), libkrb5-3 (>= 1.6.dfsg.2), libpam0g (>= 0.99.7.1), libsmbclient0 (>= 2:4.0.3+dfsg1), libwbclient0 (>= 2:4.0.3+dfsg1), init-system-helpers (>= 1.52), python3, python3-samba, samba-dsdb-modules, sssd | winbind, sssd | krb5-user, sssd-dbus | winbind, apparmor, cifs-utils, nfs-common, gvfs
 Recommends: ubuntu-advantage-desktop-daemon
 Suggests: curlftpfs, ubuntu-proxy-manager, python3-cepces
-Filename: pool/main/a/adsys/adsys_0.14.1ubuntu0.24.04.1_armhf.deb
-Size: 6470410
-MD5sum: dd82cb90b0686aab7532de5517c4849f
-SHA1: 9112f21b4178542edc831869d798a6b2b9057f87
-SHA256: a7e97d57fbf9938b30af13b26cb565d63baa14ee4cf795084612dfe7f19f7b05
-SHA512: ad5ccaec4bc5f806dbf5875d5b105d06a83c78c7a0cc4498941c4772d45dcee43e6bde60bb186aef441b2a0214f52f2eeec95fa872f6bbc57c7c5ca7fa65313d
+Filename: pool/main/a/adsys/adsys_0.14.2~24.04_armhf.deb
+Size: 6472490
+MD5sum: bbbaaa55b0f1d28b85c312be420b1217
+SHA1: e4bb6152ae002912b9c48ff06c47184d6c205e28
+SHA256: 751eac686deb17e2efaae96d1005486e29ca51527677b5a6384b8ab59d6f8fa5
+SHA512: 05f07f2edb6a0a70792899442abd9abac0d0205bf80c0212e0cf1dedebc184e14a441060858b72c76de8133902dddb6324f1b7f189caaa1e3c08d962edece168
 Homepage: https://github.com/ubuntu/adsys
 Description: AD SYStem integration
 Description-md5: 9cb0b39321e000a2d2b61ddc74cad714
@@ -1267,23 +1267,23 @@ Description-md5: ad077e4c74b9870b6e7bb55aef11c547
 
 Package: cloud-init
 Architecture: all
-Version: 24.2-0ubuntu1~24.04.2
+Version: 24.3.1-0ubuntu0~24.04.1
 Priority: extra
 Section: admin
 Origin: Ubuntu
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
-Installed-Size: 2990
+Installed-Size: 3046
 Depends: cloud-guest-utils | cloud-utils, dhcpcd-base, iproute2, netplan.io, procps, python3, python3-debconf, python3-requests, python3-serial, debconf (>= 0.5) | debconf-2.0, python3-configobj, python3-jinja2, python3-jsonpatch, python3-jsonschema, python3-oauthlib, python3-yaml, python3:any
 Recommends: eatmydata, gdisk, gnupg, python3-apt, software-properties-common
 Suggests: openssh-server, ssh-import-id
 Breaks: python3-minimal (<< 3.12.3-0ubuntu2~)
-Filename: pool/main/c/cloud-init/cloud-init_24.2-0ubuntu1~24.04.2_all.deb
-Size: 591854
-MD5sum: b24ae8c652c5fee83cabf5c4a7665d59
-SHA1: ae54bb768c7a4742724b520ca130a6159a283304
-SHA256: 0e939693c1c6ce9d44e5847ac31d477e4d1dc90e1961f872670b783c9bc3b861
-SHA512: c2612e1848a14461298af2309b01fd0cb90c8600dbbdbb494ff85774f5d8b4646f0ee3ee39cb956031fb31bb181d1feeeba225fc07e1dc403dacc7c4269c5726
+Filename: pool/main/c/cloud-init/cloud-init_24.3.1-0ubuntu0~24.04.1_all.deb
+Size: 601482
+MD5sum: b268ed3ffafe46264f2226a18994b3de
+SHA1: 67c8350dd3dd91d5a8795819acf8e0ea6c2a4bc8
+SHA256: 07048e1fc1ce20ba36efef7d8758fe0474baeed4868358bcf96eaceca735fa5e
+SHA512: a7df2afe9039b52ef9e0d185455fb11b8aae5126ef0872f3b258c342d3bc3513e9b71bfcbfbcaaef6dcdf4caf806ad0921b55d569a74fb2250d8f877e0d83abe
 Homepage: https://cloud-init.io/
 Description: initialization and customization tool for cloud instances
 Task: cloud-minimal, ubuntu-desktop-minimal, ubuntu-desktop, cloud-image, server-minimal, ubuntu-wsl, xubuntu-minimal, xubuntu-desktop, ubuntustudio-desktop, ubuntu-mate-core, ubuntu-mate-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi
@@ -1502,7 +1502,7 @@ Description-md5: cac39fb1e64bce69f201398c1e1e437a
 
 Package: cups
 Architecture: armhf
-Version: 2.4.7-1.2ubuntu7.2
+Version: 2.4.7-1.2ubuntu7.3
 Multi-Arch: foreign
 Priority: optional
 Section: net
@@ -1511,23 +1511,49 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 793
-Depends: cups-client (>= 2.4.7-1.2ubuntu7.2), cups-common (>= 2.4.7-1.2ubuntu7.2), cups-core-drivers (>= 2.4.7-1.2ubuntu7.2), cups-daemon (>= 2.4.7-1.2ubuntu7.2), cups-filters, cups-ppdc, cups-server-common (>= 2.4.7-1.2ubuntu7.2), debconf (>= 0.5) | debconf-2.0, ghostscript, libcups2t64 (= 2.4.7-1.2ubuntu7.2), poppler-utils, procps, libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libc6 (>= 2.38), libgcc-s1 (>= 3.5), libstdc++6 (>= 5), libusb-1.0-0 (>= 2:1.0.16)
+Depends: cups-client (>= 2.4.7-1.2ubuntu7.3), cups-common (>= 2.4.7-1.2ubuntu7.3), cups-core-drivers (>= 2.4.7-1.2ubuntu7.3), cups-daemon (>= 2.4.7-1.2ubuntu7.3), cups-filters, cups-ppdc, cups-server-common (>= 2.4.7-1.2ubuntu7.3), debconf (>= 0.5) | debconf-2.0, ghostscript, libcups2t64 (= 2.4.7-1.2ubuntu7.3), poppler-utils, procps, libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libc6 (>= 2.38), libgcc-s1 (>= 3.5), libstdc++6 (>= 5), libusb-1.0-0 (>= 2:1.0.16)
 Recommends: avahi-daemon, colord
 Suggests: cups-bsd, cups-pdf, foomatic-db-compressed-ppds | foomatic-db, smbclient, udev
-Filename: pool/main/c/cups/cups_2.4.7-1.2ubuntu7.2_armhf.deb
-Size: 284612
-MD5sum: 19db6957d46bd8ac640e77e4dde7e9d9
-SHA1: abe1923bf5c82dd28878570c41cc1c372db0c115
-SHA256: d7c09c872fd8eed7d694e377868da5ae492313e095f80deb4d6f9afc98d023f5
-SHA512: d9cfe6a1356e4ee04dd04a0c3ef79f8fb5a8a275edf0152ae55e346cf1009e1ea22be6ad0d15fcacd8b44086cb2e91a0fce858d2a220335cad98f5bb2880b9b1
+Filename: pool/main/c/cups/cups_2.4.7-1.2ubuntu7.3_armhf.deb
+Size: 284608
+MD5sum: 4305cdcafc8fe3db0c42d98065e6bc05
+SHA1: 5d5c6d4de5c3b0bcf28e05c0b708728927a12b08
+SHA256: 63dbd821f71bb7649268a2614cbd1169b7913f24c5f53d6c2c7b12f7269895e0
+SHA512: 236c5e397d4abdd893aa72ea03074cae6fe8831cec2bf15a9fa55ce7661c5f15b6657845a4de3ba465391640afb479db65111e2a64efdd33fc7b674859a86dda
 Homepage: https://github.com/OpenPrinting/cups/
 Description: Common UNIX Printing System(tm) - PPD/driver support, web interface
 Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
 Description-md5: 757338adad655b8f7da62fcd23ed6453
 
+Package: cups-browsed
+Architecture: armhf
+Version: 2.0.0-0ubuntu10.1
+Priority: optional
+Section: net
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 271
+Depends: cups-daemon, lsb-base, libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libavahi-glib1 (>= 0.6.16), libc6 (>= 2.38), libcups2t64 (>= 2.0.2), libcupsfilters2t64 (>= 2.0~b4-0ubuntu1), libglib2.0-0t64 (>= 2.79.0), libldap2 (>= 2.6.2), libppd2 (>= 2:2.0~b4-0ubuntu1)
+Recommends: avahi-daemon
+Breaks: cups-filters (<< 1.4.0~)
+Replaces: cups-filters (<< 1.4.0~)
+Enhances: cups
+Filename: pool/main/c/cups-browsed/cups-browsed_2.0.0-0ubuntu10.1_armhf.deb
+Size: 122798
+MD5sum: b7d61f8629d1d48e8398d496ba0c9359
+SHA1: fde2a2509a74cf112420a40f13699e95feb32652
+SHA256: 4ace3b17157cc31a100f9ac8ce3c24d2253b8932fa83d20110bd58813100878e
+SHA512: f845fa817efab35242baa0db80995b2b592eb07410163c0999dd2edcd58ce4d7bf5471e4453ac9ffa68f764c2d19928bbd9a351c0359f3b2e2df87874954dc7f
+Homepage: http://www.openprinting.org/
+Description: OpenPrinting cups-browsed
+Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
+Description-md5: 3af514f472464a69f1e9d19adc048309
+
 Package: cups-bsd
 Architecture: armhf
-Version: 2.4.7-1.2ubuntu7.2
+Version: 2.4.7-1.2ubuntu7.3
 Multi-Arch: foreign
 Priority: extra
 Section: net
@@ -1538,16 +1564,16 @@ Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 111
 Provides: lpr
-Depends: cups-client (= 2.4.7-1.2ubuntu7.2), cups-common (>= 2.4.7-1.2ubuntu7.2), debconf (>= 0.5) | debconf-2.0, libcups2t64 (= 2.4.7-1.2ubuntu7.2), libc6 (>= 2.38)
+Depends: cups-client (= 2.4.7-1.2ubuntu7.3), cups-common (>= 2.4.7-1.2ubuntu7.3), debconf (>= 0.5) | debconf-2.0, libcups2t64 (= 2.4.7-1.2ubuntu7.3), libc6 (>= 2.38)
 Suggests: cups, inetutils-inetd | inet-superserver, update-inetd
 Conflicts: lpr, lprng
 Replaces: lpr
-Filename: pool/main/c/cups/cups-bsd_2.4.7-1.2ubuntu7.2_armhf.deb
-Size: 40860
-MD5sum: d3b0c1846e83290bdcc9b803fd8f25e8
-SHA1: 44a36d53028d9bdff1e2680e56f38de7b6f02ef3
-SHA256: 85cceb6f0ecf81229bd09e418ebd247fb657d5d539791825c7141ecba07aafa8
-SHA512: 058d89e4ddc4c50f133b6c3358a4eac9247eb7fd8d9a2fd261f4db83061f40e49d47389987d3a04e6484ce712f1090e97104cf87411f8068ce222909bf383405
+Filename: pool/main/c/cups/cups-bsd_2.4.7-1.2ubuntu7.3_armhf.deb
+Size: 40864
+MD5sum: 7a0b56593a8898d72c2b1e5ba2f5dfb7
+SHA1: ba4e2a4006e423ee9d0ee543ef42fa622a8a86c6
+SHA256: f64fed3f5195895fbe2cba3e6806a51a526d55c35391c23209edb987430df89f
+SHA512: e45195183a9019d92d471090ae52f9fc8ac2c040f3d502cf724c9ccb91b06adb755cccbb226ed0ee10ed465bfd8c112c22fb428cfc739195395d1255f4217956
 Homepage: https://github.com/OpenPrinting/cups/
 Description: Common UNIX Printing System(tm) - BSD commands
 Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
@@ -1555,7 +1581,7 @@ Description-md5: 8ca999eda442e2096dafa2745e4db8de
 
 Package: cups-client
 Architecture: armhf
-Version: 2.4.7-1.2ubuntu7.2
+Version: 2.4.7-1.2ubuntu7.3
 Multi-Arch: foreign
 Priority: optional
 Section: net
@@ -1565,15 +1591,15 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 343
-Depends: adduser, cups-common (>= 2.4.7-1.2ubuntu7.2), libcups2t64 (= 2.4.7-1.2ubuntu7.2), libc6 (>= 2.38)
+Depends: adduser, cups-common (>= 2.4.7-1.2ubuntu7.3), libcups2t64 (= 2.4.7-1.2ubuntu7.3), libc6 (>= 2.38)
 Suggests: cups, cups-bsd, smbclient
 Conflicts: lprng
-Filename: pool/main/c/cups/cups-client_2.4.7-1.2ubuntu7.2_armhf.deb
-Size: 149872
-MD5sum: 489b7c23a23517abd8ecc97d91cde5d3
-SHA1: 2e93fddb8ee538b70dc6cf157e77dc86c6f5defc
-SHA256: b1041a550c430a004559e0a3940f2a1b4c88b3d9be0b9a38acb0c422473def57
-SHA512: 11c8ba22f4e1ef778b387f26eacf4c449c4994c7e76d82b608024d6dc2f54e565c8547a598d69a0a2ec6f0f85f7530f14a8984aed7950b05d7e0090606eb5d20
+Filename: pool/main/c/cups/cups-client_2.4.7-1.2ubuntu7.3_armhf.deb
+Size: 149858
+MD5sum: f7921454de77fcee0465c2546a801159
+SHA1: 3e111ba4a1aae7a06b126cc5b25c00dd025ac346
+SHA256: 25248acfdc35f3828586a9cf6ecab2532f086c8147f9c73836179397924ea858
+SHA512: ae67af9b2b359e3c54c8f48e975e22d4916ff836bcf6cb8b5127d415ffb99984540eded2ecace55dc3e3bf4ffb437104d9dec9cd68726fcdc8fe2e77f7b14d70
 Homepage: https://github.com/OpenPrinting/cups/
 Description: Common UNIX Printing System(tm) - client programs (SysV)
 Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
@@ -1581,7 +1607,7 @@ Description-md5: 49064ce8151bc5cfbb65936322a4e2ce
 
 Package: cups-common
 Architecture: all
-Version: 2.4.7-1.2ubuntu7.2
+Version: 2.4.7-1.2ubuntu7.3
 Multi-Arch: foreign
 Priority: optional
 Section: net
@@ -1591,12 +1617,12 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 4242
-Filename: pool/main/c/cups/cups-common_2.4.7-1.2ubuntu7.2_all.deb
-Size: 262312
-MD5sum: 5af66952d166f1cb205866e822d8b3cf
-SHA1: db346bc133bd5cff29177140288e36324554510f
-SHA256: 11ba9cc1840d0b73f78b11baf9ed9c9fff8941f6001b6632206d42a9216b38f8
-SHA512: de0642c0866d0d83d76516fe5db23250dd64214e647898f4bcd4f50b1817d89818cd5c73f9fb4bf512727fa059efee19d9242acbdfa97ef5a6157d4256971bc7
+Filename: pool/main/c/cups/cups-common_2.4.7-1.2ubuntu7.3_all.deb
+Size: 262430
+MD5sum: 327436225f49ff01f3200be6fcb89177
+SHA1: f7b808b1b492dd1fda2f4e9174ee411d75b8e3f5
+SHA256: 2a54ab3dc4532f582765633aab568f4b2523966c189613824e283f641bb91f90
+SHA512: 58891c308bf9c3e47524acd119aab8da83f3f3e19e1b68bd9d89896c9d82cd477df0d4fb5d5922b90c4e390d894aab4a93d238cf197ca7d5235fe3ccfd57218c
 Homepage: https://github.com/OpenPrinting/cups/
 Description: Common UNIX Printing System(tm) - common files
 Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
@@ -1604,7 +1630,7 @@ Description-md5: ae28e55960aa62a85c88769b70d73eaa
 
 Package: cups-core-drivers
 Architecture: armhf
-Version: 2.4.7-1.2ubuntu7.2
+Version: 2.4.7-1.2ubuntu7.3
 Multi-Arch: foreign
 Priority: optional
 Section: net
@@ -1614,16 +1640,16 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 98
-Depends: cups-daemon (>= 2.4.7-1.2ubuntu7.2), cups-filters-core-drivers, libcups2t64 (= 2.4.7-1.2ubuntu7.2), libc6 (>= 2.38)
+Depends: cups-daemon (>= 2.4.7-1.2ubuntu7.3), cups-filters-core-drivers, libcups2t64 (= 2.4.7-1.2ubuntu7.3), libc6 (>= 2.38)
 Recommends: avahi-daemon
 Breaks: cups-server-common (<< 2.1.0-7~)
 Replaces: cups-server-common (<< 2.1.0-7~)
-Filename: pool/main/c/cups/cups-core-drivers_2.4.7-1.2ubuntu7.2_armhf.deb
+Filename: pool/main/c/cups/cups-core-drivers_2.4.7-1.2ubuntu7.3_armhf.deb
 Size: 29068
-MD5sum: 0fc483df6ce276805613c992adaa854a
-SHA1: 9c520111f9f6c0f30897171abc58a88c148f6d42
-SHA256: 785f1ff8c9647eae46a8e8a93282cb71998106111f6d907b245bf86a8440f3f3
-SHA512: 331deaa58c06d9406b71560dda452c794f2af501a02492d622b7c418ba4a643bcb863d966d9884c6edddee38904117a53d1f83d7ae04903b7c4f36431e5f213e
+MD5sum: b55e06d821f422ef78592a48b51b6995
+SHA1: 5a141f1646d82a2e5cd26202c8ce1472aabb758a
+SHA256: 2f4dda62c9614e3bd2aac4ea2abfd9fd8ca446cb95271ef3337683ef078b2dcc
+SHA512: 557b47273331dafea004f5bb83c05c27ba46a3ae62748c506a6faf7b335a665c30bd3cfd52ee3767a86d497b6e879fc501a0f865abc0ccf1b5bf2f50bdeb4dde
 Homepage: https://github.com/OpenPrinting/cups/
 Description: Common UNIX Printing System(tm) - driverless printing
 Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
@@ -1631,7 +1657,7 @@ Description-md5: 4f9e3623496bd3c54084d9d6fbddff87
 
 Package: cups-daemon
 Architecture: armhf
-Version: 2.4.7-1.2ubuntu7.2
+Version: 2.4.7-1.2ubuntu7.3
 Multi-Arch: foreign
 Priority: optional
 Section: net
@@ -1642,17 +1668,17 @@ Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 696
 Pre-Depends: init-system-helpers (>= 1.54~)
-Depends: adduser, bc, libcups2t64 (= 2.4.7-1.2ubuntu7.2), lsb-base, procps, ssl-cert, libapparmor1 (>= 2.7.0~beta1+bzr1772), libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libc6 (>= 2.38), libdbus-1-3 (>= 1.9.14), libglib2.0-0t64 (>= 2.22.0), libgssapi-krb5-2 (>= 1.17), libpam0g (>= 0.99.7.1), libpaper1, libsnapd-glib-2-1 (>= 1.61), libsystemd0
+Depends: adduser, bc, libcups2t64 (= 2.4.7-1.2ubuntu7.3), lsb-base, procps, ssl-cert, libapparmor1 (>= 2.7.0~beta1+bzr1772), libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libc6 (>= 2.38), libdbus-1-3 (>= 1.9.14), libglib2.0-0t64 (>= 2.22.0), libgssapi-krb5-2 (>= 1.17), libpam0g (>= 0.99.7.1), libpaper1, libsnapd-glib-2-1 (>= 1.61), libsystemd0
 Recommends: avahi-daemon, colord, cups-browsed, ipp-usb
-Suggests: cups, cups-bsd, cups-client (>= 2.4.7-1.2ubuntu7.2), cups-common (>= 2.4.7-1.2ubuntu7.2), cups-filters, cups-pdf, cups-ppdc, cups-server-common (>= 2.4.7-1.2ubuntu7.2), foomatic-db-compressed-ppds | foomatic-db, ghostscript, poppler-utils, smbclient, udev
+Suggests: cups, cups-bsd, cups-client (>= 2.4.7-1.2ubuntu7.3), cups-common (>= 2.4.7-1.2ubuntu7.3), cups-filters, cups-pdf, cups-ppdc, cups-server-common (>= 2.4.7-1.2ubuntu7.3), foomatic-db-compressed-ppds | foomatic-db, ghostscript, poppler-utils, smbclient, udev
 Breaks: cups (<< 2.1.0-6~)
 Replaces: cups (<< 2.1.0-6~)
-Filename: pool/main/c/cups/cups-daemon_2.4.7-1.2ubuntu7.2_armhf.deb
-Size: 348748
-MD5sum: cd132c25d930f067c533268720a8e994
-SHA1: 88c1539c3e94261876044ea2fd63f97aa8d551ae
-SHA256: 2d3396d369063e909d4db839c9d106a8545f12dc4573b8e72f2f063ebdb1ac7a
-SHA512: 488e9ae56ea21edeec340b5e191746ce8a836e69f170f9e27ae73cb77d0776ee3e50ac62f1dea3869cb6cab539a5c8ba924fc60d98480c6377bf9fc8ffc73329
+Filename: pool/main/c/cups/cups-daemon_2.4.7-1.2ubuntu7.3_armhf.deb
+Size: 348890
+MD5sum: 8cf8201d9a6304d26672ae1b466a40ef
+SHA1: f8b590e181778a2a8fc24cae933148c473de52ce
+SHA256: 59b4593cc441f8fb083d55a3a07cd1c12e9f6a59f2ed8cbcc631297fdd270af8
+SHA512: bf4e78ebd13d575e36e84731beb99d3cbdb36e34176a041a11242e842aeaf0cb0a70809c44b4d0c8977614f7b0efed8eff341c0dbaaaf4ae444874018e84f9ad
 Homepage: https://github.com/OpenPrinting/cups/
 Description: Common UNIX Printing System(tm) - daemon
 Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
@@ -1660,7 +1686,7 @@ Description-md5: 559bf8b849cd67e4ad13a2a638aea615
 
 Package: cups-ipp-utils
 Architecture: armhf
-Version: 2.4.7-1.2ubuntu7.2
+Version: 2.4.7-1.2ubuntu7.3
 Multi-Arch: foreign
 Priority: optional
 Section: net
@@ -1670,16 +1696,16 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 889
-Depends: libcups2t64 (= 2.4.7-1.2ubuntu7.2), libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libc6 (>= 2.38), libpam0g (>= 0.99.7.1)
+Depends: libcups2t64 (= 2.4.7-1.2ubuntu7.3), libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libc6 (>= 2.38), libpam0g (>= 0.99.7.1)
 Recommends: avahi-daemon
 Breaks: cups-client (<< 2.0.3-2~)
 Replaces: cups-client (<< 2.0.3-2~)
-Filename: pool/main/c/cups/cups-ipp-utils_2.4.7-1.2ubuntu7.2_armhf.deb
-Size: 230072
-MD5sum: 204ff8e0088b3c1a5560e2196e6ddb3b
-SHA1: e1aa0e1c16301870af1f123447d21abe9f568717
-SHA256: 8c980cb33cf4fdb79cfce168bdf1772479b1dbf94ecc3a98eb72fb93ebb228b6
-SHA512: b40a61245057d83844772299c54c932391176942224aa7234fbf9d4d6bea1e5b470c9da724f079ce319e0e849ea885703b3befa1684eda596dbd7d7a7798823c
+Filename: pool/main/c/cups/cups-ipp-utils_2.4.7-1.2ubuntu7.3_armhf.deb
+Size: 230042
+MD5sum: 8139858b082ef5961b1cbfe8c18ed163
+SHA1: cb2a300b925c6f46dd340bff33b50186aae3cede
+SHA256: 2f732d20cedf00337d6b56f471493aa9a2c74fd118a766519236c0a6d7e02aab
+SHA512: 88ee1e1a6c8effe319cbf8d653e292bd71f86ba4275261e8ee5d46f319c29fbc8d6631282d8aca8a18ce798d9311d60adcb4a54f0610e207acf041cb3dd324c0
 Homepage: https://github.com/OpenPrinting/cups/
 Description: Common UNIX Printing System(tm) - IPP developer/admin utilities
 Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
@@ -1687,7 +1713,7 @@ Description-md5: fc53f48bcd5c06c739e45e5b8b3087d2
 
 Package: cups-ppdc
 Architecture: armhf
-Version: 2.4.7-1.2ubuntu7.2
+Version: 2.4.7-1.2ubuntu7.3
 Multi-Arch: foreign
 Priority: optional
 Section: net
@@ -1697,13 +1723,13 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 400
-Depends: cups-common (>= 2.4.7-1.2ubuntu7.2), libc6 (>= 2.38), libcups2t64 (>= 2.3~b6), libgcc-s1 (>= 3.5), libstdc++6 (>= 5)
-Filename: pool/main/c/cups/cups-ppdc_2.4.7-1.2ubuntu7.2_armhf.deb
-Size: 113666
-MD5sum: 20d238a35369a31b6408f16cfa14d5a1
-SHA1: c79dc0f5e761ed8fe44b95b7223a657ef9a03f2a
-SHA256: c5ca252dcd4ca80dd6dff6d26d3b1960b46cbd6c4dc6fedad2900fd2e52a0bb4
-SHA512: e228c0db220ec31dc8bf0b47436a2a7b41e4a83f93fa3d3d0e65ff69bb0610531a811d934e64327342d171cff3b7cf7e6f2387673ebbeb47e1cc52bdfa4a2ba2
+Depends: cups-common (>= 2.4.7-1.2ubuntu7.3), libc6 (>= 2.38), libcups2t64 (>= 2.3~b6), libgcc-s1 (>= 3.5), libstdc++6 (>= 5)
+Filename: pool/main/c/cups/cups-ppdc_2.4.7-1.2ubuntu7.3_armhf.deb
+Size: 113644
+MD5sum: 3b397e234fb785f52eb640ca30928680
+SHA1: bba36b02cdf0132b945076586d9d5b21c9acca63
+SHA256: 6d801083a96c671935f09a9a8af2160120d6f0f59e54f6e5ac4c56d1768e39b2
+SHA512: 9bc46dab51d6ab5df318c061bf75eb22f80ce8ca6735b6252d65f75063fd6910a4ef38f07f95536de69882b61b3ea769050b9068686bbf73f5d9e77368e47636
 Homepage: https://github.com/OpenPrinting/cups/
 Description: Common UNIX Printing System(tm) - PPD manipulation utilities
 Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
@@ -1711,7 +1737,7 @@ Description-md5: ba3fa27bc468a14b73280f189057f4e7
 
 Package: cups-server-common
 Architecture: all
-Version: 2.4.7-1.2ubuntu7.2
+Version: 2.4.7-1.2ubuntu7.3
 Multi-Arch: foreign
 Priority: optional
 Section: net
@@ -1721,12 +1747,12 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 2385
-Filename: pool/main/c/cups/cups-server-common_2.4.7-1.2ubuntu7.2_all.deb
-Size: 418296
-MD5sum: 683c6a82a3f85819d476b8e775fbb7fc
-SHA1: 085841661801d33027e9c2a9196ce595d13d96d7
-SHA256: 9888b638668596ef657ee71a8e1d46734ca34383dc776119dc2ba7327bde5864
-SHA512: 50c21a6e674e825a7c1d3c77dd7f9f88da9814bdbf6a4d3291fff9768cc9678a01e879e940b683b00f2963670c4ce386814e782ad5e5ae96025cb670a67b1e5d
+Filename: pool/main/c/cups/cups-server-common_2.4.7-1.2ubuntu7.3_all.deb
+Size: 418512
+MD5sum: f2c22155fde53db8e82353596bbbf131
+SHA1: b007c4014a08787e0f97d31327733ad6993957f2
+SHA256: 7355c23855447bdb742e5aedba090be3c978bf99f281cff4df5acb87fe662e42
+SHA512: 4332c3c95d717fcf543675caa65c01f15183a22cf85cf321bf50cb9e42456fbeb21c359fed45fe98496774d8a947a9f46e91f9477d152c6fd5180751e9242b0e
 Homepage: https://github.com/OpenPrinting/cups/
 Description: Common UNIX Printing System(tm) - server common files
 Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
@@ -3463,7 +3489,7 @@ Description-md5: 7dc30c9eaf0ca4f765d8e934afd2126b
 
 Package: gir1.2-mutter-14
 Architecture: armhf
-Version: 46.2-1ubuntu0.24.04.1
+Version: 46.2-1ubuntu0.24.04.2
 Multi-Arch: same
 Priority: optional
 Section: introspection
@@ -3473,13 +3499,13 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 539
-Depends: libmutter-14-0 (= 46.2-1ubuntu0.24.04.1), gir1.2-atk-1.0, gir1.2-cairo-1.0, gir1.2-gdesktopenums-3.0 (>= 40~alpha), gir1.2-gio-2.0, gir1.2-gl-1.0, gir1.2-gobject-2.0, gir1.2-graphene-1.0 (>= 1.10.2), gir1.2-pango-1.0 (>= 1.46.0), gir1.2-pangocairo-1.0 (>= 1.46.0), gir1.2-xfixes-4.0, gir1.2-xlib-2.0
-Filename: pool/main/m/mutter/gir1.2-mutter-14_46.2-1ubuntu0.24.04.1_armhf.deb
-Size: 131420
-MD5sum: 5c45493751da0928b9479ffcc74fb699
-SHA1: dcc4733187a8847ef5e5ddb7ca89200629517e4f
-SHA256: 86ffcb9891b9872aec761f6bb84fcfae4b1189d39a851a9f7669f248c3e718ec
-SHA512: f628dcf57846300d69f9fe79f8c29d6da6b32f8133fb7bdddc0507bc877069a243a9e9785d79125bac525099e392bcd9064ba955c98efdb70514bbbac50e6f2c
+Depends: libmutter-14-0 (= 46.2-1ubuntu0.24.04.2), gir1.2-atk-1.0, gir1.2-cairo-1.0, gir1.2-gdesktopenums-3.0 (>= 40~alpha), gir1.2-gio-2.0, gir1.2-gl-1.0, gir1.2-gobject-2.0, gir1.2-graphene-1.0 (>= 1.10.2), gir1.2-pango-1.0 (>= 1.46.0), gir1.2-pangocairo-1.0 (>= 1.46.0), gir1.2-xfixes-4.0, gir1.2-xlib-2.0
+Filename: pool/main/m/mutter/gir1.2-mutter-14_46.2-1ubuntu0.24.04.2_armhf.deb
+Size: 131442
+MD5sum: 5c8f68bad2d2e00b8671c4a9b76598e2
+SHA1: ddad883c69f99ce476ca53d5d2f01fe4f68243d3
+SHA256: d82708f654acdbb131ee74228583bb48fb3b16caeaf720bbd7028686e48fb333
+SHA512: 1e56525a8ada353a23690aacd2400593b05b1f519f31015699592389141ae7d614205fb38fbcbf1a1ad3adb69a53d0922f5bf15b1fec0461984c8d4b79fff2c3
 Homepage: https://mutter.gnome.org/
 Description: GObject introspection data for Mutter
 Task: ubuntu-desktop-minimal, ubuntu-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi
@@ -3909,7 +3935,7 @@ Description-md5: 207751ad94eed32ddf42c55308e4a5d7
 
 Package: gnome-shell
 Architecture: armhf
-Version: 46.0-0ubuntu6~24.04.4
+Version: 46.0-0ubuntu6~24.04.5
 Priority: optional
 Section: gnome
 Origin: Ubuntu
@@ -3918,16 +3944,16 @@ Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.aliot
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 6171
 Provides: notification-daemon, polkit-1-auth-agent
-Depends: gir1.2-accountsservice-1.0, gir1.2-adw-1, gir1.2-atk-1.0, gir1.2-atspi-2.0 (>= 2.36), gir1.2-gcr-4, gir1.2-gdesktopenums-3.0, gir1.2-gdkpixbuf-2.0, gir1.2-gdm-1.0, gir1.2-geoclue-2.0, gir1.2-glib-2.0, gir1.2-gnomebg-4.0, gir1.2-gnomebluetooth-3.0 (>= 42.3), gir1.2-gnomedesktop-4.0 (>= 40), gir1.2-graphene-1.0 (>= 1.10.2), gir1.2-gstreamer-1.0, gir1.2-gtk-4.0, gir1.2-gweather-4.0 (>= 4.1), gir1.2-freedesktop, gir1.2-ibus-1.0 (>= 1.5.22-2ubuntu2~), gir1.2-mutter-14 (>= 46.0), gir1.2-nm-1.0, gir1.2-nma4-1.0, gir1.2-pango-1.0, gir1.2-polkit-1.0, gir1.2-rsvg-2.0, gir1.2-soup-3.0, gir1.2-upowerglib-1.0, gir1.2-webkit-6.0, gnome-settings-daemon (>= 40~), gnome-shell-common (= 46.0-0ubuntu6~24.04.4), gsettings-desktop-schemas (>= 46~beta), gstreamer1.0-pipewire (>= 0.3.10), libglib2.0-bin, python3, ubuntu-wallpapers, dconf-gsettings-backend | gsettings-backend, libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0t64 (>= 1.12.4), libc6 (>= 2.38), libcairo2 (>= 1.14.0), libecal-2.0-3 (>= 3.45), libedataserver-1.2-27t64 (>= 3.45), libgcr-4-4 (>= 3.8.0), libgdk-pixbuf-2.0-0 (>= 2.25.2), libgirepository-1.0-1 (>= 1.35.9), libgjs0g (>= 1.73.1), libgles2, libglib2.0-0t64 (>= 2.79.0), libgnome-autoar-0-0 (>= 0.1.1), libgnome-desktop-4-2t64 (>= 40), libgraphene-1.0-0 (>= 1.5.4), libgtk-4-1 (>= 4.12.0), libical3t64 (>= 3.0.0), libjson-glib-1.0-0 (>= 1.5.2), libmutter-14-0 (>= 46.0), libnm0 (>= 1.4.0), libpango-1.0-0 (>= 1.37.5), libpipewire-0.3-0t64 (>= 0.3.10), libpolkit-agent-1-0 (>= 0.99), libpolkit-gobject-1-0 (>= 0.94), libpulse-mainloop-glib0 (>= 13), libpulse0 (>= 13), libsecret-1-0 (>= 0.7), libsystemd0, libx11-6, libxext6, libxfixes3
+Depends: gir1.2-accountsservice-1.0, gir1.2-adw-1, gir1.2-atk-1.0, gir1.2-atspi-2.0 (>= 2.36), gir1.2-gcr-4, gir1.2-gdesktopenums-3.0, gir1.2-gdkpixbuf-2.0, gir1.2-gdm-1.0, gir1.2-geoclue-2.0, gir1.2-glib-2.0, gir1.2-gnomebg-4.0, gir1.2-gnomebluetooth-3.0 (>= 42.3), gir1.2-gnomedesktop-4.0 (>= 40), gir1.2-graphene-1.0 (>= 1.10.2), gir1.2-gstreamer-1.0, gir1.2-gtk-4.0, gir1.2-gweather-4.0 (>= 4.1), gir1.2-freedesktop, gir1.2-ibus-1.0 (>= 1.5.22-2ubuntu2~), gir1.2-mutter-14 (>= 46.0), gir1.2-nm-1.0, gir1.2-nma4-1.0, gir1.2-pango-1.0, gir1.2-polkit-1.0, gir1.2-rsvg-2.0, gir1.2-soup-3.0, gir1.2-upowerglib-1.0, gir1.2-webkit-6.0, gnome-settings-daemon (>= 40~), gnome-shell-common (= 46.0-0ubuntu6~24.04.5), gsettings-desktop-schemas (>= 46~beta), gstreamer1.0-pipewire (>= 0.3.10), libglib2.0-bin, python3, ubuntu-wallpapers, dconf-gsettings-backend | gsettings-backend, libatk-bridge2.0-0t64 (>= 2.5.3), libatk1.0-0t64 (>= 1.12.4), libc6 (>= 2.38), libcairo2 (>= 1.14.0), libecal-2.0-3 (>= 3.45), libedataserver-1.2-27t64 (>= 3.45), libgcr-4-4 (>= 3.8.0), libgdk-pixbuf-2.0-0 (>= 2.25.2), libgirepository-1.0-1 (>= 1.35.9), libgjs0g (>= 1.73.1), libgles2, libglib2.0-0t64 (>= 2.79.0), libgnome-autoar-0-0 (>= 0.1.1), libgnome-desktop-4-2t64 (>= 40), libgraphene-1.0-0 (>= 1.5.4), libgtk-4-1 (>= 4.12.0), libical3t64 (>= 3.0.0), libjson-glib-1.0-0 (>= 1.5.2), libmutter-14-0 (>= 46.0), libnm0 (>= 1.4.0), libpango-1.0-0 (>= 1.37.5), libpipewire-0.3-0t64 (>= 0.3.10), libpolkit-agent-1-0 (>= 0.99), libpolkit-gobject-1-0 (>= 0.94), libpulse-mainloop-glib0 (>= 13), libpulse0 (>= 13), libsecret-1-0 (>= 0.7), libsystemd0, libx11-6, libxext6, libxfixes3
 Recommends: bolt, evolution-data-server (>= 3.45), gdm3, gkbd-capplet, gnome-control-center (>= 1:42), gnome-remote-desktop, gnome-menus, gnome-user-docs, ibus, iio-sensor-proxy, power-profiles-daemon, switcheroo-control, ubuntu-session | gnome-session, xserver-xorg-legacy, unzip
 Suggests: gir1.2-malcontent-0 (>= 0.6.0), gir1.2-telepathyglib-0.12, gir1.2-telepathylogger-0.2, gnome-backgrounds (>= 3.13.90), gnome-shell-extension-prefs, chrome-gnome-shell
 Breaks: gnome-shell-extension-appindicator (<< 50), gnome-shell-extension-dash-to-panel (<< 55), gnome-shell-extension-dashtodock (<< 79), gnome-shell-extension-desktop-icons (<< 21.04), gnome-shell-extension-desktop-icons-ng (<< 46+really47.0.2-2), gnome-shell-extension-taskbar (<< 57.0-2.1~), gnome-shell-extension-top-icons-plus (<< 27-3~), gnome-shell-extension-workspaces-to-dock (<< 54~), gnome-shell-extensions (<< 40.0~)
-Filename: pool/main/g/gnome-shell/gnome-shell_46.0-0ubuntu6~24.04.4_armhf.deb
-Size: 901854
-MD5sum: 425b249d3d2072e4209d5671a8cb6acf
-SHA1: 2bc153bfe0be3567d1f5acfd61f48a92d016637c
-SHA256: f9446e618cf142b140394df5dc98c0671ec639efa6988d0ea4fc510a345b874b
-SHA512: a98cdd7ddf4c882c3cffb3cd7cbd336cbacc91cc47e28276a459c0edf4ab61a3a137b7c036cc5ca08a6e8e30c6d5f1e700e1f590919dd651c4c80a54a29128b2
+Filename: pool/main/g/gnome-shell/gnome-shell_46.0-0ubuntu6~24.04.5_armhf.deb
+Size: 901922
+MD5sum: 8e0cd1d7ab9e7ac0aff5c863b360e2b2
+SHA1: a97d41c88bfecf3fbdd83f2f614c20a88aef433b
+SHA256: b7097f5cbe612be44ff7569587da39bfba6cc89d1c1077ac4b575eabd3d22f33
+SHA512: 714016b0aab3750a01582f77a770dc5e1ae2173b00890c97fabcf5992726b77e61af9d2c0e1c0d4508225bd989ba7346c29e134b67eba556d58ff12dee0b1664
 Homepage: https://wiki.gnome.org/Projects/GnomeShell
 Description: graphical shell for the GNOME desktop
 Task: ubuntu-desktop-minimal, ubuntu-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi
@@ -3935,7 +3961,7 @@ Description-md5: 51a5a94e6b632e350489b7b8d27ab9fc
 
 Package: gnome-shell-common
 Architecture: all
-Version: 46.0-0ubuntu6~24.04.4
+Version: 46.0-0ubuntu6~24.04.5
 Priority: optional
 Section: gnome
 Source: gnome-shell
@@ -3948,12 +3974,12 @@ Depends: dconf-gsettings-backend | gsettings-backend
 Recommends: yaru-theme-gnome-shell (>= 23.10.0~)
 Breaks: gnome-shell (<< 3.36.1-6~)
 Replaces: gnome-shell (<< 3.36.1-6~)
-Filename: pool/main/g/gnome-shell/gnome-shell-common_46.0-0ubuntu6~24.04.4_all.deb
-Size: 247092
-MD5sum: a3cf77f5ca20d78bdcb02b0e6619bfe9
-SHA1: b71093e189a32d219bf889c2fea063252439a663
-SHA256: fcd0500727e055dd48f22741ab3a343d6f1ff50c7ce519a1612ab97a31027b8a
-SHA512: ed53ffaaf704f99a3ab71e981985c1bccb9fabe6f81ffc736d4b78b437ca6399b83805f1fdf4be74df24815a696af62791366ffb6649141cf48f83744948c222
+Filename: pool/main/g/gnome-shell/gnome-shell-common_46.0-0ubuntu6~24.04.5_all.deb
+Size: 247952
+MD5sum: a542ed58da92e588add51ffa51ddc555
+SHA1: f350a8f848fbfcc1012907694c0e550c13188b53
+SHA256: 84e5289cb90705249514d019e6b2f36cf94ba13b8fc67ae34327b9f889b5cf2c
+SHA512: 13a44b2e5bd60718717023a5e3998d12d9ca158a4a623a769fc0764be493c8a70e7b623150466e3c1d8addb78082149f5535cd4f3138e3e878a8eea775511c41
 Homepage: https://wiki.gnome.org/Projects/GnomeShell
 Description: common files for the GNOME graphical shell
 Task: ubuntu-desktop-minimal, ubuntu-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi
@@ -11065,6 +11091,56 @@ Description: changehat AppArmor library
 Task: cloud-minimal, minimal, server-minimal
 Description-md5: f5c1acf1bc73c3aa32ae8c2037c1d85a
 
+Package: libapr1-dev
+Architecture: armhf
+Version: 1.7.2-3.1ubuntu0.1
+Priority: optional
+Section: libdevel
+Source: apr
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 9323
+Depends: libapr1t64 (= 1.7.2-3.1ubuntu0.1), uuid-dev, libsctp-dev, python3:any
+Conflicts: libapr0-dev, libapr1.0-dev
+Filename: pool/main/a/apr/libapr1-dev_1.7.2-3.1ubuntu0.1_armhf.deb
+Size: 749966
+MD5sum: 5145c3294492d0bbe48a9e1521bc48eb
+SHA1: 5f28adda38a415551df0734ad1eaabac36cc638d
+SHA256: b540a03c66a8dea9fccb67f81b1bf779334980d6db7e1fe71bae963a6592a3d7
+SHA512: 8c9e9f91f530567124137c2e129a7b38815c9792eb245a357c482e2ffb7ae39a5d51c0e19ea6574e5a35e079fa8a94829087a2d47e190bb06b68f052fa606959
+Homepage: https://apr.apache.org/
+Description: Apache Portable Runtime Library - Development Headers
+Description-md5: 7242f99e86343755e74ffc6220d354b1
+
+Package: libapr1t64
+Architecture: armhf
+Version: 1.7.2-3.1ubuntu0.1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: apr
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 178
+Depends: libc6 (>= 2.38), libuuid1 (>= 2.16)
+Conflicts: libapr1.0
+Breaks: libapr1 (<< 1.7.2-3.1ubuntu0.1)
+Replaces: libapr1
+Filename: pool/main/a/apr/libapr1t64_1.7.2-3.1ubuntu0.1_armhf.deb
+Size: 87208
+MD5sum: d45110aad1577110ebf05da5fdf5236a
+SHA1: 70d0162a085f3f592aac333a53e670b4b9c5bf1a
+SHA256: 3678bb5f0d4c7c647d751a49516dc6cfd5beffa702d02d35aa95682da68f482e
+SHA512: bedf8bcee87203afdb98fd82e4d5c653376b4ba04a69b834c7e2bdc8499c9136eb711da618b310642b564e45a180ca5f9c9d4dd9776a68ed683cf696164a3826
+Homepage: https://apr.apache.org/
+Description: Apache Portable Runtime Library
+Task: lamp-server, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi
+Description-md5: daaca3900e2bd4d38f204bf1b0ef044a
+
 Package: libarchive-dev
 Architecture: armhf
 Version: 3.7.2-2ubuntu0.1
@@ -11729,7 +11805,7 @@ Description-md5: 4d51c661b0adee027561376db6e58853
 
 Package: libcups2-dev
 Architecture: armhf
-Version: 2.4.7-1.2ubuntu7.2
+Version: 2.4.7-1.2ubuntu7.3
 Multi-Arch: same
 Priority: optional
 Section: libdevel
@@ -11739,20 +11815,20 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 895
-Depends: dpkg-dev, libcups2t64 (= 2.4.7-1.2ubuntu7.2), libcupsimage2-dev (= 2.4.7-1.2ubuntu7.2)
-Filename: pool/main/c/cups/libcups2-dev_2.4.7-1.2ubuntu7.2_armhf.deb
-Size: 298424
-MD5sum: 02fedb180888413d90b24f95d90e27d3
-SHA1: f07757e155a875630208a063f5bff65210f5950c
-SHA256: 8667f31d348c0bd46e88413b0374de9aeb3e7bea5b752cbbd90eaa68f8cbea9f
-SHA512: 7b04d41d619b7bac0096f78f0d08660058654b0eb4d7ca54dfbed40951010e91f6dae3950f423eabda7082146522c777e19862f04d32e49ae576950de996fe6d
+Depends: dpkg-dev, libcups2t64 (= 2.4.7-1.2ubuntu7.3), libcupsimage2-dev (= 2.4.7-1.2ubuntu7.3)
+Filename: pool/main/c/cups/libcups2-dev_2.4.7-1.2ubuntu7.3_armhf.deb
+Size: 298512
+MD5sum: 3195aededa310b7ad1f81ac52996568e
+SHA1: 233fa7a8e649b45639d7ed0e30df7b0681432ea0
+SHA256: ae34c870a2287597adc257d728e86bc94a3f2fae58b375eb5a887eee940d3d2e
+SHA512: a285054057ef8f8407b1275acdacf09b2df19aed43653d48b6180f5f848e3eee2d679f928e0c0c0e9e255aaf855a99a8be477a2e91172af764dd84d47839f1a7
 Homepage: https://github.com/OpenPrinting/cups/
 Description: Common UNIX Printing System(tm) - Development files CUPS library
 Description-md5: bf3f385e98251c2563c3f58554d2adce
 
 Package: libcups2t64
 Architecture: armhf
-Version: 2.4.7-1.2ubuntu7.2
+Version: 2.4.7-1.2ubuntu7.3
 Multi-Arch: same
 Priority: optional
 Section: libs
@@ -11764,22 +11840,96 @@ Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 462
 Depends: libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libc6 (>= 2.38), libgnutls30t64 (>= 3.8.1), libgssapi-krb5-2 (>= 1.17), zlib1g (>= 1:1.2.0)
 Suggests: cups-common
-Breaks: libcups2 (<< 2.4.7-1.2ubuntu7.2)
+Breaks: libcups2 (<< 2.4.7-1.2ubuntu7.3)
 Replaces: libcups2
-Filename: pool/main/c/cups/libcups2t64_2.4.7-1.2ubuntu7.2_armhf.deb
-Size: 239926
-MD5sum: 458fb58b6d7c5b42d5dfa2f099379c6d
-SHA1: aee5bb0d291b9d2ce17eab4afcf6da862c713598
-SHA256: 1e170d792c3d6e9d78bdcc322ca560086c3716fcbcab3754346efe38556d1a9c
-SHA512: 6b9c00dae3dbf1294d7f39cf71fd83504439b8c9c1789af7100345580a2df6d888caba19682a414a328a54d1dfab4e3db349649de29c5ed7a61e8c768ce06aaa
+Filename: pool/main/c/cups/libcups2t64_2.4.7-1.2ubuntu7.3_armhf.deb
+Size: 237442
+MD5sum: 7b1c20f487d2c90a4aba61ac796f0716
+SHA1: 1d235f53df6d038a4c40556f192dd5026016eb5d
+SHA256: 17a1b75c1996c790f5a5b3eca2c099eaf46bfca923a04e571b65814a7d7ffad8
+SHA512: b2498119fce8b88b31e03953f42ff4d52cc8e430d13177a9bc1cf568ef7eb8767296ac03df7985431cd562888ab111db9b9e42500fb427316a570a9cd2d392e6
 Homepage: https://github.com/OpenPrinting/cups/
 Description: Common UNIX Printing System(tm) - Core library
 Task: ubuntu-desktop-minimal, ubuntu-desktop, samba-server, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
 Description-md5: cce9961cb86712146cb19e1b4636f79d
 
+Package: libcupsfilters-dev
+Architecture: armhf
+Version: 2.0.0-0ubuntu7.1
+Multi-Arch: same
+Priority: optional
+Section: libdevel
+Source: libcupsfilters
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 926
+Depends: libcupsfilters2t64 (= 2.0.0-0ubuntu7.1)
+Filename: pool/main/libc/libcupsfilters/libcupsfilters-dev_2.0.0-0ubuntu7.1_armhf.deb
+Size: 327404
+MD5sum: d18a435e4b928204a5e479f0f2e7ec92
+SHA1: 50855e325e424437a22d99e3963a802bc5a73afe
+SHA256: 7099b874ecdbf9b18641f425473d5bfa72d33a5411d6723b9156937172cdb002
+SHA512: 87e1396ea4a1122da078622a6aadd439b9f5db2b1285efeee9f77b11df2e6c763697cb639267fa623f3fd91d1a4044c350309b3594753aceefe6d0fc9f024a25
+Homepage: http://www.openprinting.org/
+Description: OpenPrinting libcupsfilters - Development files for the library
+Description-md5: 50eb3ef2144508d75441454f8b541098
+
+Package: libcupsfilters2-common
+Architecture: all
+Version: 2.0.0-0ubuntu7.1
+Priority: optional
+Section: libs
+Source: libcupsfilters
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 643
+Recommends: libcupsfilters2t64 (>= 2.0.0-0ubuntu7.1)
+Breaks: cups-filters (<< 2.0~)
+Replaces: cups-filters (<< 2.0~)
+Filename: pool/main/libc/libcupsfilters/libcupsfilters2-common_2.0.0-0ubuntu7.1_all.deb
+Size: 243844
+MD5sum: 57baad667d9ed3ee8ed9889efa643eff
+SHA1: cc50d5c90412ac4397d3292265a0ae2080711a6d
+SHA256: 3cfb81cb6c03d08ce195727562d432cf6c0dd2c9ed767ffd1325f65e51c9047a
+SHA512: a423bf8fee145deb0381ac879ba05d7984fa99926ff84127785480066cdf63da6d2fb3acdcb325892d252636d4b2ff9ae06b5ab0ec89ba4f68929f4b1fe2b66f
+Homepage: http://www.openprinting.org/
+Description: OpenPrinting libcupsfilters - Auxiliary files
+Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
+Description-md5: df2fd2462a88370368491efd2b1d3ef3
+
+Package: libcupsfilters2t64
+Architecture: armhf
+Version: 2.0.0-0ubuntu7.1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: libcupsfilters
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 567
+Depends: libc6 (>= 2.38), libcups2t64 (>= 2.3~b6), libdbus-1-3 (>= 1.9.14), libexif12 (>= 0.6.21-1~), libfontconfig1 (>= 2.12.6), libgcc-s1 (>= 3.5), libjpeg8 (>= 8c), liblcms2-2 (>= 2.2+git20110628), libpng16-16t64 (>= 1.6.2), libpoppler-cpp0t64 (>= 24.02.0), libqpdf29t64 (>> 11.9~), libstdc++6 (>= 13.1), libtiff6 (>= 4.0.3), libcupsfilters2-common (>= 2.0.0-0ubuntu7.1)
+Breaks: libcupsfilters2 (<< 2.0.0-0ubuntu7.1)
+Replaces: libcupsfilters2
+Filename: pool/main/libc/libcupsfilters/libcupsfilters2t64_2.0.0-0ubuntu7.1_armhf.deb
+Size: 285924
+MD5sum: e2e9aa465a9d8718378ff14f829ab6c2
+SHA1: d24fb17ca4745563f147fe3e0cdd0d1df199bad3
+SHA256: 83fbbbbe1d6f17b02b23dd0d2ee8331ff1247eae7323ffc832634fc47d34a476
+SHA512: db7de7020c48d5c9d10c04497a2d6c930cfc403dcf69d3bc0778924bce2ce6998da8516a23074ebbb42386e248f70b12dbf52818636d30eb365cf17845c7ffe9
+Homepage: http://www.openprinting.org/
+Description: OpenPrinting libcupsfilters - Shared library
+Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
+Description-md5: e1e27c063450f47b5ec3b25ecc3f523c
+
 Package: libcupsimage2-dev
 Architecture: armhf
-Version: 2.4.7-1.2ubuntu7.2
+Version: 2.4.7-1.2ubuntu7.3
 Multi-Arch: same
 Priority: optional
 Section: libdevel
@@ -11789,21 +11939,21 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 33
-Depends: libcups2-dev (= 2.4.7-1.2ubuntu7.2), libcupsimage2t64 (= 2.4.7-1.2ubuntu7.2), libjpeg-dev, libpng-dev, libtiff-dev, zlib1g-dev
+Depends: libcups2-dev (= 2.4.7-1.2ubuntu7.3), libcupsimage2t64 (= 2.4.7-1.2ubuntu7.3), libjpeg-dev, libpng-dev, libtiff-dev, zlib1g-dev
 Recommends: libcupsfilters-dev
-Filename: pool/main/c/cups/libcupsimage2-dev_2.4.7-1.2ubuntu7.2_armhf.deb
-Size: 6272
-MD5sum: 61c9634ff3462b901dca4bb1f041d215
-SHA1: 0daee2e9e2b9df0c2b8354fc5d248388e06bdbd6
-SHA256: daa6414204057cf3ccc76781828284e897ac91482356faf307101739000e306c
-SHA512: 3f368b72871db7e4c983aaba4caecec74712eb90e26a54d0a87c41f392f447dd0bbdd735bd0979c9d1292f179dedaf8fad426a0ac595ff21a4a5e3995b2d3041
+Filename: pool/main/c/cups/libcupsimage2-dev_2.4.7-1.2ubuntu7.3_armhf.deb
+Size: 6274
+MD5sum: d7d1c33ee769d808caf9a0ff218f5a6e
+SHA1: 365b421a3025bc82ce098be48ae8b48f026135d4
+SHA256: 618bc560771834b8e02656708f0ba914478733eb81ce66e2ec0fc39906e067c4
+SHA512: 078d1e464f3ecf5fae65ef0ac4d05741f001a7c4189410b859816bcc8c69d2fde20b77df6e6d0075a2d812f42745fdfca5caefcb5b6e463bc67b945285b533ee
 Homepage: https://github.com/OpenPrinting/cups/
 Description: Common UNIX Printing System(tm) - Development files CUPS image library
 Description-md5: 419c750b3360d0933e0bbc9e17913244
 
 Package: libcupsimage2t64
 Architecture: armhf
-Version: 2.4.7-1.2ubuntu7.2
+Version: 2.4.7-1.2ubuntu7.3
 Multi-Arch: same
 Priority: optional
 Section: libs
@@ -11813,16 +11963,16 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 42
-Depends: libcups2t64 (= 2.4.7-1.2ubuntu7.2), libc6 (>= 2.4)
+Depends: libcups2t64 (= 2.4.7-1.2ubuntu7.3), libc6 (>= 2.4)
 Recommends: libcupsfilters2
-Breaks: libcupsimage2 (<< 2.4.7-1.2ubuntu7.2)
+Breaks: libcupsimage2 (<< 2.4.7-1.2ubuntu7.3)
 Replaces: libcupsimage2
-Filename: pool/main/c/cups/libcupsimage2t64_2.4.7-1.2ubuntu7.2_armhf.deb
-Size: 6116
-MD5sum: c745101c4f944209ba465aa73b8199ed
-SHA1: 92461e11dd6f3304932322858197bb8fb6abfb5e
-SHA256: e7ce4ee501ed513497ff810e9fe816eb06d3347ad40c4bd3d842e8b1a69e9c45
-SHA512: 5ecea579e9c9d3144f27ceb21a75119e0bc5244b38a03c5e22ae3bebd7876765c02ef50b9b8c5e491ba3b2d733704985dfc15cf67518d45bfcb4ac9429540da7
+Filename: pool/main/c/cups/libcupsimage2t64_2.4.7-1.2ubuntu7.3_armhf.deb
+Size: 6106
+MD5sum: 40dccb87b5adf994d6eb9ade4225d1e8
+SHA1: 34fb182bfe4cc6cdc2fc188e3726e30666bbb83b
+SHA256: d67577e6a15739fc75c35450e5b51f5be58df78881ea62cdc667ecbc33eb2a6c
+SHA512: 9753729ce2cdb3ab1f913622baa7cfe5b7857d9697c5941b70244e2a6066f0c40fa447658fe2bca2b8298e5bb09c4c3c53c98aa30fa5e3e476d093898263cd8c
 Homepage: https://github.com/OpenPrinting/cups/
 Description: Common UNIX Printing System(tm) - Raster image library
 Task: ubuntu-desktop-minimal, ubuntu-desktop, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
@@ -15184,7 +15334,7 @@ Description-md5: 7e446c44302ff94779f1434f2e05d553
 
 Package: libmutter-14-0
 Architecture: armhf
-Version: 46.2-1ubuntu0.24.04.1
+Version: 46.2-1ubuntu0.24.04.2
 Multi-Arch: same
 Priority: optional
 Section: libs
@@ -15194,14 +15344,14 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 2760
-Depends: adwaita-icon-theme, gsettings-desktop-schemas (>= 40~alpha), mutter-common (>= 46.2-1ubuntu0.24.04.1), mutter-common-bin (= 46.2-1ubuntu0.24.04.1), libatk1.0-0t64 (>= 2.2.0), libc6 (>= 2.38), libcairo2 (>= 1.10.0), libcanberra0t64 (>= 0.2), libcolord2 (>= 1.4.5), libdrm2 (>= 2.4.119), libegl1, libeis1 (>= 1.0.901), libfontconfig1 (>= 2.12.6), libfribidi0 (>= 1.0.0), libgbm1 (>= 21.3.0~rc1), libgdk-pixbuf-2.0-0 (>= 2.22.0), libgl1, libglib2.0-0t64 (>= 2.79.0), libgnome-desktop-4-2t64 (>= 3.17.92), libgraphene-1.0-0 (>= 1.10.0), libgudev-1.0-0 (>= 232), libharfbuzz0b (>= 0.6.0), libice6 (>= 1:1.0.0), libinput10 (>= 1.19.1), liblcms2-2 (>= 2.6), libpango-1.0-0 (>= 1.46.0), libpangocairo-1.0-0 (>= 1.46.0), libpangoft2-1.0-0 (>= 1.46.0), libpipewire-0.3-0t64 (>= 0.3.33), libpixman-1-0 (>= 0.11.2), libsm6, libstartup-notification0 (>= 0.11), libsystemd0 (>= 226), libudev1 (>= 183), libwacom9 (>= 2.0.0), libwayland-server0 (>= 1.21.0), libx11-6 (>= 2:1.7.0), libx11-xcb1 (>= 2:1.8.7), libxau6 (>= 1:1.0.9), libxcb-randr0 (>= 1.3), libxcb-res0 (>= 1.10), libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6 (>= 2:1.3.0), libxfixes3 (>= 1:6.0.0), libxi6 (>= 2:1.6.99.1), libxinerama1 (>= 2:1.1.4), libxkbcommon-x11-0 (>= 0.5.0), libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2 (>= 2:1.5.0), libxtst6
+Depends: adwaita-icon-theme, gsettings-desktop-schemas (>= 40~alpha), mutter-common (>= 46.2-1ubuntu0.24.04.2), mutter-common-bin (= 46.2-1ubuntu0.24.04.2), libatk1.0-0t64 (>= 2.2.0), libc6 (>= 2.38), libcairo2 (>= 1.10.0), libcanberra0t64 (>= 0.2), libcolord2 (>= 1.4.5), libdrm2 (>= 2.4.119), libegl1, libeis1 (>= 1.0.901), libfontconfig1 (>= 2.12.6), libfribidi0 (>= 1.0.0), libgbm1 (>= 21.3.0~rc1), libgdk-pixbuf-2.0-0 (>= 2.22.0), libgl1, libglib2.0-0t64 (>= 2.79.0), libgnome-desktop-4-2t64 (>= 3.17.92), libgraphene-1.0-0 (>= 1.10.0), libgudev-1.0-0 (>= 232), libharfbuzz0b (>= 0.6.0), libice6 (>= 1:1.0.0), libinput10 (>= 1.19.1), liblcms2-2 (>= 2.6), libpango-1.0-0 (>= 1.46.0), libpangocairo-1.0-0 (>= 1.46.0), libpangoft2-1.0-0 (>= 1.46.0), libpipewire-0.3-0t64 (>= 0.3.33), libpixman-1-0 (>= 0.11.2), libsm6, libstartup-notification0 (>= 0.11), libsystemd0 (>= 226), libudev1 (>= 183), libwacom9 (>= 2.0.0), libwayland-server0 (>= 1.21.0), libx11-6 (>= 2:1.7.0), libx11-xcb1 (>= 2:1.8.7), libxau6 (>= 1:1.0.9), libxcb-randr0 (>= 1.3), libxcb-res0 (>= 1.10), libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6 (>= 2:1.3.0), libxfixes3 (>= 1:6.0.0), libxi6 (>= 2:1.6.99.1), libxinerama1 (>= 2:1.1.4), libxkbcommon-x11-0 (>= 0.5.0), libxkbcommon0 (>= 0.5.0), libxkbfile1 (>= 1:1.1.0), libxrandr2 (>= 2:1.5.0), libxtst6
 Breaks: gnome-shell (<< 46.0), xwayland (<< 2:23.1.0)
-Filename: pool/main/m/mutter/libmutter-14-0_46.2-1ubuntu0.24.04.1_armhf.deb
-Size: 1235042
-MD5sum: 95048b6f1c037a297671cfce9de472c2
-SHA1: 2ac3a2669f56bfb08e660f2c367a4bb2fb2f351b
-SHA256: d3fb4d62d2b5042d1d591b747e85191c4b1d96d05c5e71640bd3de56a9e65555
-SHA512: 7bf7387c9f88bef85fceab31b9b6abac4de64ca67c05bc21757ced3b5de78ef0b87c6ed5f521d3ae37003f6474f0fa062ba68fc071278d8c78c184f9b449f57d
+Filename: pool/main/m/mutter/libmutter-14-0_46.2-1ubuntu0.24.04.2_armhf.deb
+Size: 1235240
+MD5sum: 069c90a6f6e5e4a064412ae8b170d356
+SHA1: 1b08ec28a71927844724533971a7eae21f14d5c8
+SHA256: 935a5a1d262078a5b81c197045bbe5741ff1c7417d5b3ef6cf2f45f16e920bce
+SHA512: 1b88e17122f3999fca0bf5a09862ee936f38e665c28d1a8f36dc48a62c4f32b9f6e3c0faf811e7b097f18bdb74a7fd8aebb90d8703f66a8e6f59ed128535cbaf
 Homepage: https://mutter.gnome.org/
 Description: window manager library from the Mutter window manager
 Task: ubuntu-desktop-minimal, ubuntu-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi
@@ -15785,6 +15935,53 @@ SHA512: 08791a6d74b49b4590dcc4c4f8367893eb3434d296a1a8c071cdfbef626c9c9fcb8ab44d
 Homepage: https://www.open-iscsi.com/
 Description: iSCSI userspace library headers
 Description-md5: d4b0fa7a26591b5c834e6519b796a42c
+
+Package: libopenjp2-7
+Architecture: armhf
+Version: 2.5.0-2ubuntu0.1
+Multi-Arch: same
+Priority: extra
+Section: libs
+Source: openjpeg2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian PhotoTools Maintainers <pkg-phototools-devel@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 323
+Depends: libc6 (>= 2.34)
+Filename: pool/main/o/openjpeg2/libopenjp2-7_2.5.0-2ubuntu0.1_armhf.deb
+Size: 160080
+MD5sum: 7bb472384406516146c4cdf08e76d797
+SHA1: 611f0782b7df0eea40ff9e5eb68aa84f84498d67
+SHA256: 935b3b4a11e1601978a4f4345452ac9d7f1ff06533f110d763a54cb9e19f806d
+SHA512: e3364c83e08a40543b509d8d9caf75d75cbd549a45a78810973eb703f0ad94f3fc8514fd708d7650aa8bc9bf2b761a5f1cd2df70026d32d823cc34980c149d30
+Homepage: https://www.openjpeg.org
+Description: JPEG 2000 image compression/decompression library
+Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
+Description-md5: bebeaaa50dd1a5685a0f67da93d3ac4b
+
+Package: libopenjp2-7-dev
+Architecture: armhf
+Version: 2.5.0-2ubuntu0.1
+Multi-Arch: same
+Priority: extra
+Section: libdevel
+Source: openjpeg2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian PhotoTools Maintainers <pkg-phototools-devel@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 656
+Depends: libopenjp2-7 (= 2.5.0-2ubuntu0.1)
+Filename: pool/main/o/openjpeg2/libopenjp2-7-dev_2.5.0-2ubuntu0.1_armhf.deb
+Size: 238322
+MD5sum: fc82c2459bee6ad5c3fc39a8f41735e9
+SHA1: c52552a3b9385451dc7e3392391ac30ea9d09bec
+SHA256: 3d98bd7ede55a3dd60efe5bd12e73e84ae443729483a3490d1ec1778f7180786
+SHA512: d1875be874ddbf7813d5de6187e4ac758f90267e9dcf7a9bf8ee10b077a77aaee2d92f01313c733f1a6e31c6545486606987507cfd108371a212cb6086bee6f7
+Homepage: https://www.openjpeg.org
+Description: development files for OpenJPEG, a JPEG 2000 image library
+Description-md5: b3467bb9ada27076b0852a6582c60027
 
 Package: liborc-0.4-0t64
 Architecture: armhf
@@ -16502,6 +16699,78 @@ Homepage: https://poppler.freedesktop.org/
 Description: PDF rendering library
 Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
 Description-md5: 74b6b371a9886bca4fc2c2761b5a2fec
+
+Package: libppd-dev
+Architecture: armhf
+Version: 2:2.0.0-0ubuntu4.1
+Multi-Arch: same
+Priority: optional
+Section: libdevel
+Source: libppd
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 779
+Depends: libppd2 (= 2:2.0.0-0ubuntu4.1), libcupsfilters-dev (>= 2~)
+Filename: pool/main/libp/libppd/libppd-dev_2.0.0-0ubuntu4.1_armhf.deb
+Size: 273646
+MD5sum: 8fde76bc1285df9f08b15423d0233fca
+SHA1: e62aecbb1d420fbeabe64eec7543419c9798e077
+SHA256: 3bc1f7c90666b82866433c212fe57a8857e39458f460bdc283c3a9435f066696
+SHA512: 266b43a2f84bf43e7a42ef2564c44ba8b943e1981ec6f9b50c8cce1102892c67ab6c6ab8660f06aded354639eeb67c6341112e40920a6dc2da91a5abd77ba966
+Homepage: http://www.openprinting.org/
+Description: OpenPrinting libppd - Development files for the library
+Description-md5: 49b20e97a32af61b522e7320ab5b49d8
+
+Package: libppd2
+Architecture: armhf
+Version: 2:2.0.0-0ubuntu4.1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: libppd
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 457
+Depends: libc6 (>= 2.38), libcups2t64 (>= 2.3~b6), libcupsfilters2t64 (>= 2.0~b4-0ubuntu1), libgcc-s1 (>= 3.5), libstdc++6 (>= 5), libppd2-common (>= 2:2.0.0-0ubuntu4.1)
+Filename: pool/main/libp/libppd/libppd2_2.0.0-0ubuntu4.1_armhf.deb
+Size: 238066
+MD5sum: 036f9418222235bcd0f5e5067a826136
+SHA1: 5abced34852a0cf9f85b548f9a355da274806672
+SHA256: 5656224ff5ced74de8cd97e9054f9eb39fad6aafbbda5ac885de39a8b1b2f564
+SHA512: 4845cca2008e55e115f9e32e6d6ec25af2684d9ad4b4412a75a90dc1cb2f45372699b2ebd13a6d549151cf1f8c6b2a3cb2610dd0302556eb1f3e4b21f1d07e52
+Homepage: http://www.openprinting.org/
+Description: OpenPrinting libppd - Shared library
+Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
+Description-md5: b326a4ec86bd67a9bb11e40e6886f8f4
+
+Package: libppd2-common
+Architecture: all
+Version: 2:2.0.0-0ubuntu4.1
+Priority: optional
+Section: libs
+Source: libppd
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 34
+Recommends: libppd2 (>= 2:2.0.0-0ubuntu4.1)
+Breaks: ppdc (<< 2:2.0~b4~)
+Replaces: ppdc (<< 2:2.0~b4~)
+Filename: pool/main/libp/libppd/libppd2-common_2.0.0-0ubuntu4.1_all.deb
+Size: 9868
+MD5sum: f393815f36199ca16716c6be0f5876a9
+SHA1: 4282d9eb72d697c67facc74d2c33a5c05cf5db5d
+SHA256: 4f179f177357114b321233293afdea22f7f092c6d843e6647c32d159615912ee
+SHA512: 38ca26c340dedca6eb58c6b15eeb04327ede164f6c83fffc7acae6cbf33d9c47d293c0c82a1702e6bddfada4b2fcf0e8d9f45be9c7d91da79f3bbdeeca6bbd79
+Homepage: http://www.openprinting.org/
+Description: OpenPrinting libppd - Auxiliary files
+Task: ubuntu-desktop-minimal, ubuntu-desktop, print-server, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
+Description-md5: c1ff808b68ddf5fa64d37fa5127ff165
 
 Package: libpq-dev
 Architecture: armhf
@@ -23959,25 +24228,25 @@ Description-md5: c8fe2977a59fe3daedcefb9ed07277a8
 
 Package: linux-firmware
 Architecture: armhf
-Version: 20240318.git3b128b60-0ubuntu2.3
+Version: 20240318.git3b128b60-0ubuntu2.4
 Priority: optional
 Section: misc
 Origin: Ubuntu
 Maintainer: Ubuntu Kernel Team <kernel-team@lists.ubuntu.com>
 Original-Maintainer: Ubuntu Kernel Team <kernel-team@lists.ubuntu.com>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
-Installed-Size: 481705
+Installed-Size: 482179
 Provides: atmel-firmware
 Recommends: firmware-sof-signed
 Conflicts: atmel-firmware
 Breaks: amd64-microcode (<= 3.20220411.1ubuntu1), initramfs-tools (<< 0.142ubuntu8~), linux-firmware-raspi2 (<= 1.20190819-0ubuntu2), linux-firmware-snapdragon (<= 1.2-0ubuntu1)
 Replaces: atmel-firmware, linux-firmware-snapdragon (<= 1.2-0ubuntu1), linux-restricted-common
-Filename: pool/main/l/linux-firmware/linux-firmware_20240318.git3b128b60-0ubuntu2.3_armhf.deb
-Size: 483396310
-MD5sum: 56329958ce6484edff988abe2ef6f902
-SHA1: 569dfaa1c769f912dfa6552ed244e1b0856ea063
-SHA256: 98605b268fa8de55714bbf538b688262a2083786524f8b8761ab22b6664ce03c
-SHA512: a6234277b1903acfd69812413f1a80193d0bd15d1a5bef7d3afe4b71d75ce98f0ef9e5f1f9bf7860c622a3bfafaebf380aeb233a7bfc134dfd00e738afb18707
+Filename: pool/main/l/linux-firmware/linux-firmware_20240318.git3b128b60-0ubuntu2.4_armhf.deb
+Size: 483854360
+MD5sum: c790daf025ad0e99699ba36c62c0939c
+SHA1: ca33341226fe592f7b05b1b22f13f78063bd845a
+SHA256: 2f91517507c6fa81780bea8f3b4080be1234c8b6f01d334dc53f4abef70a797c
+SHA512: b03324cd84ea7aaa1d404ff228f294fd75125106a828594e75db1c78e62708e1f1c88d0ae26a0821dc97a36ab98625059239e9f37dee4fd1d9d0cfccb6ef2a7b
 Description: Firmware for Linux kernel drivers
 Task: server-live
 Description-md5: 7a047bff9e44dce458a300976c12f9da
@@ -28432,6 +28701,26 @@ Homepage: https://sourceware.org/lvm2/
 Description: LVM2 D-Bus daemon
 Description-md5: 58ae61149cfbcb7082b5065979973507
 
+Package: lxd-agent-loader
+Architecture: all
+Version: 0.7ubuntu0.1
+Priority: optional
+Section: misc
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 25
+Filename: pool/main/l/lxd-agent-loader/lxd-agent-loader_0.7ubuntu0.1_all.deb
+Size: 4836
+MD5sum: c82ab405f9dc1aea49341fa1a05d9948
+SHA1: 025deb3a51e4698e7f14bd6f12b8f76dcef973b7
+SHA256: ce2aa5b188fb286f9c8eae05ad424bb10a161d260f64a57163f0f66f03880752
+SHA512: 5460cc96ae8f1cc38ae3e6ba3219db37031b9f942d5fefd7a1b2a961189bcd7610963b64244ef6ffead1d289e78700149f01f26bedd4205cfb365892badb6ba4
+Homepage: https://github.com/canonical/lxd
+Description: LXD - VM agent loader
+Task: cloud-minimal, cloud-image, cloud-image, server, ubuntu-server-raspi
+Description-md5: 702ab46f805d8eef57745cf35cbb33cc
+
 Package: lxd-installer
 Architecture: all
 Version: 4ubuntu0.1
@@ -28451,6 +28740,30 @@ SHA512: f36395f80483a8f8c9d3e4fe5d9b96104f3b9f4d7a2c8bbd80c2c70a91bf4cbb6610d637
 Description: Wrapper to install lxd snap on demand
 Task: cloud-minimal, cloud-image, cloud-image, server, ubuntu-server-raspi
 Description-md5: f38428083c4f3e766c90d5328f8cde20
+
+Package: mdadm
+Architecture: armhf
+Version: 4.3-1ubuntu2.1
+Priority: optional
+Section: admin
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Daniel Baumann <daniel.baumann@progress-linux.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 930
+Depends: udev, debconf (>= 0.5) | debconf-2.0, libc6 (>= 2.38), libudev1 (>= 183)
+Recommends: finalrd (>= 3~), kmod
+Suggests: default-mta | mail-transport-agent
+Filename: pool/main/m/mdadm/mdadm_4.3-1ubuntu2.1_armhf.deb
+Size: 428654
+MD5sum: 1a767db31fc205fe63a88331f9ce7b78
+SHA1: 67956b6f9d14c935c88d1bd268794f90d6c3dd04
+SHA256: a600ba833722252320476b9522e64fd4ab9b7fdc39fb0fed95786aff962e363c
+SHA512: c6a5ca62205b193f50989cbeb6a8fa37e313fa452e33c7088a2aec0b8d2a6d3865bb4ed04d805ac9326ec49702259ab8093947de1ed170adce0c33053fbcc65e
+Homepage: https://raid.wiki.kernel.org
+Description: tool for managing Linux MD devices (software RAID)
+Task: ubuntu-live, cloud-image, cloud-image, server-minimal, server, ubuntu-server-raspi, ubuntu-budgie-live, edubuntu-live
+Description-md5: 53acb37791e0af6c94a13362471b117a
 
 Package: mesa-common-dev
 Architecture: armhf
@@ -28578,7 +28891,7 @@ Description-md5: 90e187380786a435bb9c85b37afa2c5f
 
 Package: mutter-common
 Architecture: all
-Version: 46.2-1ubuntu0.24.04.1
+Version: 46.2-1ubuntu0.24.04.2
 Multi-Arch: foreign
 Priority: extra
 Section: misc
@@ -28591,12 +28904,12 @@ Installed-Size: 192
 Depends: dconf-gsettings-backend | gsettings-backend
 Breaks: magpie-common (<< 0.9.3-0ubuntu8~)
 Replaces: magpie-common (<< 0.9.3-0ubuntu8~)
-Filename: pool/main/m/mutter/mutter-common_46.2-1ubuntu0.24.04.1_all.deb
-Size: 48890
-MD5sum: da845d2e1d922497d2961f4e2c38509a
-SHA1: 7c5e1ff1043470966fd5a4f3b44130d140a0cc5f
-SHA256: 8ea2095c9b0185bbefcc422ed44b115b16c62bf48310a8138c72b0ddad766974
-SHA512: 2876995f75725f040205d64aa8f6cd89b2430f42cd60dd7109b6b70dfbca9996ff14e2d52e36765bcb87000ec59cbd1640bad47d61a61df4485325cf477fb2ed
+Filename: pool/main/m/mutter/mutter-common_46.2-1ubuntu0.24.04.2_all.deb
+Size: 49080
+MD5sum: 1ec9c55032befcb5a56142019ec0bcc1
+SHA1: f4357643e2f58f6fe1705f37c670461de436380c
+SHA256: 4bce5078eb2c3c237ac32856c2fdc1dbbca57b6d26268d708b414a0afaa87e17
+SHA512: 0990b535d343e4ad4409226872c16a8454253a68130038d44d98fe15307015a5c47166495a5a62a40d7fea0158e97875789d5dea5c7855387244300cbf7d195e
 Homepage: https://mutter.gnome.org/
 Description: shared files for the Mutter window manager
 Task: ubuntu-desktop-minimal, ubuntu-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi
@@ -28604,7 +28917,7 @@ Description-md5: 2289cdfd3182ed0acc7d7a3b4981bbda
 
 Package: mutter-common-bin
 Architecture: armhf
-Version: 46.2-1ubuntu0.24.04.1
+Version: 46.2-1ubuntu0.24.04.2
 Priority: optional
 Section: misc
 Source: mutter
@@ -28616,12 +28929,12 @@ Installed-Size: 81
 Depends: libc6 (>= 2.34), libglib2.0-0t64 (>= 2.79.0), libgtk-4-1 (>= 4.0.0), libx11-6, libxcomposite1 (>= 1:0.4.5), libxfixes3 (>= 1:6.0.0), libxi6 (>= 2:1.2.99.4)
 Breaks: mutter (<< 44~)
 Replaces: mutter (<< 44~)
-Filename: pool/main/m/mutter/mutter-common-bin_46.2-1ubuntu0.24.04.1_armhf.deb
-Size: 50530
-MD5sum: bff007a460b8bd8bd792cc0871f4d3b2
-SHA1: d9c8c1458eed55588303d3c8a7fa4902517e4f1e
-SHA256: f8db0ff0a516c755e8cf8990ddd0850e54b0f8413af9cfe4d4f4dfd89dc69b06
-SHA512: 60cadcc3e3c3166df9ba822c1d9625aa2b52e6e8078556f57083e900415ed68a465659ea4047b5ddbbfa034308e176bd5b1db7e1456b4f3b2076b82e232b059d
+Filename: pool/main/m/mutter/mutter-common-bin_46.2-1ubuntu0.24.04.2_armhf.deb
+Size: 50720
+MD5sum: 2b8324f154a2e9647070f476d1777f13
+SHA1: dbb27845afa29fcb16df24948d676a30c9653bb4
+SHA256: e47e40ef7d321095f5ad389f66de28f0942b89a7e1010e8d066ac00488a25bf8
+SHA512: 1b44a2093ef53156172a182a8b0494a59c9fe01e72c9e8b3fcf42348045f3a60c675719b4cae0cadc5b3af3bc8b36293ee989c79cad22a87fe8104c033335ec1
 Homepage: https://mutter.gnome.org/
 Description: shared programs for the Mutter window manager
 Task: ubuntu-desktop-minimal, ubuntu-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi
@@ -29661,6 +29974,28 @@ Homepage: https://openjdk.java.net/
 Description: OpenJDK Java runtime, using Hotspot JIT (headless)
 Task: edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi
 Description-md5: 62c2c9689e617c48cc4480926d2ca785
+
+Package: openjpeg-doc
+Architecture: all
+Version: 2.5.0-2ubuntu0.1
+Priority: optional
+Section: doc
+Source: openjpeg2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian PhotoTools Maintainers <pkg-phototools-devel@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 54
+Depends: doc-base
+Filename: pool/main/o/openjpeg2/openjpeg-doc_2.5.0-2ubuntu0.1_all.deb
+Size: 10936
+MD5sum: de8878c8589e81b1739d2e504b0a1ecd
+SHA1: 5cfb643d21b0e0a98655d1aed91e9038fc890166
+SHA256: 3f49f37690a35c28c6d6a5ed4f266ee1aebb35f60a70d14b1cb7f788926ae0aa
+SHA512: a6e7cd9f21e3264be8c8ffaf603c1bead5618ddfa39b07bd8b42e625b072f45f74a9986ced1f3d7db1cb4663d7a0e08d9604c89b9fa312ed7fa87710c588df9c
+Homepage: https://www.openjpeg.org
+Description: JPEG 2000 image compression/decompression library
+Description-md5: bda29ee10aae8ae267a80975460c93ea
 
 Package: openssh-client
 Architecture: armhf
@@ -30941,6 +31276,28 @@ Description: /proc file system utilities
 Task: cloud-minimal, minimal, server-minimal
 Description-md5: 943f3288c1aaa379fca73a3ff1a35278
 
+Package: puma
+Architecture: armhf
+Version: 6.4.2-4ubuntu4.3
+Priority: optional
+Section: ruby
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Ruby Team <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 561
+Depends: ruby, ruby-nio4r (>= 2.0), libc6 (>= 2.4), libssl3t64 (>= 3.0.0), libruby3.2 (>= 3.2.2), libruby (>= 1:3.2~0), libruby (<< 1:3.3~)
+Breaks: rails (<< 2:6.1.7.3+dfsg-3~)
+Filename: pool/main/p/puma/puma_6.4.2-4ubuntu4.3_armhf.deb
+Size: 155246
+MD5sum: 13e4abbaa662e0c136dde62ca0b6458e
+SHA1: 98360191f34734927aeafae5056b55ffd3d24641
+SHA256: 99f9ab1f9fc4c249ca22de6c83f99f08ef7bf95c4b6b83cd6594633dde0fef39
+SHA512: aabea10266d6907392d3f4f6f85ebf039d278b7a1135ecde807d37e65ece873957a4606fb875969bc0f860cff308497f26d10aefe4027e0beb4bdd2b0ee76dfa
+Homepage: https://puma.io
+Description: threaded HTTP 1.1 server for Ruby/Rack applications
+Description-md5: a880ef9b62abf78a6c07f8b7c78eaa59
+
 Package: python-apt-common
 Architecture: all
 Version: 2.7.7ubuntu3
@@ -32187,6 +32544,30 @@ Description: Python-UNO bridge
 Task: ubuntu-desktop, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-raspi, lubuntu-desktop, ubuntustudio-video, ubuntukylin-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop, ubuntu-budgie-desktop-default-languages, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop, ubuntucinnamon-desktop, ubuntucinnamon-desktop-raspi
 Description-md5: f4a55d75b607baa049506ff436442fb6
 
+Package: python3-update-manager
+Architecture: all
+Version: 1:24.04.8
+Priority: standard
+Section: python
+Source: update-manager
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 189
+Depends: python3-apt (>= 0.8.5~), python3-distro-info, python3-distupgrade, python3:any
+Suggests: python3-launchpadlib
+Breaks: python3-distupgrade (<< 1:16.10.10), update-manager-core (<< 1:0.163)
+Replaces: update-manager-core (<< 1:0.163)
+Filename: pool/main/u/update-manager/python3-update-manager_24.04.8_all.deb
+Size: 43028
+MD5sum: 3be53dddbf8f9806a93c1451d555a3a4
+SHA1: f3f8db83b7dea9ebf95ebfc33b1e2c1104f1e5ee
+SHA256: b32349fd46156bb5cb5df36670919ba7aa8d78f962ad659f964da22efb0a4518
+SHA512: 6312ee549f6381b67bf9357fac5aa32c4e84966b604d49b22bf263e3119a7751b751bcd8d0b6c8502d9d4df411a7fb2d1d415a2ed1b449b0dc1949bf782612d3
+Description: Python 3.x module for update-manager
+Task: cloud-minimal, standard, server-minimal, ubuntu-wsl
+Description-md5: 21d76de266c4a8755f0c93a5f277f3c2
+
 Package: python3-webob
 Architecture: all
 Version: 1:1.8.7-1ubuntu0.1.24.04.1
@@ -32921,6 +33302,27 @@ Homepage: https://www.remmina.org/
 Description: VNC plugin for Remmina
 Task: ubuntu-desktop, ubuntu-desktop-raspi, ubuntukylin-desktop, ubuntu-unity-desktop, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop
 Description-md5: e31dcb40fc949b8730165c51ac29bd95
+
+Package: retry
+Architecture: armhf
+Version: 1.0.5-3build1~ubuntu0.24.04.1
+Priority: optional
+Section: utils
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Joao Eriberto Mota Filho <eriberto@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 32
+Depends: libc6 (>= 2.34)
+Filename: pool/main/r/retry/retry_1.0.5-3build1~ubuntu0.24.04.1_armhf.deb
+Size: 10062
+MD5sum: 8a341b321bdbe79adeb22a3b87905965
+SHA1: 1db79eb76400119d6282f131e9880de8a9c7458e
+SHA256: 77d1c14c049cb304eaf312cb01bb47715eb1a6753bf1f57cfdb4cdce1f52e4a0
+SHA512: 55d12a3d935c085a831f394f94980246e9a57fbd7f48e9f0a84128e12222c217bc3c487eefaf8e723105c782883bbb8a556c7fc617125ae0af1415fba70654e6
+Homepage: https://github.com/minfrin/retry
+Description: Retry a command until the command succeeds
+Description-md5: 4d6b8c2833b40add90bc20cc2db07725
 
 Package: rfkill
 Architecture: armhf
@@ -34085,7 +34487,6 @@ Homepage: https://canonical-ubuntu-pro-client.readthedocs-hosted.com/
 Description: Management tools for Ubuntu Pro
 Task: cloud-minimal, minimal
 Description-md5: 66165e509f2710a40dda6be8ed39eeed
-Phased-Update-Percentage: 90
 
 Package: ubuntu-pro-client-l10n
 Architecture: armhf
@@ -34108,7 +34509,6 @@ Homepage: https://ubuntu.com/advantage
 Description: Translations for Ubuntu Pro Client
 Task: minimal
 Description-md5: 554c4aadbe6fdeeca7cc99cd91abaf72
-Phased-Update-Percentage: 90
 
 Package: ubuntu-release-upgrader-core
 Architecture: all
@@ -34407,6 +34807,53 @@ Homepage: http://www.libreoffice.org
 Description: LibreOffice UNO runtime environment -- private libraries used by public ones
 Task: ubuntu-desktop, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-default-languages, ubuntu-desktop-raspi, lubuntu-desktop, ubuntustudio-video, ubuntukylin-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop, ubuntu-budgie-desktop-default-languages, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop, ubuntucinnamon-desktop, ubuntucinnamon-desktop-raspi
 Description-md5: e2b126a07040410322c2e32e97809c88
+
+Package: update-manager
+Architecture: all
+Version: 1:24.04.8
+Priority: optional
+Section: gnome
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 974
+Depends: gir1.2-gtk-3.0, gir1.2-handy-1 (>= 1.5.90), gir1.2-snapd-2, gnome-shell | policykit-1-gnome | polkit-kde-agent-1 | lxpolkit | lxqt-policykit | mate-polkit | polkit-1-auth-agent, libgtk3-perl, pkexec, polkitd, python3-aptdaemon.gtk3widgets (>= 1.1.1+bzr982-0ubuntu13) | synaptic, python3-dbus, python3-gi (>= 3.8), python3-yaml, ubuntu-release-upgrader-gtk, update-manager-core (= 1:24.04.8), update-notifier, dconf-gsettings-backend | gsettings-backend, python3:any
+Recommends: python3-launchpadlib, software-properties-gtk (>= 0.71.2)
+Suggests: gir1.2-dbusmenu-glib-0.4, gir1.2-unity-5.0
+Breaks: update-notifier (<< 3.177)
+Filename: pool/main/u/update-manager/update-manager_24.04.8_all.deb
+Size: 554000
+MD5sum: 90b08c78c87420412af71fdb7eef3025
+SHA1: 201e74993f507d5dee515da653c7fe126cc54c32
+SHA256: ed4b9ca3c0edf629dcdfb4a2928879e206d1e4606b6ed2d588e92aac1f635de0
+SHA512: a5303bce9f060cb078f03aafa700cacfa5612e53fab3cb2560c67d74bcddecee08cb1b6fe13cdb0dfa5df4caecffdf35bbd2fde2d19c40c718b1fbe416a4278e
+Description: GNOME application that manages apt updates
+Task: ubuntu-desktop-minimal, ubuntu-desktop, xubuntu-desktop, ubuntukylin-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop
+Description-md5: 590b36e19703392a6fe86ceaa8467c85
+
+Package: update-manager-core
+Architecture: all
+Version: 1:24.04.8
+Priority: standard
+Section: admin
+Source: update-manager
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 124
+Depends: distro-info-data, python3-distro-info, python3-update-manager (= 1:24.04.8), ubuntu-pro-client, ubuntu-release-upgrader-core (>= 1:18.04.9), python3:any
+Recommends: libpam-modules (>= 1.0.1-9ubuntu3)
+Breaks: computer-janitor (<= 1.11-0ubuntu1), update-manager (<< 1:0.146.2)
+Replaces: update-manager (<< 1:0.146.2)
+Filename: pool/main/u/update-manager/update-manager-core_24.04.8_all.deb
+Size: 11596
+MD5sum: b8405a31e7aaa7e99b3f20a0abf42a80
+SHA1: c9ff3d23e607e7cccb2a2132bddb4bb7b724a627
+SHA256: 61f6ec9cb7de2c8481fc4e96432a78b2096c61aca31f5fe6b6693863a8a2f8d0
+SHA512: 1f1148a388cd0bee13232fbb0c4bf01d30fc3934582192fbee12a6b9cd0245f22eeb66deb3b8e38457caaddb16ee3d0227e6b312d2592527291f5a741e3db981
+Description: manage release upgrades
+Task: standard, ubuntu-wsl
+Description-md5: 0a19dc54e8c67de7adf0ecfe839b541f
 
 Package: ure
 Architecture: armhf
@@ -34738,19 +35185,19 @@ Description-md5: 45df452b36e1c438641626b096751680
 
 Package: wsl-setup
 Architecture: armhf
-Version: 0.5.3~24.04
+Version: 0.5.4~24.04
 Priority: optional
 Section: admin
 Origin: Ubuntu
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
-Installed-Size: 23
-Filename: pool/main/w/wsl-setup/wsl-setup_0.5.3~24.04_armhf.deb
-Size: 3620
-MD5sum: 47776623eaa4a9ab0c0a06d37d0a9cb4
-SHA1: ac1fa20a4630b0ebcdcf2d86619a6a5178d4d713
-SHA256: 52d58d3034a98f10cff679d21aeaf55618860b91b727ccfa967f1847bfd5b335
-SHA512: 020dfa9b480d1f504c896c0772de8bc5b2ec345078193dc9953ec240bd1fa07c4eeb15c495709e0351c48c72b1ba5fc208c63892c16c779544e5ca2a8ac39300
+Installed-Size: 25
+Filename: pool/main/w/wsl-setup/wsl-setup_0.5.4~24.04_armhf.deb
+Size: 4002
+MD5sum: 0ecf8a73d2aa20997052bf68298fc118
+SHA1: d84db40c77837f261e60c3ac9fb252e8d15af311
+SHA256: 1a47ebfac7e15c54543d8eabaf4a3ebc46f6c60f77147322d8fbc093e3448746
+SHA512: f061a196444887e65d1c38bbb2f9c24e72e75844d334fc33f8f126178867460bbc4bfa710d06bd735b38e2adc823eec513a020e95bef85d06cf8981385a604d0
 Homepage: https://github.com/ubuntu/wsl-setup
 Description: WSL integration setup
 Task: ubuntu-wsl
@@ -34758,7 +35205,7 @@ Description-md5: fda8d3e15653f7fefb3f6c3e53d1a34e
 
 Package: xdg-desktop-portal
 Architecture: armhf
-Version: 1.18.4-1ubuntu2
+Version: 1.18.4-1ubuntu2.24.04.1
 Multi-Arch: foreign
 Priority: optional
 Section: admin
@@ -34768,12 +35215,12 @@ Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.aliot
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 1108
 Depends: bubblewrap, default-dbus-session-bus | dbus-session-bus, fuse3, init-system-helpers (>= 1.52), libc6 (>= 2.38), libfuse3-3 (>= 3.12.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.79.0), libjson-glib-1.0-0 (>= 1.5.2), libpipewire-0.3-0t64 (>= 0.3.1), libsystemd0
-Filename: pool/main/x/xdg-desktop-portal/xdg-desktop-portal_1.18.4-1ubuntu2_armhf.deb
-Size: 333758
-MD5sum: 11349dd95643ca799f594fff0a8226fa
-SHA1: bae3f7841456960c3cc6936906f6090cee036357
-SHA256: 09b4d8fff1cdfcd318ff929bbc2408aa42bfb6c25ee8d8b74169b2da4d67d361
-SHA512: 68826f0d3af164bea557a6fe9b1a8470140ad8f5f1a78eab475280c7ed33e5e5553298da6cb2d974befa99909d3e5e92d67a0c6f1f3ad4589951123d9af93946
+Filename: pool/main/x/xdg-desktop-portal/xdg-desktop-portal_1.18.4-1ubuntu2.24.04.1_armhf.deb
+Size: 334126
+MD5sum: 3080b3c962a09d70c708c50afdada780
+SHA1: 30ee979e563e1124970cec2c73be3c7615517fb4
+SHA256: ab47d706e4efeae954fd91ff00e46cd6ba54d21ad84f8407b250870db4e60d8b
+SHA512: b082468c3b5759f813601569fe56919026ed01d0cd4c10413ccb444008f5858c7ac03b34a91f624640fd415429c7ae63d948e3a8690221f3a18dafe022203861
 Homepage: https://github.com/flatpak/xdg-desktop-portal
 Description: desktop integration portal for Flatpak and Snap
 Task: ubuntu-desktop-minimal, ubuntu-desktop, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
@@ -34781,7 +35228,7 @@ Description-md5: 7eac259f6a9a24c9e234ad737a8c6945
 
 Package: xdg-desktop-portal-dev
 Architecture: all
-Version: 1.18.4-1ubuntu2
+Version: 1.18.4-1ubuntu2.24.04.1
 Multi-Arch: foreign
 Priority: optional
 Section: admin
@@ -34790,13 +35237,13 @@ Origin: Ubuntu
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
-Installed-Size: 1014
-Filename: pool/main/x/xdg-desktop-portal/xdg-desktop-portal-dev_1.18.4-1ubuntu2_all.deb
-Size: 77920
-MD5sum: d9b0e5102d363ce9ad97127cc9830fec
-SHA1: 4adeb838b09b1b17960e40a660f28794d69988c1
-SHA256: 485dce5e231347bd4ab4dd62980a8aa9d19b056bcdf912bd14d3a33fdb133534
-SHA512: 0e441686bdf4112aab20a497b1890f2d071a8ca4dc8805b0ab6fd694ebf16652e72fd14296d8a6e55fe1a779b427dd64b8e3405be301dbcc8d4adca481f17a15
+Installed-Size: 1015
+Filename: pool/main/x/xdg-desktop-portal/xdg-desktop-portal-dev_1.18.4-1ubuntu2.24.04.1_all.deb
+Size: 78412
+MD5sum: 335dd2081bb70c2f9eda08f8d801e38f
+SHA1: 76dca298baf3635c60c84f3c7a62c421344ab288
+SHA256: 56e7da3a96c7752275d96a8bdf408d7654147bbc44da51e54e289355cee1fe54
+SHA512: eac6aa7f6776e7b423ddbd067064c4355bae8915b977f01b42834c1ac8b83022b988fe410110d3a2f9024c75c19201ab75d9b6f87c174fa97616ae360a22341e
 Homepage: https://github.com/flatpak/xdg-desktop-portal
 Description: desktop integration portal - development files
 Description-md5: 868b66f3cbad8db622f38d23df203ad4

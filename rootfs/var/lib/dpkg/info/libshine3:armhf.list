@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libshine.so.3.0.1
+/usr/share
+/usr/share/doc
+/usr/share/doc/libshine3
+/usr/share/doc/libshine3/changelog.Debian.gz
+/usr/share/doc/libshine3/copyright
+/usr/lib/arm-linux-gnueabihf/libshine.so.3

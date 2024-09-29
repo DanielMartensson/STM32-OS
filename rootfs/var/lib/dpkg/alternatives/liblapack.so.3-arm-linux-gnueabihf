@@ -1,0 +1,6 @@
+auto
+/usr/lib/arm-linux-gnueabihf/liblapack.so.3
+
+/usr/lib/arm-linux-gnueabihf/lapack/liblapack.so.3
+10
+

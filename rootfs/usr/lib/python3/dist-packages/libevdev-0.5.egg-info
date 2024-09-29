@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: libevdev
+Version: 0.5
+Summary: Python wrapper for libevdev
+Home-page: https://www.github.com/whot/python-libevdev/
+Author: Peter Hutterer
+Author-email: peter.hutterer@who-t.net
+License: UNKNOWN
+Description: 
+        python-libevdev is a Python wrapper arround the libevdev C library. It
+        provides a Pythonic API to read events from the Linux kernel's input device
+        nodes and to read and/or modify the device's state and capabilities.
+        
+        The documentation is available here:
+        https://python-evdev.readthedocs.io/en/latest/
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Software Development
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3

@@ -1,0 +1,2 @@
+# utempter needs write access on /run/utmp owned by root:utmp
+elevated-privileges 2755 root/utmp [usr/lib/x86_64-linux-gnu/utempter/utempter]

@@ -40,7 +40,7 @@ f03b04278044444414ca6abb7c59cbb7  usr/share/dbus-1/interfaces/org.freedesktop.sy
 a8c555e2a4b6a6e58b520780a254b2f0  usr/share/dbus-1/interfaces/org.freedesktop.systemd1.Unit.xml
 0c9ed98947e9afe88e53b941f4a0c161  usr/share/dbus-1/interfaces/org.freedesktop.timedate1.xml
 9a64698004dde7cc4a0294003225c780  usr/share/doc/systemd-dev/NEWS.Debian.gz
-65e6a9072b09caca7d28558f8f352d1c  usr/share/doc/systemd-dev/changelog.Debian.gz
+4086ab14888436c8373d737d0ad07188  usr/share/doc/systemd-dev/changelog.Debian.gz
 b16a86fb841b001b52a5c5caccf526c2  usr/share/doc/systemd-dev/copyright
 417e2f3f23fd12713852e262dabd0fc9  usr/share/pkgconfig/systemd.pc
 b8bfa8a919f47b755f9ae60ef70e32fe  usr/share/pkgconfig/udev.pc

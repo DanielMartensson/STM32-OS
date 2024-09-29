@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libsratom-0.so.0.6.16
+/usr/share
+/usr/share/doc
+/usr/share/doc/libsratom-0-0
+/usr/share/doc/libsratom-0-0/changelog.Debian.gz
+/usr/share/doc/libsratom-0-0/copyright
+/usr/lib/arm-linux-gnueabihf/libsratom-0.so.0

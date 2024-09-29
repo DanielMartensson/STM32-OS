@@ -1,0 +1,10 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libseat.so.1
+/usr/share
+/usr/share/doc
+/usr/share/doc/libseat1
+/usr/share/doc/libseat1/copyright
+/usr/share/doc/libseat1/changelog.Debian.gz

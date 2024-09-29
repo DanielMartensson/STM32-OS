@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libxcvt.so.0.1.2
+/usr/share
+/usr/share/doc
+/usr/share/doc/libxcvt0
+/usr/share/doc/libxcvt0/changelog.Debian.gz
+/usr/share/doc/libxcvt0/copyright
+/usr/lib/arm-linux-gnueabihf/libxcvt.so.0

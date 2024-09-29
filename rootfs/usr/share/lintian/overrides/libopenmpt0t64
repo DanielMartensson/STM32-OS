@@ -1,0 +1,3 @@
+# This is not a spelling error
+spelling-error-in-binary wHE when [usr/lib/*/libopenmpt.so.*]
+libopenmpt0t64: package-name-doesnt-match-sonames libopenmpt0

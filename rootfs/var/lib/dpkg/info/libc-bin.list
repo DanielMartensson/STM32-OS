@@ -40,6 +40,8 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/libc-bin
+/usr/share/doc/libc-bin/changelog.Debian.gz
+/usr/share/doc/libc-bin/changelog.gz
 /usr/share/doc/libc-bin/copyright
 /usr/share/libc-bin
 /usr/share/libc-bin/nsswitch.conf
@@ -54,4 +56,3 @@
 /var/cache
 /var/cache/ldconfig
 /usr/bin/ld.so
-/usr/share/doc/libc-bin/changelog.Debian.gz

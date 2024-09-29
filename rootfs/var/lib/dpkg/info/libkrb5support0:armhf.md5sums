@@ -1,4 +1,4 @@
-2ed80cd7c328e9057415233dcd2f2388  usr/lib/arm-linux-gnueabihf/libkrb5support.so.0.1
-82cd7d1b234a8c454ff3b5cc6b0f3074  usr/share/doc/libkrb5support0/changelog.Debian.gz
+3460c0c92de06f21afa0d2aeb008bfc5  usr/lib/arm-linux-gnueabihf/libkrb5support.so.0.1
+2e4ee0014fdd00722304379ad867ba36  usr/share/doc/libkrb5support0/changelog.Debian.gz
 9ccaedcaac156d04b53a8e5f5af7dcfa  usr/share/doc/libkrb5support0/copyright
 71e724d7c6f7718ac7b23dac682862a0  usr/share/lintian/overrides/libkrb5support0

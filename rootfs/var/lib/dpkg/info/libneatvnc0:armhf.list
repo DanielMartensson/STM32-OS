@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libneatvnc.so.0.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libneatvnc0
+/usr/share/doc/libneatvnc0/changelog.Debian.gz
+/usr/share/doc/libneatvnc0/copyright
+/usr/lib/arm-linux-gnueabihf/libneatvnc.so.0

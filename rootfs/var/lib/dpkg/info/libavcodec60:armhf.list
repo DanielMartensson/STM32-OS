@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libavcodec.so.60.31.102
+/usr/share
+/usr/share/doc
+/usr/share/doc/libavcodec60
+/usr/share/doc/libavcodec60/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libavcodec60
+/usr/lib/arm-linux-gnueabihf/libavcodec.so.60
+/usr/share/doc/libavcodec60/changelog.Debian.gz

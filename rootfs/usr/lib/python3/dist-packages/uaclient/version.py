@@ -1,6 +1,7 @@
 """
 Client version related functions
 """
+
 import os.path
 from math import inf
 from typing import Optional
@@ -14,8 +15,8 @@ from uaclient.defaults import CANDIDATE_CACHE_PATH, UAC_RUN_PATH
 from uaclient.exceptions import ProcessExecutionError
 from uaclient.system import subp
 
-__VERSION__ = "31.2.3"
-PACKAGED_VERSION = "31.2.3"
+__VERSION__ = "34"
+PACKAGED_VERSION = "34~24.04"
 
 
 def get_version() -> str:
