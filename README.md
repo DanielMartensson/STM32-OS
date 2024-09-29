@@ -14,10 +14,8 @@ This repository is about a minimal linux distro, based on `Ubuntu 24.04 LTS`. Th
 * dpkg
 * nano
 * python
-* isc-dhcp-client
 * bzip2
 * gzip
-* net-tools
 * etc...
 
 # How to use
@@ -45,10 +43,47 @@ After the system has booted up, and you can either login(`user: root`. `password
 
 ```sh
 resize2fs /dev/mmcblk0p7
+e2fsck -f /dev/mmcblk0p6
 df -h
 ```
 
 ![](https://raw.githubusercontent.com/DanielMartensson/STM32-OS/refs/heads/main/memory.png)
+
+# Packages pre-installed
+
+A minimal system need to have:
+
+* hdmi
+* ssh
+* net
+
+So therefore, these must be installed, if they are not already installed.
+
+```sh
+apt-get install isc-dhcp-client net-tools drm-info libdrm2 libdrm-amdgpu1 libdrm-common libdrm-tests xorg xterm xserver-xorg-video-armsoc x11-xserver-utils xinit xserver-xorg-input-evdev weston seatd libinput-tools xcursor-themes libgl1-mesa-dri mesa-utils wayland-utils 
+sudo touch ~/.Xauthority
+```
+
+## Starting the screen
+
+```
+weston --use-pixman
+```
+
+# Troubleshooting
+
+```
+Problem: sudo: unable to allocate pty: No such device
+Solution: mount none -t devpts /dev/pts
+```
+
+# To large files to commit
+
+These are important files that are to large to commit.
+
+```
+rootfs/usr/lib/arm-linux-gnueabihf/libLLVM-17.so.1
+```
 
 # FAQ
 
@@ -60,5 +95,4 @@ df -h
   - Answer: No, if you want to build on your kernel, head over to `STM32-Computer`. I have separated the `bootfs`-work (kernel) and `rootfs`-work (STM32-OS).
 * Question: What's the difference between `Ubuntu 24.04 LTS` and `STM32-OS 24.04 LTS`?
   - Answer: I'm keeping `STM32-OS` as thin as possible for minimal `RAM` usage.
-  
  
