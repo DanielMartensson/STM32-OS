@@ -1,0 +1,10 @@
+[Unit]
+Description=LED control script
+
+[Service]
+ExecStart=/etc/init.d/set_leds.sh
+Type=oneshot
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target

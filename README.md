@@ -94,9 +94,17 @@ weston --backend=vnc --vnc-tls-cert=/path/to/vnc.cert --vnc-tls-key=/path/to/vnc
 
 Then you're are logged in with `sudo chroot rootfs` and trying to install something, then this might appears.
 
-```
+```sh
 Problem: sudo: unable to allocate pty: No such device
 Solution: mount none -t devpts /dev/pts
+```
+
+```sh
+Problem: ⚠ /proc/ is not mounted. This is not a supported mode of operation. Please fix                                                                
+your invocation environment to mount /proc/ and /sys/ properly. Proceeding anyway.                                                            
+Your mileage may vary.
+
+Solution: mount -t proc proc /proc
 ```
 
 ## To large files to commit

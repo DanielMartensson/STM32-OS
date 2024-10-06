@@ -440,7 +440,13 @@ Owners: ucf
 
 Name: ucf/changeprompt_threeway
 Template: ucf/changeprompt_threeway
+Value: install_new
 Owners: ucf
+Flags: seen
+Variables:
+ BASENAME = sshd_config
+ FILE = /etc/ssh/sshd_config
+ NEW = /tmp/tmp.2GAFP8fjg6
 
 Name: ucf/conflicts_found
 Template: ucf/conflicts_found

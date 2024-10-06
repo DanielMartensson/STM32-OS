@@ -338,3 +338,26 @@ weston --backend=vnc
 weston --help
 weston --beckeds
 exit
+cd etc/
+ls
+cd init.d/
+ls
+sudo nano set_leds.sh
+nano set_leds.sh
+chmod +x set_leds.sh 
+update-rc.d set_leds.sh defaults
+locale-gen sv_SE.UTF-8
+dpkg-reconfigure locales
+update-rc.d set_leds.sh defaults
+cd ..
+cd systemd/system
+ls
+nano set_leds.service
+ls
+systemctl enable set_leds.service 
+mount -t proc proc /proc
+systemctl enable set_leds.service 
+systemctl status set_leds.service
+systemctl start set_leds.service
+systemctl enable set_leds.service
+exit
