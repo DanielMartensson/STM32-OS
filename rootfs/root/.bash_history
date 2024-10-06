@@ -212,3 +212,129 @@ touch .keep
 cd ..
 ls
 exit
+cd etc/
+ls
+cd xdg/
+ls
+cd Xwayland-session.d/
+ls
+less 00-at-spi 
+cd ..
+ls
+cd systemd/
+ls
+cd user
+ls
+cd timers.target.wants/
+ls
+cd launchpadlib-cache-clean.timer 
+ls
+less launchpadlib-cache-clean.timer 
+cd ..
+cd /etc
+ls
+cd 
+find -name weston
+find -name weston.ini
+find -name "weston.ini"
+find -name 'weston.ini'
+find 'weston.ini'
+find weston.ini
+find / -name weston.ini
+apt search weston
+cd etc
+ls
+cd systemd/
+ls
+cd user
+ls
+cd timers.target.wants/
+ls
+less launchpadlib-cache-clean.timer 
+weston
+cd /run
+ls
+cd user
+ls
+cd 
+cd etc
+cd etc/
+cd /etc
+ls
+cd xdg
+ls
+cd systemd/
+ls
+cd ..
+cd Xwayland-session.d/
+ls
+cd ..
+cd systemd/
+ls
+cd user
+ls
+pwd
+ls
+cd timers.target.wants/
+ls
+less launchpadlib-cache-clean.timer 
+ls
+cd ..
+ls
+cd graphical-session-pre.target.wants/
+ls
+less session-migration.service 
+sudo apt-get install kmscon
+apt-get install kmscon
+exit
+ls
+setterm
+setterm --help
+systemctl list-units --type=service | grep kmscon
+mount -t proc /proc /mnt/chroot/proc
+mount --rbind /sys /mnt/chroot/sys
+mount --rbind /dev /mnt/chroot/dev
+systemctl list-units --type=service | grep kmscon
+mount -t proc proc /proc
+systemctl list-units --type=service | grep kmscon
+cd /etc/init.d/
+ls
+cat /etc/rc.local
+crontab -l
+ps aux | grep kmscon
+kmscon --help
+kmscon -c /etc/kmscon
+ls
+cd /etc
+ls
+cd kmscon
+foot
+cd systemd/
+ls
+cd system
+ls
+cd sysinit.target.wants/
+ls
+cd ..
+ls
+cd timers.target.wants/
+ls
+cd ..
+dpkg -l | grep kmscon
+grep -r "kmscon" /
+cd /usr
+ls
+cd lib
+ls
+cd systemd/
+ls
+cd system
+ls
+less kmsconvt\@.service 
+exit
+weston-vnc
+sudo apt-get install weston-vnc
+weston --backend=vnc
+weston --help
+weston --beckeds
+exit

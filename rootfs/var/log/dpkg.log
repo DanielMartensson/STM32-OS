@@ -9369,3 +9369,27 @@
 2024-09-29 15:59:44 trigproc libc-bin:armhf 2.39-0ubuntu8.3 <none>
 2024-09-29 15:59:44 status half-configured libc-bin:armhf 2.39-0ubuntu8.3
 2024-09-29 15:59:44 status installed libc-bin:armhf 2.39-0ubuntu8.3
+2024-10-03 18:13:17 startup archives unpack
+2024-10-03 18:13:18 install libtsm4:armhf <none> 4.0.2-0.4
+2024-10-03 18:13:18 status triggers-pending libc-bin:armhf 2.39-0ubuntu8.3
+2024-10-03 18:13:18 status half-installed libtsm4:armhf 4.0.2-0.4
+2024-10-03 18:13:19 status unpacked libtsm4:armhf 4.0.2-0.4
+2024-10-03 18:13:19 install kmscon:armhf <none> 9.0.0-5build2
+2024-10-03 18:13:19 status half-installed kmscon:armhf 9.0.0-5build2
+2024-10-03 18:13:20 status triggers-pending man-db:armhf 2.12.0-4build2
+2024-10-03 18:13:20 status unpacked kmscon:armhf 9.0.0-5build2
+2024-10-03 18:13:21 startup packages configure
+2024-10-03 18:13:21 configure libtsm4:armhf 4.0.2-0.4 <none>
+2024-10-03 18:13:21 status unpacked libtsm4:armhf 4.0.2-0.4
+2024-10-03 18:13:21 status half-configured libtsm4:armhf 4.0.2-0.4
+2024-10-03 18:13:21 status installed libtsm4:armhf 4.0.2-0.4
+2024-10-03 18:13:21 configure kmscon:armhf 9.0.0-5build2 <none>
+2024-10-03 18:13:21 status unpacked kmscon:armhf 9.0.0-5build2
+2024-10-03 18:13:21 status half-configured kmscon:armhf 9.0.0-5build2
+2024-10-03 18:13:23 status installed kmscon:armhf 9.0.0-5build2
+2024-10-03 18:13:23 trigproc man-db:armhf 2.12.0-4build2 <none>
+2024-10-03 18:13:23 status half-configured man-db:armhf 2.12.0-4build2
+2024-10-03 18:13:27 status installed man-db:armhf 2.12.0-4build2
+2024-10-03 18:13:27 trigproc libc-bin:armhf 2.39-0ubuntu8.3 <none>
+2024-10-03 18:13:27 status half-configured libc-bin:armhf 2.39-0ubuntu8.3
+2024-10-03 18:13:27 status installed libc-bin:armhf 2.39-0ubuntu8.3

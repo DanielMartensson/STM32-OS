@@ -1692,7 +1692,7 @@ Homepage: https://www.gnu.org/software/gzip/
 Original-Maintainer: Milan Kupcevic <milan@debian.org>
 
 Package: hicolor-icon-theme
-Status: install ok triggers-pending
+Status: install ok installed
 Priority: optional
 Section: misc
 Installed-Size: 440
@@ -1703,7 +1703,6 @@ Version: 0.17-2
 Description: default fallback theme for FreeDesktop.org icon themes
  This is the default fallback theme used by implementations of the
  Freedesktop.org Icon Theme specification.
-Triggers-Pending: /usr/share/icons/hicolor
 Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 
 Package: hostname
@@ -1986,6 +1985,33 @@ Description: tools for managing Linux kernel modules
  removing kernel modules for Linux.
  It replaces module-init-tools.
 Original-Maintainer: Marco d'Itri <md@linux.it>
+
+Package: kmscon
+Status: install ok unpacked
+Priority: optional
+Section: utils
+Installed-Size: 2452
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: foreign
+Version: 9.0.0-5build2
+Depends: init-system-helpers (>> 1.65~), libc6 (>= 2.38), libdrm2 (>= 2.4.25), libegl1, libgbm1 (>= 8.1~0), libgles2, libglib2.0-0t64 (>= 2.12.0), libpango-1.0-0 (>= 1.22.0), libpangoft2-1.0-0 (>= 1.14.0), libpixman-1-0 (>= 0.27.4), libsystemd0, libtsm4 (>= 4.0.1), libudev1 (>= 183), libxkbcommon0 (>= 0.5.0)
+Conffiles:
+ /etc/needrestart/conf.d/kmscon.conf newconffile
+Description: Simple terminal emulator based on Kernel Mode Setting
+ kmscon is a system console for Linux. It does not depend on any
+ graphics-server on your system (like X.org), but instead provides
+ a raw console layer that can  be used independently.
+ It can replace the Linux kernel console entirely but was designed to
+ work well side-by-side, too.
+ Even though initially targeted at providing internationalization to
+ the system-console, it has grown into a fully modularized console
+ layer including features like multi-head support, internationalized
+ font rendering, XKB-compatible keyboard handling,
+ hardware-accelerated graphics access and more.
+Built-Using: unifont (= 1:15.1.01-1)
+Homepage: https://github.com/Aetf/kmscon
+Original-Maintainer: Victor Westerhuis <victor@westerhu.is>
 
 Package: krb5-locales
 Status: install ok installed
@@ -8050,6 +8076,40 @@ Description: transport-independent RPC library
 Homepage: http://sourceforge.net/projects/libtirpc
 Original-Maintainer: Josue Ortega <josue@debian.org>
 
+Package: libtsm4
+Status: install ok unpacked
+Priority: optional
+Section: libs
+Installed-Size: 72
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: libtsm
+Version: 4.0.2-0.4
+Depends: libc6 (>= 2.4)
+Description: Terminal-emulator State Machine - runtime
+ TSM is a state machine for DEC VT100-VT520 compatible terminal
+ emulators. It tries to support all common standards while keeping
+ compatibility to existing emulators like xterm, gnome-terminal, konsole, ..
+ .
+ TSM itself does not provide any rendering nor window management.
+ It is a simple plain state machine without any external dependencies.
+ It can be used to implement terminal emulators, but also to implement
+ other applications that need to interpret terminal escape sequences.
+ .
+ This library is very similar to libvte of the GNOME project.
+ However, libvte is highly bound to GTK+, which makes it unsuitable for
+ non-graphics projects that need to parse escape sequences. Instead,
+ TSM tries to restrict its API to terminal emulation only. Furthermore,
+ TSM does not try to establish a new terminal emulation standard, but
+ instead keeps compatibility as close to xterm as possible.
+ This is why the TERM variable can be set to xterm-color256 with any
+ TSM based terminal emulator.
+ .
+ This package contains the libtsm runtime library.
+Original-Maintainer: Nobuhiro Iwamatsu <iwamatsu@debian.org>
+Homepage: https://github.com/Aetf/libtsm
+
 Package: libturbojpeg
 Status: install ok installed
 Priority: optional
@@ -12390,7 +12450,7 @@ Original-Maintainer: Debian freedesktop.org maintainers <pkg-freedesktop-maintai
 Homepage: https://freedesktop.org/wiki/Software/shared-mime-info
 
 Package: ssh
-Status: install ok unpacked
+Status: install ok installed
 Priority: optional
 Section: net
 Installed-Size: 56
@@ -12399,7 +12459,6 @@ Architecture: all
 Multi-Arch: foreign
 Source: openssh
 Version: 1:9.6p1-3ubuntu13.5
-Config-Version: 1:9.6p1-3ubuntu13
 Depends: openssh-client (>= 1:9.6p1-3ubuntu13.5), openssh-server (>= 1:9.6p1-3ubuntu13.5)
 Description: secure shell client and server (metapackage)
  This metapackage is a convenient way to install both the OpenSSH client
@@ -12689,7 +12748,7 @@ Description: GnuPG keys of the Ubuntu archive
  contains the archive keys used for that.
 
 Package: ubuntu-minimal
-Status: install ok unpacked
+Status: install ok installed
 Priority: optional
 Section: metapackages
 Installed-Size: 17
@@ -12697,7 +12756,6 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Source: ubuntu-meta
 Version: 1.539.1
-Config-Version: 1.539
 Depends: adduser, apt, apt-utils, console-setup, debconf, debconf-i18n, dhcpcd-base, e2fsprogs, eject, init, iproute2, iputils-ping, kbd, kmod, less, locales, lsb-release, mawk, mount, netbase, netcat-openbsd, netplan.io, passwd, procps, python3, sensible-utils, sudo, tzdata, ubuntu-keyring, ubuntu-pro-client, udev, vim-tiny, whiptail
 Recommends: rsyslog
 Breaks: initramfs-tools (<< 0.142ubuntu9~)
@@ -12730,7 +12788,7 @@ Description: Ubuntu Mono Icon theme
 Homepage: https://launchpad.net/ubuntu-themes
 
 Package: ubuntu-pro-client
-Status: install ok unpacked
+Status: install ok installed
 Priority: important
 Section: misc
 Installed-Size: 1243
@@ -12738,7 +12796,6 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Source: ubuntu-advantage-tools
 Version: 34~24.04
-Config-Version: 31.2.3
 Replaces: ubuntu-advantage-tools (<< 31~)
 Depends: python3-yaml, python3:any, libapt-pkg6.0t64 (>= 1.9~), libc6 (>= 2.38), libgcc-s1 (>= 3.5), libjson-c5 (>= 0.15), libstdc++6 (>= 13.1), python3-apt, python3-pkg-resources, distro-info (>= 0.18ubuntu0.18.04.1)
 Recommends: ubuntu-pro-client-l10n
@@ -12762,7 +12819,7 @@ Description: Management tools for Ubuntu Pro
 Homepage: https://canonical-ubuntu-pro-client.readthedocs-hosted.com/
 
 Package: ubuntu-pro-client-l10n
-Status: install ok unpacked
+Status: install ok installed
 Priority: important
 Section: misc
 Installed-Size: 89
@@ -12770,7 +12827,6 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Source: ubuntu-advantage-tools
 Version: 34~24.04
-Config-Version: 31.2.3
 Depends: ubuntu-pro-client (= 34~24.04)
 Description: Translations for Ubuntu Pro Client
  This package delivers translations of Ubuntu Pro Client for various

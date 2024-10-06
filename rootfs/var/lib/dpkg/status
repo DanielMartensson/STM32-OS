@@ -1986,6 +1986,33 @@ Description: tools for managing Linux kernel modules
  It replaces module-init-tools.
 Original-Maintainer: Marco d'Itri <md@linux.it>
 
+Package: kmscon
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 2452
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: foreign
+Version: 9.0.0-5build2
+Depends: init-system-helpers (>> 1.65~), libc6 (>= 2.38), libdrm2 (>= 2.4.25), libegl1, libgbm1 (>= 8.1~0), libgles2, libglib2.0-0t64 (>= 2.12.0), libpango-1.0-0 (>= 1.22.0), libpangoft2-1.0-0 (>= 1.14.0), libpixman-1-0 (>= 0.27.4), libsystemd0, libtsm4 (>= 4.0.1), libudev1 (>= 183), libxkbcommon0 (>= 0.5.0)
+Conffiles:
+ /etc/needrestart/conf.d/kmscon.conf e3a096024f8659f3eb944996009515e4
+Description: Simple terminal emulator based on Kernel Mode Setting
+ kmscon is a system console for Linux. It does not depend on any
+ graphics-server on your system (like X.org), but instead provides
+ a raw console layer that can  be used independently.
+ It can replace the Linux kernel console entirely but was designed to
+ work well side-by-side, too.
+ Even though initially targeted at providing internationalization to
+ the system-console, it has grown into a fully modularized console
+ layer including features like multi-head support, internationalized
+ font rendering, XKB-compatible keyboard handling,
+ hardware-accelerated graphics access and more.
+Built-Using: unifont (= 1:15.1.01-1)
+Homepage: https://github.com/Aetf/kmscon
+Original-Maintainer: Victor Westerhuis <victor@westerhu.is>
+
 Package: krb5-locales
 Status: install ok installed
 Priority: optional
@@ -8047,6 +8074,40 @@ Description: transport-independent RPC library
  library, providing among others support for RPC (and in turn, NFS) over IPv6.
 Homepage: http://sourceforge.net/projects/libtirpc
 Original-Maintainer: Josue Ortega <josue@debian.org>
+
+Package: libtsm4
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 72
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: libtsm
+Version: 4.0.2-0.4
+Depends: libc6 (>= 2.4)
+Description: Terminal-emulator State Machine - runtime
+ TSM is a state machine for DEC VT100-VT520 compatible terminal
+ emulators. It tries to support all common standards while keeping
+ compatibility to existing emulators like xterm, gnome-terminal, konsole, ..
+ .
+ TSM itself does not provide any rendering nor window management.
+ It is a simple plain state machine without any external dependencies.
+ It can be used to implement terminal emulators, but also to implement
+ other applications that need to interpret terminal escape sequences.
+ .
+ This library is very similar to libvte of the GNOME project.
+ However, libvte is highly bound to GTK+, which makes it unsuitable for
+ non-graphics projects that need to parse escape sequences. Instead,
+ TSM tries to restrict its API to terminal emulation only. Furthermore,
+ TSM does not try to establish a new terminal emulation standard, but
+ instead keeps compatibility as close to xterm as possible.
+ This is why the TERM variable can be set to xterm-color256 with any
+ TSM based terminal emulator.
+ .
+ This package contains the libtsm runtime library.
+Original-Maintainer: Nobuhiro Iwamatsu <iwamatsu@debian.org>
+Homepage: https://github.com/Aetf/libtsm
 
 Package: libturbojpeg
 Status: install ok installed

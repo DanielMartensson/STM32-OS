@@ -2,7 +2,7 @@
 
 Target             |   Ecosystem
 :-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/DanielMartensson/STM32-OS/refs/heads/main/stm32mp1.png)  |  ![](https://raw.githubusercontent.com/DanielMartensson/STM32-OS/refs/heads/main/ubuntu.png)
+![](https://raw.githubusercontent.com/DanielMartensson/STM32-OS/refs/heads/main/pictures/stm32mp1.png)  |  ![](https://raw.githubusercontent.com/DanielMartensson/STM32-OS/refs/heads/main/pictures/ubuntu.png)
 
 This repository is about a minimal linux distro, based on `Ubuntu 24.04 LTS`. This linux distribution has the minimal setup for starting a system. Every package `Ubuntu 24.04 LTS` have, can be installed on `STM32-OS`.
 
@@ -47,7 +47,7 @@ e2fsck -f /dev/mmcblk0p6
 df -h
 ```
 
-![](https://raw.githubusercontent.com/DanielMartensson/STM32-OS/refs/heads/main/memory.png)
+![](https://raw.githubusercontent.com/DanielMartensson/STM32-OS/refs/heads/main/pictures/memory.png)
 
 # Packages pre-installed
 
@@ -56,21 +56,42 @@ A minimal system need to have:
 * hdmi
 * ssh
 * net
+* vnc
 
 So therefore, these must be installed, if they are not already installed.
 
 ```sh
-apt-get install isc-dhcp-client net-tools drm-info libdrm2 libdrm-amdgpu1 libdrm-common libdrm-tests xorg xterm xserver-xorg-video-armsoc x11-xserver-utils xinit xserver-xorg-input-evdev weston seatd libinput-tools xcursor-themes libgl1-mesa-dri mesa-utils wayland-utils 
+apt-get install isc-dhcp-client net-tools drm-info libdrm2 libdrm-amdgpu1 libdrm-common libdrm-tests xorg xterm xserver-xorg-video-armsoc x11-xserver-utils xinit xserver-xorg-input-evdev weston seatd libinput-tools xcursor-themes libgl1-mesa-dri mesa-utils wayland-utils kmscon
 sudo touch ~/.Xauthority
 ```
 
-## Starting the screen
+## Starting the HDMI screen
+
+The HDMI screen will be started default with a console login promt `kmscon`. To start the graphical user interface:
 
 ```
-weston --use-pixman
+pkill kmscon; weston --use-pixman --idle-time=0
 ```
+
+# Starting VNC
+
+This `STM32-OS` comes with a `VNC` server. To configure the `VNC` server.
+
+```sh
+openssl genrsa -out vnc.key 2048
+openssl req -new -x509 -key vnc.key -out vnc.cert -days 365 -subj "/CN=localhost"
+```
+
+And start the `VNC` server with. This can be done through `openssh`.
+```sh
+weston --backend=vnc --idle-time=0 --vnc-tls-cert=/path/to/vnc.cert --vnc-tls-key=/path/to/vnc.key
+```
+
+![a](https://github.com/DanielMartensson/STM32-OS/blob/main/pictures/vnc.jpg?raw=true)
 
 # Troubleshooting
+
+Then you're are logged in with `sudo chroot rootfs` and trying to install something, then this might appears.
 
 ```
 Problem: sudo: unable to allocate pty: No such device

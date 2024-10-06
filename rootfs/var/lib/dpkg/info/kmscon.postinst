@@ -1,0 +1,26 @@
+#!/bin/sh
+set -e
+
+# Copied from /usr/share/debhelper/autoscripts/postinst-systemd-enable
+# from debhelper 13.11.8.
+# This can go once #889635 is fixed.
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	# The following line should be removed in trixie or trixie+1
+	deb-systemd-helper unmask kmsconvt@.service >/dev/null || true
+
+	# was-enabled defaults to true, so new installations run enable.
+	if deb-systemd-helper --quiet was-enabled kmsconvt@.service; then
+		# Enables the unit on first installation, creates new
+		# symlinks on upgrades if the unit file has changed.
+		deb-systemd-helper enable kmsconvt@.service >/dev/null || true
+	else
+		# Update the statefile to add new symlinks (if any), which need to be
+		# cleaned up on purge. Also remove old symlinks.
+		deb-systemd-helper update-state kmsconvt@.service >/dev/null || true
+	fi
+fi
+
+# Automatically added by dh_installdeb/13.14.1ubuntu5
+dpkg-maintscript-helper rm_conffile /etc/systemd/system/getty.target.wants/kmsconvt\@.service 9.0.0-3\~ -- "$@"
+# End automatically added section
+
