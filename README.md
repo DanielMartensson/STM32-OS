@@ -85,7 +85,7 @@ openssl req -new -x509 -key vnc.key -out vnc.cert -days 365 -subj "/CN=localhost
 
 And start the `VNC` server with. This can be done through `openssh`.
 ```sh
-weston --backend=vnc --idle-time=0 --vnc-tls-cert=/path/to/vnc.cert --vnc-tls-key=/path/to/vnc.key
+weston --backend=vnc --vnc-tls-cert=/path/to/vnc.cert --vnc-tls-key=/path/to/vnc.key
 ```
 
 ![a](https://github.com/DanielMartensson/STM32-OS/blob/main/pictures/vnc.jpg?raw=true)
