@@ -6,11 +6,12 @@ Target             |   Ecosystem
 
 This repository is about a minimal linux distro, based on `Ubuntu 24.04 LTS`. This linux distribution has the minimal setup for starting a system. Every package `Ubuntu 24.04 LTS` have, can be installed on `STM32-OS`.
 
-# Important software pre-installed
+# Pre installed packages
 
 * busybox
 * ssh
 * apt
+* vnc
 * dpkg
 * nano
 * python
@@ -49,7 +50,7 @@ df -h
 
 ![](https://raw.githubusercontent.com/DanielMartensson/STM32-OS/refs/heads/main/pictures/memory.png)
 
-# Packages pre-installed
+# Important packages
 
 A minimal system need to have:
 
@@ -73,7 +74,7 @@ The HDMI screen will be started default with a console login promt `kmscon`. To 
 pkill kmscon; weston --use-pixman --idle-time=0
 ```
 
-# Starting VNC
+## Starting VNC
 
 This `STM32-OS` comes with a `VNC` server. To configure the `VNC` server.
 
@@ -89,7 +90,7 @@ weston --backend=vnc --idle-time=0 --vnc-tls-cert=/path/to/vnc.cert --vnc-tls-ke
 
 ![a](https://github.com/DanielMartensson/STM32-OS/blob/main/pictures/vnc.jpg?raw=true)
 
-# Troubleshooting
+## Troubleshooting
 
 Then you're are logged in with `sudo chroot rootfs` and trying to install something, then this might appears.
 
@@ -98,9 +99,9 @@ Problem: sudo: unable to allocate pty: No such device
 Solution: mount none -t devpts /dev/pts
 ```
 
-# To large files to commit
+## To large files to commit
 
-These are important files that are to large to commit.
+Here are files that are too large to commit:
 
 ```
 rootfs/usr/lib/arm-linux-gnueabihf/libLLVM-17.so.1
@@ -109,7 +110,7 @@ rootfs/usr/lib/arm-linux-gnueabihf/libLLVM-17.so.1
 # FAQ
 
 * Question: Can I use this for `STM32MP157` too?
-  - Answer: The installation of this linux distribution is meant to work for `STM32-Computer`, but the `file_system` folder, which is the `STM32-OS`, can work for all types of `armhf` architectures. So the answer is yes, you can.
+  - Answer: The installation of this linux distribution is meant to work for `STM32-Computer`, but the `rootfs` folder, which is the `STM32-OS`, can work for all types of `armhf` architectures. So the answer is yes, you can.
 * Question: STMicroelectronics have a linux distribution called `OpenSTLinux`. Why did you not use that instead?
   - Answer: I find that `Ubunutu's` ecosystem of the `apt` packages are much richer compared to `OpenSTLinux`. Also there is more community support for `Ubuntu` compared to `OpenSTLinux`.
 * Question: I want to build on my kernel, can I use this repository to build on my kernel?
