@@ -107,7 +107,7 @@ Your mileage may vary.
 Solution: mount -t proc proc /proc
 ```
 
-## To large files to commit
+## Too large files to commit
 
 Here are files that are too large to commit:
 
