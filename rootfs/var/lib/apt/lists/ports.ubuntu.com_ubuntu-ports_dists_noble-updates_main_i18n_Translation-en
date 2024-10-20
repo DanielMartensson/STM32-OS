@@ -311,6 +311,22 @@ Description-en: basic utilities from 4.4BSD-Lite
  system: logger, renice, script, scriptlive, scriptreplay and wall. The
  remaining standard BSD utilities are provided by bsdextrautils.
 
+Package: bubblewrap
+Description-md5: 93fea4e8ee77b240289ff794fd4777ea
+Description-en: utility for unprivileged chroot and namespace manipulation
+ bubblewrap uses Linux namespaces to launch unprivileged containers.
+ These containers can be used to sandbox semi-trusted applications such
+ as Flatpak apps, image/video thumbnailers and web browser components,
+ or to run programs in a different library stack such as a Flatpak runtime
+ or a different Debian release.
+ .
+ By default, this package relies on a kernel with user namespaces enabled.
+ Official Debian and Ubuntu kernels are suitable.
+ .
+ On kernels without user namespaces, system administrators can make the
+ bwrap executable setuid root, allowing it to create unprivileged
+ containers even though ordinary user processes cannot.
+
 Package: busybox-initramfs
 Description-md5: 07bc91bcf5e1da8f300c48c3d990ca10
 Description-en: Standalone shell setup for initramfs
@@ -1649,6 +1665,57 @@ Description-en: OpenSymbol TrueType font
  LibreOffice. This font contains symbols (like fonts as Wingdings(tm)),
  bullets (needed for bullets in LibreOffice) and non-latin character
 
+Package: freeradius
+Description-md5: 8f93db923be1449fe3d8c09996bd75e7
+Description-en: high-performance and highly configurable RADIUS server
+ FreeRADIUS is a high-performance RADIUS server with support for:
+  - Authentication by local files, SQL, Kerberos, LDAP, PAM, and more.
+  - Powerful policy configuration language.
+  - Proxying and replicating requests by any criteria.
+  - Support for many EAP types; TLS, PEAP, TTLS, etc.
+  - Many vendor-specific attributes.
+  - Regexp matching in string attributes.
+ and lots more.
+
+Package: freeradius-common
+Description-md5: 1c7945f97894906b5aaee9b087c2f56c
+Description-en: FreeRADIUS common files
+ This package contains common files used by several of the other packages from
+ the FreeRADIUS project.
+
+Package: freeradius-config
+Description-md5: ac5463a5cccad417d59c5cd9a88dd876
+Description-en: FreeRADIUS default config files
+ freeradius-config contains the default configuration for FreeRADIUS.
+ .
+ You can install a custom package which sets "Provides: freeradius-config" in
+ order to use the FreeRADIUS packages without any default configuration getting
+ into your way.
+
+Package: freeradius-dhcp
+Description-md5: 63c03705d2b33716c280099cb1b24d9d
+Description-en: DHCP module for FreeRADIUS server
+ The FreeRADIUS server can act as a DHCP server, and this module
+ is necessary for that.
+
+Package: freeradius-utils
+Description-md5: fb4360d3ae626ff33fe6068c0b23a981
+Description-en: FreeRADIUS client utilities
+ This package contains various client programs and utilities from
+ the FreeRADIUS Server project, including:
+  - radclient
+  - radcrypt
+  - radeapclient
+  - radlast
+  - radsecret
+  - radsniff
+  - radsqlrelay
+  - radtest
+  - radwho
+  - radzap
+  - rlm_ippool_tool
+  - smbencrypt
+
 Package: frr
 Description-md5: 3cd236070526def99d5e2ff7b518d0cd
 Description-en: FRRouting suite of internet protocols (BGP, OSPF, IS-IS, ...)
@@ -1949,6 +2016,14 @@ Description-en: Introspection data for GNOME Online Accounts
  .
  This package can be used by other packages using the GIRepository format to
  generate dynamic bindings.
+
+Package: gir1.2-gsf-1
+Description-md5: cafac8e6a223b52243bdc070459447ab
+Description-en: GObject introspection data for the Structured File Library
+ This package contains introspection data for the Structured File Library.
+ .
+ It can be used by packages using the GIRepository format to generate
+ dynamic bindings.
 
 Package: gir1.2-gst-plugins-base-1.0
 Description-md5: b3ee9d18697c0db6a7a856f56ea20867
@@ -2254,6 +2329,15 @@ Description-en: AppIndicator, KStatusNotifierItem and tray support for GNOME She
     to the application. Support needs to be implemented in the application
   - supports legacy tray icons
   - icons can be themed, resized and effects can be applied
+
+Package: gnome-shell-extension-ubuntu-dock
+Description-md5: c2bac0faf9bdb321435b126f80850890
+Description-en: Ubuntu Dock for GNOME Shell
+ A dock for the Gnome Shell, default Ubuntu experience.
+ .
+ This extension is a modified version of Dash To Dock with different defaults.
+ Dash To Dock can be installed to replace it and give more (but unsupported)
+ configuration options.
 
 Package: gnome-shell-extension-ubuntu-tiling-assistant
 Description-md5: 130c259e52239d2298a37562eb49b2c5
@@ -6607,6 +6691,20 @@ Description-en: async fingerprint library of fprint project, drivers shared libr
  .
  This package provides shared libraries for the TOD drivers.
 
+Package: libfreeradius-dev
+Description-md5: 3c0c3d13bc398f9c14b6ccb3e25e2af3
+Description-en: FreeRADIUS shared library development files
+ The FreeRADIUS projects' libfreeradius-radius and libfreeradius-eap, used by
+ the FreeRADIUS server and some of the utilities.
+ .
+ This package contains the development headers and static library version.
+
+Package: libfreeradius3
+Description-md5: 919b31a593d09cd5d4a89177002536aa
+Description-en: FreeRADIUS shared library
+ The FreeRADIUS projects' libfreeradius-radius and libfreeradius-eap, used by
+ the FreeRADIUS server and some of the utilities.
+
 Package: libfreerdp-client3-3
 Description-md5: d4c3a0a2893d75653c3049e1d2066881
 Description-en: Free Remote Desktop Protocol library (client library)
@@ -7054,6 +7152,23 @@ Description-en: interpreter for the PostScript language and for PDF - common fil
  for which the requested CJK TrueType font is missing.
  If the fonts-droid package is not installed,
  these glyphs will be rendered as bullets.
+
+Package: libgsf-1-114
+Description-md5: 6f2a19cee2252e04518882eb04caab00
+Description-en: Structured File Library - runtime version
+ The GNOME Structured File Library aims to provide an efficient
+ extensible I/O abstraction for dealing with different structured file
+ formats.
+
+Package: libgsf-1-common
+Description-md5: 63c4e64ca9b6d79b4947e39b148fe3e7
+Description-en: Structured File Library - common files
+ The GNOME Structured File Library aims to provide an efficient
+ extensible I/O abstraction for dealing with different structured file
+ formats.
+ .
+ These are the architecture independent files that are part of libgsf,
+ like translations of messages.
 
 Package: libgssapi-krb5-2
 Description-md5: 2dd7fe357b29d0ba6727171c01f0301c
@@ -7866,6 +7981,34 @@ Description-en: nss module providing dynamic user and group name resolution
  .
  Installing this package automatically adds the module to /etc/nsswitch.conf.
 
+Package: liboath-dev
+Description-md5: 43b7a0697a07d9858bf8f7570cc6c099
+Description-en: Development files for the OATH Toolkit Liboath library
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package contain all files necessary for developing programs that
+ use Liboath.
+
+Package: liboath0t64
+Description-md5: f0e003b84fa581368a9e05ca75669e34
+Description-en: OATH Toolkit Liboath library
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package includes the Liboath shared library that is used by
+ applications.  You normally don't need to install it manually.
+
 Package: libodbc2
 Description-md5: 90f65e1ce9ca75cf5973c8778c1615b5
 Description-en: ODBC Driver Manager library for Unix
@@ -8341,6 +8484,34 @@ Description-md5: b52a5fa6614adca942f58f5c2213c287
 Description-en: library for accessing process information from /proc
  These are the header files for libproc2. Some packages using libproc2
  to access process information from /proc need these to compile.
+
+Package: libpskc-dev
+Description-md5: 775a2e1b4d9f8f08aede14a6a6d91213
+Description-en: Development files for the OATH Toolkit Libpskc library
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package contain all files necessary for developing programs that
+ use Libpskc.
+
+Package: libpskc0t64
+Description-md5: 77ae8439e744fc19e84aa5840fe1b966
+Description-en: OATH Toolkit Libpskc library
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package includes the Libpskc shared library that is used by
+ applications.  You normally don't need to install it manually.
 
 Package: libpython3-all-dbg
 Description-md5: d6fe6fa6c8741da04e40a5188f0217b0
@@ -11262,6 +11433,21 @@ Description-en: Rust standard libraries - development files
  This package contains development files for the standard Rust libraries,
  needed to compile Rust programs. It may also be installed on a system
  of another host architecture, for cross-compiling to this architecture.
+
+Package: libsubid-dev
+Description-md5: 17377c7b06a4e9e0799cb35c52b46fc1
+Description-en: subordinate id handling library -- shared library
+ The library provides an interface for querying, granding and ungranting
+ subordinate user and group ids.
+ .
+ This package contains the C header files that are
+ needed for applications to use the libsubid4 library.
+
+Package: libsubid4
+Description-md5: a7900d85cbe3a21108f18e52c9a6ed7a
+Description-en: subordinate id handling library -- shared library
+ The library provides an interface for querying, granding and ungranting
+ subordinate user and group ids.
 
 Package: libsysmetrics-dev
 Description-md5: a283068cd23d115d40d98e7f86d60b1a
@@ -22475,6 +22661,12 @@ Description-en: Minimal Generic Linux kernel and headers
  This package will always depend on linux-image-virtual and
  linux-headers-virtual.
 
+Package: live-build
+Description-md5: 5e001429458ae01c34528832e328ea58
+Description-en: Debian Live - System build scripts
+ live-build contains the scripts that build a Debian Live system image from a
+ configuration directory.
+
 Package: livecd-rootfs
 Description-md5: 7b59fd93401bd0efd37505de924d874f
 Description-en: construction script for the livecd rootfs
@@ -22492,6 +22684,14 @@ Description-en: GNU C Library: National Language (locale) data [support]
  definitions actually get generated. This is a space-saver over how this
  package used to be, with all locales generated by default. This created
  a package that unpacked to an excess of 30 megs.
+
+Package: login
+Description-md5: d0499c2dea8faa45484daa5ced2d38b5
+Description-en: system login tools
+ This package provides some required infrastructure for logins and for
+ changing effective user or group IDs, including:
+  * login, the program that invokes a user shell on a virtual terminal;
+  * nologin, a dummy shell for disabled user accounts;
 
 Package: logsave
 Description-md5: 423ff285c4e5f41ac959b0fda6f812fe
@@ -23470,6 +23670,14 @@ Description-en: p11-glue proxy and trust modules
  .
  This package contains the p11-kit proxy module and the system trust
  policy module.
+
+Package: passwd
+Description-md5: 5bbd70e421ed3367a8299e53bd7afed4
+Description-en: change and administer password and group data
+ This package includes passwd, chsh, chfn, and many other programs to
+ maintain password and group data.
+ .
+ Shadow passwords are supported.  See /usr/share/doc/passwd/README.Debian
 
 Package: php8.3
 Description-md5: 86488d7a405bdcbac9ece7c307f30abb
@@ -25018,6 +25226,15 @@ Description-en: modular Ruby webserver interface
  .
  Also see http://rack.github.io/.
 
+Package: ruby-webrick
+Description-md5: 455fb60459233a7320510885b0214565
+Description-en: HTTP server toolkit in Ruby
+ WEBrick is an HTTP server toolkit that can be configured as an HTTPS server, a
+ proxy server, and a virtual-host server.
+ .
+ It used to be provided with the standard library of the Ruby interpreter, and
+ has been available only as a standalone gem since ruby3.0.
+
 Package: ruby3.2
 Description-md5: e73a45fc1bbd22255f2741293584fe57
 Description-en: Interpreter of object-oriented scripting language Ruby
@@ -25111,6 +25328,32 @@ Description-en: Cyrus SASL - administration programs for SASL users database
  .
  This package contains administration programs for the SASL users
  database and common binary files for plugin modules.
+
+Package: shotwell
+Description-md5: b92939eb89d116eb1ed169bb0c99b561
+Description-en: digital photo organizer
+ Shotwell is a digital photo organizer designed for the GNOME desktop
+ environment. It allows you to import photos, pictures, images and videos
+ from disk or camera. Shotwell can organize them in collections and in other
+ various ways. The viewer shows them in full-window or fullscreen mode and
+ presents them as galleries or slideshows. The integrated editor can rotate,
+ flip, crop and tag the photos, adjust the colors und remove red eyes. Export
+ is possible to facebook, Flickr or Youtube to share with others. It is able
+ to manage a lot of image formats such as JPEG, PNG, BMP, TIFF and Raw CR2.
+
+Package: shotwell-common
+Description-md5: d5ec014668ef3a2d97419d3d6bbb0ba0
+Description-en: digital photo organizer - common files
+ Shotwell is a digital photo organizer designed for the GNOME desktop
+ environment. It allows you to import photos, pictures, images and videos
+ from disk or camera. Shotwell can organize them in collections and in other
+ various ways. The viewer shows them in full-window or fullscreen mode and
+ presents them as galleries or slideshows. The integrated editor can rotate,
+ flip, crop and tag the photos, adjust the colors und remove red eyes. Export
+ is possible to facebook, Flickr or Youtube to share with others. It is able
+ to manage a lot of image formats such as JPEG, PNG, BMP, TIFF and Raw CR2.
+ .
+ This package provides image files and documentation for Shotwell.
 
 Package: snapd
 Description-md5: 4f57b9592309b3006720058df2b8dad3
@@ -25385,6 +25628,42 @@ Description-en: time zone data for TAI minus ten seconds
  .
  You do not need this package if you are unsure.
 
+Package: u-boot-qemu
+Description-md5: 8b98ecb3d49c81c03fb5949c6438a053
+Description-en: A boot loader for qemu
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for qemu/kvm.
+ .
+ Included platforms:
+ qemu-ppce500
+ qemu-riscv64
+ qemu-riscv64_smode
+ qemu-x86
+ qemu-x86_64
+ qemu_arm
+ qemu_arm64
+
+Package: u-boot-tools
+Description-md5: 3db761b210d4c694ba67e5f3a6107e32
+Description-en: companion tools for Das U-Boot bootloader
+ This package includes programs for generating and listing U-Boot
+ images in various formats:
+  - mkimage
+  - dumpimage
+  - mksunxiboot
+  - mkenvimage
+
+Package: ubuntu-advantage-desktop-daemon
+Description-md5: cf40992ab6bf86b03b59e64fd283b7b6
+Description-en: Daemon to allow access to ubuntu-advantage via D-Bus
+ ubuntu-advantage-desktop-daemon is a D-Bus daemon that allows graphical tools
+ easy access to the Ubuntu Advantage services.
+
 Package: ubuntu-cloud-minimal
 Description-md5: 0506fbb9805ed114a9bd19b0dc3b2fc0
 Description-en: Ubuntu Cloud minimal system
@@ -25529,6 +25808,12 @@ Description-en: /dev/ and hotplug management daemon
  udev is a daemon which dynamically creates and removes device nodes from
  /dev/, handles hotplug events and loads drivers at boot time.
 
+Package: uidmap
+Description-md5: 5a75630915e85aa203a9f7c82c737da4
+Description-en: programs to help use subuids
+ These programs help unprivileged users to create uid and gid mappings in
+ user namespaces.
+
 Package: unixodbc-common
 Description-md5: fe24e45bd485d7711e922e68c65ab740
 Description-en: Common ODBC configuration files
@@ -25571,6 +25856,16 @@ Description-en: LibreOffice UNO runtime environment -- private libraries used by
  .
  This package contains some private UNO/URE libraries which are used by public
  ones (e.g. cppu).
+
+Package: unzip
+Description-md5: b83e2b495da5d292f3fe6ab67b088c47
+Description-en: De-archiver for .zip files
+ InfoZIP's unzip program. With the exception of multi-volume archives
+ (ie, .ZIP files that are split across several disks using PKZIP's /& option),
+ this can handle any file produced either by PKZIP, or the corresponding
+ InfoZIP zip program.
+ .
+ This version supports encryption.
 
 Package: update-manager
 Description-md5: 590b36e19703392a6fe86ceaa8467c85
@@ -34610,6 +34905,23 @@ Description-en: Raspberry Pi Linux kernel tools
  This package will always depend on the latest Raspberry Pi Linux
  kernel tools available.
 
+Package: u-boot-rpi
+Description-md5: e2789148d779efd7a8a98ffe7cd5eb26
+Description-en: A boot loader for Raspberry PI systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various Raspberry PI
+ platforms.
+ .
+ Included platforms:
+ rpi_3
+ rpi_4
+ rpi_arm64
+
 Package: ubuntu-desktop-raspi
 Description-md5: 50f691d9e3a3b2f29550dbc6ccab4f91
 Description-en: Ubuntu desktop system for Raspberry Pi
@@ -35151,6 +35463,23 @@ Package: linux-tools-generic-lpae
 Description-md5: a7fbc628643740cf08cc0af28755bd72
 Description-en: Generic LPAE Linux kernel tools (dummy transitional package)
  Transitional package for upgrades. This package can be safely removed.
+
+Package: u-boot-rpi
+Description-md5: e68b195bdb5012728ef7644d6ffe2cc5
+Description-en: A boot loader for Raspberry PI systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various Raspberry PI
+ platforms.
+ .
+ Included platforms:
+ rpi_2
+ rpi_3_32b
+ rpi_4_32b
 
 Package: lib64z1
 Description-md5: 0dd45789d18a8fd0926142096f194c66
@@ -36336,6 +36665,36 @@ Package: linux-tools-pic64gx
 Description-md5: 723d7950769ebf99ce075f140f3b1e64
 Description-en: Generic Linux kernel tools (transitional package)
  Transitional package for upgrades. This package can be safely removed.
+
+Package: u-boot-microchip
+Description-md5: ad5368e9eab48a89a14bf5d0c9edb5b1
+Description-en: A boot loader for Microchip systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various Microchip platforms.
+ .
+ Included platforms:
+ microchip_mpfs_icicle
+
+Package: u-boot-sifive
+Description-md5: 8f2c5379e7360b85b0b494ee4d3f96f8
+Description-en: A boot loader for SiFive systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various SiFive
+ platforms.
+ .
+ Included platforms:
+ sifive_unleashed
+ sifive_unmatched
 
 Package: libc6-dev-s390
 Description-md5: 6505482b334f48aad4d708dfb015adea

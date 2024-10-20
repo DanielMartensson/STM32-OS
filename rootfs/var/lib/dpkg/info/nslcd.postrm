@@ -1,0 +1,51 @@
+#!/bin/sh
+
+set -e
+
+CONFFILE="/etc/nslcd.conf"
+OCONFFILE="/etc/nss-ldapd.conf"
+
+# taken Developer's Reference 6.4
+pathfind() {
+  OLDIFS="$IFS"
+  IFS=:
+  for p in $PATH; do
+    if [ -x "$p/$*" ]; then
+      IFS="$OLDIFS"
+      return 0
+    fi
+  done
+  IFS="$OLDIFS"
+  return 1
+}
+
+# remove /run/nslcd directory on remove unless an nslcd implementation
+# is still installed (e.g. when switching between nslcd and pynslcd)
+if [ "$1" = "remove" ] && ! pathfind nslcd && ! pathfind pynslcd
+then
+  rm -rf /run/nslcd
+fi
+
+# remove our configuration file (not a conffile) on purge unless an nslcd
+# implementation is still installed (e.g. when switching between nslcd and
+# pynslcd)
+if [ "$1" = "purge" ] && ! pathfind nslcd && ! pathfind pynslcd
+then
+  rm -f "$CONFFILE" "$OCONFFILE"
+fi
+
+# Automatically added by dh_installinit/13.14.1ubuntu5
+if [ "$1" = "remove" ] && [ -x "/etc/init.d/nslcd" ] ; then
+	chmod -x "/etc/init.d/nslcd" >/dev/null || true
+fi
+if [ -z "${DPKG_ROOT:-}" ] && [ "$1" = "purge" ] ; then
+	update-rc.d nslcd remove >/dev/null
+fi
+# End automatically added section
+# Automatically added by dh_installdebconf/13.14.1ubuntu5
+if [ "$1" = purge ] && [ -e /usr/share/debconf/confmodule ]; then
+	. /usr/share/debconf/confmodule
+	db_purge
+fi
+# End automatically added section
+

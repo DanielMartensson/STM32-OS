@@ -210,6 +210,22 @@ Description-en: Utilities for BIND 9
  This package provides various utilities that are useful for maintaining a
  working BIND 9 installation.
 
+Package: bubblewrap
+Description-md5: 93fea4e8ee77b240289ff794fd4777ea
+Description-en: utility for unprivileged chroot and namespace manipulation
+ bubblewrap uses Linux namespaces to launch unprivileged containers.
+ These containers can be used to sandbox semi-trusted applications such
+ as Flatpak apps, image/video thumbnailers and web browser components,
+ or to run programs in a different library stack such as a Flatpak runtime
+ or a different Debian release.
+ .
+ By default, this package relies on a kernel with user namespaces enabled.
+ Official Debian and Ubuntu kernels are suitable.
+ .
+ On kernels without user namespaces, system administrators can make the
+ bwrap executable setuid root, allowing it to create unprivileged
+ containers even though ordinary user processes cannot.
+
 Package: busybox-initramfs
 Description-md5: 07bc91bcf5e1da8f300c48c3d990ca10
 Description-en: Standalone shell setup for initramfs
@@ -880,6 +896,57 @@ Description-en: OpenSymbol TrueType font
  LibreOffice. This font contains symbols (like fonts as Wingdings(tm)),
  bullets (needed for bullets in LibreOffice) and non-latin character
 
+Package: freeradius
+Description-md5: 8f93db923be1449fe3d8c09996bd75e7
+Description-en: high-performance and highly configurable RADIUS server
+ FreeRADIUS is a high-performance RADIUS server with support for:
+  - Authentication by local files, SQL, Kerberos, LDAP, PAM, and more.
+  - Powerful policy configuration language.
+  - Proxying and replicating requests by any criteria.
+  - Support for many EAP types; TLS, PEAP, TTLS, etc.
+  - Many vendor-specific attributes.
+  - Regexp matching in string attributes.
+ and lots more.
+
+Package: freeradius-common
+Description-md5: 1c7945f97894906b5aaee9b087c2f56c
+Description-en: FreeRADIUS common files
+ This package contains common files used by several of the other packages from
+ the FreeRADIUS project.
+
+Package: freeradius-config
+Description-md5: ac5463a5cccad417d59c5cd9a88dd876
+Description-en: FreeRADIUS default config files
+ freeradius-config contains the default configuration for FreeRADIUS.
+ .
+ You can install a custom package which sets "Provides: freeradius-config" in
+ order to use the FreeRADIUS packages without any default configuration getting
+ into your way.
+
+Package: freeradius-dhcp
+Description-md5: 63c03705d2b33716c280099cb1b24d9d
+Description-en: DHCP module for FreeRADIUS server
+ The FreeRADIUS server can act as a DHCP server, and this module
+ is necessary for that.
+
+Package: freeradius-utils
+Description-md5: fb4360d3ae626ff33fe6068c0b23a981
+Description-en: FreeRADIUS client utilities
+ This package contains various client programs and utilities from
+ the FreeRADIUS Server project, including:
+  - radclient
+  - radcrypt
+  - radeapclient
+  - radlast
+  - radsecret
+  - radsniff
+  - radsqlrelay
+  - radtest
+  - radwho
+  - radzap
+  - rlm_ippool_tool
+  - smbencrypt
+
 Package: frr
 Description-md5: 3cd236070526def99d5e2ff7b518d0cd
 Description-en: FRRouting suite of internet protocols (BGP, OSPF, IS-IS, ...)
@@ -999,6 +1066,14 @@ Description-en: GIR XML for GLib, GObject, Gio and GModule
  This package contains the introspection data for the GLib, GObject,
  GModule and Gio libraries, in the GIR XML format used to generate
  bindings for static languages like C++, D and Haskell.
+
+Package: gir1.2-gsf-1
+Description-md5: cafac8e6a223b52243bdc070459447ab
+Description-en: GObject introspection data for the Structured File Library
+ This package contains introspection data for the Structured File Library.
+ .
+ It can be used by packages using the GIRepository format to generate
+ dynamic bindings.
 
 Package: gir1.2-gst-plugins-base-1.0
 Description-md5: b3ee9d18697c0db6a7a856f56ea20867
@@ -2085,6 +2160,20 @@ Description-en: XML parsing C library - development kit
  start tag is an example of the kind of structures for which you may
  register handlers.
 
+Package: libfreeradius-dev
+Description-md5: 3c0c3d13bc398f9c14b6ccb3e25e2af3
+Description-en: FreeRADIUS shared library development files
+ The FreeRADIUS projects' libfreeradius-radius and libfreeradius-eap, used by
+ the FreeRADIUS server and some of the utilities.
+ .
+ This package contains the development headers and static library version.
+
+Package: libfreeradius3
+Description-md5: 919b31a593d09cd5d4a89177002536aa
+Description-en: FreeRADIUS shared library
+ The FreeRADIUS projects' libfreeradius-radius and libfreeradius-eap, used by
+ the FreeRADIUS server and some of the utilities.
+
 Package: libfreerdp-client3-3
 Description-md5: d4c3a0a2893d75653c3049e1d2066881
 Description-en: Free Remote Desktop Protocol library (client library)
@@ -2409,6 +2498,23 @@ Description-en: interpreter for the PostScript language and for PDF - common fil
  for which the requested CJK TrueType font is missing.
  If the fonts-droid package is not installed,
  these glyphs will be rendered as bullets.
+
+Package: libgsf-1-114
+Description-md5: 6f2a19cee2252e04518882eb04caab00
+Description-en: Structured File Library - runtime version
+ The GNOME Structured File Library aims to provide an efficient
+ extensible I/O abstraction for dealing with different structured file
+ formats.
+
+Package: libgsf-1-common
+Description-md5: 63c4e64ca9b6d79b4947e39b148fe3e7
+Description-en: Structured File Library - common files
+ The GNOME Structured File Library aims to provide an efficient
+ extensible I/O abstraction for dealing with different structured file
+ formats.
+ .
+ These are the architecture independent files that are part of libgsf,
+ like translations of messages.
 
 Package: libgssapi-krb5-2
 Description-md5: 2dd7fe357b29d0ba6727171c01f0301c
@@ -2918,6 +3024,34 @@ Description-en: Nss library for the System Security Services Daemon
  .
  This package provide the nss library to connect to the sssd daemon.
 
+Package: liboath-dev
+Description-md5: 43b7a0697a07d9858bf8f7570cc6c099
+Description-en: Development files for the OATH Toolkit Liboath library
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package contain all files necessary for developing programs that
+ use Liboath.
+
+Package: liboath0t64
+Description-md5: f0e003b84fa581368a9e05ca75669e34
+Description-en: OATH Toolkit Liboath library
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package includes the Liboath shared library that is used by
+ applications.  You normally don't need to install it manually.
+
 Package: libodbc2
 Description-md5: 90f65e1ce9ca75cf5973c8778c1615b5
 Description-en: ODBC Driver Manager library for Unix
@@ -3173,6 +3307,34 @@ Description-en: PostgreSQL C client library
  libpq.
  .
  PostgreSQL is an object-relational SQL database management system.
+
+Package: libpskc-dev
+Description-md5: 775a2e1b4d9f8f08aede14a6a6d91213
+Description-en: Development files for the OATH Toolkit Libpskc library
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package contain all files necessary for developing programs that
+ use Libpskc.
+
+Package: libpskc0t64
+Description-md5: 77ae8439e744fc19e84aa5840fe1b966
+Description-en: OATH Toolkit Libpskc library
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package includes the Libpskc shared library that is used by
+ applications.  You normally don't need to install it manually.
 
 Package: libpython3.12-dev
 Description-md5: 83564bef79c906c3a214f9bb01f93034
@@ -18328,6 +18490,15 @@ Description-en: modular Ruby webserver interface
  .
  Also see http://rack.github.io/.
 
+Package: ruby-webrick
+Description-md5: 455fb60459233a7320510885b0214565
+Description-en: HTTP server toolkit in Ruby
+ WEBrick is an HTTP server toolkit that can be configured as an HTTPS server, a
+ proxy server, and a virtual-host server.
+ .
+ It used to be provided with the standard library of the Ruby interpreter, and
+ has been available only as a standalone gem since ruby3.0.
+
 Package: ruby3.2
 Description-md5: e73a45fc1bbd22255f2741293584fe57
 Description-en: Interpreter of object-oriented scripting language Ruby
@@ -18486,6 +18657,12 @@ Description-en: Official documentation of Twisted
  generic client and server for remote object access, and APIs for creating
  new protocols.
 
+Package: ubuntu-advantage-desktop-daemon
+Description-md5: cf40992ab6bf86b03b59e64fd283b7b6
+Description-en: Daemon to allow access to ubuntu-advantage via D-Bus
+ ubuntu-advantage-desktop-daemon is a D-Bus daemon that allows graphical tools
+ easy access to the Ubuntu Advantage services.
+
 Package: ubuntu-report
 Description-md5: 25e78b0ecc41cd7987176a6f776b13e8
 Description-en: Report hardware and other collected metrics
@@ -18531,6 +18708,16 @@ Description-en: LibreOffice UNO runtime environment -- private libraries used by
  .
  This package contains some private UNO/URE libraries which are used by public
  ones (e.g. cppu).
+
+Package: unzip
+Description-md5: b83e2b495da5d292f3fe6ab67b088c47
+Description-en: De-archiver for .zip files
+ InfoZIP's unzip program. With the exception of multi-volume archives
+ (ie, .ZIP files that are split across several disks using PKZIP's /& option),
+ this can handle any file produced either by PKZIP, or the corresponding
+ InfoZIP zip program.
+ .
+ This version supports encryption.
 
 Package: ure
 Description-md5: 91a81b0bbfc8236cc5518400be4807d1

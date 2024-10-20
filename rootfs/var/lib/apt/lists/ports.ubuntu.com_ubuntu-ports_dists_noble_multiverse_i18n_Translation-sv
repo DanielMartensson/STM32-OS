@@ -1,0 +1,142 @@
+Package: faac
+Description-md5: 8b18a84082bc792889453fdbbbdc8391
+Description-sv: AAC audio encoder (frontend)
+ The FAAC project includes the AAC encoder FAAC and decoder FAAD2. It
+ supports several MPEG-4 object types (LC, Main, LTP, HE AAC, PS) and file
+ formats (ADTS AAC, raw AAC, MP4), multichannel and gapless en/decoding as
+ well as MP4 metadata tags. The codecs are compatible with standard-
+ compliant audio applications using one or more of these profiles.
+ .
+ Detta paket innehåller gränssnittet
+
+Package: libcuneiform0
+Description-md5: ad62c1ac6c378f4a10018e9ddaa3a97c
+Description-sv: multi-language OCR system (shared library)
+ Cuneiform is an OCR system. In addition to text recognition it also does
+ layout analysis and text format recognition.
+ .
+ The following languages are supported: Bulgarian, Croatian, Czech, Danish,
+ Dutch, English, Estonian, French, German, Hungarian, Italian, Latvian,
+ Lithuanian, Polish, Portuguese, Romanian, Russian, Serbian, Slovenian,
+ Spanish, Swedish, Turkish and Ukrainian.
+ .
+ Det här paketet innehåller det delade biblioteket.
+
+Package: libfaac-dev
+Description-md5: 34e55010e3673cbd01ecd96cd574d525
+Description-sv: AAC audio encoder (development)
+ The FAAC project includes the AAC encoder FAAC and decoder FAAD2. It
+ supports several MPEG-4 object types (LC, Main, LTP, HE AAC, PS) and file
+ formats (ADTS AAC, raw AAC, MP4), multichannel and gapless en/decoding as
+ well as MP4 metadata tags. The codecs are compatible with standard-
+ compliant audio applications using one or more of these profiles.
+ .
+ Det här paketet innehåller utvecklingsfilerna.
+
+Package: libfishcamp-dev
+Description-md5: 69bba66afa600749c1d0954495cfc563
+Description-sv: library for cameras made by Fishcamp Engineering - development files
+ This package contains a library for CCD cameras made by Fishcamp
+ Engineering.
+ .
+ Det här paketet innehåller utvecklingsfilerna.
+
+Package: libinovasdk-dev
+Description-md5: 6d50fd32d9b0ac52e8449bc25ada72c8
+Description-sv: library for cameras made by i.Nova Technologies - development files
+ This package contains the SDK for i.Nova Technologies Cameras.
+ .
+ Det här paketet innehåller utvecklingsfilerna.
+
+Package: libnccl-dev
+Description-md5: a6573a9c1a486a170188e96ac33fa6c6
+Description-sv: NVIDIA Optimized primitives for inter-GPU communication
+ NCCL (pronounced "Nickel") is a stand-alone library of standard
+ communication routines for GPUs, implementing all-reduce, all-gather,
+ reduce, broadcast, reduce-scatter, as well as any send/receive based
+ communication pattern. It has been optimized to achieve high bandwidth on
+ platforms using PCIe, NVLink, NVswitch, as well as networking using
+ InfiniBand Verbs or TCP/IP sockets. NCCL supports an arbitrary number of
+ GPUs installed in a single node or across multiple nodes, and can be used
+ in either single- or multi-process (e.g., MPI) applications.
+ .
+ Det här paketet innehåller utvecklingsfilerna.
+
+Package: librhvoice-dev
+Description-md5: 592183b413424a1e0cd8d363a305293b
+Description-sv: RHVoice speech synthesizer - development files
+ RHVoice uses statistical parametric synthesis. It relies on existing open
+ source speech technologies (mainly HTS and related software).
+ .
+ Voices are built from recordings of natural speech. They have small
+ footprints, because only statistical models are stored on users'
+ computers. And though the voices lack the naturalness of the synthesizers
+ which generate speech by combining segments of the recordings themselves,
+ they are still very intelligible and resemble the speakers who recorded
+ the source material.
+ .
+ Initially, RHVoice could speak only Russian. Now it also supports English,
+ Esperanto and Georgian. In theory, it is possible to implement support for
+ other languages, if all the necessary resources can be found or created.
+ .
+ Det här paketet innehåller utvecklingsfilerna.
+
+Package: nvidia-cg-dev
+Description-md5: 3bd7edb6deba63f39dbda782c674cdc8
+Description-sv: Cg Toolkit - GPU Shader Authoring Language (headers)
+ The Nvidia Cg Toolkit provides a compiler for the Cg language, runtime
+ libraries for use with both leading graphics APIs, runtime libraries for
+ CgFX, example applications, and extensive documentation. Supporting over
+ 24 different OpenGL and DirectX profile targets, Cg will allow you to
+ incorporate stunning interactive effects into your 3D applications.
+ .
+ The components include:
+  * NVIDIA Cg Compiler
+  * Unified Cg/CgFX Runtime
+  * Cg User's Manual
+  * Cg Language Specification
+  * Example programs and shaders
+ .
+ Det här paketet innehåller utvecklingsfilerna.
+
+Package: playonlinux
+Description-md5: 729a863a5c2d8eb304d4e8e17ffbeafe
+Description-sv: gränssnitt för Wine
+ PlayOnLinux is a front-end for wine. It permits you to easily install
+ Windows Games and software on Linux. It is advised to have a functional
+ internet connection.
+
+Package: qcomicbook
+Description-md5: 5e1e59ae80d5250683bcf393eda201bc
+Description-sv: qt-visare för serietidningsarkiv (cbr/cbz/cba/cbg/cbb)
+ QComicBook är en visare för serietidningsarkiv som innehåller jpeg/png-
+ bilder, och strävar efter bekvämlighet och enkelhet. Funktioner
+ inkluderar: automatisk avkomprimering, fullskärmsläge, sidskalning, mus-
+ eller tangentbordsnavigation etc.
+ .
+ QComicBook for now supports archives:
+  - cbr - rar-compressed
+  - cbz - zip-compressed
+  - cba - ace-compressed
+  - cbg - targzipped
+  - cbb - tarbzip2ped
+
+
+Package: libxilinx-vcu-dev
+Description-md5: dd9c1c7496462871eee7c13df15361d4
+Description-sv: Xilinx VCU Ctrl Software - development files
+ Some Xilinx models include a hardware Video Codec Unit (VCU). The Xilinx
+ VCU Control Software provides tools and libraries to leverage this
+ hardware.
+ .
+ Det här paketet innehåller utvecklingsfilerna.
+
+Package: libxilinx-vcu-omx-dev
+Description-md5: c9acde522a8af24a93726e8bdaa8b75f
+Description-sv: Xilinx VCU OpenMax Integration Layer - development files
+ Some Xilinx models include a hardware Video Codec Unit (VCU). The Xilinx
+ VCU OpenMax (OMX) Integration Layer (IL) provides an implementation of OMX
+ IL for this hardware.
+ .
+ Det här paketet innehåller utvecklingsfilerna.
+

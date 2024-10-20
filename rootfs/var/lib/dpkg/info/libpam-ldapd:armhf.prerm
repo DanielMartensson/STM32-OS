@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+# remove the PAM profile unless there are more than one instances
+# of libpam-ldapd installed (multi-arch)
+if [ "$1" = "remove" ] && [ "$(dpkg-query -W libpam-ldapd 2> /dev/null | wc -l)" = 1 ]
+then
+  pam-auth-update --package --remove ldap
+fi
+
+
+
+exit 0

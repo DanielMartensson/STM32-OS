@@ -1499,7 +1499,7 @@ Description-md5: 3dd9b54fa4f50547088af8b51d83c1f3
 
 Package: cups-browsed-tests
 Architecture: all
-Version: 2.0.0-0ubuntu10.1
+Version: 2.0.0-0ubuntu10.2
 Multi-Arch: foreign
 Priority: optional
 Section: universe/utils
@@ -1510,12 +1510,12 @@ Original-Maintainer: Debian Printing Team <debian-printing@lists.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 60
 Depends: cups-browsed, cups (>= 2.4.6-0ubuntu3), cups-ipp-utils (>= 2.4.6-0ubuntu3), libcups2-dev (>= 2.4.6-0ubuntu3), avahi-daemon, pkgconf
-Filename: pool/universe/c/cups-browsed/cups-browsed-tests_2.0.0-0ubuntu10.1_all.deb
-Size: 11188
-MD5sum: 7f11c2e574be902178bef7b80d942cf4
-SHA1: abdfdcfc427869062efd8f24b1c58aacc69b2168
-SHA256: 781ea54fc7457c127b5995005a9ed3103e035b5de929c4181a31d971c6f947a3
-SHA512: 0ce0239bf03f573f755301f8dcb599cddce9454f3445f624206963ca54803bd48f5051400e69cf34b435db70604b13b5a267aca954117159a7bb4d28c585bdca
+Filename: pool/universe/c/cups-browsed/cups-browsed-tests_2.0.0-0ubuntu10.2_all.deb
+Size: 11178
+MD5sum: fad45f7277a7bc36548ddfab571c0471
+SHA1: f4e7c13128710e74cddb6de00da5f1cc4f14504d
+SHA256: 7d40fe698cef1928639c26b946d6485dbd8fa7ffb95208c41092a67226761956
+SHA512: 868cd6cd1c18fa2377f514e763ca57e175a72fec50b0a655c8fe7e3f11f5b37f5e1e5d2c378cfed3a523e27f3e492e68c021d4eba3800cccd64acb3c72a921c6
 Homepage: http://www.openprinting.org/
 Description: OpenPrinting cups-browsed - Test script for autopkgtests
 Description-md5: a98d690349003fa24f51871870d532c8
@@ -2602,6 +2602,54 @@ Homepage: https://github.com/ffuf/ffuf
 Description: Fast web fuzzer written in Go (program)
 Description-md5: e545768ba4b231d8a462fd19124be1aa
 
+Package: flatpak
+Architecture: armhf
+Version: 1.14.6-1ubuntu0.1
+Priority: optional
+Section: universe/admin
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 5640
+Depends: adduser, bubblewrap (>= 0.9.0-1ubuntu0.1), default-dbus-system-bus | dbus-system-bus, fuse3, xdg-dbus-proxy (>= 0.1.0), libappstream5 (>= 1.0.0), libarchive13t64 (>= 3.0.4), libc6 (>= 2.38), libcurl3t64-gnutls (>= 7.16.2), libdconf1 (>= 0.26.0), libfuse3-3 (>= 3.2.3), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.79.0), libgpgme11t64 (>= 1.1.8), libjson-glib-1.0-0 (>= 1.5.2), libmalcontent-0-0 (>= 0.6.0), libostree-1-1 (>= 2020.8), libpolkit-agent-1-0 (>= 0.105), libpolkit-gobject-1-0 (>= 0.101), libseccomp2 (>= 2.5.2), libsystemd0, libxau6 (>= 1:1.0.9), libxml2 (>= 2.7.4), libzstd1 (>= 1.5.5)
+Recommends: ca-certificates, desktop-file-utils, hicolor-icon-theme, gtk-update-icon-cache, libpam-systemd, p11-kit, polkitd, shared-mime-info, xdg-desktop-portal (>= 1.6), xdg-desktop-portal-gtk (>= 1.6) | xdg-desktop-portal-backend, xdg-user-dirs
+Suggests: avahi-daemon, malcontent-gui
+Conflicts: xdg-app
+Replaces: xdg-app
+Filename: pool/universe/f/flatpak/flatpak_1.14.6-1ubuntu0.1_armhf.deb
+Size: 1437842
+MD5sum: 9e4395fd028c5adceb1de299093af38c
+SHA1: f565407b255940975d3c9444c1e70a79a44a5411
+SHA256: 00c4229a10f458d9a14dfe0f383114bc82be901cf5252c5bc10123be7a22005d
+SHA512: 6db577e998b587e13a159d9d809012f618b5ecef40aaa9b217f4708be13747ab68081c0341059fbd1df9e42c0f393714be1df2bb9a9c6f2bdbd346507ea9d2e7
+Homepage: https://flatpak.org/
+Description: Application deployment framework for desktop apps
+Description-md5: f91acb1d2880527b2759bc5e2d99fbff
+
+Package: flatpak-tests
+Architecture: armhf
+Version: 1.14.6-1ubuntu0.1
+Priority: optional
+Section: universe/misc
+Source: flatpak
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 5031
+Depends: attr, ca-certificates, dbus-daemon, desktop-file-utils, flatpak (= 1.14.6-1ubuntu0.1), gnupg, gtk-update-icon-cache, hicolor-icon-theme, ostree (>= 2020.8), polkitd | policykit-1, shared-mime-info, socat, libappstream5 (>= 1.0.0), libarchive13t64 (>= 3.0.4), libc6 (>= 2.38), libcurl3t64-gnutls (>= 7.16.2), libdconf1 (>= 0.26.0), libflatpak0 (>= 1.13.3), libfuse3-3 (>= 3.2.3), libglib2.0-0t64 (>= 2.79.0), libgpgme11t64 (>= 1.1.8), libjson-glib-1.0-0 (>= 1.5.2), libmalcontent-0-0 (>= 0.6.0), libostree-1-1 (>= 2020.8), libpolkit-gobject-1-0 (>= 0.101), libseccomp2 (>= 2.5.2), libsystemd0, libxau6 (>= 1:1.0.9), libxml2 (>= 2.7.4), libzstd1 (>= 1.5.5)
+Recommends: python3
+Filename: pool/universe/f/flatpak/flatpak-tests_1.14.6-1ubuntu0.1_armhf.deb
+Size: 1224022
+MD5sum: 51d33115166756aff2132907e6017d64
+SHA1: 805cb3adc670c672cbe9e5dc9464ad6d33153a65
+SHA256: c7532e7785a765ef48f1258d4aff57cdd77b72a1d1a17719fdd715138a97dd63
+SHA512: 0bd1e20b31b2e327748fbfb4ac3c22cee74064e028bb78ecd770224963f37a32d10040b25310079b957f720085981229a44265c24b6a84fd82b7bf48e5f239de
+Homepage: https://flatpak.org/
+Description: Application deployment framework for desktop apps (tests)
+Description-md5: 8c55ee927d2b9992e22292e7b2c097aa
+
 Package: foot
 Architecture: armhf
 Version: 1.16.2-2ubuntu0.1
@@ -2715,6 +2763,226 @@ Homepage: https://github.com/wader/fq
 Description: jq for binary formats (program)
 Static-Built-Using: golang-1.22 (= 1.22.2-2ubuntu0.1), golang-github-creasty-defaults (= 1.7.0-1), golang-github-golang-snappy (= 0.0.2-3), golang-github-gomarkdown-markdown (= 0.0~git20231115.a660076-1), golang-github-gopacket-gopacket (= 1.2.0-2), golang-github-itchyny-timefmt-go (= 0.1.5-1), golang-github-mitchellh-copystructure (= 1.2.0-1), golang-github-mitchellh-mapstructure (= 1.5.0+git20231216.8508981-1), golang-github-mitchellh-reflectwalk (= 1.0.1-1), golang-github-wader-gojq (= 0.0~git20231105.2b6d9e2-1), golang-github-wader-readline (= 0.0~git20230307.bcb7158-1), golang-go.crypto (= 1:0.19.0-1), golang-golang-x-exp (= 0.0~git20231006.7918f67-1ubuntu0.24.04.1), golang-golang-x-net (= 1:0.21.0+dfsg-1), golang-golang-x-text (= 0.14.0-2), golang-gopkg-yaml.v3 (= 3.0.1-3), golang-toml (= 1.3.2-2)
 Description-md5: 4311c7b7f208e22dfb6a347869e40205
+
+Package: freeradius-iodbc
+Architecture: armhf
+Version: 3.2.5+dfsg-3~ubuntu24.04.1
+Priority: optional
+Section: universe/net
+Source: freeradius
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian FreeRADIUS Packaging Team <pkg-freeradius-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 35
+Depends: freeradius (= 3.2.5+dfsg-3~ubuntu24.04.1), libc6 (>= 2.4), libiodbc2 (>= 3.52.7)
+Filename: pool/universe/f/freeradius/freeradius-iodbc_3.2.5+dfsg-3~ubuntu24.04.1_armhf.deb
+Size: 7922
+MD5sum: 65a591828bd3c1a17bb4a01a5a7c045a
+SHA1: b085a122bb587ba451457f735949d2f21fee5808
+SHA256: 38d4fbdb3587cfb2bceed88e6734d20a435e0348ceb2d758680e1b65fd3bcfb3
+SHA512: 7c54866886470b27e12c42d87aa91d959f9ad1f0ccb254dec436574a98370611315d3f6368f5b0b3f52203c1e45406a2c602cfabca209ec4789b42398e3b687c
+Homepage: http://www.freeradius.org/
+Description: iODBC module for FreeRADIUS server
+Description-md5: 6347edefac75f466ab02895aecb1a016
+
+Package: freeradius-krb5
+Architecture: armhf
+Version: 3.2.5+dfsg-3~ubuntu24.04.1
+Priority: optional
+Section: universe/net
+Source: freeradius
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian FreeRADIUS Packaging Team <pkg-freeradius-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 36
+Depends: freeradius (= 3.2.5+dfsg-3~ubuntu24.04.1), libc6 (>= 2.38), libcom-err2 (>= 1.43.9), libkrb5-3 (>= 1.13~alpha1+dfsg)
+Filename: pool/universe/f/freeradius/freeradius-krb5_3.2.5+dfsg-3~ubuntu24.04.1_armhf.deb
+Size: 8866
+MD5sum: 3654bfcd07d4c31848b08514f5173686
+SHA1: c86358e2a54b3c7c5298e8641a6ac455e55dd2bf
+SHA256: 70a7ad9698c8405687a824a9b2bc222f24c38de3d3b8e04c619b936037fbc8c5
+SHA512: 8366026d51fe91f91935a6f6d95409d850073598d31bcb6b8a97a112c2ef88cb959f0f822738ac16cf516f67f3a046d7582d5d69fd448cd2d3e399b8f7b7cfda
+Homepage: http://www.freeradius.org/
+Description: kerberos module for FreeRADIUS server
+Description-md5: 3a5c3602207569628c542943459c0429
+
+Package: freeradius-ldap
+Architecture: armhf
+Version: 3.2.5+dfsg-3~ubuntu24.04.1
+Priority: optional
+Section: universe/net
+Source: freeradius
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian FreeRADIUS Packaging Team <pkg-freeradius-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 89
+Depends: freeradius (= 3.2.5+dfsg-3~ubuntu24.04.1), libc6 (>= 2.38), libldap2 (>= 2.6.2)
+Filename: pool/universe/f/freeradius/freeradius-ldap_3.2.5+dfsg-3~ubuntu24.04.1_armhf.deb
+Size: 33402
+MD5sum: 6537c34b210228997a29cef82181cb49
+SHA1: 7d7c4c0e5b42b2381a0c3e5b58b8e54b4541092a
+SHA256: 83ed0842b914a7d69ebfcb7f14f7fce4cb5ff9a94db97c1034bd50d73ace7924
+SHA512: af8b49c6400f410d20a203740c596423bf88fc60ffc1a966625ed8d2db6941c6b68cb7b85740a5b537edf08b69f2ffd84f2b6c866b77f19daae66bc66cf452f9
+Homepage: http://www.freeradius.org/
+Description: LDAP module for FreeRADIUS server
+Description-md5: cc9ad4f60cb78e6b940d44e4c3b57d1d
+
+Package: freeradius-memcached
+Architecture: armhf
+Version: 3.2.5+dfsg-3~ubuntu24.04.1
+Priority: optional
+Section: universe/net
+Source: freeradius
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian FreeRADIUS Packaging Team <pkg-freeradius-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 36
+Depends: freeradius (= 3.2.5+dfsg-3~ubuntu24.04.1), libc6 (>= 2.4), libmemcached11t64 (>= 1.1.4)
+Filename: pool/universe/f/freeradius/freeradius-memcached_3.2.5+dfsg-3~ubuntu24.04.1_armhf.deb
+Size: 9334
+MD5sum: e0604c2ac6a879e459914561f850e84f
+SHA1: fb941f7f9e19d612c016bc96c3e95f8a828650ec
+SHA256: 66f5cfbb2431f8e2bb5944a2bd82629ccd6d1328e27d0257b4bb6230591c2573
+SHA512: 0ac897bee8f4abf0689221f7dcd6580a093c4e9fa7cfc1396058744cc04a2ba36f30549bba58da9688ab8f13507c4f4e73367abe24b0624eac04de8fdf4a9f8d
+Homepage: http://www.freeradius.org/
+Description: Memcached module for FreeRADIUS server
+Description-md5: 6c7415181d540694968e8e8c5fbf1877
+
+Package: freeradius-mysql
+Architecture: armhf
+Version: 3.2.5+dfsg-3~ubuntu24.04.1
+Priority: optional
+Section: universe/net
+Source: freeradius
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian FreeRADIUS Packaging Team <pkg-freeradius-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 36
+Depends: freeradius (= 3.2.5+dfsg-3~ubuntu24.04.1), libc6 (>= 2.4), libmysqlclient21 (>= 8.0.11)
+Filename: pool/universe/f/freeradius/freeradius-mysql_3.2.5+dfsg-3~ubuntu24.04.1_armhf.deb
+Size: 9782
+MD5sum: 0b865bd821befbdab88557ba93c5c68d
+SHA1: d9ea25960efd63ec5c5441bb1baf0ba4b40c08b9
+SHA256: 7083e003d7b7403f05d6cde1d489f9c46e5682ac0521c09f8c60c466042877d9
+SHA512: c8617a5f04b2f801a729e759573b4f3d2e1995cc7a012278f2d5b13ad289dc3ecfd287d8ba1c525e7f38fbaef79147927763a919fb57cf23c0e4350dfe6fed92
+Homepage: http://www.freeradius.org/
+Description: MySQL module for FreeRADIUS server
+Description-md5: 4423793fbfc997cd42deec2bcb196555
+
+Package: freeradius-postgresql
+Architecture: armhf
+Version: 3.2.5+dfsg-3~ubuntu24.04.1
+Priority: optional
+Section: universe/net
+Source: freeradius
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian FreeRADIUS Packaging Team <pkg-freeradius-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 51
+Depends: freeradius (= 3.2.5+dfsg-3~ubuntu24.04.1), libc6 (>= 2.38), libpq5 (>= 8.4~)
+Filename: pool/universe/f/freeradius/freeradius-postgresql_3.2.5+dfsg-3~ubuntu24.04.1_armhf.deb
+Size: 13672
+MD5sum: 934c427dcb3ece418d269a0f6d5e4ccb
+SHA1: 8a4dcac3633d97278538161254268879ecb5768e
+SHA256: 053853480a7dcee8422339f1a591645370d2f375f79ed96085c40d75c1d2ea40
+SHA512: 3710f667033d121da37c1b55ae9006f924b8321a57fe8d1f1c96fd82300734252c8d3a1133410546be04730d73d30fd08138dee3015e180de2289c2e6e73fc0f
+Homepage: http://www.freeradius.org/
+Description: PostgreSQL module for FreeRADIUS server
+Description-md5: 21c022ad780dbebcad8db320d076ccd0
+
+Package: freeradius-python3
+Architecture: armhf
+Version: 3.2.5+dfsg-3~ubuntu24.04.1
+Priority: optional
+Section: universe/net
+Source: freeradius
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian FreeRADIUS Packaging Team <pkg-freeradius-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 49
+Depends: freeradius (= 3.2.5+dfsg-3~ubuntu24.04.1), libc6 (>= 2.34), libpython3.12t64 (>= 3.12.1)
+Filename: pool/universe/f/freeradius/freeradius-python3_3.2.5+dfsg-3~ubuntu24.04.1_armhf.deb
+Size: 15358
+MD5sum: 00c712f9206084d82796359ff508e2b7
+SHA1: ccd41ef49c8372e8c84e570b82c70bac8adf52cb
+SHA256: 274bd643e9f290d7c6d8fee902b3588390fcae0ed94fd4290665d64de3d0da67
+SHA512: b8406591c9f57d502b35d6a9b1319562273b99fb4ea68b4ea88203f3bb7a794d4aa9f08aee030a3b559918fe39f6e3c41b2731f0a05cc7f6866c35feee2c7ec2
+Homepage: http://www.freeradius.org/
+Description: Python 3 module for FreeRADIUS server
+Description-md5: 80f8197fc7d045314f87c86f25224510
+
+Package: freeradius-redis
+Architecture: armhf
+Version: 3.2.5+dfsg-3~ubuntu24.04.1
+Priority: optional
+Section: universe/net
+Source: freeradius
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian FreeRADIUS Packaging Team <pkg-freeradius-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 56
+Depends: freeradius (= 3.2.5+dfsg-3~ubuntu24.04.1), libc6 (>= 2.38), libhiredis1.1.0 (>= 1.2.0)
+Filename: pool/universe/f/freeradius/freeradius-redis_3.2.5+dfsg-3~ubuntu24.04.1_armhf.deb
+Size: 13834
+MD5sum: 7e8bc580f3dacb498da1635a41d398ee
+SHA1: 283666ed3747a23af67cf8c90d4f8e340316db4e
+SHA256: 6a4af241430dec127ece5c8411bb5838dfe08b853b292d7243034c99a4ff37bd
+SHA512: a116cc83a3786787cf47d9a9b1c99e68f4400f1b4c327e19ca26dbbe4d3d531225d485559d0c9d544c502dcd03a51963e936a12509bc5d331b5be485f708bf10
+Homepage: http://www.freeradius.org/
+Description: Redis module for FreeRADIUS server
+Description-md5: 409331feca6e7b06facbc4bac2a0f07b
+
+Package: freeradius-rest
+Architecture: armhf
+Version: 3.2.5+dfsg-3~ubuntu24.04.1
+Priority: optional
+Section: universe/net
+Source: freeradius
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian FreeRADIUS Packaging Team <pkg-freeradius-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 60
+Depends: freeradius (= 3.2.5+dfsg-3~ubuntu24.04.1), libc6 (>= 2.38), libcurl4t64 (>= 7.16.2), libjson-c5 (>= 0.15)
+Filename: pool/universe/f/freeradius/freeradius-rest_3.2.5+dfsg-3~ubuntu24.04.1_armhf.deb
+Size: 21462
+MD5sum: bbb0c2715971e6ca3f8903d120cd3d99
+SHA1: 83c007e049195d84032c48f2331e9a16a3ac0030
+SHA256: 254869e2f40ef61390e6e7325f3620903cfbd43505d5a5441401751b097c8376
+SHA512: eeb5aa2af93c38e1051c38c42bcee3543abb76f7157f2715e2c72040af48429753ecd5acd4db461aae7ae830bf81c56213a74118479df01265ace0862dc870c0
+Homepage: http://www.freeradius.org/
+Description: REST module for FreeRADIUS server
+Description-md5: 84efad4f894dd87ee01e51563cfab4f8
+
+Package: freeradius-yubikey
+Architecture: armhf
+Version: 3.2.5+dfsg-3~ubuntu24.04.1
+Priority: optional
+Section: universe/net
+Source: freeradius
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian FreeRADIUS Packaging Team <pkg-freeradius-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 40
+Depends: freeradius (= 3.2.5+dfsg-3~ubuntu24.04.1), libc6 (>= 2.38), libykclient3 (>= 2.11), libyubikey0 (>= 1.5)
+Filename: pool/universe/f/freeradius/freeradius-yubikey_3.2.5+dfsg-3~ubuntu24.04.1_armhf.deb
+Size: 10512
+MD5sum: ce0d73dc79d81f8c1a03e7ecac344538
+SHA1: d158d7d6a0ff68da9b2e763c615ceb72b5b8263b
+SHA256: 4e4aba657def53ff11198c888b55c99dd022cdfea27cceb9cb056fa65e10c464
+SHA512: 84f6e3fed79ca39ef63cb5c9d6c6eb3448a9b337c38e9bb820f3e8475093678854775ffaeaf93206f9b1fc9ce368e33eb5be2d579db4b428846352dd26d845d7
+Homepage: http://www.freeradius.org/
+Description: Yubikey module for FreeRADIUS server
+Description-md5: 085fe9fe99855d39801336fb78e00a38
 
 Package: freerdp3-dev
 Architecture: armhf
@@ -3122,6 +3390,29 @@ SHA512: 277fede03e516794fe825efaa8d0886827391a6572288e289acebff090eee7331446142c
 Homepage: https://github.com/onsi/ginkgo
 Description: BDD Testing Framework for Go
 Description-md5: 946f901aa5a106ee3776df7ac04d0bed
+
+Package: gir1.2-flatpak-1.0
+Architecture: armhf
+Version: 1.14.6-1ubuntu0.1
+Multi-Arch: same
+Priority: optional
+Section: universe/introspection
+Source: flatpak
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 64
+Depends: gir1.2-gio-2.0, gir1.2-gobject-2.0, libflatpak0 (>= 1.13.3)
+Filename: pool/universe/f/flatpak/gir1.2-flatpak-1.0_1.14.6-1ubuntu0.1_armhf.deb
+Size: 13018
+MD5sum: ec18d50e52dfc06413f8b8e1c4b680f6
+SHA1: 6044c029cecb8b179bd83a0ecd95770bee7cd441
+SHA256: eda227416160b5aa487b24ce5c156fd0da5ce23b28091b5c5438437c9f403638
+SHA512: 41f3c274c361b9a2f3d724d7e16a841fc1b47c85a451bb48406189d05a53ea28c401471b31023e0c7ca2e144dd7c71485b6ee9e12b0beefba19a36a162ec77a0
+Homepage: https://flatpak.org/
+Description: Application deployment framework for desktop apps (introspection)
+Description-md5: d56a77ab2a71ace5e8bdb87dcec05c28
 
 Package: gir1.2-gtk-2.0
 Architecture: armhf
@@ -10926,6 +11217,78 @@ Homepage: http://www.openprinting.org/
 Description: OpenPrinting libcupsfilters - Test programs for autopkgtests
 Description-md5: 14ad6a58b3641ba0e086ef4929e4d29d
 
+Package: libflatpak-dev
+Architecture: armhf
+Version: 1.14.6-1ubuntu0.1
+Multi-Arch: same
+Priority: optional
+Section: universe/libdevel
+Source: flatpak
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 622
+Provides: gir1.2-flatpak-1.0-dev (= 1.14.6-1ubuntu0.1)
+Depends: gir1.2-glib-2.0, gir1.2-flatpak-1.0 (= 1.14.6-1ubuntu0.1), libflatpak0 (= 1.14.6-1ubuntu0.1), libglib2.0-dev, libostree-dev (>= 2020.8), libxml2-dev (>= 2.4), pkgconf, python3:any, gir1.2-gio-2.0-dev, gir1.2-gobject-2.0-dev
+Recommends: flatpak
+Suggests: gdb, ostree, python3-gi, systemd-coredump
+Filename: pool/universe/f/flatpak/libflatpak-dev_1.14.6-1ubuntu0.1_armhf.deb
+Size: 55798
+MD5sum: d0ab9326a30bdf943143da3f85b4cfb0
+SHA1: 595a32d5027ef0d08e25bce589c8b45d9146c842
+SHA256: 46d0f6e2d25d131d73bd55da14499e8e2c98d096b71e6816656d721f46270d3a
+SHA512: cdf8e007cf7632dac4af1c36d04285f9573a8cf16b0ca7c05c60ede8f67fd10196f56474aa0afba9c492af51fa103c6a104d74ea8ed78cf3b33521fbdbc0c167
+Homepage: https://flatpak.org/
+Description: Application deployment framework for desktop apps (development)
+Description-md5: 4fcaa1347e5652b1c831098f39239f04
+
+Package: libflatpak-doc
+Architecture: all
+Version: 1.14.6-1ubuntu0.1
+Multi-Arch: foreign
+Priority: optional
+Section: universe/doc
+Source: flatpak
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 1051
+Suggests: devhelp
+Filename: pool/universe/f/flatpak/libflatpak-doc_1.14.6-1ubuntu0.1_all.deb
+Size: 123722
+MD5sum: 9f4e54dfc8a1afd9e94ec6fffd6bd407
+SHA1: 655bcf8dc5ad29ccbd272b5b15b9fc0cbd6d03b4
+SHA256: abd0ca1794b079eb3b52b290e9f92ca4909b39c64d36b9eba96a1bb1bf57de96
+SHA512: c2e359cb93d2bc5de18d87f8c5ef77984246edb7e3f9177900ac0752979232671aff144cbc53d48da01ef7071f4932c679d02e89a0f8b314f7f25d15f7bc21c1
+Homepage: https://flatpak.org/
+Description: Application deployment framework for desktop apps (documentation)
+Description-md5: c7d59a541c5d9998f886d74daf4ac8d6
+
+Package: libflatpak0
+Architecture: armhf
+Version: 1.14.6-1ubuntu0.1
+Multi-Arch: same
+Priority: optional
+Section: universe/libs
+Source: flatpak
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 654
+Depends: bubblewrap (>= 0.9.0-1ubuntu0.1), libarchive13t64 (>= 3.0.4), libc6 (>= 2.38), libcurl3t64-gnutls (>= 7.16.2), libdconf1 (>= 0.26.0), libglib2.0-0t64 (>= 2.79.0), libgpgme11t64 (>= 1.1.8), libjson-glib-1.0-0 (>= 1.5.2), libmalcontent-0-0 (>= 0.6.0), libostree-1-1 (>= 2020.8), libpolkit-gobject-1-0 (>= 0.101), libseccomp2 (>= 2.5.2), libsystemd0, libxau6 (>= 1:1.0.9), libxml2 (>= 2.7.4), libzstd1 (>= 1.5.5)
+Filename: pool/universe/f/flatpak/libflatpak0_1.14.6-1ubuntu0.1_armhf.deb
+Size: 348584
+MD5sum: ba5764b274f96a77e7ae8df22c898281
+SHA1: 612249e460cfd61d9b3e34aeba06951c7c462cab
+SHA256: 980139e67c9df0082df27b4d14b40385f1956d80a121dc203f5546f200eda579
+SHA512: 1ceea00f4b3bd4eeea3d3bd75a19aea1c1d3a46a8fe2b10d7a6d5496a6683ac3e1a645681ab9d3d7b3181080ccd7a6511a0fcc44515dea4c84d0c468c725a395
+Homepage: https://flatpak.org/
+Description: Application deployment framework for desktop apps (library)
+Description-md5: 0e4073ffd5dff85f7c3cfe70f89906ed
+
 Package: libfreerdp-shadow-subsystem3-3
 Architecture: armhf
 Version: 3.5.1+dfsg1-0ubuntu1
@@ -11090,6 +11453,56 @@ SHA512: e8ed78826ad4b00f9a1e45a98987547172bdf4ace4c5462a7ce6cb5bb1c81584e79e3a1a
 Homepage: https://github.com/varnamproject/govarnam
 Description: Transliteration library to type Indic languages
 Description-md5: e1a242f6298290a326256882804323e6
+
+Package: libgsf-1-dev
+Architecture: armhf
+Version: 1.14.51-2ubuntu0.1
+Multi-Arch: same
+Priority: optional
+Section: universe/libdevel
+Source: libgsf
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Dmitry Smirnov <onlyjob@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 1701
+Depends: libgsf-1-114 (= 1.14.51-2ubuntu0.1), gir1.2-gsf-1 (= 1.14.51-2ubuntu0.1), libbz2-dev, libglib2.0-dev, libxml2-dev
+Recommends: pkg-config
+Conflicts: gir1.2-libgsf-1
+Replaces: gir1.2-libgsf-1, libgsf-gnome-1-dev (<= 1.14.8-1)
+Filename: pool/universe/libg/libgsf/libgsf-1-dev_1.14.51-2ubuntu0.1_armhf.deb
+Size: 212024
+MD5sum: bdf826fce859196212cab6dc08c211ed
+SHA1: 07f598edb8e8de55e7405f90be32c46246eef7b6
+SHA256: 677048eb6106aa4db07d19a70c0322cf93e1cb066b1b5648c6994ba51376a311
+SHA512: fac62b9921d65eccef35fbd3f61364c97fcde6a9b67a0a2cc639718aa27c26b18c36041edcfd6151bba57af481007fa4474ffdef8d3bd0fc433deb5629d34d3c
+Homepage: http://projects.gnome.org/libgsf/
+Description: Structured File Library - development files
+Description-md5: c26c685203445077273bff5424a425c9
+
+Package: libgsf-bin
+Architecture: armhf
+Version: 1.14.51-2ubuntu0.1
+Priority: optional
+Section: universe/gnome
+Source: libgsf
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Dmitry Smirnov <onlyjob@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 52
+Depends: libc6 (>= 2.34), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.26.0), libgsf-1-114 (>= 1.14.27)
+Suggests: imagemagick
+Replaces: libgsf-1 (<= 1.12.3-3), libgsf-gnome-1 (<= 1.12.3-4)
+Filename: pool/universe/libg/libgsf/libgsf-bin_1.14.51-2ubuntu0.1_armhf.deb
+Size: 15922
+MD5sum: 46c859d01f131025819e7885a3730262
+SHA1: ea2d0ad953426d3667702d90108c9587961a8b44
+SHA256: 2e6d77c76ed66ffc82559b2a247ee328d6f2d3f71276bf1628090574d0a82a90
+SHA512: e3f6983b3a3d3b20831c6d48f1e63695d8191739a1bc0e5eb758adf881263eba675ad89cd46ccf83ef97e7b237c6317db1d5cb0b272b11809dcc74cc4c82aa8c
+Homepage: http://projects.gnome.org/libgsf/
+Description: Structured File Library - programs
+Description-md5: e555cb88781ef2e473ff3705e128bd5b
 
 Package: libgtk2.0-dev
 Architecture: armhf
@@ -11821,9 +12234,31 @@ Homepage: https://www.openjpeg.org
 Description: JPEG 2000 Interactive Protocol
 Description-md5: 50cc5e723cb5be57e1d384f85d8d78f9
 
+Package: libpam-oath
+Architecture: armhf
+Version: 2.6.11-2.1ubuntu0.1
+Priority: optional
+Section: universe/admin
+Source: oath-toolkit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: OATH Toolkit Team <oath-toolkit-help@nongnu.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 35
+Depends: libpam-runtime, libc6 (>= 2.34), liboath0t64 (>= 1.8.0), libpam0g (>= 0.99.7.1)
+Filename: pool/universe/o/oath-toolkit/libpam-oath_2.6.11-2.1ubuntu0.1_armhf.deb
+Size: 11216
+MD5sum: 65863808285f0049b17b4039b43258c9
+SHA1: c9dab30e2010f964a984c5e77690027281af9a6d
+SHA256: 43a66b147ae9787db2d13386ec18bf7d38c5226e81b39e09c0c74ba1048d59ed
+SHA512: 161970552a775e6cf1598d6aee80390b7d41ccf059c08150d1b63d916466357dff43386bda265b464a42655e7ceee14eb8e3f506e2d080925bf0bd3a23db95f8
+Homepage: https://www.nongnu.org/oath-toolkit/
+Description: OATH Toolkit libpam_oath PAM module
+Description-md5: 2d17d3000b8fde392811eab2f2429fb0
+
 Package: libphp8.3-embed
 Architecture: armhf
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -11833,14 +12268,14 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 3187
 Provides: libphp-embed, php-json, php8.3-json, phpapi-20230831
-Depends: media-types | mime-support, php8.3-cli, php8.3-common (= 8.3.6-0ubuntu0.24.04.1), php8.3-opcache, tzdata, ucf, libargon2-1 (>= 0~20171227), libc6 (>= 2.38), libpcre2-8-0 (>= 10.32), libsodium23 (>= 1.0.18), libssl3t64 (>= 3.0.0), libxml2 (>= 2.8.0), zlib1g (>= 1:1.2.3.4)
+Depends: media-types | mime-support, php8.3-cli, php8.3-common (= 8.3.6-0ubuntu0.24.04.2), php8.3-opcache, tzdata, ucf, libargon2-1 (>= 0~20171227), libc6 (>= 2.38), libpcre2-8-0 (>= 10.32), libsodium23 (>= 1.0.18), libssl3t64 (>= 3.0.0), libxml2 (>= 2.8.0), zlib1g (>= 1:1.2.3.4)
 Suggests: php-pear
-Filename: pool/universe/p/php8.3/libphp8.3-embed_8.3.6-0ubuntu0.24.04.1_armhf.deb
-Size: 1576216
-MD5sum: eb8f84ab95718e0d387c2862b0a1a6ea
-SHA1: bf2b9bc15ec46df57dc442b16a3601f184bbc86f
-SHA256: 76753d56d211477bf2523e2e2de87b51f9b0e6151e66557e38651b129df874ad
-SHA512: 0b33b74a0b3d72adf3177ccb7be5b0d012ccb53b6fa32c0e0cb2792c3858d8b55e656c0c30bda599d9a6d38867dd5feca5e979eaf1e2edf74d992bdd174a9b8d
+Filename: pool/universe/p/php8.3/libphp8.3-embed_8.3.6-0ubuntu0.24.04.2_armhf.deb
+Size: 1576470
+MD5sum: bb2b69e833217f75c6585031f2e5b867
+SHA1: 1b7a26aefa42f353f8a16a4b33b614f7aec76036
+SHA256: b1b52acd3e339535eeb5a8684c0b6e29e758d1f9ced120ed60810ef1c995affa
+SHA512: 9896ad2f69e2da47073e2fb42c8a37c0839d3688b6be24e1096eb94c68c979006360c819bea91e7dd277800e7368354785c9cafd5d2bb00b5452d0bb8ccb11d9
 Homepage: http://www.php.net/
 Description: HTML-embedded scripting language (Embedded SAPI library)
 Description-md5: bb653dd86e2dab4cff0e1464cdab0028
@@ -15796,6 +16231,29 @@ Original-Vcs-Browser: https://salsa.debian.org/glibc-team/glibc
 Original-Vcs-Git: https://salsa.debian.org/glibc-team/glibc.git
 Description-md5: e8172254ec0df735a3e44c0f557100bc
 
+Package: oathtool
+Architecture: armhf
+Version: 2.6.11-2.1ubuntu0.1
+Priority: optional
+Section: universe/devel
+Source: oath-toolkit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: OATH Toolkit Team <oath-toolkit-help@nongnu.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 58
+Depends: libc6 (>= 2.38), liboath0t64 (>= 2.6.0)
+Filename: pool/universe/o/oath-toolkit/oathtool_2.6.11-2.1ubuntu0.1_armhf.deb
+Size: 27464
+MD5sum: ac61a18e4694282635eedcdfb0cd4f4e
+SHA1: 51c6358a475dffa24bdcb7ffc3565a4c189c3b63
+SHA256: 2e2406ff12dff913d9dcfae35ee4ea4673920a5bcde488d4b584965c56a14257
+SHA512: 3a7439deffebb01e428a9893736cc675d6e1de92dbe8b90cc460a7427a99e8bd603812f75781e060adc9e770b792b7e44e335261d5737e85c2802c138543e65a
+Homepage: https://www.nongnu.org/oath-toolkit/
+Description: OATH Toolkit oathtool command line tool
+Task: lubuntu-desktop
+Description-md5: d984121e7ec1e8e81c5eb05708fd6f3d
+
 Package: obfs4proxy
 Architecture: armhf
 Version: 0.0.14-1ubuntu0.24.04.1
@@ -16736,7 +17194,7 @@ Description-md5: 6128081c6d2cab9a4914d98ade23fcaf
 
 Package: php8.3-bcmath
 Architecture: armhf
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -16746,20 +17204,20 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 51
 Provides: php-bcmath
-Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.1), libc6 (>= 2.4)
-Filename: pool/universe/p/php8.3/php8.3-bcmath_8.3.6-0ubuntu0.24.04.1_armhf.deb
-Size: 14144
-MD5sum: 2acafdeb929176ef581f2ec344e787d9
-SHA1: cf0f3eefff754b2a96d9ccc457a5e0d131f5a82e
-SHA256: 5da52bcf529e55f32132a5c8643b2ac661287261cc0d3be833b6afcf5dcce413
-SHA512: 72f6926fca5df6ed854e694d5960e1ce70c210e6abb362d3e86c5a93bd541486e32be2852d426a9edcc3d52622db62dbb2f6471ffea3975d19fb7cb2a542046e
+Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.2), libc6 (>= 2.4)
+Filename: pool/universe/p/php8.3/php8.3-bcmath_8.3.6-0ubuntu0.24.04.2_armhf.deb
+Size: 14132
+MD5sum: 28c10da11873fbdb68338e8b218776cd
+SHA1: a263e2e92e974b7e0b833ff535b2c3286eb5403a
+SHA256: d63baaa67b97570db1fc42a7c429b111952b24c1b26315551e344afa33135fcb
+SHA512: 280b3dca856fb7c1276fedde6d2ccef40b067457e478a5aa292643691f06df8e12739beb7c40ec19328141010537bc97367515041a3ff7f471ec122b14016017
 Homepage: http://www.php.net/
 Description: Bcmath module for PHP
 Description-md5: 8f9f425714b203a9b7d1f3678f64c107
 
 Package: php8.3-bz2
 Architecture: armhf
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -16769,20 +17227,20 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 47
 Provides: php-bz2
-Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.1), libbz2-1.0, libc6 (>= 2.4)
-Filename: pool/universe/p/php8.3/php8.3-bz2_8.3.6-0ubuntu0.24.04.1_armhf.deb
-Size: 9532
-MD5sum: ee87b7ed25b3c3d3ddf745b9265e3dd7
-SHA1: 0fd8ae47de5cd56ba8eebd365fdcf59f5e9857dc
-SHA256: 1e488f7b88cb27e9998262ec3fcd5474344be4e91999792b56fe2f387c661788
-SHA512: ec183b39565fe2094544e1fd4858f377354a8fa8a34c88e1b1e39ae9b8d2358324085017520ba7e540b09339a3332bafaee669fb37a25f5c2221caa1409fb419
+Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.2), libbz2-1.0, libc6 (>= 2.4)
+Filename: pool/universe/p/php8.3/php8.3-bz2_8.3.6-0ubuntu0.24.04.2_armhf.deb
+Size: 9530
+MD5sum: ad232cee1c6e37b563bf495a1dd4c5a5
+SHA1: d6a21ca0ede4b94009be09f93be70a21ee6b1507
+SHA256: 3d50621d45068d680258f9a960243409bdf2e85b067999ff40988cfaacd1f5a1
+SHA512: c478b63a5484446f73374657c5ebb98f7aa9ee351da6b9e65e088ec5ec0afbee1999368d6587c5a3028cefc3e3db2fc93eca9795d6dec199d119cbed92db8d49
 Homepage: http://www.php.net/
 Description: bzip2 module for PHP
 Description-md5: 6221ff838ed81a370f3420140a1ccf42
 
 Package: php8.3-dba
 Architecture: armhf
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -16792,20 +17250,20 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 67
 Provides: php-dba
-Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.1), libc6 (>= 2.38), libdb5.3t64, liblmdb0 (>= 0.9.7), libqdbm14t64 (>= 1.8.74)
-Filename: pool/universe/p/php8.3/php8.3-dba_8.3.6-0ubuntu0.24.04.1_armhf.deb
-Size: 21752
-MD5sum: 352fb66a04246e65962daf13fdc494fc
-SHA1: d9974d13ac21b145dc193786284ce4cab0d49234
-SHA256: 56a8af4912288c5c44c7fea197fe73a54115984ddbb21296d74be02cc108c09d
-SHA512: 30b7555c235d87fdb45db8b6190ffea8d0e260e4a3e50d310a6b495c3cdd617d441c85d1cc19d19f29c36b5af1127a843ed531a9fe1494dee538b6fd37ae3212
+Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.2), libc6 (>= 2.38), libdb5.3t64, liblmdb0 (>= 0.9.7), libqdbm14t64 (>= 1.8.74)
+Filename: pool/universe/p/php8.3/php8.3-dba_8.3.6-0ubuntu0.24.04.2_armhf.deb
+Size: 21754
+MD5sum: d431e13bc2bb143ea82ca83f88aa0f42
+SHA1: 2ac1d48aa0db47f1f28f222831c1f7ced905dbda
+SHA256: 6e4a0ac658f6ad3c733504141aa3441e6e4bf2f80c443ebfe664fda9db5f88bc
+SHA512: 0736813b8aba23db75ff5af65fafaeaefb72d0edd0648cd7ddbf29168bfa4c8c6dc0e3fb1e88553fb8a3179f3b51a5e144b08f94cf194694155b16062b2a569f
 Homepage: http://www.php.net/
 Description: DBA module for PHP
 Description-md5: a1c9cd8c67d752f4aaf0ba88ecb360df
 
 Package: php8.3-enchant
 Architecture: armhf
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -16815,20 +17273,20 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 47
 Provides: php-enchant
-Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.1), libc6 (>= 2.4), libenchant-2-2 (>= 2.2.3)
-Filename: pool/universe/p/php8.3/php8.3-enchant_8.3.6-0ubuntu0.24.04.1_armhf.deb
-Size: 8624
-MD5sum: 66fdc5050a585d956bd1a942978abead
-SHA1: 31dc729dc4f7b10258bd11622b02f1882eec16ca
-SHA256: 204a2123fd51d6ccbb6c302b45650072859f45eac46b146151a00e7edf1dd5f6
-SHA512: b516e9e07395b5b581da0ecb0eedadd5c10df7b2d4184b7ed32f4898ab17bdf3484061582b65e7405747a8d2b46ab1c9296bcfa08d9af92158fdb85ff9663e22
+Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.2), libc6 (>= 2.4), libenchant-2-2 (>= 2.2.3)
+Filename: pool/universe/p/php8.3/php8.3-enchant_8.3.6-0ubuntu0.24.04.2_armhf.deb
+Size: 8616
+MD5sum: e57abd5ffb9ed09c93f9b5342a34c13c
+SHA1: 6f721f3f54ff5d15d54d8f67a32dc88f7385a70d
+SHA256: 200678512a41381c43effaa3506333f761f46703f8653686b261ad3f65712185
+SHA512: fe1e69eb4bee1093f82f50e03b1fa58b8c09b70feee6b13950cdf4fe5d344cb0f460ed63fa8ca8de51bf21634045d5c507e86c3907cd1bde308de5e30955c852
 Homepage: http://www.php.net/
 Description: Enchant module for PHP
 Description-md5: 687582edca33aa141d3f62c1294fcb07
 
 Package: php8.3-fpm
 Architecture: armhf
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -16838,21 +17296,21 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 3366
 Provides: php-fpm, php-json, php8.3-json, phpapi-20230831
-Depends: media-types | mime-support, php8.3-cli, php8.3-common (= 8.3.6-0ubuntu0.24.04.1), php8.3-opcache, procps, systemd | systemd-tmpfiles, tzdata, ucf, libacl1 (>= 2.2.23), libapparmor1 (>= 2.7.0~beta1+bzr1772), libargon2-1 (>= 0~20171227), libc6 (>= 2.38), libpcre2-8-0 (>= 10.32), libsodium23 (>= 1.0.18), libssl3t64 (>= 3.0.0), libsystemd0, libxml2 (>= 2.8.0), zlib1g (>= 1:1.2.3.4)
+Depends: media-types | mime-support, php8.3-cli, php8.3-common (= 8.3.6-0ubuntu0.24.04.2), php8.3-opcache, procps, systemd | systemd-tmpfiles, tzdata, ucf, libacl1 (>= 2.2.23), libapparmor1 (>= 2.7.0~beta1+bzr1772), libargon2-1 (>= 0~20171227), libc6 (>= 2.38), libpcre2-8-0 (>= 10.32), libsodium23 (>= 1.0.18), libssl3t64 (>= 3.0.0), libsystemd0, libxml2 (>= 2.8.0), zlib1g (>= 1:1.2.3.4)
 Suggests: php-pear
-Filename: pool/universe/p/php8.3/php8.3-fpm_8.3.6-0ubuntu0.24.04.1_armhf.deb
-Size: 1648478
-MD5sum: 80665472781b053d00eb0c8ab1d1fba7
-SHA1: f6c728c7001b0ab48be19489c40ad5eaf0b2ed2d
-SHA256: 67b724c849743ae4f925ebb6889e4a1c8072e565b5bf3e6ce72665d54da9e9bd
-SHA512: ec74bd85be8b5cd50b2d4fade6d7579bbba30717fae561b94a0e291550bc6ccd1fe2e00e3383ab5ec2881b8fbdb2675e8e406e99007f6d4928a1caaad61c59e8
+Filename: pool/universe/p/php8.3/php8.3-fpm_8.3.6-0ubuntu0.24.04.2_armhf.deb
+Size: 1648398
+MD5sum: 159b68421eaf5d5b17c3ca669d4f3428
+SHA1: 7ce3980770c1147ff64f007419c57a430fbcc657
+SHA256: 98bcf799d00730f9504751930f6f45a339775b4e84d9ba1f488bd3c12148fa95
+SHA512: dc16038a179b7ab9d5b3629efff26cbf3855103a8fdc5d3f09f15f1a838acd81b2df981ef3ef08408f51d98a45e2a3281a9e0b1360a24716497357064dfb3828
 Homepage: http://www.php.net/
 Description: server-side, HTML-embedded scripting language (FPM-CGI binary)
 Description-md5: 90ab369d6f70e2962e63454ab0a372f6
 
 Package: php8.3-imap
 Architecture: armhf
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -16862,20 +17320,20 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 91
 Provides: php-imap
-Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.1), libc-client2007e, libc6 (>= 2.38)
-Filename: pool/universe/p/php8.3/php8.3-imap_8.3.6-0ubuntu0.24.04.1_armhf.deb
-Size: 31310
-MD5sum: e0304b5d0440bef37ea9189ff86035c8
-SHA1: bc209070dc4b580aaf45bb50618c40f6b3efd467
-SHA256: 23df6433217be72f150f85ccc34ea86a4bbc516bc1222d08bc064ea59ea6a1f0
-SHA512: 0debdcd031e08cb06fae3af4946557cb9c29e5a67d8e0e5aa3ea782746ae4aa855ae4fb694591746d2257b0803c677eea30a39b2f48ac196e3958524e285419e
+Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.2), libc-client2007e, libc6 (>= 2.38)
+Filename: pool/universe/p/php8.3/php8.3-imap_8.3.6-0ubuntu0.24.04.2_armhf.deb
+Size: 31308
+MD5sum: eb643d17b6cc9598ec25c79bc239d8a6
+SHA1: 589c166d221ccea377f348569eb2e2f718785a43
+SHA256: c674839063a7c5e017bba60d0839782506c3553c41c45f293c63b06a53d51f81
+SHA512: 1d9f93a8ae39ff53adfc84e1e4bb3de7c73a2d102a3d2ed238d647aa16c4b7ae0686db827f6c252b67e9f6582a57e3b44192c838990054cb13fc47fd71d3aec9
 Homepage: http://www.php.net/
 Description: IMAP module for PHP
 Description-md5: 73ce2e5dbb1377bc41524b600892883b
 
 Package: php8.3-interbase
 Architecture: armhf
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -16885,20 +17343,20 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 51
 Provides: php-pdo-firebird, php8.3-pdo-firebird
-Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.1), libc6 (>= 2.38), libfbclient2 (>= 2.5.0.25784~ReleaseCandidate1.ds2)
-Filename: pool/universe/p/php8.3/php8.3-interbase_8.3.6-0ubuntu0.24.04.1_armhf.deb
-Size: 14332
-MD5sum: a4b9bf18345583b51ff19080fd831d4a
-SHA1: 508c392b9c961d6cb429233e5e9f60ea43c76926
-SHA256: 1db466e86e2ac60266bbb3122607c260a2c482cf123247a42f1e315530058e84
-SHA512: e48a7161e243b53214f46fb3c2e32f4ba2b69fc9037a16671541e35d53e350127fd7a05eed4aba383b2a13595a0df3a0c0e9f3906b8e9ec88c62e25ad77eb67e
+Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.2), libc6 (>= 2.38), libfbclient2 (>= 2.5.0.25784~ReleaseCandidate1.ds2)
+Filename: pool/universe/p/php8.3/php8.3-interbase_8.3.6-0ubuntu0.24.04.2_armhf.deb
+Size: 14324
+MD5sum: 8ceb1a2b109e66f2618c127085dfcbfb
+SHA1: 26efae9d00a78984af61451dc2464553566095de
+SHA256: 1ead595d59c00099c336e6c3351fb74c44ea2d707b607c05a016b8a3f775f487
+SHA512: f8df3ae2d0b72c6da9b2b0e096feaf19764b6183917d4672fa7fccd4c8eb44429689b930a4f6dc646ceed043281d76635c5d6dd985066495bb19b227da37eb5d
 Homepage: http://www.php.net/
 Description: Interbase module for PHP
 Description-md5: 40c18d15eeba50ef5700d72e1e45d586
 
 Package: php8.3-intl
 Architecture: armhf
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -16908,20 +17366,20 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 415
 Provides: php-intl
-Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.1), libc6 (>= 2.4), libgcc-s1 (>= 3.5), libicu74 (>= 74.1-1~), libstdc++6 (>= 4.3)
-Filename: pool/universe/p/php8.3/php8.3-intl_8.3.6-0ubuntu0.24.04.1_armhf.deb
-Size: 149478
-MD5sum: d17073bfbd165b38c005c798671eb50a
-SHA1: d15e2c9266fa605a76e3994bece96b5a380ef500
-SHA256: da8d324a71bb49b099375bb2e8d47c62fb04de30eac5698b03564efd03fd27a6
-SHA512: a82972e585546401d56ff3cce25b3abe9c2edd24123bf2bfec3ad770e9437bac3c4efa594f413c2fe3025aeecf7ea42d06fbb2dafed63e8af2a8f9046b35c589
+Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.2), libc6 (>= 2.4), libgcc-s1 (>= 3.5), libicu74 (>= 74.1-1~), libstdc++6 (>= 4.3)
+Filename: pool/universe/p/php8.3/php8.3-intl_8.3.6-0ubuntu0.24.04.2_armhf.deb
+Size: 149470
+MD5sum: 59750634e3eb6553b743d1564ba7347a
+SHA1: 30e0666fcf295b048aa363286352d330b8638098
+SHA256: 988cb03f61d2ed7921a6e526c956169d721a895831eaa9c357e87413aef4fedb
+SHA512: 8db62cabb3e3ddc73b8c81ab6c0f913bdf2504404974ef744f999d15a90ec19c50a24d6d28c6baa7dd89768b306336c2f5e391915ddbf79b8fbffad24127c253
 Homepage: http://www.php.net/
 Description: Internationalisation module for PHP
 Description-md5: 576352b0c1559ceb07b3161367c69f39
 
 Package: php8.3-phpdbg
 Architecture: armhf
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -16931,21 +17389,21 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 3336
 Provides: php-json, php-phpdbg, php8.3-json, phpapi-20230831
-Depends: media-types | mime-support, php8.3-cli, php8.3-common (= 8.3.6-0ubuntu0.24.04.1), php8.3-opcache, tzdata, ucf, libargon2-1 (>= 0~20171227), libc6 (>= 2.38), libpcre2-8-0 (>= 10.32), libsodium23 (>= 1.0.18), libssl3t64 (>= 3.0.0), libxml2 (>= 2.8.0), zlib1g (>= 1:1.2.3.4)
+Depends: media-types | mime-support, php8.3-cli, php8.3-common (= 8.3.6-0ubuntu0.24.04.2), php8.3-opcache, tzdata, ucf, libargon2-1 (>= 0~20171227), libc6 (>= 2.38), libpcre2-8-0 (>= 10.32), libsodium23 (>= 1.0.18), libssl3t64 (>= 3.0.0), libxml2 (>= 2.8.0), zlib1g (>= 1:1.2.3.4)
 Recommends: php-readline
-Filename: pool/universe/p/php8.3/php8.3-phpdbg_8.3.6-0ubuntu0.24.04.1_armhf.deb
-Size: 1676018
-MD5sum: 4f6e00182e80bb62e2a3086f5eeec38b
-SHA1: b6edb8e375d47d311e2548547500db216f2c9ee6
-SHA256: 2c3b519fb9a21b3f84e0e50147f06fbafce95952ae58ad73fb5b4a64cbbea643
-SHA512: 8d919db1aec1bb6ba9617270d058fe59a0592ea14d10346e1691e2a4e1af4f1accbb3077ceb742cc71793e534f759d5a17497a625c8bea7dcd895ad7587197de
+Filename: pool/universe/p/php8.3/php8.3-phpdbg_8.3.6-0ubuntu0.24.04.2_armhf.deb
+Size: 1653264
+MD5sum: 9b4392941e2ccab175c576eaf67bd617
+SHA1: 9b9adcb2830458274e9fb72b0db9f41b5f31b8e0
+SHA256: 2c5794bfdc092aff7adfb7e68aa0f04b8c527eaa3f0ec3e430e54bfdde23b73d
+SHA512: d8eab878f1c318d47de8baf70b1ab28595f1030c791ee53e13585c23b6047b54b8f8db3447c50f537bc4e458afba40a6e5f276a78c46de6553cff30caf9d50a8
 Homepage: http://www.php.net/
 Description: server-side, HTML-embedded scripting language (PHPDBG binary)
 Description-md5: 67c6305a8de98639c145ce896becb6da
 
 Package: php8.3-soap
 Architecture: armhf
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -16955,20 +17413,20 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 231
 Provides: php-soap
-Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.1), libc6 (>= 2.38), libxml2 (>= 2.7.4)
-Filename: pool/universe/p/php8.3/php8.3-soap_8.3.6-0ubuntu0.24.04.1_armhf.deb
-Size: 117988
-MD5sum: 97e4f0d6f827c9ea9c2a4eecebce3fed
-SHA1: f44cd447a20c3cf49c8ae4e8d29da561bd238e82
-SHA256: c9cbbdd77dc1a568bb8c0991e54cc9ad25e304494b3d855350aeac312a94eac8
-SHA512: 15462c8985d7ec73d890fc8bd9fb9dac3e5ba82c683460df25d811271f35a902b3dc0268d12e4da4cac6bfe7aed7e0959a3d89c6c997e7ef1bf77d14bab8c3e8
+Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.2), libc6 (>= 2.38), libxml2 (>= 2.7.4)
+Filename: pool/universe/p/php8.3/php8.3-soap_8.3.6-0ubuntu0.24.04.2_armhf.deb
+Size: 117978
+MD5sum: 3233593fd4e8a55d3fa049da9cb9266d
+SHA1: a8fc4185c2e08243399fd1726d5146e31e59175c
+SHA256: ee7b5de2466fcb016389a7e77628ced30f419fbfaf1deff595f1235b2dcc9572
+SHA512: 72d7a623169f137dcf59e1af716609f4f02a400abfd4b5344986575c15527eab87286b1a9a55b56e3c56e5ed2fb3223bd37f511b14b7c77fc2561d9d1e4a1030
 Homepage: http://www.php.net/
 Description: SOAP module for PHP
 Description-md5: 8ca6ca2ae4fbc6127f6522e73f05005a
 
 Package: php8.3-sybase
 Architecture: armhf
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -16978,20 +17436,20 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 47
 Provides: php-pdo-dblib, php8.3-pdo-dblib
-Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.1), libc6 (>= 2.4), libsybdb5 (>= 0.63)
-Filename: pool/universe/p/php8.3/php8.3-sybase_8.3.6-0ubuntu0.24.04.1_armhf.deb
+Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.2), libc6 (>= 2.4), libsybdb5 (>= 0.63)
+Filename: pool/universe/p/php8.3/php8.3-sybase_8.3.6-0ubuntu0.24.04.2_armhf.deb
 Size: 10940
-MD5sum: 3b9b676f1b090d00bc47dd029cccac94
-SHA1: 0b68b6188de9ec036a91675a87843da464a5f460
-SHA256: 89999ea308d066be17156d07e54febab6ae06706fb4bdd2a1f9db421ee3ee636
-SHA512: c7c3a37e582209b03c20e14880c65ab255ed3906c1112039bdc567e5ff8be5711c8a8144a792f6fd2e3944d5093c0ac6347d2935aebab74f3a3a45a997823a43
+MD5sum: 7aeaefc82c319d592c75f0c60cc03268
+SHA1: a3d0d33ffaa4a59f718b4dbedf6c99e9f86018fa
+SHA256: 18f5d23a19cfd5930be5b48935010e9cf9edf7cbac1c708244cc5685b707aa18
+SHA512: a6834ff1eb3e4457879ac6f4cde51038162c20eed1e5c6536c5c43f18a982f9775640d81982b7fe6f38a966ad389686195bf90bd5f0dd62b7da5e4b9dc20bcde
 Homepage: http://www.php.net/
 Description: Sybase module for PHP
 Description-md5: c5f3c0b4521b40ee671df4ab3452df1d
 
 Package: php8.3-xsl
 Architecture: all
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -17001,19 +17459,19 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 58
 Depends: php8.3-common, php8.3-xml
-Filename: pool/universe/p/php8.3/php8.3-xsl_8.3.6-0ubuntu0.24.04.1_all.deb
-Size: 8844
-MD5sum: 1f7cc39e22df1a61d888334fec934435
-SHA1: 706cf555a7573f0249eb54f9b3c810139a284347
-SHA256: eb5fe2d5f96411180f41d426ceef29b4ddbe235b778d5b50c33949c68e68af9b
-SHA512: 64a614ef887c802b3def468f378a5e6c107d2fd81b7354f93f0fe553b334233f4c9105765625ad9de41bea5f05d6b5e4b13a3f4edc5a0bea51716615d7748eaf
+Filename: pool/universe/p/php8.3/php8.3-xsl_8.3.6-0ubuntu0.24.04.2_all.deb
+Size: 8846
+MD5sum: ed89ea51790de4b5070b5c2cd7f97595
+SHA1: b30b78ed11b9b885d583cff3779efbfaed11fd9b
+SHA256: 2c5636ccc6cb52f71c9112aaea5679b52689f46fcd0d94bb93cd9058605299fc
+SHA512: 15daf771192ab0770b9d4d33de560106f5aef7b49a3bed8cdd9ece5faeeb21ea52d5ece962e7009c367723451763883dffa49873149356b2fc80cc72c791a8ac
 Homepage: http://www.php.net/
 Description: XSL module for PHP (dummy)
 Description-md5: 93c8fc5e2935346a001f328e898c3cff
 
 Package: php8.3-zip
 Architecture: armhf
-Version: 8.3.6-0ubuntu0.24.04.1
+Version: 8.3.6-0ubuntu0.24.04.2
 Priority: optional
 Section: universe/php
 Source: php8.3
@@ -17023,13 +17481,13 @@ Original-Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 91
 Provides: php-zip
-Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.1), libc6 (>= 2.34), libzip4t64 (>= 1.7.0)
-Filename: pool/universe/p/php8.3/php8.3-zip_8.3.6-0ubuntu0.24.04.1_armhf.deb
-Size: 28176
-MD5sum: 220ac86663ffc7081197c477dbeafaf7
-SHA1: 16a758def2280e1e06dfcbcb5336889caf6524cc
-SHA256: d4c4ccbb5ec9f5c3a6523130f874fa1dde528a8de45cfa2a52dad922d5572f43
-SHA512: 1bbeb184615157e0654fa97dbf9b2040a6bc29f23ad8a4d8d18dc7bb0fd372d784105e7914e8b8066c6fcd2136ddbdca6a32f2d7bc5600a2a22cfaf3bac1b612
+Depends: php-common (>= 1:81~), ucf, php8.3-common (= 8.3.6-0ubuntu0.24.04.2), libc6 (>= 2.34), libzip4t64 (>= 1.7.0)
+Filename: pool/universe/p/php8.3/php8.3-zip_8.3.6-0ubuntu0.24.04.2_armhf.deb
+Size: 28156
+MD5sum: b3529cb73c00afea8be40439c87819e2
+SHA1: 4c2a7d57974a85a57061c16690ff91f297261185
+SHA256: fc722aa7420ee17dceec46f70e2434ca4e88ffbaa3aec6a1f19f76833fb37b73
+SHA512: 5dc127c833fa04f5e5f068ee3511e9514c5d38cb3127f99835c4ec699e91b9ebf483af8cc5db49d03896ffe9ec04aaa3194155552d53f002617cff67c5e15570
 Homepage: http://www.php.net/
 Description: Zip module for PHP
 Description-md5: e148c478613188b645a0ec42c87f0518
@@ -18260,6 +18718,28 @@ Homepage: https://github.com/canonical/ubuntu-desktop-provision/tree/main/provd
 Description: Ubuntu init backend
 Description-md5: 5e7fe28c8928378b95c9caa7850ac585
 
+Package: pskctool
+Architecture: armhf
+Version: 2.6.11-2.1ubuntu0.1
+Priority: optional
+Section: universe/devel
+Source: oath-toolkit
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: OATH Toolkit Team <oath-toolkit-help@nongnu.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 36
+Depends: libc6 (>= 2.34), libpskc0t64 (>= 2.6.4)
+Filename: pool/universe/o/oath-toolkit/pskctool_2.6.11-2.1ubuntu0.1_armhf.deb
+Size: 12410
+MD5sum: 5f9f87722d349ecdeff7bdde5667aa19
+SHA1: 79a867f2f4a1ec537cc950ffd5e1fe19eb19fa08
+SHA256: 92a928c1e37e1b3791222242cad301e59f9704754d7f5314a21abaa74dc9f08d
+SHA512: 13bbd1cf5b6090fe06cc401bbf65e3dfb3f987d01997a0434192338afe7091ebabc5a9ca852de6afe153f535a54f083697317ea21d453f102a2b1e363df23c4d
+Homepage: https://www.nongnu.org/oath-toolkit/
+Description: OATH Toolkit pskctool command line tool
+Description-md5: edf8c44ffbaa594af237cc0977d00da9
+
 Package: python-aiohttp-doc
 Architecture: all
 Version: 3.9.1-1ubuntu0.1
@@ -18282,6 +18762,28 @@ SHA512: 76b4d332323b87f4603b40136ae009b43f30612b216c8f9e747d4e2268f250523ce6f567
 Homepage: https://aiohttp.readthedocs.org
 Description: documentation of python3-aiohttp
 Description-md5: 3c8129e3bdeb5060e745f9baecf62116
+
+Package: python-asyncssh-doc
+Architecture: all
+Version: 2.10.1-2ubuntu0.1
+Priority: optional
+Section: universe/doc
+Source: python-asyncssh
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 6534
+Depends: libjs-sphinxdoc (>= 7.2.2)
+Filename: pool/universe/p/python-asyncssh/python-asyncssh-doc_2.10.1-2ubuntu0.1_all.deb
+Size: 368192
+MD5sum: 2ddd6723a7149f5f009e33b3b4f5aa0b
+SHA1: 068c53fc5cd4eb405943bd42ec51fb7f958cbfd4
+SHA256: 9887c7679f4c098dac9cf8e865671e94ab1650e108f81cffacb3baf104c088e6
+SHA512: 37eff93a1a5312a5be6548193ed8844b89f3df436a34990115f51aafbc45e621b544cb470708f1faea103bddbeef9f47164d8af910674de6b7f9d2000ff6cac6
+Homepage: https://github.com/ronf/asyncssh
+Description: asyncio-based client and server implementation of SSHv2 protocol (doc)
+Description-md5: 4fd1f087b339c2a5c6fc2f89f04899f0
 
 Package: python-jinja2-doc
 Architecture: all
@@ -18352,6 +18854,29 @@ SHA512: 22426fcc1ee025c68e752df2418a40a7fa870f568eba21da2ecc0532ff30d9b0b16ce98c
 Homepage: https://aiohttp.readthedocs.org
 Description: http client/server for asyncio
 Description-md5: f730c1eb49e4f113817da234d7a43357
+
+Package: python3-asyncssh
+Architecture: all
+Version: 2.10.1-2ubuntu0.1
+Priority: optional
+Section: universe/python
+Source: python-asyncssh
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 1588
+Depends: python3-cryptography (>= 3.1), python3-typing-extensions, python3:any
+Recommends: python-asyncssh-doc, python3-bcrypt (>= 3)
+Filename: pool/universe/p/python-asyncssh/python3-asyncssh_2.10.1-2ubuntu0.1_all.deb
+Size: 222534
+MD5sum: 52e153dfe91602c8510dd1d1f8e94ebd
+SHA1: e7461ec46259f97a8507361cedc54447640bf43c
+SHA256: 2159b2990d4240198d1e299a66dd6b7924cb56ddbad1b57a058e910b7e569a9f
+SHA512: 48755d0e59ce28e6f214db4913340e83678c23c15bbf3d06c9c2d80d433dace6a8765b8854a19371da9902e97f9e977c9f196f5795e1579ecdaacf0d4ac9d2d1
+Homepage: https://github.com/ronf/asyncssh
+Description: asyncio-based client and server implementation of SSHv2 protocol
+Description-md5: ea709ca614c3167bf115b4408f4f223d
 
 Package: python3-ironic
 Architecture: all
@@ -21627,7 +22152,7 @@ Description-md5: 501b1c659440c82b2a48c77598b94938
 
 Package: vim-athena
 Architecture: all
-Version: 2:9.1.0016-1ubuntu7.2
+Version: 2:9.1.0016-1ubuntu7.3
 Priority: extra
 Section: universe/editors
 Source: vim
@@ -21637,19 +22162,19 @@ Original-Maintainer: Debian Vim Maintainers <team+vim@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 84
 Depends: vim-motif
-Filename: pool/universe/v/vim/vim-athena_9.1.0016-1ubuntu7.2_all.deb
-Size: 9036
-MD5sum: 72d934c5f9e25b8778178d4c4c16144e
-SHA1: 0083edf13e06deaf114902e4f7167d469cb4a1d0
-SHA256: 4e3ec055d4200cb02df33f0b2009c677070907184b3a1bd84f5db4f8414cf20c
-SHA512: 5d87e03fd0b6c18db00aa4cb284457e4c21f3f4c92783ac5651b295977234cc333625280bfad2891e645d4fedaa88ad828a693c207be4c80506e8415ef94ec5e
+Filename: pool/universe/v/vim/vim-athena_9.1.0016-1ubuntu7.3_all.deb
+Size: 9034
+MD5sum: b005a62a1236f4999f9f34eb44e46d0c
+SHA1: 0a28f642810d2b9634ab7e4989d571916c8b25e6
+SHA256: a0b30d99957123bd6a6d187a08383169d5baf1b6579749bb929ac7007ca9113c
+SHA512: 048b4e7fbd8bd6b5d7f1f2b78a2dcfcd1a5de3cc35b81b3f1d48e484b0b788aa5831d3c0e6378106ce8b4c833e00c36c23caff2b643e9f0d21bbeb65a2357bee
 Homepage: https://www.vim.org/
 Description: Vi IMproved - enhanced vi editor (dummy package)
 Description-md5: 215b4520fd9a69b317132881ce593b7d
 
 Package: vim-gtk3
 Architecture: armhf
-Version: 2:9.1.0016-1ubuntu7.2
+Version: 2:9.1.0016-1ubuntu7.3
 Priority: extra
 Section: universe/editors
 Source: vim
@@ -21658,22 +22183,22 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian Vim Maintainers <team+vim@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 3001
-Provides: editor, gvim (= 2:9.1.0016-1ubuntu7.2), vim (= 2:9.1.0016-1ubuntu7.2), vim-lua (= 2:9.1.0016-1ubuntu7.2), vim-perl (= 2:9.1.0016-1ubuntu7.2), vim-python3 (= 2:9.1.0016-1ubuntu7.2), vim-ruby (= 2:9.1.0016-1ubuntu7.2), vim-tcl (= 2:9.1.0016-1ubuntu7.2)
-Depends: vim-common (= 2:9.1.0016-1ubuntu7.2), vim-gui-common (= 2:9.1.0016-1ubuntu7.2), vim-runtime (= 2:9.1.0016-1ubuntu7.2), libacl1 (>= 2.2.23), libc6 (>= 2.38), libcairo2 (>= 1.4.10), libcanberra0t64 (>= 0.2), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.79.0), libgpm2 (>= 1.20.7), libgtk-3-0t64 (>= 3.21.5), libice6 (>= 1:1.0.0), liblua5.1-0, libpango-1.0-0 (>= 1.37.5), libpangocairo-1.0-0 (>= 1.14.0), libperl5.38t64 (>= 5.38.2), libpython3.12t64 (>= 3.12.1), libruby3.2 (>= 3.2.2), libselinux1 (>= 3.1~), libsm6, libsodium23 (>= 1.0.14), libtcl8.6 (>= 8.6.0), libtinfo6 (>= 6), libx11-6, libxt6t64
+Provides: editor, gvim (= 2:9.1.0016-1ubuntu7.3), vim (= 2:9.1.0016-1ubuntu7.3), vim-lua (= 2:9.1.0016-1ubuntu7.3), vim-perl (= 2:9.1.0016-1ubuntu7.3), vim-python3 (= 2:9.1.0016-1ubuntu7.3), vim-ruby (= 2:9.1.0016-1ubuntu7.3), vim-tcl (= 2:9.1.0016-1ubuntu7.3)
+Depends: vim-common (= 2:9.1.0016-1ubuntu7.3), vim-gui-common (= 2:9.1.0016-1ubuntu7.3), vim-runtime (= 2:9.1.0016-1ubuntu7.3), libacl1 (>= 2.2.23), libc6 (>= 2.38), libcairo2 (>= 1.4.10), libcanberra0t64 (>= 0.2), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.79.0), libgpm2 (>= 1.20.7), libgtk-3-0t64 (>= 3.21.5), libice6 (>= 1:1.0.0), liblua5.1-0, libpango-1.0-0 (>= 1.37.5), libpangocairo-1.0-0 (>= 1.14.0), libperl5.38t64 (>= 5.38.2), libpython3.12t64 (>= 3.12.1), libruby3.2 (>= 3.2.2), libselinux1 (>= 3.1~), libsm6, libsodium23 (>= 1.0.14), libtcl8.6 (>= 8.6.0), libtinfo6 (>= 6), libx11-6, libxt6t64
 Suggests: cscope, fonts-dejavu, gnome-icon-theme, vim-doc
-Filename: pool/universe/v/vim/vim-gtk3_9.1.0016-1ubuntu7.2_armhf.deb
-Size: 1783754
-MD5sum: 0b65cd56410a2eab3c53bda953cbc389
-SHA1: 79008d265ba5eff5831464659af91893f3b3d90d
-SHA256: 7f58eab8e33b9f380ae0105e0e7ba4b4d0d75e6298e862441e5b0618f63fa631
-SHA512: f1e7ac7c937bda16dedd1de571fd98dfaa8456596a71fe5b7a522777d5e976a99aeb4e9b703dbc81d434673b8f0a8cfbdd3add547f6e6aba708650b79697175d
+Filename: pool/universe/v/vim/vim-gtk3_9.1.0016-1ubuntu7.3_armhf.deb
+Size: 1783936
+MD5sum: 8ca6d1250ee463586dbc09bf021ce34f
+SHA1: 8e7b68d7ad36eca4951a026932f2dae2510bd776
+SHA256: 07f1ceca7d1845b0d80c5bb4369c72a6bcf60a593a8ca45129a2ea27426b5bb6
+SHA512: 323128a015c4cfc52c6a37610bdd75a1613dbb94aa7bdee824efc121cd41ab6c8776267d14454f5eb0ece6429cb5aed145cc62f5204b7c8fb6969ade7b27cecd
 Homepage: https://www.vim.org/
 Description: Vi IMproved - enhanced vi editor - with GTK3 GUI
 Description-md5: 55a9161bf3dec9e8a999586c8e73467a
 
 Package: vim-gui-common
 Architecture: all
-Version: 2:9.1.0016-1ubuntu7.2
+Version: 2:9.1.0016-1ubuntu7.3
 Multi-Arch: foreign
 Priority: optional
 Section: universe/editors
@@ -21684,19 +22209,19 @@ Original-Maintainer: Debian Vim Maintainers <team+vim@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 240
 Recommends: vim-gtk3 | vim-motif
-Filename: pool/universe/v/vim/vim-gui-common_9.1.0016-1ubuntu7.2_all.deb
-Size: 105484
-MD5sum: 732096cfa5ce14d00b26b7236221caea
-SHA1: 91bea516c47594fa8cd9041454c494415c564c14
-SHA256: e05b7723de235602b684d8a2333e8ba7305f78d3a049a0ac69fc68daa8d93fee
-SHA512: faeb4dfbef9a74c927fec779881cd229ceb6750fe370bcf92317742fad388b751863cdaff8955457d9ab6b0546a8173396a617a03afd76e8d4f25540a128e808
+Filename: pool/universe/v/vim/vim-gui-common_9.1.0016-1ubuntu7.3_all.deb
+Size: 105598
+MD5sum: 5e6df99cda63a1c70322d3020e95a113
+SHA1: eff02080d197703d622bef775158131344ad0c44
+SHA256: c981bcf979f5ac44d3903b9dfa9b8f543cbfbbb1e0e59842eb11aed44d8f314a
+SHA512: 05a2d1003a89d742428097799a737ba5e63b40ee77f11ace34053e951e75c700ee8b1ee7b4c7632fb4325119956ffd7a50d5c51e42fe5b4114366854896bb057
 Homepage: https://www.vim.org/
 Description: Vi IMproved - Common GUI files
 Description-md5: f51060aa71b1aeaa83cfde145ca640c3
 
 Package: vim-motif
 Architecture: armhf
-Version: 2:9.1.0016-1ubuntu7.2
+Version: 2:9.1.0016-1ubuntu7.3
 Priority: optional
 Section: universe/editors
 Source: vim
@@ -21705,22 +22230,22 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian Vim Maintainers <team+vim@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 2836
-Provides: editor, gvim (= 2:9.1.0016-1ubuntu7.2), vim (= 2:9.1.0016-1ubuntu7.2), vim-lua (= 2:9.1.0016-1ubuntu7.2), vim-perl (= 2:9.1.0016-1ubuntu7.2), vim-python3 (= 2:9.1.0016-1ubuntu7.2), vim-ruby (= 2:9.1.0016-1ubuntu7.2), vim-tcl (= 2:9.1.0016-1ubuntu7.2)
-Depends: vim-common (= 2:9.1.0016-1ubuntu7.2), vim-gui-common (= 2:9.1.0016-1ubuntu7.2), vim-runtime (= 2:9.1.0016-1ubuntu7.2), libacl1 (>= 2.2.23), libc6 (>= 2.38), libcanberra0t64 (>= 0.2), libgpm2 (>= 1.20.7), libice6 (>= 1:1.0.0), liblua5.1-0, libperl5.38t64 (>= 5.38.2), libpython3.12t64 (>= 3.12.1), libruby3.2 (>= 3.2.2), libselinux1 (>= 3.1~), libsm6, libsodium23 (>= 1.0.14), libtcl8.6 (>= 8.6.0), libtinfo6 (>= 6), libx11-6, libxt6t64
+Provides: editor, gvim (= 2:9.1.0016-1ubuntu7.3), vim (= 2:9.1.0016-1ubuntu7.3), vim-lua (= 2:9.1.0016-1ubuntu7.3), vim-perl (= 2:9.1.0016-1ubuntu7.3), vim-python3 (= 2:9.1.0016-1ubuntu7.3), vim-ruby (= 2:9.1.0016-1ubuntu7.3), vim-tcl (= 2:9.1.0016-1ubuntu7.3)
+Depends: vim-common (= 2:9.1.0016-1ubuntu7.3), vim-gui-common (= 2:9.1.0016-1ubuntu7.3), vim-runtime (= 2:9.1.0016-1ubuntu7.3), libacl1 (>= 2.2.23), libc6 (>= 2.38), libcanberra0t64 (>= 0.2), libgpm2 (>= 1.20.7), libice6 (>= 1:1.0.0), liblua5.1-0, libperl5.38t64 (>= 5.38.2), libpython3.12t64 (>= 3.12.1), libruby3.2 (>= 3.2.2), libselinux1 (>= 3.1~), libsm6, libsodium23 (>= 1.0.14), libtcl8.6 (>= 8.6.0), libtinfo6 (>= 6), libx11-6, libxt6t64
 Suggests: cscope, vim-doc
-Filename: pool/universe/v/vim/vim-motif_9.1.0016-1ubuntu7.2_armhf.deb
-Size: 1692368
-MD5sum: a38dd37d091997ef5d5c82c96d2af080
-SHA1: f195ef8b5981e30fd9e702c01d84db697fc6ca7c
-SHA256: d88f448bd81913fb68405a363c586959ea09804797c33ed8733eb2d40055fa7e
-SHA512: dc9b67f5706159bab30bb7465b373b005157457716acbab86593a2ebd711c9114f6a112359f0113c09c498ea6203e4922c6772ef69a50ac9729d7b6b9e587135
+Filename: pool/universe/v/vim/vim-motif_9.1.0016-1ubuntu7.3_armhf.deb
+Size: 1691872
+MD5sum: b17e215deb6ce04ca44ca94f213bffbf
+SHA1: 285aedc73d72596fd9ccbf0bb4cd40a0c6eec904
+SHA256: 863d1a5437bf28a8eeaf98d7a005bba880c00336635d5ad03c002b0fec294467
+SHA512: c98e292e851257259d724c21e25cc2a358b9c3a21acd3a729ef587f6d0da4aee595ead6c465792472b639900e13aa39529213d872c98214a61a9d49cf782ca0c
 Homepage: https://www.vim.org/
 Description: Vi IMproved - enhanced vi editor - with Motif GUI
 Description-md5: 0d24b1f25ebcc42266fd1abc532adc46
 
 Package: vim-nox
 Architecture: armhf
-Version: 2:9.1.0016-1ubuntu7.2
+Version: 2:9.1.0016-1ubuntu7.3
 Priority: extra
 Section: universe/editors
 Source: vim
@@ -21729,15 +22254,15 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Original-Maintainer: Debian Vim Maintainers <team+vim@tracker.debian.org>
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Installed-Size: 2788
-Provides: editor, vim (= 2:9.1.0016-1ubuntu7.2), vim-lua (= 2:9.1.0016-1ubuntu7.2), vim-perl (= 2:9.1.0016-1ubuntu7.2), vim-python3 (= 2:9.1.0016-1ubuntu7.2), vim-ruby (= 2:9.1.0016-1ubuntu7.2), vim-tcl (= 2:9.1.0016-1ubuntu7.2)
-Depends: vim-common (= 2:9.1.0016-1ubuntu7.2), vim-runtime (= 2:9.1.0016-1ubuntu7.2), libacl1 (>= 2.2.23), libc6 (>= 2.38), libgpm2 (>= 1.20.7), liblua5.1-0, libperl5.38t64 (>= 5.38.2), libpython3.12t64 (>= 3.12.1), libruby3.2 (>= 3.2.2), libselinux1 (>= 3.1~), libsodium23 (>= 1.0.14), libtcl8.6 (>= 8.6.0), libtinfo6 (>= 6)
+Provides: editor, vim (= 2:9.1.0016-1ubuntu7.3), vim-lua (= 2:9.1.0016-1ubuntu7.3), vim-perl (= 2:9.1.0016-1ubuntu7.3), vim-python3 (= 2:9.1.0016-1ubuntu7.3), vim-ruby (= 2:9.1.0016-1ubuntu7.3), vim-tcl (= 2:9.1.0016-1ubuntu7.3)
+Depends: vim-common (= 2:9.1.0016-1ubuntu7.3), vim-runtime (= 2:9.1.0016-1ubuntu7.3), libacl1 (>= 2.2.23), libc6 (>= 2.38), libgpm2 (>= 1.20.7), liblua5.1-0, libperl5.38t64 (>= 5.38.2), libpython3.12t64 (>= 3.12.1), libruby3.2 (>= 3.2.2), libselinux1 (>= 3.1~), libsodium23 (>= 1.0.14), libtcl8.6 (>= 8.6.0), libtinfo6 (>= 6)
 Suggests: cscope, vim-doc
-Filename: pool/universe/v/vim/vim-nox_9.1.0016-1ubuntu7.2_armhf.deb
-Size: 1663468
-MD5sum: e027a9a471ca0824f7fa1d1c63dbd4bf
-SHA1: 28ee950194eea6aeabe32dc4ea1ad0cd91b19c49
-SHA256: a417f38d430bb6cebd94a211633f9eb6b60603d87c8828196b39d5b5a71e89ef
-SHA512: 78d6b40d388a40f660031b4426d2ade70d30905100270d8389066283c40d2ac3952f5a85c9bd094ed606c42a8ea09ee784852fd697d2d5a3574a213c842a04e6
+Filename: pool/universe/v/vim/vim-nox_9.1.0016-1ubuntu7.3_armhf.deb
+Size: 1663210
+MD5sum: cea236b5cbae21ac5374ed585167cadf
+SHA1: 3772f8db2100c3fd64f791a65e215d0467599945
+SHA256: 71ad984a4193bf8ab907337702c820b4b83362ec2674deadfdbf560383777f6e
+SHA512: a6d6348489430dc1945419108039d3878283264cd5ce6eea7ca2926b50a0064867a8dd1398b44264da0afd7118ac820660c232b7475cc35d07c599a7317b6f9f
 Homepage: https://www.vim.org/
 Description: Vi IMproved - enhanced vi editor - with scripting languages support
 Description-md5: f840d0104436408f409898adc9a43d8c

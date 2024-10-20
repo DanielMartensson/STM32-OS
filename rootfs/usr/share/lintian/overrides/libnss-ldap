@@ -1,0 +1,8 @@
+# NSS modules are shared libraries stored in the public library search
+# path but are not meant to be used as shared libraries (the SONAME is
+# not used)
+libnss-ldap: sharedobject-in-library-directory-missing-soname lib/i386-linux-gnu/libnss_ldap-*.so
+
+# The debconf template is actually used in the config script to show a note
+# but is likely not found by lintian because it is a Perl script.
+libnss-ldap: unused-debconf-template libnss-ldap/nsswitch

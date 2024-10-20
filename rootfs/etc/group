@@ -34,7 +34,7 @@ sasl:x:45:
 plugdev:x:46:
 staff:x:50:
 games:x:60:
-users:x:100:
+users:x:100:user
 nogroup:x:65534:
 systemd-journal:x:999:
 systemd-network:x:998:
@@ -48,3 +48,7 @@ messagebus:x:101:
 syslog:x:102:
 systemd-resolve:x:991:
 _ssh:x:103:
+user:x:1000:
+nslcd:x:104:
+_greetd:x:105:
+sddm:x:106:

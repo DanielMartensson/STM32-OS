@@ -1342,7 +1342,75 @@ Package: libxkbcommon-x11-0
 Architecture: armhf
 Auto-Installed: 1
 
-Package: libtsm4
+Package: libldap2
+Architecture: armhf
+Auto-Installed: 1
+
+Package: ldap-auth-client
+Architecture: armhf
+Auto-Installed: 1
+
+Package: ldap-auth-config
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libldap-common
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libsasl2-modules
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libsasl2-2
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libsasl2-modules-db
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libnss-ldap
+Architecture: armhf
+Auto-Installed: 1
+
+Package: bind9-host
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libnghttp2-14
+Architecture: armhf
+Auto-Installed: 1
+
+Package: ldap-utils
+Architecture: armhf
+Auto-Installed: 1
+
+Package: nslcd
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libmaxminddb0
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libuv1t64
+Architecture: armhf
+Auto-Installed: 1
+
+Package: nslcd-utils
+Architecture: armhf
+Auto-Installed: 1
+
+Package: bind9-libs
+Architecture: armhf
+Auto-Installed: 1
+
+Package: liblmdb0
+Architecture: armhf
+Auto-Installed: 1
+
+Package: nscd
 Architecture: armhf
 Auto-Installed: 1
 

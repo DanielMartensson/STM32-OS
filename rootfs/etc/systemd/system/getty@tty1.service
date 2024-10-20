@@ -1,0 +1,13 @@
+[Unit]
+Description=Autologin service for tty1
+After=systemd-user-sessions.service
+
+[Service]
+Type=simple
+ExecStart=/sbin/agetty --noclear --autologin user tty1 $TERM
+StandardInput=tty
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=getty.target

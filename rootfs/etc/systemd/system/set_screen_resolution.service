@@ -1,0 +1,10 @@
+[Unit]
+Description=Start Modetest and set the resolution
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/modetest -M stm -s 32:1280x720
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target

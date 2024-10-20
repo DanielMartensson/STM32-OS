@@ -124,3 +124,111 @@ Start-Date: 2024-10-03  18:13:17
 Commandline: apt-get install kmscon
 Install: kmscon:armhf (9.0.0-5build2), libtsm4:armhf (4.0.2-0.4, automatic)
 End-Date: 2024-10-03  18:13:27
+
+Start-Date: 2024-10-12  22:23:08
+Commandline: apt-get autoremove kmscon
+Remove: kmscon:armhf (9.0.0-5build2), libtsm4:armhf (4.0.2-0.4)
+End-Date: 2024-10-12  22:23:16
+
+Start-Date: 2024-10-13  21:10:38
+Commandline: apt-get install --reinstall libpam-modules
+Requested-By: stm32os (1000)
+Reinstall: libpam-modules:armhf (1.5.3-5ubuntu5.1)
+End-Date: 2024-10-13  21:10:49
+
+Start-Date: 2024-10-13  21:21:34
+Commandline: apt-get upgrade
+Requested-By: stm32os (1000)
+Upgrade: libglx-mesa0:armhf (24.0.9-0ubuntu0.1, 24.0.9-0ubuntu0.2), libgbm1:armhf (24.0.9-0ubuntu0.1, 24.0.9-0ubuntu0.2), xxd:armhf (2:9.1.0016-1ubuntu7.2, 2:9.1.0016-1ubuntu7.3), vim-common:armhf (2:9.1.0016-1ubuntu7.2, 2:9.1.0016-1ubuntu7.3), libproc2-0:armhf (2:4.0.4-4ubuntu3.1, 2:4.0.4-4ubuntu3.2), mesa-va-drivers:armhf (24.0.9-0ubuntu0.1, 24.0.9-0ubuntu0.2), libgl1-mesa-dri:armhf (24.0.9-0ubuntu0.1, 24.0.9-0ubuntu0.2), vim-tiny:armhf (2:9.1.0016-1ubuntu7.2, 2:9.1.0016-1ubuntu7.3), mesa-vulkan-drivers:armhf (24.0.9-0ubuntu0.1, 24.0.9-0ubuntu0.2), login:armhf (1:4.13+dfsg1-4ubuntu3, 1:4.13+dfsg1-4ubuntu3.2), procps:armhf (2:4.0.4-4ubuntu3.1, 2:4.0.4-4ubuntu3.2), libglapi-mesa:armhf (24.0.9-0ubuntu0.1, 24.0.9-0ubuntu0.2), libegl-mesa0:armhf (24.0.9-0ubuntu0.1, 24.0.9-0ubuntu0.2), mesa-vdpau-drivers:armhf (24.0.9-0ubuntu0.1, 24.0.9-0ubuntu0.2), passwd:armhf (1:4.13+dfsg1-4ubuntu3, 1:4.13+dfsg1-4ubuntu3.2)
+End-Date: 2024-10-13  21:22:17
+
+Start-Date: 2024-10-13  21:25:51
+Commandline: apt-get install --reinstall libpam-modules
+Requested-By: stm32os (1000)
+Reinstall: libpam-modules:armhf (1.5.3-5ubuntu5.1)
+End-Date: 2024-10-13  21:25:59
+
+Start-Date: 2024-10-13  21:26:26
+Commandline: apt-get install --reinstall libpam-modules
+Requested-By: stm32os (1000)
+Reinstall: libpam-modules:armhf (1.5.3-5ubuntu5.1)
+End-Date: 2024-10-13  21:26:35
+
+Start-Date: 2024-10-13  21:28:23
+Commandline: apt-get install --reinstall libpam-modules
+Requested-By: stm32os (1000)
+Reinstall: libpam-modules:armhf (1.5.3-5ubuntu5.1)
+End-Date: 2024-10-13  21:28:31
+
+Start-Date: 2024-10-14  17:42:32
+Commandline: apt-get install libpam-ldap
+Requested-By: user (1000)
+Install: libldap2:armhf (2.6.7+dfsg-1~exp1ubuntu8, automatic), ldap-auth-client:armhf (0.5.4, automatic), ldap-auth-config:armhf (0.5.4, automatic), libldap-common:armhf (2.6.7+dfsg-1~exp1ubuntu8, automatic), libsasl2-modules:armhf (2.1.28+dfsg1-5ubuntu3.1, automatic), libsasl2-2:armhf (2.1.28+dfsg1-5ubuntu3.1, automatic), libsasl2-modules-db:armhf (2.1.28+dfsg1-5ubuntu3.1, automatic), libpam-ldap:armhf (186-4.1ubuntu1), libnss-ldap:armhf (265-5ubuntu3, automatic)
+End-Date: 2024-10-14  17:42:57
+
+Start-Date: 2024-10-14  17:44:07
+Commandline: apt-get install libpam-ldapd
+Requested-By: user (1000)
+Install: bind9-host:armhf (1:9.18.28-0ubuntu0.24.04.1, automatic), libnghttp2-14:armhf (1.59.0-1ubuntu0.1, automatic), libpam-ldapd:armhf (0.9.12-4build1), ldap-utils:armhf (2.6.7+dfsg-1~exp1ubuntu8, automatic), nslcd:armhf (0.9.12-4build1, automatic), libmaxminddb0:armhf (1.9.1-1build1, automatic), libuv1t64:armhf (1.48.0-1.1build1, automatic), nslcd-utils:armhf (0.9.12-4build1, automatic), bind9-libs:armhf (1:9.18.28-0ubuntu0.24.04.1, automatic), liblmdb0:armhf (0.9.31-1build1, automatic), nscd:armhf (2.39-0ubuntu8.3, automatic)
+Remove: libpam-ldap:armhf (186-4.1ubuntu1)
+End-Date: 2024-10-14  17:44:58
+
+Start-Date: 2024-10-16  10:51:33
+Commandline: apt-get install acl
+Requested-By: user (1000)
+Install: acl:armhf (2.3.2-1build1)
+End-Date: 2024-10-16  10:51:43
+
+Start-Date: 2024-10-16  10:53:25
+Commandline: apt-get autoremove acl
+Requested-By: user (1000)
+Remove: acl:armhf (2.3.2-1build1)
+End-Date: 2024-10-16  10:53:29
+
+Start-Date: 2024-10-18  17:47:50
+Commandline: apt-get install greetd
+Requested-By: user (1000)
+Install: greetd:armhf (0.9.0-4ubuntu1)
+End-Date: 2024-10-18  17:48:04
+
+Start-Date: 2024-10-18  17:54:36
+Commandline: apt-get autoremove greetd
+Requested-By: user (1000)
+Remove: greetd:armhf (0.9.0-4ubuntu1)
+End-Date: 2024-10-18  17:54:40
+
+Start-Date: 2024-10-18  18:13:53
+Commandline: apt-get install greetd
+Requested-By: user (1000)
+Install: greetd:armhf (0.9.0-4ubuntu1)
+End-Date: 2024-10-18  18:14:00
+
+Start-Date: 2024-10-19  12:48:20
+Commandline: apt-get autoremove greetd
+Requested-By: user (1000)
+Remove: greetd:armhf (0.9.0-4ubuntu1)
+End-Date: 2024-10-19  12:48:27
+
+Start-Date: 2024-10-19  12:57:25
+Commandline: apt-get install sddm
+Requested-By: user (1000)
+Install: qttranslations5-l10n:armhf (5.15.13-1, automatic), libxcb-util1:armhf (0.4.0-1build3, automatic), libxcb-image0:armhf (0.4.0-2build1, automatic), libxcb-icccm4:armhf (0.4.1-1.1build3, automatic), qt5-gtk-platformtheme:armhf (5.15.13+dfsg-1ubuntu1, automatic), libqt5qml5:armhf (5.15.13+dfsg-1, automatic), libqt5quick5:armhf (5.15.13+dfsg-1, automatic), qtwayland5:armhf (5.15.13-1, automatic), libdouble-conversion3:armhf (3.3.0-1build1, automatic), libqt5waylandcompositor5:armhf (5.15.13-1, automatic), libqt5gui5t64:armhf (5.15.13+dfsg-1ubuntu1, automatic), libpcre2-16-0:armhf (10.42-4ubuntu2, automatic), libxcb-keysyms1:armhf (0.4.0-1build4, automatic), libqt5widgets5t64:armhf (5.15.13+dfsg-1ubuntu1, automatic), libqt5svg5:armhf (5.15.13-1, automatic), sddm:armhf (0.20.0-2ubuntu4.2), libqt5dbus5t64:armhf (5.15.13+dfsg-1ubuntu1, automatic), libqt5network5t64:armhf (5.15.13+dfsg-1ubuntu1, automatic), libqt5qmlmodels5:armhf (5.15.13+dfsg-1, automatic), libxcb-render-util0:armhf (0.3.9-1build4, automatic), qml-module-qtquick2:armhf (5.15.13+dfsg-1, automatic), libmd4c0:armhf (0.4.8-1build1, automatic), libxcb-xinerama0:armhf (1.15-1ubuntu2, automatic), libxcb-xinput0:armhf (1.15-1ubuntu2, automatic), libqt5qmlworkerscript5:armhf (5.15.13+dfsg-1, automatic), libqt5waylandclient5:armhf (5.15.13-1, automatic), sddm-theme-maya:armhf (0.20.0-2ubuntu4.2, automatic), libqt5core5t64:armhf (5.15.13+dfsg-1ubuntu1, automatic)
+End-Date: 2024-10-19  12:58:19
+
+Start-Date: 2024-10-19  13:52:51
+Commandline: apt-get autoremove sddm
+Requested-By: user (1000)
+Remove: qttranslations5-l10n:armhf (5.15.13-1), libxcb-util1:armhf (0.4.0-1build3), libxcb-image0:armhf (0.4.0-2build1), libxcb-icccm4:armhf (0.4.1-1.1build3), qt5-gtk-platformtheme:armhf (5.15.13+dfsg-1ubuntu1), libqt5qml5:armhf (5.15.13+dfsg-1), libqt5quick5:armhf (5.15.13+dfsg-1), qtwayland5:armhf (5.15.13-1), libdouble-conversion3:armhf (3.3.0-1build1), libqt5waylandcompositor5:armhf (5.15.13-1), libqt5gui5t64:armhf (5.15.13+dfsg-1ubuntu1), libpcre2-16-0:armhf (10.42-4ubuntu2), libxcb-keysyms1:armhf (0.4.0-1build4), libqt5widgets5t64:armhf (5.15.13+dfsg-1ubuntu1), libqt5svg5:armhf (5.15.13-1), sddm:armhf (0.20.0-2ubuntu4.2), libqt5dbus5t64:armhf (5.15.13+dfsg-1ubuntu1), libqt5network5t64:armhf (5.15.13+dfsg-1ubuntu1), libqt5qmlmodels5:armhf (5.15.13+dfsg-1), libxcb-render-util0:armhf (0.3.9-1build4), qml-module-qtquick2:armhf (5.15.13+dfsg-1), libmd4c0:armhf (0.4.8-1build1), libxcb-xinerama0:armhf (1.15-1ubuntu2), libxcb-xinput0:armhf (1.15-1ubuntu2), libqt5qmlworkerscript5:armhf (5.15.13+dfsg-1), libqt5waylandclient5:armhf (5.15.13-1), sddm-theme-maya:armhf (0.20.0-2ubuntu4.2), libqt5core5t64:armhf (5.15.13+dfsg-1ubuntu1)
+End-Date: 2024-10-19  13:53:26
+
+Start-Date: 2024-10-19  15:26:16
+Commandline: apt-get install sddm
+Requested-By: user (1000)
+Install: qttranslations5-l10n:armhf (5.15.13-1, automatic), libxcb-util1:armhf (0.4.0-1build3, automatic), libxcb-image0:armhf (0.4.0-2build1, automatic), libxcb-icccm4:armhf (0.4.1-1.1build3, automatic), qt5-gtk-platformtheme:armhf (5.15.13+dfsg-1ubuntu1, automatic), libqt5qml5:armhf (5.15.13+dfsg-1, automatic), libqt5quick5:armhf (5.15.13+dfsg-1, automatic), qtwayland5:armhf (5.15.13-1, automatic), libdouble-conversion3:armhf (3.3.0-1build1, automatic), libqt5waylandcompositor5:armhf (5.15.13-1, automatic), libqt5gui5t64:armhf (5.15.13+dfsg-1ubuntu1, automatic), libpcre2-16-0:armhf (10.42-4ubuntu2, automatic), libxcb-keysyms1:armhf (0.4.0-1build4, automatic), libqt5widgets5t64:armhf (5.15.13+dfsg-1ubuntu1, automatic), libqt5svg5:armhf (5.15.13-1, automatic), sddm:armhf (0.20.0-2ubuntu4.2), libqt5dbus5t64:armhf (5.15.13+dfsg-1ubuntu1, automatic), libqt5network5t64:armhf (5.15.13+dfsg-1ubuntu1, automatic), libqt5qmlmodels5:armhf (5.15.13+dfsg-1, automatic), libxcb-render-util0:armhf (0.3.9-1build4, automatic), qml-module-qtquick2:armhf (5.15.13+dfsg-1, automatic), libmd4c0:armhf (0.4.8-1build1, automatic), libxcb-xinerama0:armhf (1.15-1ubuntu2, automatic), libxcb-xinput0:armhf (1.15-1ubuntu2, automatic), libqt5qmlworkerscript5:armhf (5.15.13+dfsg-1, automatic), libqt5waylandclient5:armhf (5.15.13-1, automatic), sddm-theme-maya:armhf (0.20.0-2ubuntu4.2, automatic), libqt5core5t64:armhf (5.15.13+dfsg-1ubuntu1, automatic)
+End-Date: 2024-10-19  15:27:00
+
+Start-Date: 2024-10-20  11:09:14
+Commandline: apt-get autoremove sddm
+Requested-By: user (1000)
+Remove: qttranslations5-l10n:armhf (5.15.13-1), libxcb-util1:armhf (0.4.0-1build3), libxcb-image0:armhf (0.4.0-2build1), libxcb-icccm4:armhf (0.4.1-1.1build3), qt5-gtk-platformtheme:armhf (5.15.13+dfsg-1ubuntu1), libqt5qml5:armhf (5.15.13+dfsg-1), libqt5quick5:armhf (5.15.13+dfsg-1), qtwayland5:armhf (5.15.13-1), libdouble-conversion3:armhf (3.3.0-1build1), libqt5waylandcompositor5:armhf (5.15.13-1), libqt5gui5t64:armhf (5.15.13+dfsg-1ubuntu1), libpcre2-16-0:armhf (10.42-4ubuntu2), libxcb-keysyms1:armhf (0.4.0-1build4), libqt5widgets5t64:armhf (5.15.13+dfsg-1ubuntu1), libqt5svg5:armhf (5.15.13-1), sddm:armhf (0.20.0-2ubuntu4.2), libqt5dbus5t64:armhf (5.15.13+dfsg-1ubuntu1), libqt5network5t64:armhf (5.15.13+dfsg-1ubuntu1), libqt5qmlmodels5:armhf (5.15.13+dfsg-1), libxcb-render-util0:armhf (0.3.9-1build4), qml-module-qtquick2:armhf (5.15.13+dfsg-1), libmd4c0:armhf (0.4.8-1build1), libxcb-xinerama0:armhf (1.15-1ubuntu2), libxcb-xinput0:armhf (1.15-1ubuntu2), libqt5qmlworkerscript5:armhf (5.15.13+dfsg-1), libqt5waylandclient5:armhf (5.15.13-1), sddm-theme-maya:armhf (0.20.0-2ubuntu4.2), libqt5core5t64:armhf (5.15.13+dfsg-1ubuntu1)
+End-Date: 2024-10-20  11:09:43

@@ -299,6 +299,66 @@ Name: keyboard-configuration/xkb-keymap
 Template: keyboard-configuration/xkb-keymap
 Owners: keyboard-configuration
 
+Name: ldap-auth-config/binddn
+Template: ldap-auth-config/binddn
+Owners: ldap-auth-config
+
+Name: ldap-auth-config/dblogin
+Template: ldap-auth-config/dblogin
+Value: false
+Owners: ldap-auth-config
+Flags: seen
+
+Name: ldap-auth-config/dbrootlogin
+Template: ldap-auth-config/dbrootlogin
+Value: true
+Owners: ldap-auth-config
+Flags: seen
+
+Name: ldap-auth-config/ldapns/base-dn
+Template: ldap-auth-config/ldapns/base-dn
+Value: dc=example,dc=net
+Owners: ldap-auth-config
+Flags: seen
+
+Name: ldap-auth-config/ldapns/ldap-server
+Template: ldap-auth-config/ldapns/ldap-server
+Value: ldapi:///
+Owners: ldap-auth-config
+Flags: seen
+
+Name: ldap-auth-config/ldapns/ldap_version
+Template: ldap-auth-config/ldapns/ldap_version
+Value: 3
+Owners: ldap-auth-config
+Flags: seen
+
+Name: ldap-auth-config/move-to-debconf
+Template: ldap-auth-config/move-to-debconf
+Value: true
+Owners: ldap-auth-config
+Flags: seen
+Variables:
+ newfn = /etc/ldap.conf
+ nssfn = /etc/libnss-ldap.conf
+ pamfn = /etc/pam-ldap.conf
+
+Name: ldap-auth-config/override
+Template: ldap-auth-config/override
+Value: true
+Owners: ldap-auth-config
+
+Name: ldap-auth-config/pam_password
+Template: ldap-auth-config/pam_password
+Value: md5
+Owners: ldap-auth-config
+
+Name: ldap-auth-config/rootbinddn
+Template: ldap-auth-config/rootbinddn
+Value: cn=manager,dc=example,dc=net
+Owners: ldap-auth-config
+Flags: seen
+
 Name: libpam-modules/deprecate-tally
 Template: libpam-modules/deprecate-tally
 Owners: libpam-modules
@@ -326,11 +386,11 @@ Owners: libpam-runtime
 
 Name: libpam-runtime/profiles
 Template: libpam-runtime/profiles
-Value: unix, systemd, capability
+Value: unix, ldap, systemd, capability
 Owners: libpam-runtime
 Variables:
- profile_names = unix, systemd, mkhomedir, capability
- profiles = Unix authentication, Register user sessions in the systemd control group hierarchy, Create home directory on login, Inheritable Capabilities Management
+ profile_names = unix, ldap, systemd, mkhomedir, capability
+ profiles = Unix authentication, LDAP Authentication, Register user sessions in the systemd control group hierarchy, Create home directory on login, Inheritable Capabilities Management
 
 Name: libpam-runtime/title
 Template: libpam-runtime/title
@@ -377,6 +437,70 @@ Template: man-db/install-setuid
 Value: false
 Owners: man-db
 
+Name: nslcd/ldap-auth-type
+Template: nslcd/ldap-auth-type
+Value: none
+Owners: nslcd
+
+Name: nslcd/ldap-base
+Template: nslcd/ldap-base
+Value: dc=example,dc=net
+Owners: nslcd
+Flags: seen
+
+Name: nslcd/ldap-binddn
+Template: nslcd/ldap-binddn
+Value: 
+Owners: nslcd
+
+Name: nslcd/ldap-cacertfile
+Template: nslcd/ldap-cacertfile
+Owners: nslcd
+
+Name: nslcd/ldap-reqcert
+Template: nslcd/ldap-reqcert
+Owners: nslcd
+
+Name: nslcd/ldap-sasl-authcid
+Template: nslcd/ldap-sasl-authcid
+Value: 
+Owners: nslcd
+
+Name: nslcd/ldap-sasl-authzid
+Template: nslcd/ldap-sasl-authzid
+Value: 
+Owners: nslcd
+
+Name: nslcd/ldap-sasl-krb5-ccname
+Template: nslcd/ldap-sasl-krb5-ccname
+Owners: nslcd
+
+Name: nslcd/ldap-sasl-mech
+Template: nslcd/ldap-sasl-mech
+Value: 
+Owners: nslcd
+
+Name: nslcd/ldap-sasl-realm
+Template: nslcd/ldap-sasl-realm
+Value: 
+Owners: nslcd
+
+Name: nslcd/ldap-sasl-secprops
+Template: nslcd/ldap-sasl-secprops
+Value: 
+Owners: nslcd
+
+Name: nslcd/ldap-starttls
+Template: nslcd/ldap-starttls
+Value: false
+Owners: nslcd
+
+Name: nslcd/ldap-uris
+Template: nslcd/ldap-uris
+Value: ldapi:///
+Owners: nslcd
+Flags: seen
+
 Name: openssh-server/password-authentication
 Template: openssh-server/password-authentication
 Value: true
@@ -386,6 +510,10 @@ Name: openssh-server/permit-root-login
 Template: openssh-server/permit-root-login
 Value: false
 Owners: openssh-server
+
+Name: sddm/daemon_name
+Template: sddm/daemon_name
+Owners: sddm
 
 Name: tzdata/Areas
 Template: tzdata/Areas

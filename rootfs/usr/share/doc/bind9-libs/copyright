@@ -1,0 +1,189 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: BIND
+Upstream-Contact: Internet Systems Consortium <info@isc.org>
+Source: https://ftp.isc.org/isc/bind9/
+
+Files: *
+Copyright: 2004-2017 Internet Systems Consortium, Inc. ("ISC")
+           1996-2003 Internet Software Consortium
+	   2013-2017 Farsight Security, Inc.
+	   2012 Vadim Goncharov
+	   2009-2012 John Eaglesham
+	   2009-2015 Red Hat
+	   2008 Damien Miller
+	   2004, 2008 Nominet, Ltd.
+	   2004 Masarykova universita
+	   1997-2003 Kungliga Tekniska Högskolan
+	   2002 Nuno M. Rodrigues.
+	   2002 Stichting NLnet
+	   2000-2002 Japan Network Information Center.
+	   2001 Jake Burkholder
+	   1996-2001 Nominum, Inc.
+	   1995-2000 Network Associates, Inc.
+	   2000 Aaron D. Gifford
+	   1999-2000 Nortel Networks Corporation
+	   1996 David Mazieres
+	   1995-1998 WIDE Project
+	   1993 Digital Equipment Corporation.
+	   1985, 1987, 1989, 1990, 1993, 1994 The Regents of the University of California.
+License: MPL-2.0 and ISC and BSD-2-clause and BSD-3-clause
+Comment:
+ The BIND 9 project was originally distributed under permissive
+ ISC licence.  The license on the majority of the files has been
+ changed to MPL-2.0 in the BIND 9.11 release.  However, while the
+ majority of the files are licenced under MPL-2.0, there are files
+ where the portions were contributed to ISC by third parties under
+ different license.  It would serve no useful purpose to duplicate
+ copyright information from every file with a different licence, so
+ this copyright block is just amalgamate of all copyright holders
+ and licenses used in the BIND 9 project. You need to look at the
+ individual files to get the specific license that covers that file.
+
+Files: lib/isc/random.c
+Copyright: 2018-2020 Internet Systems Consortium, Inc. ("ISC")
+	   1996 David Mazieres
+	   2008 Damien Miller
+License: MPL-2.0 and ISC
+
+Files: lib/isc/siphash.c
+Copyright: 2018-2020 Internet Systems Consortium, Inc. ("ISC")
+	   2012-2016 Jean-Philippe Aumasson
+	   2012-2014 Daniel J. Bernstein
+License: MPL-2.0 and CC0-1.0
+Comment:
+ The SipHash in BIND 9 is based on SipHash reference C implementation.
+
+Files: tests/isc/random_test.c
+Copyright: 2004-2017 Internet Systems Consortium, Inc. ("ISC")
+           1996-2003 Internet Software Consortium
+	   1985, 1987, 2000 Stephen L. Moshier
+License: MPL-2.0 and public-domain
+ Some code from the Cephes Math Library Release 2.8 is provided, which was
+ released into the public domain as part of netlib.
+
+Files: contrib/dlz/modules/mysqldyn/dlz_mysqldyn_mod.c
+Copyright: 2004-2017 Internet Systems Consortium, Inc. ("ISC")
+	   2014 Maui Systems Ltd
+License: MPL-2.0 and ISC
+
+Files: contrib/dlz/modules/perl/*
+Copyright: 2004-2017 Internet Systems Consortium, Inc. ("ISC")
+	   2009-2012 John Eaglesham
+	   2002 Stichting NLnet
+License: MPL-2.0 and ISC
+
+Files: contrib/dlz/modules/wildcard/*
+Copyright: 2004-2017 Internet Systems Consortium, Inc. ("ISC")
+	   2012 Vadim Goncharov
+	   2002 Stichting NLnet
+License: MPL-2.0 and ISC
+
+Files: m4/*
+Copyright: 2004-2017 Internet Systems Consortium, Inc. ("ISC")
+	   2008 Guido U. Draheim
+	   2011 Maarten Bosmans
+	   2009, 2010 Zmanda Inc.
+	   2009, 2010 Dustin J. Mitchell
+	   2008 Steven G. Johnson
+	   2011 Daniel Richard G.
+	   2009 Filippo Giunchedi
+	   2011 The Board of Trustees of the Leland Stanford Junior University
+	   2011 Russ Allbery <rra@stanford.edu>
+	   2013 Bastien ROUCARIES
+	   2004, 2011-2015 Free Software Foundation, Inc.
+License: FSFAP
+ Copying and distribution of this file, with or without modification, are
+ permitted in any medium without royalty provided the copyright notice
+ and this notice are preserved. This file is offered as-is, without any
+ warranty.
+Comment:
+ The files from m4/ directory were imported from autoconf-archive, and libtool.
+
+Files: debian/*
+Copyright: 2007-2017 LaMont Jones
+	   2013-2017 Michael Gilbert
+           2017-2019 Ondřej Surý
+	   2008-2016 Jamie Strandboge
+License: ISC or MPL-2.0
+
+License: MPL-2.0
+ This Source Code Form is subject to the terms of the Mozilla Public
+ License, v. 2.0.
+ .
+ On Debian systems, the full copy of MPL-2.0 can be found at
+ /usr/share/common-licenses/MPL-2.0
+
+License: ISC
+ Permission to use, copy, modify, and/or distribute this software for any
+ purpose with or without fee is hereby granted, provided that the above
+ copyright notice and this permission notice appear in all copies.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS" AND ISC DISCLAIMS ALL WARRANTIES WITH
+ REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+ AND FITNESS.  IN NO EVENT SHALL ISC BE LIABLE FOR ANY SPECIAL, DIRECT,
+ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ PERFORMANCE OF THIS SOFTWARE.
+
+License: BSD-2-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ .
+ 1. Redistributions of source code must retain the above copyright
+ notice, this list of conditions and the following disclaimer.
+ .
+ 1. Redistributions in binary form must reproduce the above copyright
+ notice, this list of conditions and the following disclaimer in the
+ documentation and/or other materials provided with the distribution.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+ WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+
+License: BSD-3-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ .
+ 1. Redistributions of source code must retain the above copyright
+ notice, this list of conditions and the following disclaimer.
+ .
+ 2. Redistributions in binary form must reproduce the above copyright
+ notice, this list of conditions and the following disclaimer in the
+ documentation and/or other materials provided with the distribution.
+ .
+ 3. Neither the name of the copyright holder nor the names of its
+ contributors may be used to endorse or promote products derived from
+ this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+ WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+
+License: CC0-1.0
+ To the extent possible under law, the author(s) have dedicated all copyright
+ and related and neighboring rights to this software to the public domain
+ worldwide. This software is distributed without any warranty.
+ .
+ On Debian systems, the full copy of CC0-1.0 can be found at
+ /usr/share/common-licenses/CC0-1.0

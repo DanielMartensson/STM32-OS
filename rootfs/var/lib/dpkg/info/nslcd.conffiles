@@ -1,0 +1,3 @@
+/etc/default/nslcd
+/etc/init.d/nslcd
+/etc/network/if-up.d/nslcd

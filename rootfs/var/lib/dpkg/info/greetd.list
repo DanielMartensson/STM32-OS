@@ -1,0 +1,9 @@
+/etc
+/etc/greetd
+/etc/greetd/config.toml
+/etc/needrestart
+/etc/needrestart/conf.d
+/etc/needrestart/conf.d/50_greetd.conf
+/etc/pam.d
+/etc/pam.d/greetd
+/etc/pam.d/greetd-greeter

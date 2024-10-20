@@ -62,16 +62,8 @@ A minimal system need to have:
 So therefore, these must be installed, if they are not already installed.
 
 ```sh
-apt-get install isc-dhcp-client net-tools drm-info libdrm2 libdrm-amdgpu1 libdrm-common libdrm-tests xorg xterm xserver-xorg-video-armsoc x11-xserver-utils xinit xserver-xorg-input-evdev weston seatd libinput-tools xcursor-themes libgl1-mesa-dri mesa-utils wayland-utils kmscon
+apt-get install isc-dhcp-client net-tools drm-info libdrm2 libdrm-amdgpu1 libdrm-common libdrm-tests xorg xterm xserver-xorg-video-armsoc x11-xserver-utils xinit xserver-xorg-input-evdev weston seatd libinput-tools xcursor-themes libgl1-mesa-dri mesa-utils wayland-utils libpam-modules
 sudo touch ~/.Xauthority
-```
-
-## Starting the HDMI screen
-
-The HDMI screen will be started default with a console login promt `kmscon`. To start the graphical user interface:
-
-```
-pkill kmscon; weston --use-pixman --idle-time=0
 ```
 
 ## Starting VNC

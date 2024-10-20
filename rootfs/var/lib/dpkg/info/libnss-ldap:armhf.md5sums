@@ -1,0 +1,16 @@
+d9dc6efdfbb3cb8000b3cd86bf366c1f  lib/arm-linux-gnueabihf/libnss_ldap-.so
+88a9f2b77a32c2ae605d7bae9e1a8bd5  usr/sbin/nssldap-update-ignoreusers
+38604b564acda9fb13ec5079c4612ce1  usr/share/doc/libnss-ldap/AUTHORS
+da3ca40bb153cb6007c919f9a93de02c  usr/share/doc/libnss-ldap/LDAP-Permissions.txt.gz
+256f85eb51ffc960e15940ab48d2ab9a  usr/share/doc/libnss-ldap/NEWS.gz
+df84b30c2bf2e46d905cbe71c207a6d7  usr/share/doc/libnss-ldap/README.Debian
+ec72753717b6dec13d8c593148ea3600  usr/share/doc/libnss-ldap/README.gz
+c384409eb67f46e1ec5f397c707a3244  usr/share/doc/libnss-ldap/changelog.Debian.gz
+b41cc107a8720a52999172c64d2b70a3  usr/share/doc/libnss-ldap/copyright
+cc8bb4ae1c8b63048d28a3352a37f95a  usr/share/doc/libnss-ldap/examples/groups.ldif
+11f28b3fc280fc59ae9289d20ea4bf28  usr/share/doc/libnss-ldap/examples/ldap.conf.gz
+17b360d5a0dd8dd8d5dfe9f0d0321688  usr/share/doc/libnss-ldap/examples/nsswitch.ldap
+275b43fd13073d791c591e7f98f358b0  usr/share/doc/libnss-ldap/examples/people.ldif
+4e9827637f8f0b46492e358204e8be29  usr/share/lintian/overrides/libnss-ldap
+ddc8dd9505b8f8e550d68725019f7254  usr/share/man/man5/nss_ldap.5.gz
+01076848d97e77c71d08879562ef44f8  usr/share/man/man8/nssldap-update-ignoreusers.8.gz

@@ -1,0 +1,10 @@
+/.
+/etc
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/ldap-auth-config
+/usr/share/doc/ldap-auth-config/copyright
+/usr/share/ldap-auth-config
+/usr/share/ldap-auth-config/ldap.conf
+/usr/share/doc/ldap-auth-config/changelog.gz

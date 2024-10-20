@@ -1,0 +1,11 @@
+859a71a5072e59796e241c547d6b653c  usr/share/doc/nslcd-utils/copyright
+df23773d7a3dd015375ed8b63dc4d518  usr/share/man/man1/chsh.ldap.1.gz
+51e3358fba903efa130ba52f17d26484  usr/share/man/man1/getent.ldap.1.gz
+d6f8014ec4b93e7ea9255e3729f57ef1  usr/share/nslcd-utils/chsh.py
+f18bfb0121c08f6fb2c2e149fb3a3192  usr/share/nslcd-utils/cmdline.py
+73c3a2aefaf8a8914b5d284a07f1a7de  usr/share/nslcd-utils/constants.py
+2f547441f8761b2ba5c3d7c51e8487c6  usr/share/nslcd-utils/getent.py
+a392a77f7327c3ebe037473b6801d483  usr/share/nslcd-utils/nslcd.py
+1a37268f4e6cc611d9c0a81f0ea140d9  usr/share/nslcd-utils/shells.py
+d5a4409393fa69934448309561c8b082  usr/share/nslcd-utils/users.py
+ae8c2a65941736359b46f6364cadd95a  usr/share/python3/runtime.d/nslcd-utils.rtupdate

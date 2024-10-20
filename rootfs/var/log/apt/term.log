@@ -2017,3 +2017,171 @@ Log ended: 2024-09-29  15:59:44
 
 Log started: 2024-10-03  18:13:17
 Log ended: 2024-10-03  18:13:27
+
+Log started: 2024-10-12  22:23:08
+Log ended: 2024-10-12  22:23:16
+
+Log started: 2024-10-13  21:10:38
+Log ended: 2024-10-13  21:10:49
+
+Log started: 2024-10-13  21:21:34
+Log ended: 2024-10-13  21:22:17
+
+Log started: 2024-10-13  21:25:51
+Log ended: 2024-10-13  21:25:59
+
+Log started: 2024-10-13  21:26:26
+(Läser databasen ... (Läser databasen ... 5 %(Läser databasen ... 10 %(Läser databasen ... 15 %(Läser databasen ... 20 %(Läser databasen ... 25 %(Läser databasen ... 30 %(Läser databasen ... 35 %(Läser databasen ... 40 %(Läser databasen ... 45 %(Läser databasen ... 50 %(Läser databasen ... 55 %(Läser databasen ... 60 %(Läser databasen ... 65 %(Läser databasen ... 70 %(Läser databasen ... 75 %(Läser databasen ... 80 %(Läser databasen ... 85 %(Läser databasen ... 90 %(Läser databasen ... 95 %(Läser databasen ... 100 %(Läser databasen ... 35484 filer och kataloger installerade.)
+Förbereder att packa upp .../libpam-modules_1.5.3-5ubuntu5.1_armhf.deb ...
+Packar upp libpam-modules:armhf (1.5.3-5ubuntu5.1) över (1.5.3-5ubuntu5.1) ...
+Ställer in libpam-modules:armhf (1.5.3-5ubuntu5.1) ...
+Hanterar utlösare för man-db (2.12.0-4build2) ...
+Log ended: 2024-10-13  21:26:35
+
+Log started: 2024-10-13  21:28:23
+(Läser databasen ... (Läser databasen ... 5 %(Läser databasen ... 10 %(Läser databasen ... 15 %(Läser databasen ... 20 %(Läser databasen ... 25 %(Läser databasen ... 30 %(Läser databasen ... 35 %(Läser databasen ... 40 %(Läser databasen ... 45 %(Läser databasen ... 50 %(Läser databasen ... 55 %(Läser databasen ... 60 %(Läser databasen ... 65 %(Läser databasen ... 70 %(Läser databasen ... 75 %(Läser databasen ... 80 %(Läser databasen ... 85 %(Läser databasen ... 90 %(Läser databasen ... 95 %(Läser databasen ... 100 %(Läser databasen ... 35484 filer och kataloger installerade.)
+Förbereder att packa upp .../libpam-modules_1.5.3-5ubuntu5.1_armhf.deb ...
+Packar upp libpam-modules:armhf (1.5.3-5ubuntu5.1) över (1.5.3-5ubuntu5.1) ...
+Ställer in libpam-modules:armhf (1.5.3-5ubuntu5.1) ...
+Hanterar utlösare för man-db (2.12.0-4build2) ...
+Log ended: 2024-10-13  21:28:31
+
+Log started: 2024-10-14  17:42:32
+Väljer tidigare ej valt paket libldap-common.
+(Läser databasen ... (Läser databasen ... 5 %(Läser databasen ... 10 %(Läser databasen ... 15 %(Läser databasen ... 20 %(Läser databasen ... 25 %(Läser databasen ... 30 %(Läser databasen ... 35 %(Läser databasen ... 40 %(Läser databasen ... 45 %(Läser databasen ... 50 %(Läser databasen ... 55 %(Läser databasen ... 60 %(Läser databasen ... 65 %(Läser databasen ... 70 %(Läser databasen ... 75 %(Läser databasen ... 80 %(Läser databasen ... 85 %(Läser databasen ... 90 %(Läser databasen ... 95 %(Läser databasen ... 100 %(Läser databasen ... 35484 filer och kataloger installerade.)
+Förbereder att packa upp .../0-libldap-common_2.6.7+dfsg-1~exp1ubuntu8_all.deb ...
+Packar upp libldap-common (2.6.7+dfsg-1~exp1ubuntu8) ...
+Väljer tidigare ej valt paket libsasl2-modules-db:armhf.
+Förbereder att packa upp .../1-libsasl2-modules-db_2.1.28+dfsg1-5ubuntu3.1_armhf.deb ...
+Packar upp libsasl2-modules-db:armhf (2.1.28+dfsg1-5ubuntu3.1) ...
+Väljer tidigare ej valt paket libsasl2-2:armhf.
+Förbereder att packa upp .../2-libsasl2-2_2.1.28+dfsg1-5ubuntu3.1_armhf.deb ...
+Packar upp libsasl2-2:armhf (2.1.28+dfsg1-5ubuntu3.1) ...
+Väljer tidigare ej valt paket libldap2:armhf.
+Förbereder att packa upp .../3-libldap2_2.6.7+dfsg-1~exp1ubuntu8_armhf.deb ...
+Packar upp libldap2:armhf (2.6.7+dfsg-1~exp1ubuntu8) ...
+Väljer tidigare ej valt paket libsasl2-modules:armhf.
+Förbereder att packa upp .../4-libsasl2-modules_2.1.28+dfsg1-5ubuntu3.1_armhf.deb ...
+Packar upp libsasl2-modules:armhf (2.1.28+dfsg1-5ubuntu3.1) ...
+Väljer tidigare ej valt paket ldap-auth-config.
+Förbereder att packa upp .../5-ldap-auth-config_0.5.4_all.deb ...
+Packar upp ldap-auth-config (0.5.4) ...
+Väljer tidigare ej valt paket libpam-ldap:armhf.
+Förbereder att packa upp .../6-libpam-ldap_186-4.1ubuntu1_armhf.deb ...
+Packar upp libpam-ldap:armhf (186-4.1ubuntu1) ...
+Väljer tidigare ej valt paket libnss-ldap:armhf.
+Förbereder att packa upp .../7-libnss-ldap_265-5ubuntu3_armhf.deb ...
+Packar upp libnss-ldap:armhf (265-5ubuntu3) ...
+Väljer tidigare ej valt paket ldap-auth-client.
+Förbereder att packa upp .../8-ldap-auth-client_0.5.4_all.deb ...
+Packar upp ldap-auth-client (0.5.4) ...
+Ställer in libsasl2-modules:armhf (2.1.28+dfsg1-5ubuntu3.1) ...
+Ställer in libldap-common (2.6.7+dfsg-1~exp1ubuntu8) ...
+Ställer in libsasl2-modules-db:armhf (2.1.28+dfsg1-5ubuntu3.1) ...
+Ställer in libsasl2-2:armhf (2.1.28+dfsg1-5ubuntu3.1) ...
+Ställer in libldap2:armhf (2.6.7+dfsg-1~exp1ubuntu8) ...
+Ställer in libnss-ldap:armhf (265-5ubuntu3) ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+Running in chroot, ignoring request.
+Ställer in ldap-auth-client (0.5.4) ...
+Ställer in ldap-auth-config (0.5.4) ...
+Ställer in libpam-ldap:armhf (186-4.1ubuntu1) ...
+Hanterar utlösare för libc-bin (2.39-0ubuntu8.3) ...
+Hanterar utlösare för man-db (2.12.0-4build2) ...
+Log ended: 2024-10-14  17:42:57
+
+Log started: 2024-10-14  17:44:07
+Väljer tidigare ej valt paket nslcd.
+(Läser databasen ... (Läser databasen ... 5 %(Läser databasen ... 10 %(Läser databasen ... 15 %(Läser databasen ... 20 %(Läser databasen ... 25 %(Läser databasen ... 30 %(Läser databasen ... 35 %(Läser databasen ... 40 %(Läser databasen ... 45 %(Läser databasen ... 50 %(Läser databasen ... 55 %(Läser databasen ... 60 %(Läser databasen ... 65 %(Läser databasen ... 70 %(Läser databasen ... 75 %(Läser databasen ... 80 %(Läser databasen ... 85 %(Läser databasen ... 90 %(Läser databasen ... 95 %(Läser databasen ... 100 %(Läser databasen ... 35615 filer och kataloger installerade.)
+Förbereder att packa upp .../nslcd_0.9.12-4build1_armhf.deb ...
+Packar upp nslcd (0.9.12-4build1) ...
+(Läser databasen ... (Läser databasen ... 5 %(Läser databasen ... 10 %(Läser databasen ... 15 %(Läser databasen ... 20 %(Läser databasen ... 25 %(Läser databasen ... 30 %(Läser databasen ... 35 %(Läser databasen ... 40 %(Läser databasen ... 45 %(Läser databasen ... 50 %(Läser databasen ... 55 %(Läser databasen ... 60 %(Läser databasen ... 65 %(Läser databasen ... 70 %(Läser databasen ... 75 %(Läser databasen ... 80 %(Läser databasen ... 85 %(Läser databasen ... 90 %(Läser databasen ... 95 %(Läser databasen ... 100 %(Läser databasen ... 35634 filer och kataloger installerade.)
+Tar bort libpam-ldap:armhf (186-4.1ubuntu1) ...
+dpkg: varning: när libpam-ldap:armhf togs bort var inte katalogen ”/lib/arm-linux-gnueabihf/security” tom, så den togs inte bort
+Väljer tidigare ej valt paket libpam-ldapd:armhf.
+(Läser databasen ... (Läser databasen ... 5 %(Läser databasen ... 10 %(Läser databasen ... 15 %(Läser databasen ... 20 %(Läser databasen ... 25 %(Läser databasen ... 30 %(Läser databasen ... 35 %(Läser databasen ... 40 %(Läser databasen ... 45 %(Läser databasen ... 50 %(Läser databasen ... 55 %(Läser databasen ... 60 %(Läser databasen ... 65 %(Läser databasen ... 70 %(Läser databasen ... 75 %(Läser databasen ... 80 %(Läser databasen ... 85 %(Läser databasen ... 90 %(Läser databasen ... 95 %(Läser databasen ... 100 %(Läser databasen ... 35586 filer och kataloger installerade.)
+Förbereder att packa upp .../0-libpam-ldapd_0.9.12-4build1_armhf.deb ...
+Packar upp libpam-ldapd:armhf (0.9.12-4build1) ...
+Väljer tidigare ej valt paket nscd.
+Förbereder att packa upp .../1-nscd_2.39-0ubuntu8.3_armhf.deb ...
+Packar upp nscd (2.39-0ubuntu8.3) ...
+Väljer tidigare ej valt paket libuv1t64:armhf.
+Förbereder att packa upp .../2-libuv1t64_1.48.0-1.1build1_armhf.deb ...
+Packar upp libuv1t64:armhf (1.48.0-1.1build1) ...
+Väljer tidigare ej valt paket liblmdb0:armhf.
+Förbereder att packa upp .../3-liblmdb0_0.9.31-1build1_armhf.deb ...
+Packar upp liblmdb0:armhf (0.9.31-1build1) ...
+Väljer tidigare ej valt paket libmaxminddb0:armhf.
+Förbereder att packa upp .../4-libmaxminddb0_1.9.1-1build1_armhf.deb ...
+Packar upp libmaxminddb0:armhf (1.9.1-1build1) ...
+Väljer tidigare ej valt paket libnghttp2-14:armhf.
+Förbereder att packa upp .../5-libnghttp2-14_1.59.0-1ubuntu0.1_armhf.deb ...
+Packar upp libnghttp2-14:armhf (1.59.0-1ubuntu0.1) ...
+Väljer tidigare ej valt paket bind9-libs:armhf.
+Förbereder att packa upp .../6-bind9-libs_1%3a9.18.28-0ubuntu0.24.04.1_armhf.deb ...
+Packar upp bind9-libs:armhf (1:9.18.28-0ubuntu0.24.04.1) ...
+Väljer tidigare ej valt paket bind9-host.
+Förbereder att packa upp .../7-bind9-host_1%3a9.18.28-0ubuntu0.24.04.1_armhf.deb ...
+Packar upp bind9-host (1:9.18.28-0ubuntu0.24.04.1) ...
+Väljer tidigare ej valt paket ldap-utils.
+Förbereder att packa upp .../8-ldap-utils_2.6.7+dfsg-1~exp1ubuntu8_armhf.deb ...
+Packar upp ldap-utils (2.6.7+dfsg-1~exp1ubuntu8) ...
+Väljer tidigare ej valt paket nslcd-utils.
+Förbereder att packa upp .../9-nslcd-utils_0.9.12-4build1_all.deb ...
+Packar upp nslcd-utils (0.9.12-4build1) ...
+Ställer in liblmdb0:armhf (0.9.31-1build1) ...
+Ställer in libmaxminddb0:armhf (1.9.1-1build1) ...
+Ställer in libuv1t64:armhf (1.48.0-1.1build1) ...
+Ställer in libnghttp2-14:armhf (1.59.0-1ubuntu0.1) ...
+Ställer in ldap-utils (2.6.7+dfsg-1~exp1ubuntu8) ...
+Ställer in nscd (2.39-0ubuntu8.3) ...
+Running in chroot, ignoring request.
+Created symlink /etc/systemd/system/multi-user.target.wants/nscd.service → /usr/lib/systemd/system/nscd.service.
+Ställer in nslcd (0.9.12-4build1) ...
+info: The home dir /run/nslcd you specified can't be accessed: No such file or directory
+
+info: Selecting UID from range 100 to 999 ...
+
+info: Selecting GID from range 100 to 999 ...
+info: Adding system user `nslcd' (UID 104) ...
+info: Adding new group `nslcd' (GID 104) ...
+info: Adding new user `nslcd' (UID 104) with group `nslcd' ...
+info: Not creating home directory `/run/nslcd'.
+Running in chroot, ignoring request.
+Ställer in bind9-libs:armhf (1:9.18.28-0ubuntu0.24.04.1) ...
+Ställer in libpam-ldapd:armhf (0.9.12-4build1) ...
+Ställer in nslcd-utils (0.9.12-4build1) ...
+Ställer in bind9-host (1:9.18.28-0ubuntu0.24.04.1) ...
+Hanterar utlösare för man-db (2.12.0-4build2) ...
+Hanterar utlösare för libc-bin (2.39-0ubuntu8.3) ...
+Log ended: 2024-10-14  17:44:58
+
+Log started: 2024-10-16  10:51:33
+Log ended: 2024-10-16  10:51:43
+
+Log started: 2024-10-16  10:53:25
+Log ended: 2024-10-16  10:53:29
+
+Log started: 2024-10-18  17:47:50
+Log ended: 2024-10-18  17:48:04
+
+Log started: 2024-10-18  17:54:36
+Log ended: 2024-10-18  17:54:40
+
+Log started: 2024-10-18  18:13:53
+Log ended: 2024-10-18  18:14:00
+
+Log started: 2024-10-19  12:48:20
+Log ended: 2024-10-19  12:48:27
+
+Log started: 2024-10-19  12:57:25
+Log ended: 2024-10-19  12:58:19
+
+Log started: 2024-10-19  13:52:51
+Log ended: 2024-10-19  13:53:26
+
+Log started: 2024-10-19  15:26:16
+Log ended: 2024-10-19  15:27:00
+
+Log started: 2024-10-20  11:09:14
+Log ended: 2024-10-20  11:09:43

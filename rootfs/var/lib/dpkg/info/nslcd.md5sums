@@ -1,0 +1,11 @@
+58bdce0b7b11acffc4366ac46bdac831  usr/sbin/nslcd
+b351516f610b95bc2d7826dfb9cd7309  usr/share/doc/nslcd/AUTHORS.gz
+858ebf6ca428520123dec8ef856a7947  usr/share/doc/nslcd/NEWS.gz
+b2f5243fe22d08fcd4e10aebfe3d34c6  usr/share/doc/nslcd/README.gz
+dc9f7ca2ed87910d86a550ddb8605d4c  usr/share/doc/nslcd/changelog.Debian.gz
+859a71a5072e59796e241c547d6b653c  usr/share/doc/nslcd/copyright
+6cf7024d9f421eab8c55da055d1affc0  usr/share/doc/nslcd/examples/ldapns.ldif
+6aad3fdcb2ea5e6b10feda93b1718b9c  usr/share/doc/nslcd/examples/ldapns.schema
+4d7451d4eae58da2109d20952ec095e8  usr/share/doc/nslcd/examples/nslcd.conf
+aee15e210466a04036d7605d69198a1b  usr/share/man/man5/nslcd.conf.5.gz
+2b45a62e9a9b1e357c84a9e3cfcdc09c  usr/share/man/man8/nslcd.8.gz

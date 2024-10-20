@@ -79,7 +79,7 @@ session    required   pam_limits.so
 
 # Prints the last login info upon successful login
 # (Replaces the `LASTLOG_ENAB' option from login.defs)
-session    optional   pam_lastlog.so
+##session    optional   pam_lastlog.so
 
 # Prints the status of the user's mailbox upon successful login
 # (Replaces the `MAIL_CHECK_ENAB' option from login.defs). 

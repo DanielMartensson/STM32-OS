@@ -34,7 +34,7 @@ sasl:*::
 plugdev:*::
 staff:*::
 games:*::
-users:*::
+users:*::user
 nogroup:*::
 systemd-journal:!*::
 systemd-network:!*::
@@ -47,3 +47,7 @@ render:!*::
 messagebus:!::
 syslog:!::
 systemd-resolve:!*::
+_ssh:!::
+user:!::
+nslcd:!::
+_greetd:!::

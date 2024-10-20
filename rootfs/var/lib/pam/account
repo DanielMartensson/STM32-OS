@@ -1,2 +1,4 @@
 Module: unix
 [success=end new_authtok_reqd=done default=ignore]	pam_unix.so
+Module: ldap
+[success=ok new_authtok_reqd=done ignore=ignore user_unknown=ignore authinfo_unavail=ignore default=bad]	pam_ldap.so minimum_uid=1000

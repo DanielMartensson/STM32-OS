@@ -1,1 +1,1 @@
-/usr/lib/systemd/system/getty@.service
+/etc/systemd/system/getty@tty1.service

@@ -5013,6 +5013,90 @@ Description-zh_tw.utf-8: 要使用的鍵盤對應:
 Type: select
 Owners: keyboard-configuration/xkb-keymap
 
+Name: ldap-auth-config/binddn
+Default: cn=proxyuser,dc=example,dc=net
+Description: Unprivileged database user:
+Extended_description: Please enter the name of the account that will be used to log in to the LDAP database.\n\nWarning: DO NOT use privileged accounts for logging in, the configuration file has to be world readable.
+Type: string
+Owners: ldap-auth-config/binddn
+
+Name: ldap-auth-config/bindpw
+Description: Password for database login account:
+Extended_description: Please enter the password that will be used to log in to the LDAP database.
+Type: password
+Owners: ldap-auth-config/bindpw
+
+Name: ldap-auth-config/dblogin
+Default: false
+Description: Does the LDAP database require login?
+Extended_description: Choose this option if you are required to login to the database to retrieve entries.\n\nNote: Under a normal setup, this is not needed.
+Type: boolean
+Owners: ldap-auth-config/dblogin
+
+Name: ldap-auth-config/dbrootlogin
+Default: true
+Description: Make local root Database admin:
+Extended_description: This option will allow you to make password utilities that use pam to behave like you would be changing local passwords.\n\nThe password will be stored in a separate file which will be made readable to root only.\n\nIf you are using NFS mounted /etc or any other custom setup, you should disable this.
+Type: boolean
+Owners: ldap-auth-config/dbrootlogin
+
+Name: ldap-auth-config/ldapns/base-dn
+Default: dc=example,dc=net
+Description: Distinguished name of the search base:
+Extended_description: Please enter the distinguished name of the LDAP search base. Many sites use the components of their domain names for this purpose. For example, the domain "example.net" would use "dc=example,dc=net" as the distinguished name of the search base.
+Type: string
+Owners: ldap-auth-config/ldapns/base-dn
+
+Name: ldap-auth-config/ldapns/ldap-server
+Default: ldapi:///
+Description: LDAP server Uniform Resource Identifier:
+Extended_description: Please enter the URI of the LDAP server to use. This is a string in the form of ldap://<hostname or IP>:<port>/. ldaps:// or ldapi:// can also be used. The port number is optional.\n\nNote: It is usually a good idea to use an IP address because it reduces risks of failure in the event name service problems.
+Type: string
+Owners: ldap-auth-config/ldapns/ldap-server
+
+Name: ldap-auth-config/ldapns/ldap_version
+Choices: 3, 2
+Default: 3
+Description: LDAP version to use:
+Extended_description: Please enter which version of the LDAP protocol should be used by ldapns. It is usually a good idea to set this to the highest available version.
+Type: select
+Owners: ldap-auth-config/ldapns/ldap_version
+
+Name: ldap-auth-config/move-to-debconf
+Default: true
+Description: Reconfigure LDAP with debconf?
+Extended_description: The LDAP authentication libraries now use the new unified configuration file ${newfn}, and no longer use ${pamfn} or ${nssfn}. One or both of these old configuration files were found. These files cannot be automatically migrated to the new ${newfn}. You MUST either reconfigure your settings with debconf, or manually migrate your settings into ${newfn} and verify your configuration before logging out.
+Type: boolean
+Owners: ldap-auth-config/move-to-debconf
+
+Name: ldap-auth-config/override
+Default: true
+Description: Should debconf manage LDAP configuration?
+Extended_description: Saying yes will allow future upgrades to use these settings. This is the recommended option.
+Type: boolean
+Owners: ldap-auth-config/override
+
+Name: ldap-auth-config/pam_password
+Choices: clear, crypt, nds, ad, exop, md5
+Default: md5
+Description: Local crypt to use when changing passwords:
+Extended_description: The PAM module can set the password crypt locally when changing the passwords, which is usually a good choice. Specifying something other than clear ensures that the password gets crypted in some way.\n\nThe meanings for selections are:\n\nclear - Don't set any encryptions. This is useful with servers that automatically encrypt userPassword entry.\n\ncrypt - (Default) make userPassword use the same format as the flat filesystem. This will work for most configurations.\n\nnds - Use Novell Directory Services-style updating by first removing the old password and then update with a cleartext password.\n\nad - Active Directory-style. Create a Unicode password and update the unicodePwd attribute.\n\nexop - Use the OpenLDAP password change extended operation to update the password.\n\nmd5 - Use the stronger md5 algorithm instead of standard crypt.
+Type: select
+Owners: ldap-auth-config/pam_password
+
+Name: ldap-auth-config/rootbinddn
+Default: cn=manager,dc=example,dc=net
+Description: LDAP account for root:
+Extended_description: This account will be used when root changes a password.\n\nNote: This account has to be a privileged account.
+Type: string
+Owners: ldap-auth-config/rootbinddn
+
+Name: ldap-auth-config/rootbindpw
+Description: LDAP root account password:
+Extended_description: Please enter the password to use when ${package} tries to login to the LDAP directory using the LDAP account for root.\n\nThe password will be stored in a separate file ${filename} which will be made readable to root only.\n\nEntering an empty password will re-use the old password.
+Type: password
+Owners: ldap-auth-config/rootbindpw
+
 Name: libpam-modules/deprecate-tally
 Description: you are using pam_tally or pam_tally2 in your configuration
 Description-bg.utf-8: настройките на системата използват pam_tally или pam_tally2
@@ -5803,6 +5887,633 @@ Extended_description-zh_cn.utf-8: 在安装 man 和 mandb 这两个程序时，�
 Type: boolean
 Owners: man-db/install-setuid
 
+Name: nslcd/ldap-auth-type
+Choices: none, simple, SASL
+Choices-cs.utf-8: žádná, jednoduchá, SASL
+Choices-da.utf-8: ingen, simpel, SASL
+Choices-de.utf-8: keine, einfach, SASL
+Choices-es.utf-8: ninguna, sencilla, SASL
+Choices-fr.utf-8: aucune, simple, SASL
+Choices-it.utf-8: nessuna, semplice, SASL
+Choices-ja.utf-8: なし, simple, SASL
+Choices-nb.utf-8: ingen, enkel, SASL
+Choices-nl.utf-8: geen, eenvoudig, SASL
+Choices-no.utf-8: ingen, enkel, SASL
+Choices-pl.utf-8: brak, proste, SASL
+Choices-pt.utf-8: nenhum, simples, SASL
+Choices-pt_br.utf-8: nenhum, simples, SASL
+Choices-ru.utf-8: отсутствует, простой, SASL
+Choices-sk.utf-8: žiadna, jednoduchá, SASL
+Choices-sv.utf-8: ingen, enkel, SASL
+Choices-tr.utf-8: yok, basit, SASL
+Choices-zh_cn.utf-8: none, simple, SASL
+Description: LDAP authentication to use:
+Description-cs.utf-8: LDAP autentizace, která se má použít:
+Description-da.utf-8: LDAP-godkendelse at bruge:
+Description-de.utf-8: LDAP-Authentifizierung, die benutzt werden soll:
+Description-es.utf-8: Autenticación de LDAP a utilizar:
+Description-fr.utf-8: Authentification LDAP :
+Description-it.utf-8: Autenticazione LDAP da usare:
+Description-ja.utf-8: 使用する LDAP 認証:
+Description-nb.utf-8: LDAP-autentisering som skal brukes:
+Description-nl.utf-8: Te gebruiken LDAP-authenticatie:
+Description-no.utf-8: LDAP-autentisering som skal brukes:
+Description-pl.utf-8: Uwierzytelnianie LDAP:
+Description-pt.utf-8: Autenticação LDAP a usar:
+Description-pt_br.utf-8: Autenticação LDAP a ser usada:
+Description-ru.utf-8: Используемый метод аутентификации LDAP:
+Description-sk.utf-8: Použitá autentifikácia LDAP:
+Description-sv.utf-8: LDAP-identifiering som ska användas:
+Description-tr.utf-8: Kullanılacak LDAP doğrulama biçimi:
+Description-zh_cn.utf-8: LDAP认证方式：
+Extended_description: Please choose what type of authentication the LDAP database should require (if any):\n\n * none: no authentication;\n * simple: simple bind DN and password authentication;\n * SASL: any Simple Authentication and Security Layer mechanism.
+Extended_description-cs.utf-8: Vyberte, jaký typ autentizace má LDAP databáze vyžadovat (pokud vůbec):\n\n * žádná: bez autentizace;\n * jednoduchá: jednoduchá autentizace pomocí DN a hesla;\n * SASL: libovolný mechanismus Simple Authentication and Security Layer.
+Extended_description-da.utf-8: Vælg venligst hvilken godkendelsestype LDAP-databasen skal kræve (hvis nogen):\n\n * ingen: ingen godkendelse;\n * simpel: simpel bind DN og godkendelse af adgangskode;\n * SASL: enhver Simple Authentication og Security Layer-mekanisme.
+Extended_description-de.utf-8: Bitte wählen Sie aus, welchen Authentifizierungstyp die LDAP-Datenbank verlangen soll (falls überhaupt):\n\n * keine: keine Authentifizierung;\n * einfach: einfache Bind-DN- und Passwortauthentifizierung;\n * SASL: jeder »Simple Authentication and Security Layer«-Mechanismus.
+Extended_description-es.utf-8: Escoja qué tipo de autenticación (si es que la hay) se debería utilizar con la base de datos de LDAP:\n\n * ninguna: sin autenticación.\n * sencilla: una autenticación sencilla que asocia el DN con una contraseña.\n * SASL: cualquier mecanismo «Simple Authentication and Security Layer» (SASL).
+Extended_description-fr.utf-8: Veuillez choisir le type d'authentification que la base LDAP utilise (si nécessaire).\n\n - aucune : pas d'authentification;\n - simple : authentification simple avec un identifiant (DN) et un\n            mot de passe;\n - SASL   : mécanisme basé sur SASL (« Simple Authentication and\n            Security Layer ») : méthode simplifiée d'authentification\n            et de sécurité;
+Extended_description-it.utf-8: Scegliere quale tipo di autenticazione deve richiedere il database LDAP:\n\n * nessuna: nessuna autenticazione;\n * semplice: semplice autenticazione con bind DN e password;\n * SASL: qualsiasi meccanismo Simple Authentication and Security Layer.
+Extended_description-ja.utf-8: LDAP データベースが (もし何か) 必要とすべき認証の形式を選択してください:\n\n * なし: 認証なし;\n * simple: シンプルバインド DN とパスワード認証;\n * SASL: 何らかの Simple Authentication and Security Layer 機構。
+Extended_description-nb.utf-8: Velg hvilken type autentisering som LDAP-databasen skal kreve (om noen):\n\n * ingen: ingen autentisering,\n * enkel: enkel autentisering med bind DN og passord,\n * SASL: en eller annen Simple Authentication and Security Layer-mekanisme.
+Extended_description-nl.utf-8: Welk soort authenticatie wilt u dat gebruikt wordt om bij de LDAP-database aan te melden (indien van toepassing)?\n\n * geen: geen authenticatie;\n * eenvoudig: eenvoudige combinatie van bind-DN en wachtwoord;\n * SASL: één van de 'Simple Authentication and Security Layer'-mechanismen.
+Extended_description-no.utf-8: Velg hvilken type autentisering som LDAP-databasen skal kreve (om noen):\n\n * ingen: ingen autentisering,\n * enkel: enkel autentisering med bind DN og passord,\n * SASL: en eller annen Simple Authentication and Security Layer-mekanisme.
+Extended_description-pl.utf-8: Proszę wybrać typ uwierzytelniania bazy danych LDAP:\n\n * brak: brak uwierzytelniania;\n * proste: proste DN bind i hasło;\n * SASL: dowolny mechanizm Simple Authentication and Security Layer.
+Extended_description-pt.utf-8: Por favor escolha que tipo de autenticação a base de dados LDAP deverá pedir (se algum):\n\n * nenhum: nenhuma autenticação;\n * simples: ligação DN simples e autenticação por palavra-passe;\n * SASL: qualquer mecanismo Simple Authentication e Security Layer.
+Extended_description-pt_br.utf-8: Por favor, escolha qual o tipo de autenticação que o banco de dados LDAP deve requerer (se algum):\n\n* nenhum: sem autenticação; * simples: simples bind DN e autenticação por senha; * SASL: qualquer mecanismo de Autenticação Simples e Camada de Segurança
+Extended_description-ru.utf-8: Укажите, какой тип аутентификации нужно использовать для получения доступа к базе данных LDAP (если нужно):\n\n * отсутствует: без аутентификации;\n * простой:     привязка DN и пароль;\n * SASL:        любой механизм простой аутентификацию и слоя безопасности.
+Extended_description-sk.utf-8: Prosím, vyberte si ktorý typ autentifikácie má databáza LDAP vyžadovať (ak nejaký):\n\n * žiadna: bez autentifikácie;\n * jednoduchá: autentifikácia jednoduchého zviazania DN a hesla;\n * SASL: Jednoduchá autentifikácia a mechanizmus Security Layer.
+Extended_description-sv.utf-8: Ange vilken typ av autentisering som LDAP-databasen ska ha som krav (om någon):\n\n * ingen: ingen autentisering\n * enkel: enkel autentisering genom bind DN och lösenord\n * SASL: vilken SASL-metod (Simple Authentication and Security Layer) som helst.
+Extended_description-tr.utf-8: Lütfen LDAP veritabanı tarafından istenecek doğrulama şeklini seçiniz (eğer varsa):\n\n * yok: doğrulama yok;\n * basit: belirgin ad (DN) ile basit bağlantı ve parola ile doğrulama;\n * SASL: herhangi bir Basit Doğrulama ve Güvenlik Katmanı (SASL) yöntemi.
+Extended_description-zh_cn.utf-8: 请选择LDAP数据库需要的认证方式（如有）:\n\n* none: 没有认证； * simple: 简易的bind DN + 密码认证； * SASL: 使用SASL机制认证。
+Type: select
+Owners: nslcd/ldap-auth-type
+
+Name: nslcd/ldap-base
+Description: LDAP server search base:
+Description-ca.utf-8: base de cerca del servidor LDAP:
+Description-cs.utf-8: Kořen prohledávaného LDAP stromu:
+Description-da.utf-8: Søgebase for LDAP-server:
+Description-de.utf-8: Suchbasis des LDAP-Servers:
+Description-es.utf-8: Base de búsqueda en el servidor LDAP:
+Description-fi.utf-8: LDAP-palvelimen hakukanta:
+Description-fr.utf-8: Base de recherche du serveur LDAP :
+Description-gl.utf-8: Base da procura de servidor LDAP:
+Description-it.utf-8: Base di ricerca del server LDAP:
+Description-ja.utf-8: LDAP サーバの検索ベース:
+Description-nb.utf-8: Søkebase for LDAP-tjener:
+Description-nl.utf-8: LDAP-server zoekbasis:
+Description-no.utf-8: Søkebase for LDAP-tjener:
+Description-pl.utf-8: Podstawa wyszukiwania serwera LDAP:
+Description-pt.utf-8: Base de busca do servidor LDAP:
+Description-pt_br.utf-8: Base de buscas do servidor LDAP:
+Description-ru.utf-8: База поиска сервера LDAP:
+Description-sk.utf-8: Základ (base) hľadania servera LDAP:
+Description-sv.utf-8: Sökbas för LDAP-server:
+Description-tr.utf-8: LDAP sunucusu arama tabanı:
+Description-vi.utf-8: Cơ bản tìm kiếm máy phục vụ LDAP:
+Description-zh_cn.utf-8: LDAP服务器搜索起点：
+Extended_description: Please enter the distinguished name of the LDAP search base. Many sites use the components of their domain names for this purpose. For example, the domain "example.net" would use "dc=example,dc=net" as the distinguished name of the search base.
+Extended_description-ca.utf-8: Introduïu el nom distingit de la base de la cerca de l'LDAP. Molts llocs utilitzen els components del seu nom del domini. Per exemple, el domini «exemple.net» utilitzaria el nom distingit de la base de la cerca «dc=exemple,dc=net».
+Extended_description-cs.utf-8: Zadejte rozlišitelný název prohledávaného LDAP stromu. Mnoho serverů pro tento účel využívá části svých doménových jmen. Například doména „priklad.cz“ by jako rozlišitelné jméno svého stromu použila „dc=priklad,dc=cz“.
+Extended_description-da.utf-8: Angiv det særlige navn på LDAP-søgebasen. Mange sider bruger komponenterne fra deres domænenavne til dette formål. Eksempelvis ville domænet »eksempel.dk« bruge »dc=eksempel,dc=dk« som det særlige navn på søgebasen.
+Extended_description-de.utf-8: Bitte geben Sie den DN (distinguished name) der LDAP-Suchbasis ein. Oft werden Teile des Domänennamens für diesen Zweck benutzt. Beispielsweise würde bei der Domäne »example.net« der DN »dc=example,dc=net« als Suchbasis verwendet werden.
+Extended_description-es.utf-8: Introduzca el nombre distintivo (DN) de la base de búsquedas de LDAP. En muchos sitios se utilizan las componentes del nombre de dominio con este propósito. Por ejemplo, el dominio «example.net» utilizaría «dc=example,dc=net» como nombre distintivo de la base de búsquedas.
+Extended_description-fi.utf-8: Anna LDAP-hakukannan erittelevä nimi (Distinguished Name, DN). Useilla sivustoilla käytetään verkkonimen osia tähän tarkoitukseen. Esimerkiksi verkkotunnus ”esimerkki.fi” käyttäisi nimeä ”dc=esimerkki,dc=fi” hakukannan erittelevänä nimenä.
+Extended_description-fr.utf-8: Veuillez indiquer le nom distinctif (« DN ») de la base de recherche du serveur LDAP. Beaucoup de sites utilisent les éléments composant leur nom de domaine à cette fin. Par exemple, le domaine « example.net » utiliserait « dc=example,dc=net ».
+Extended_description-gl.utf-8: Indique o nome distintivo da base de procura LDAP. Moitos sitios empregan as compoñentes dos seus nomes de dominio para este propósito. Por exemplo, o dominio «exemplo.net» debería empregar «dc=exemplo,dc=net» como nome distintivo da base de procura.
+Extended_description-it.utf-8: Inserire il DN (nome distinto) della base di ricerca LDAP. Molti siti usano le componenti del loro nome di dominio per questo scopo: per esempio, il dominio «esempio.net» userebbe «dc=esempio,dc=net» come DN della base di ricerca.
+Extended_description-ja.utf-8: LDAP 検索ベースの識別名を入力してください。多くのサイトではそのドメイン名の要素をこの目的に使っています。たとえば、ドメイン "example.net" では検索ベースの識別名として "dc=example,dc=net" を使っているでしょう。
+Extended_description-nb.utf-8: Oppgi det entydige navnet (DN) til LDAPs søkebase. Mange steder brukes komponentene i domenenavnet til dette, For eksempel, domenet «example.net» ville bruke «dc=example,dc=net» som entydig navn på søkebasen.
+Extended_description-nl.utf-8: Voer de unieke naam (distinguished name) van de LDAP-zoekbasis in. Veel sites gebruiken de componenten van hun domeinnaam voor dit doel. Bijvoorbeeld: het domein "example.net" zou gebruik maken van "dc=example,dc=net" als de DN van de zoekbasis.
+Extended_description-no.utf-8: Oppgi det entydige navnet (DN) til LDAPs søkebase. Mange steder brukes komponentene i domenenavnet til dette, For eksempel, domenet «example.net» ville bruke «dc=example,dc=net» som entydig navn på søkebasen.
+Extended_description-pl.utf-8: Proszę wprowadzić unikalną nazwę (ang. distinguished name) jako podstawę wyszukiwania LDAP. Wiele stron używa w tym celu części swoich nazw domenowych. Przykładowo, domena "example.net" może używać "dc=example,dc=net" jako unikalną nazwę podstawy wyszukiwania.
+Extended_description-pt.utf-8: Por favor insira o nome distinto da base de busca LDAP. Muitos sítios usam componentes dos seus nomes de domínio para este propósito. Por exemplo, o domínio "exemplo.net" deverá usar "dc=exemplo,dc=net" como nome distinto da base de busca.
+Extended_description-pt_br.utf-8: Por favor, informe o nome distinto da base de procura LDAP. Muitos sites usam os componentes de seus nomes de domínio para esse propósito. Por exemplo, o domínio "example.net" usaria "dc=example,dc=net" como o nome distinto da base de procura.
+Extended_description-ru.utf-8: Введите уникальное имя базы поиска LDAP. Для этой цели на многих серверах используют части своих доменных имён. Например, для домена «example.net» в качестве уникального имени базы поиска использовалось бы «dc=example,dc=net».
+Extended_description-sk.utf-8: Prosím zadajte distingvované meno (distinguished name) základu hľadania LDAP. Veľa stránok používa na tento účel časti svojho doménového mena. Napríklad, doména „example.net” by ako distingvované meno základu hľadania použila "dc=example,dc=net".
+Extended_description-sv.utf-8: Ange namnet (DN) för LDAPs sökbas. Många system använder komponenter av deras domännamn för denna funktion. Till exempel att domänen "example.net" skulle använda "dc=example,dc=net" som sitt DN-namn för sökbasen.
+Extended_description-tr.utf-8: Lütfen LDAP arama tabanının belirgin adını giriniz. Çoğu site bunun için alan adlarının bileşenlerini kullanır. Örneğin alan adı "example.net" olan site, arama tabanı belirgin adı olarak "dc=example,dc=net" kullanır.
+Extended_description-vi.utf-8: Hãy gõ tên phân biệt (DN) của cơ bản tìm kiếm LDAP. Nhiều chỗ sử dụng thành phần tên miền cho mục đích này, v.d. miền « ví_dụ.net » sẽ sử dụng « dc=ví_dụ,dc=net » làm tên phân biệt của cơ bản tìm kiếm.
+Extended_description-zh_cn.utf-8: 请输入LDAP搜索起点DN。多数网站使用域名作，如域名"example.net"会使用"dc=example,dc=net"作为搜索的起点DN。
+Type: string
+Owners: nslcd/ldap-base
+
+Name: nslcd/ldap-binddn
+Description: LDAP database user:
+Description-cs.utf-8: LDAP uživatel:
+Description-da.utf-8: LDAP-databasebruger:
+Description-de.utf-8: LDAP-Datenbank-Benutzer:
+Description-es.utf-8: Usuario de la base de datos LDAP:
+Description-fr.utf-8: Utilisateur de la base LDAP :
+Description-it.utf-8: Utente del database LDAP:
+Description-ja.utf-8: LDAP データベースユーザ:
+Description-nb.utf-8: LDAP databasebruker:
+Description-nl.utf-8: LDAP-databasegebruiker:
+Description-no.utf-8: LDAP databasebruker:
+Description-pl.utf-8: Użytkownik bazy danych LDAP:
+Description-pt.utf-8: Utilizador da base de dados LDAP:
+Description-pt_br.utf-8: Usuário do banco de dados LDAP:
+Description-ru.utf-8: Пользователь базы данных LDAP:
+Description-sk.utf-8: Používateľ databázy LDAP:
+Description-sv.utf-8: LDAP-databasanvändare:
+Description-tr.utf-8: LDAP veritabanı kullanıcısı:
+Extended_description: Please enter the name of the account that will be used to log in to the LDAP database. This value should be specified as a DN (distinguished name).
+Extended_description-cs.utf-8: Zadejte jméno účtu, který se použije pro přístup k LDAP databázi. Mělo by to být zadáno jako rozlišitelné jméno (DN).
+Extended_description-da.utf-8: Indtast navnet for kontoen som vil blive brugt til at logge ind i LDAP-databasen. Denne værdi bør angives som et DN (særligt navn - distinguished name).
+Extended_description-de.utf-8: Bitte geben Sie den Namen des Kontos ein, das zur Anmeldung in die LDAP-Datenbank benutzt wird. Dieser Wert sollte ein DN (distinguished name/benanntes LDAP-Objekt) sein.
+Extended_description-es.utf-8: Introduzca el nombre de la cuenta que se utilizará para acceder a la base de datos de LDAP. Este valor se debería introducir como un DN (Nombre Distinguido).
+Extended_description-fr.utf-8: Veuillez indiquer le compte à utiliser pour s'identifier sur la base LDAP. Cette valeur doit être indiquée sur la forme d'un nom distinctif (DN : « Distinguished Name »).
+Extended_description-it.utf-8: Inserire il nome dell'account che verrà usato per eseguire l'accesso nel database LDAP. Questo valore dovrebbe essere specificato come DN (nome distinto).
+Extended_description-ja.utf-8: LDAP データベースへのログインに使われるアカウントの名前を入力してください。この値は DN (識別名) として指定すべきです。
+Extended_description-nb.utf-8: Skriv inn navnet på kontoen som skal brukes til å logge inn til LDAP-databasen. Verdien må oppgis som et DN (entydig navn).
+Extended_description-nl.utf-8: Welke gebruikersnaam wilt u dat er gebruikt zal worden om bij de LDAP-database aan te melden? Deze waarde moet als een DN (distinguished name) opgegeven worden.
+Extended_description-no.utf-8: Skriv inn navnet på kontoen som skal brukes til å logge inn til LDAP-databasen. Verdien må oppgis som et DN (entydig navn).
+Extended_description-pl.utf-8: Proszę wybrać nazwę konta, która będzie używana do zalogowania się do bazy danych LDAP. Wartość powinna być podana jako unikalna nazwa (DN - ang. distinguished name).
+Extended_description-pt.utf-8: Por favor indique o nome da conta que irá ser usada para login na base de dados LDAP. Este valor deve ser especificado como um DN (nome distinto).
+Extended_description-pt_br.utf-8: Por favor, informe o nome da conta que será usada para se autenticar no banco de dados LDAP. Este valor deverá ser especificado como um DN (nome distinto).
+Extended_description-ru.utf-8: Введите имя учетной записи, которая будет использована для подключения к базе данных LDAP. Значение должно быть указано в форме DN (отличительного имени).
+Extended_description-sk.utf-8: Prosím, zadajte meno účtu, ktorý bude používaný na prihlásenie sa do databázy LDAP. Táto hodnota má byť zadaná ako DN (distinguished name).
+Extended_description-sv.utf-8: Ange namnet på kontot som ska användas för att logga in i LDAP-databasen. Detta värde ska specificeras som ett DN (eng. "distinguished name").
+Extended_description-tr.utf-8: Lütfen LDAP veritabanında oturum açmak için kullanılacak hesabın adını giriniz. Bu değer bir belirgin ad (DN) şeklinde girilmelidir.
+Type: string
+Owners: nslcd/ldap-binddn
+
+Name: nslcd/ldap-bindpw
+Description: LDAP user password:
+Description-cs.utf-8: Heslo LDAP uživatele:
+Description-da.utf-8: Adgangskode for LDAP-bruger:
+Description-de.utf-8: Passwort des LDAP-Benutzers:
+Description-es.utf-8: Contraseña del usuario LDAP:
+Description-fr.utf-8: Mot de passe de l'utilisateur LDAP :
+Description-it.utf-8: Password dell'utente LDAP:
+Description-ja.utf-8: LDAP ユーザパスワード:
+Description-nb.utf-8: LDAP bruker-passord:
+Description-nl.utf-8: Wachtwoord van de LDAP-gebruiker:
+Description-no.utf-8: LDAP bruker-passord:
+Description-pl.utf-8: Hasło użytkownika LDAP:
+Description-pt.utf-8: Palavra-passe de utilizador LDAP:
+Description-pt_br.utf-8: Senha do usuário LDAP:
+Description-ru.utf-8: Пароль пользователя LDAP:
+Description-sk.utf-8: Heslo používateľa LDAP:
+Description-sv.utf-8: LDAP-användarlösenord:
+Description-tr.utf-8: LDAP kullanıcı parolası:
+Extended_description: Please enter the password that will be used to log in to the LDAP database.
+Extended_description-cs.utf-8: Zadejte heslo, které se použije pro přístup k LDAP databázi.
+Extended_description-da.utf-8: Angiv adgangskoden som vil blive brugt til at logge ind på LDAP-databasen.
+Extended_description-de.utf-8: Bitte geben Sie das Passwort für die Anmeldung an der LDAP-Datenbank ein.
+Extended_description-es.utf-8: Introduzca la contraseña que se utilizará para acceder a la base de datos LDAP.
+Extended_description-fr.utf-8: Veuillez indiquer le mot de passe à utiliser pour s'identifier sur la base LDAP.
+Extended_description-it.utf-8: Inserire la password che verrà utilizzata per accedere al database LDAP.
+Extended_description-ja.utf-8: LDAP データベースにログインするのに使うパスワードを入力してください。
+Extended_description-nb.utf-8: Oppgi passordet som vil bli brukt til å logge inn i LDAP-databasen.
+Extended_description-nl.utf-8: Welk wachtwoord wilt u dat er gebruikt zal worden om bij de LDAP-database aan te melden?
+Extended_description-no.utf-8: Oppgi passordet som vil bli brukt til å logge inn i LDAP-databasen.
+Extended_description-pl.utf-8: Proszę wprowadzić hasło, które będzie używane do zalogowania się do bazy danych LDAP.
+Extended_description-pt.utf-8: Por favor indique a palavra-passe que vai ser usada para autenticação na base de dados LDAP.
+Extended_description-pt_br.utf-8: Por favor, informe a senha que será usada para a autenticação no banco de dados LDAP.
+Extended_description-ru.utf-8: Введите пароль, который будет использован для подключения к базе данных LDAP.
+Extended_description-sk.utf-8: Prosím, zadajte heslo, ktoré bude použité na prihlásenia do databázy LDAP.
+Extended_description-sv.utf-8: Ange lösenordet som ska användas för att logga in på LDAP-databasen.
+Extended_description-tr.utf-8: Lütfen LDAP veritabanında oturum açmak için kullanılacak parolayı giriniz.
+Type: password
+Owners: nslcd/ldap-bindpw
+
+Name: nslcd/ldap-cacertfile
+Default: /etc/ssl/certs/ca-certificates.crt
+Description: Certificate authority certificate:
+Description-cs.utf-8: Certifikát certifikační autority:
+Description-da.utf-8: Certifikat for certifikatautoritet:
+Description-de.utf-8: Zertifikat der Zertifizierungsstelle:
+Description-es.utf-8: Certificado de la autoridad de certificación:
+Description-fr.utf-8: Certificat de l'autorité de certification :
+Description-it.utf-8: Certificato dell'autorità di certificazione:
+Description-ja.utf-8: 認証局の証明書:
+Description-nb.utf-8: Sertifiseringsautoritetssertifikat:
+Description-nl.utf-8: CA (certificaatautoriteit) certificaat:
+Description-no.utf-8: Sertifiseringsautoritetssertifikat:
+Description-pl.utf-8: Certyfikat urzędu certyfikacji:
+Description-pt.utf-8: Certificado da autoridade de certificados:
+Description-pt_br.utf-8: Certificado da autoridade certificadora:
+Description-ru.utf-8: Сертификат удостоверяющего центра:
+Description-sk.utf-8: Certifikát certifikačnej autority:
+Description-sv.utf-8: Certifikat för certifikatutställare (CA):
+Description-tr.utf-8: Sertifika yetkilisi sertifikası:
+Extended_description: When certificate checking is enabled this file contains the X.509 certificate that is used to check the certificate provided by the server.
+Extended_description-cs.utf-8: Je-li povolena kontrola certifikátů, tento soubor obsahuje certifikát X.509, který se používá pro kontrolu certifikátů poskytovaných serverem.
+Extended_description-da.utf-8: Når certifikatkontrol er aktiveret, så indeholde denne fil X.509-certifikatet, som bruges til at kontrollere certifikatet leveret af serveren.
+Extended_description-de.utf-8: Wenn Prüfung von Zertifikaten aktiviert ist, enthält diese Datei das X.509-Zertifikat, das zur Überprüfung des vom Server bereitgestellten Zertifikats verwendet wird.
+Extended_description-es.utf-8: Este archivo contiene el certificado X.509 que se utilizará para comprobar el certificado provisto por el servidor cuando esté activa la comprobación de certificados.
+Extended_description-fr.utf-8: Si le contrôle des certificats est activé, le fichier indiqué ici doit être le certificat X.509 qui servira à vérifier le certificat fourni par le serveur.
+Extended_description-it.utf-8: Quando è abilitato il controllo del certificato questo file contiene il certificato X.509 che viene usato per controllare il certificato fornito dal server
+Extended_description-ja.utf-8: これは、証明書の検証を有効にした場合にサーバから提供された証明書を検証するのに利用する X.509 証明書を収録するファイルです。
+Extended_description-nb.utf-8: Når sertifikatsjekking er aktiv så inneholder denne filen X.509-sertifikatet som brukes til å sjekke sertifikatet som leveres ut fra tjeneren.
+Extended_description-nl.utf-8: Als certificaatcontrole aan staat bevat dit bestand het X.509 certificaat dat gebruikt wordt om het certificaat dat door de server gestuurd wordt te controleren.
+Extended_description-no.utf-8: Når sertifikatsjekking er aktiv så inneholder denne filen X.509-sertifikatet som brukes til å sjekke sertifikatet som leveres ut fra tjeneren.
+Extended_description-pl.utf-8: Gdy włączone jest sprawdzanie certyfikatu plik ten zawiera certyfikat X.509 używany do sprawdzenia certyfikatu dostarczonego przez serwer.
+Extended_description-pt.utf-8: Quando a verificação de certificados está activa, este ficheiro contém o certificado X.509 que é usado para verificar o certificado disponibilizado pelo servidor.
+Extended_description-pt_br.utf-8: Quando a verificação de certificado é habilitada, esse arquivo contém o certificado X.509 que é usado para verificar o certificado fornecido pelo servidor.
+Extended_description-ru.utf-8: Если включена проверка сертификата, то в этом файле содержится сертификат X.509, который используется для проверки сертификата, предоставляемого сервером.
+Extended_description-sk.utf-8: Keď je zapnutá kontrola certifikátu, tento súbor obsahuje certifikát X.509, ktorý slúži na kontrolu certifikátu poskytnutého serverom.
+Extended_description-sv.utf-8: När certifikatkontroll är påslaget innehåller denna fil X.509-certifikatet som servern ska använda för att kontrollera certifikatutställaren.
+Extended_description-tr.utf-8: Sertifika denetimi etkinleştirildiğinde bu dosya, sunucu tarafından sağlanan sertifikayı denetlemekte kullanılan X.509 sertifikasını barındırır.
+Type: string
+Owners: nslcd/ldap-cacertfile
+
+Name: nslcd/ldap-reqcert
+Choices: never, allow, try, demand
+Choices-ca.utf-8: Mai, Permet, Prova, Demanda
+Choices-cs.utf-8: nikdy, povoleno, pokusit se, vyžadováno
+Choices-da.utf-8: aldrig, tillad, forsøg, kræv
+Choices-de.utf-8: nie, erlauben, versuchen, anfordern
+Choices-es.utf-8: nunca, permitir, intentar, exigir
+Choices-fi.utf-8: ei koskaan, salli, yritä, vaadi
+Choices-fr.utf-8: Jamais, Autoriser, Essayer, Demander
+Choices-gl.utf-8: nunca, permitir, tentar, demandar
+Choices-it.utf-8: mai, consenti, prova, richiedi
+Choices-ja.utf-8: 使わない, 許可, 試行, 要求
+Choices-nb.utf-8: aldri, tillat, forsøk, krev
+Choices-nl.utf-8: nooit, toestaan, probeer, eis
+Choices-no.utf-8: aldri, tillat, forsøk, krev
+Choices-pl.utf-8: nigdy, dozwól, próbuj, wymagaj
+Choices-pt.utf-8: nunca, permitir, tentar, obrigar
+Choices-pt_br.utf-8: nunca, permitir, tentar, exigir
+Choices-ru.utf-8: никогда, запросить, попытаться, обязательна
+Choices-sk.utf-8: nikdy, povoliť, skúsiť, žiadať
+Choices-sv.utf-8: aldrig, tillåt, försök, kräv
+Choices-tr.utf-8: asla, izin ver, dene, talep et
+Choices-vi.utf-8: không bao giờ, cho phép, thử, đòi hỏi
+Choices-zh_cn.utf-8: 从不, 允许, 尝试, 必须
+Description: Check server's SSL certificate:
+Description-cs.utf-8: Kontrolovat SSL certifikát serveru:
+Description-da.utf-8: Tjek servers SSL-certifikat:
+Description-de.utf-8: Das SSL-Zertifikat des Servers überprüfen:
+Description-es.utf-8: Comprobar el certificado SSL del servidor:
+Description-fr.utf-8: Contrôle du certificat SSL du serveur :
+Description-it.utf-8: Controllare il certificato SSL del server?
+Description-ja.utf-8: サーバの SSL 証明書のチェック:
+Description-nb.utf-8: Kontroller tjenerens SSL-sertifikat:
+Description-nl.utf-8: SSL servercertificaat controleren:
+Description-no.utf-8: Kontroller tjenerens SSL-sertifikat:
+Description-pl.utf-8: Sprawdzanie certyfikatu SSL serwera:
+Description-pt.utf-8: Verificar o certificado SSL do servidor:
+Description-pt_br.utf-8: Verificar o certificado SSL do servidor:
+Description-ru.utf-8: Проверка SSL-сертификат сервера:
+Description-sk.utf-8: Kontrolovať SSL certifikát servera:
+Description-sv.utf-8: Kontrollera serverns SSL-certifikat:
+Description-tr.utf-8: Sunucunun SSL sertifikası gözden geçirilsin mi:
+Extended_description: When an encrypted connection is used, a server certificate can be requested and checked. Please choose whether lookups should be configured to require a certificate, and whether certificates should be checked for validity:\n\n * never: no certificate will be requested or checked;\n * allow: a certificate will be requested, but it is not\n          required or checked;\n * try: a certificate will be requested and checked, but if no\n        certificate is provided, it is ignored;\n * demand: a certificate will be requested, required, and checked.
+Extended_description-cs.utf-8: Při použití šifrovaného spojení, může být vyžádán a zkontrolován certifikát serveru. Vyberte si, zda mají dotazy certifikát vyžadovat a zda se má kontrolovat jeho platnost:\n\n * nikdy: certifikát nebude nikdy vyžadován ani kontrolován;\n * povoleno: certifikát bude vyžádán, ale není povinný a nebude\n             kontrolován;\n * pokusit se: certifikát bude vyžádán a zkontrolován, ale pokud\n               nebude certifikát obdržen, bude to ignorováno;\n * vyžadováno: certifikát je povinný a bude zkontrolován.
+Extended_description-da.utf-8: Når en krypteret forbindelse bruges, kan der blive spurgt efter et servercertifikat, som tjekkes. Vælg venligst hvorvidt opslag skal konfigureres til at kræve et certifikat, og hvorvidt certifikater skal validitetstjekkes:\n\n * aldrig: Der vil ikke blive spurgt efter eller kontrolleret for certifikater;\n * tillad: Der vil blive spurgt efter et certifikat, men det er ikke krævet\n           og kontrolleres ikke;\n * forsøg: Der vil blive spurgt efter et certifikat, som kontrolleres, men hvis\n           intet certifikat tilbydes ignoreres det;\n * kræv: Der vil blive spurgt efter et certifikat, det er krævet og det\n         kontrolleres.
+Extended_description-de.utf-8: Wenn eine verschlüsselte Verbindung benutzt wird, kann ein Server-Zertifikat erforderlich sein und überprüft werden. Bitte wählen Sie, ob Zertifikate angefordert und deren Gültigkeit geprüft werden soll:\n\n * nie:       es wird kein Zertifikat angefordert oder überprüft;\n * erlauben:  ein Zertifikat wird angefordert, aber es ist nicht\n              erforderlich und wird nicht überprüft;\n * versuchen: ein Zertifikat wird angefordert und überprüft,\n              aber es wird ignoriert, wenn keins angeboten wird\n * anfordern: ein Zertifikat wird angefordert, ist erforderlich\n              und wird überprüft
+Extended_description-es.utf-8: Cuando se utiliza una conexión cifrada, se podrá pedir y comprobar un certificado del servidor. Escoja si las búsquedas se deberían configurar para necesitar un certificado, y si se debería comprobar la validez de los certificados.\n\n * nunca: no se pedirá ni comprobará ningún certificado.\n * permitir: se pedirá un certificado, pero no se\n          necesitará o se comprobará.\n * intentar: se pedirá y comprobará un certificado, pero si no\n          se proporciona se ignorará.\n * exigir: se pedirá, necesitará y comprobará un certificado.
+Extended_description-fr.utf-8: En cas de connexion chiffrée, le certificat du serveur peut être demandé et contrôlé. Veuillez choisir la façon de réaliser ce contrôle :\n\n - Jamais    : certificat non demandé ni contrôlé ;\n - Autoriser : certificat demandé mais facultatif et non\n               contrôlé ;\n - Essayer   : certificat demandé et contrôlé, mais facultatif ;\n - Demander  : certificat obligatoire et contrôlé.
+Extended_description-it.utf-8: Quando viene utilizzata una connessione cifrata è possibile richiedere e controllare un certificato del server. Scegliere se le ricerche devono essere configurate per richiedere un certificato e se la validità dei certificati deve essere controllata:\n\n * mai:      non verrà richiesto né controllato alcun certificato;\n * consenti: un certificato viene richiesto, ma non in modo vincolante,\n             né viene controllato;\n * prova:    un certificato viene richiesto e controllato, ma l'assenza\n             di un certificato viene ignorata;\n * richiedi: un certificato viene richiesto in modo vincolante e controllato.
+Extended_description-ja.utf-8: 暗号化接続を利用する場合、サーバ証明書を要求して確認できます。ルックアップで証明書を必須とするよう設定するかどうか、および証明書の妥当性を確認するかどうかを選んでください。\n\n * 使わない: 証明書は要求もチェックもされない\n * 許可: 証明書を要求するが、必須ではなくチェックも\n         されない\n * 試行: 証明書は要求およびチェックされるが、\n         証明書が提供されなかった場合は単に無視される\n * 要求: 証明書は要求され、必須であり、チェックされる。
+Extended_description-nb.utf-8: Når det brukes en kryptert forbindelse kan det utbes og kontrolleres et tjenersertifikat. Velg om oppslag skal settes opp til å kreve et sertifikat, og om gyldigheten av sertifikatet skal kontrolleres:\n\n* aldri: det blir ikke bedt om eller sjekket sertifikater; * tillat: det blir bedt om et sertifikat, men det er ikke påkrevet\n           eller kontrollert.\n* forsøk: det blir bedt om et sertifikat som blir kontrollert, men\n           det blir ignorert dersom det ikke blir oppgitt et sertifikat.\n* krev:  det blir bedt om et sertifikat som kreves og kontrolleres.
+Extended_description-nl.utf-8: Als een versleutelde verbinding gebruikt wordt kan een servercertificaat gevraagd en gecontroleerd worden. Moeten verzoeken aan de server een certificaat vereisen en moet het certificaat gecontroleerd worden op geldigheid.\n\n * nooit: certificaat zal niet gevraagd of gecontroleerd worden;\n * toestaan: certificaat zal gevraagd worden, maar niet vereist\n             en wordt niet gecontroleerd;\n * probeer: certificaat zal gevraagd en gecontroleerd worden maar\n            een ontbrekend certificaat wordt genegeerd;\n * eis: een certificaat wordt gevraagd, gecontroleerd en is\n        verplicht.
+Extended_description-no.utf-8: Når det brukes en kryptert forbindelse kan det utbes og kontrolleres et tjenersertifikat. Velg om oppslag skal settes opp til å kreve et sertifikat, og om gyldigheten av sertifikatet skal kontrolleres:\n\n* aldri: det blir ikke bedt om eller sjekket sertifikater; * tillat: det blir bedt om et sertifikat, men det er ikke påkrevet\n           eller kontrollert.\n* forsøk: det blir bedt om et sertifikat som blir kontrollert, men\n           det blir ignorert dersom det ikke blir oppgitt et sertifikat.\n* krev:  det blir bedt om et sertifikat som kreves og kontrolleres.
+Extended_description-pl.utf-8: Gdy używane jest połączenie szyfrowane, certyfikat serwera może być żądany i sprawdzany. Proszę zdecydować które wyszukiwania mają wymagać certyfikatu i czy certyfikat ma być sprawdzany pod kątem prawidłowości:\n\n * nigdy :  certyfikaty nie będą żądane ani sprawdzane;\n * dozwól:  certyfikat będzie żądany, ale nie jest wymagany ani\n            sprawdzany;\n * próbuj:  certyfikat będzie żądany i sprawdzany, jednak gdy nie\n            zostanie on dostarczony zostanie to zignorowane;\n * wymagaj: certyfikat będzie żądany, wymagany i sprawdzany.
+Extended_description-pt.utf-8: Quando é usada uma ligação encriptada, pode ser requisitado e verificado um certificado do servidor. Por favor escolha se as buscas devem ser configuradas para requisitar um certificado, e se a validade dos certificados deve ser verificada :\n\n * nunca: nenhum certificado será requisitado ou verificado;\n * permitir: será requisitado um certificado, mas não será obrigatório\n              nem verificado;\n * tentar: um certificado será requisitado e verificado, mas é ignorado\n              se nenhum certificado for disponibilizado;\n * obrigar: será obrigatória a requisição e verificação de um certificado.
+Extended_description-pt_br.utf-8: Quando uma conexão criptografada é utilizada, um certificado do servidor pode ser solicitado e verificado. Por favor, escolha se as pesquisas devem ser configuradas para solicitar um certificado, e se o certificado deve ter a validade verificada:\n\n * nunca: nenhum certificado será solicitado ou verificado;\n * permitir: um certificado será solicitado, mas ele não é\n             obrigatório nem verificado;\n * tentar: um certificado será solicitado e verificado, mas se\n           nenhum certificado for fornecido, isso é ignorado;\n * exigir: um certificado será solicitado, é obrigatório e\n           será validado.
+Extended_description-ru.utf-8: При использовании шифрованного соединения, можно запросить и проверить сертификат сервера. Выберите нужно ли запрашивать и проверять сертификат:\n\n * никогда:     не запрашивать и не проверять сертификат;\n * запросить:   запросить сертификат, но его наличие и проверка\n                не обязательны;\n * попытаться:  запросить и проверить сертификат, но если его\n                нет, то продолжать работу;\n * обязательна: обязательно запросить и проверить сертификат.
+Extended_description-sk.utf-8: Pri použití šifrovaného spojenia môže byť vyžiadaný a skontrolovaný certifikát servera. Prosím, vyberte či majú byť vyhľadávania nastavené na vyžadovanie certifikátu a či má byť skontrolovaná platnosť certifikátov:\n\n * nikdy:   certifikát nebude vyžiadaný ani kontrolovaný;\n * povoliť: certifikát bude vyžiadaný, ale nie je\n            vyžadovaný ani kontrolovaný;\n * skúsiť:  certifikát bude vyžiadaný a skontrolovaný, ak nie je\n            certifikát poskytnutý, je ignorovaný;\n * žiadať:  certifikát bude vyžiadaný, vyžadovaný a skontrolovaný.
+Extended_description-sv.utf-8: När en krypterad uppkoppling används, kan ett servercertifikat efterfrågas och kontrolleras. Välj huruvida uppslag ska konfigureras för att kräva ett certifikat och huruvida certifikatens giltighet ska kontrolleras:\n\n * aldrig: inget certifikat kommer efterfrågas eller kontrolleras;\n * tillåt: ett certifikat kommer efterfrågas, men det krävs inget\n           och det kontrolleras inte;\n * försök: ett certifikat kommer efterfrågas och kontrolleras, men om\n           inget certifikat tillhandahålls kommer detta ignoreras;\n * kräv: ett certifikat kommer efterfrågas, måste finnas och kontrolleras.
+Extended_description-tr.utf-8: Şifrelenmiş bir bağlantı kullanıldığında, bir sunucu sertifikası istenebilir ve denetlenebilir. Lütfen aramaların bir sertifika isteyecek ve sertifikaların geçerliliğinin denetleyecek şekilde yapılandırılıp yapılandırılmayacağını seçiniz:\n\n * asla: sertifika istenmeyecek ya da denetlenmeyecek;\n * izin ver: bir sertifika istenecek, fakat gerekli görülmeyecek\n             ve denetlenmeyecek;\n * dene: bir sertifika istenecek ve denetlenecek, ancak\n         bir sertifika alınamazsa önemsenmeyecek;\n * talep et: bir sertifika istenecek, gerekli görülecek ve denetlenecek.
+Type: select
+Owners: nslcd/ldap-reqcert
+
+Name: nslcd/ldap-sasl-authcid
+Description: SASL authentication identity:
+Description-cs.utf-8: Identita pro SASL autentizaci:
+Description-da.utf-8: SASL-godkendelsesidentitet:
+Description-de.utf-8: SASL-Authentifizierungsidentität:
+Description-es.utf-8: Identidad de autenticación de SASL:
+Description-fr.utf-8: Identité d'authentification SASL :
+Description-it.utf-8: Identità di autenticazione SASL:
+Description-ja.utf-8: SASL 認証アイデンティティ:
+Description-nb.utf-8: Identitet for SASL-autentisering:
+Description-nl.utf-8: SASL authenticatie-identiteit:
+Description-no.utf-8: Identitet for SASL-autentisering:
+Description-pl.utf-8: Identyfikator uwierzytelnienia SASL:
+Description-pt.utf-8: Identidade de autenticação do SASL:
+Description-pt_br.utf-8: Identidade de autenticação SASL:
+Description-ru.utf-8: Аутентификационное удостоверение SASL:
+Description-sk.utf-8: Autentifikačná identita SASL:
+Description-sv.utf-8: Autentiseringsidentitet för SASL:
+Description-tr.utf-8: SASL doğrulama kimliği:
+Extended_description: Please enter the SASL authentication identity that will be used to authenticate to the LDAP database.\n\nThis is the login used in LOGIN, PLAIN, CRAM-MD5, and DIGEST-MD5 mechanisms.
+Extended_description-cs.utf-8: Zadejte SASL identitu, která se použije pro autentizaci do LDAP databáze.\n\nJedná o uživatelské jméno používané u metod LOGIN, PLAIN, CRAM-MD5 a DIGEST-MD5.
+Extended_description-da.utf-8: Angiv SASL-godkendelsesidentiteten som vil blive brugt til at godkende for LDAP-databasen.\n\nDette er logindet brugt i LOGIN-, PLAIN-, CRAM-MD5- OG DIGEST-MD5-mekanismerne.
+Extended_description-de.utf-8: Bitte geben Sie die SASL-Authentifizierungsidentität ein, die für die Authentifizierung an der LDAP-Datenbank benutzt wird.\n\nDies ist der Anmeldename bei den Mechanismen LOGIN, PLAIN, CRAM-MD5 und DIGEST-MD5.
+Extended_description-es.utf-8: Introduzca la identidad de autenticación SASL que se utilizará para autenticarse con la base de datos de LDAP.\n\nEste es el nombre de usuario que se usa en los mecanismos LOGIN, PLAIN, CRAM-MDT y DIGEST-MD5.
+Extended_description-fr.utf-8: Veuillez indiquer l'identité d'authentification SASL à utiliser pour s'identifier sur la base LDAP.\n\nIl s'agit de l'identifiant utilisé avec les mécanismes LOGIN, PLAIN, CRAM-MD5 et DIGEST-MD5.
+Extended_description-it.utf-8: Inserire l'identità di autenticazione SASL che verrà utilizzata per autenticarsi nel database LDAP.\n\nQuesto è il login usato nei meccanismi LOGIN, PLAIN, CRAM-MD5 e DIGEST-MD5.
+Extended_description-ja.utf-8: LDAP データベースを認証するのに使われる SASL 認証アイデンティティを入力してください。\n\nこれは、LOGIN、PLAIN、CRAM-MD5、DIGEST-MD5 機構で使われるログインです。
+Extended_description-nb.utf-8: Skriv inn den SASL-autentiseringsidentiteten som vil bli brukt til å autentisere mot LDAP-databasen.\n\nDette er innloggingsnavnet brukt i mekanismene LOGIN. PLAIN, CRAM-MDS og DIGEST-MD5.
+Extended_description-nl.utf-8: Welke SASL authenticatie-identiteit wilt u dat er gebruikt zal worden om bij de LDAP-database aan te melden?\n\nDeze waarde wordt gebruikt bij de LOGIN, PLAIN, CRAM-MD5 en DIGEST-MD5 mechanismen.
+Extended_description-no.utf-8: Skriv inn den SASL-autentiseringsidentiteten som vil bli brukt til å autentisere mot LDAP-databasen.\n\nDette er innloggingsnavnet brukt i mekanismene LOGIN. PLAIN, CRAM-MDS og DIGEST-MD5.
+Extended_description-pl.utf-8: Proszę wprowadzić identyfikator uwierzytelnienia SASL, który będzie używany w celu uwierzytelnienia do bazy danych LDAP.\n\nJest to login używany w mechanizmach LOGIN, PLAIN, CRAM-MD5 i DIGEST-MD5.
+Extended_description-pt.utf-8: Por favor indique a identidade de autenticação SASL que irá ser usada para autenticação à base de dados LDAP.\n\nEste é o login usado nos mecanismos LOGIN, PLAIN, CRAM-MD5, e DIGEST-MD5.
+Extended_description-pt_br.utf-8: Por favor, informe a identidade de autenticação SASL que será utilizada para autenticar no banco de dados LDAP.\n\nEste é o login usado nos mecanismos LOGIN, PLAIN, CRAM-MD5, e DIGEST-MD5.
+Extended_description-ru.utf-8: Введите аутентификационное удостоверение SASL, которое будет использовано для аутентификации при подключении к базе данных LDAP.\n\nЭто имя учётной записи используется в механизмах LOGIN, PLAIN, CRAM-MD5 и DIGEST-MD5.
+Extended_description-sk.utf-8: Prosím, zadajte autentifikačnú identitu SASL, ktorá bude použitá na autentifikáciu do databázy LDAP.\n\nToto je prihlasovacie meno, použité v mechanizmoch LOGIN, PLAIN, CRAM-MD5 a DIGEST-MD5.
+Extended_description-sv.utf-8: Ange den autentiseringsidentitet som ska användas för SASL-identifiering mot LDAP-databasen.\n\nDetta används i inloggningsmekanismerna LOGIN, PLAIN, CRAM-MD5 och DIGEST-MD5.
+Extended_description-tr.utf-8: Lütfen LDAP veritabanına bağlanmak için kullanılacak SASL doğrulama kimliğini giriniz.\n\nBu kimlik LOGIN, PLAIN, CRAM-MD5 ve DIGEST-MD5 düzeneklerinde kullanılacak oturum kimliğidir.
+Type: string
+Owners: nslcd/ldap-sasl-authcid
+
+Name: nslcd/ldap-sasl-authzid
+Description: SASL proxy authorization identity:
+Description-cs.utf-8: Identita pro SASL proxy autorizaci:
+Description-da.utf-8: SASL-proxygodkendelsesidentitet:
+Description-de.utf-8: SASL-Proxy-Berechtigungsidentität:
+Description-es.utf-8: Identidad de autorización del proxy SASL:
+Description-fr.utf-8: Identité d'authentification du pare-feu SASL :
+Description-it.utf-8: Identità di autorizzazione del proxy SASL:
+Description-ja.utf-8: SASL 代理認可アイデンティティ:
+Description-nb.utf-8: Mellomtjener-autorisasjonsidentitet for SASL:
+Description-nl.utf-8: SASL proxy autorisatie-identiteit:
+Description-no.utf-8: Mellomtjener-autorisasjonsidentitet for SASL:
+Description-pl.utf-8: Identyfikator pośrednika uwierzytelniania SASL:
+Description-pt.utf-8: Identidade de autenticação do proxy SASL:
+Description-pt_br.utf-8: Identidade de autorização de proxy SASL:
+Description-ru.utf-8: Проксированное авторизационное удостоверение SASL:
+Description-sk.utf-8: SASL proxy autorizačná identita:
+Description-sv.utf-8: Autentiseringsidentitet för SASL-proxy:
+Description-tr.utf-8: SASL vekili yetkilendirme kimliği:
+Extended_description: Please enter the proxy authorization identity that will be used to authenticate to the LDAP database.\n\nThis is the object in the name of which the LDAP request is done. This value should be specified as a DN (distinguished name).
+Extended_description-cs.utf-8: Zadejte proxy identitu, která se použije pro autentizaci do LDAP databáze.\n\nJedná se o objekt, v jehož jméně by měl být LDAP požadavek proveden. Tato hodnota by měla být zadána jako rozlišitelné jméno (DN).
+Extended_description-da.utf-8: Angiv proxygodkendelsesidentiteten som vil blive brugt til at godkende for LDAP-databasen.\n\nDette er objektet i hvis navn LDAP-forespørgslen foretages. Denne værdi bør angives som et DN (særligt navn - distinguished name).
+Extended_description-de.utf-8: Bitte geben Sie die SASL-Proxy-Berechtigungsidentität ein, die für die Authentifizierung an der LDAP-Datenbank benutzt wird.\n\nDies ist das Objekt, in dessen Name die LDAP-Abfrage durchgeführt wird. Dieser Wert sollte als DN (distinguished name/benanntes LDAP-Objekt) angegeben werden.
+Extended_description-es.utf-8: Introduzca la identidad de autorización del proxy que se utilizará para autenticarse con la base de datos de LDAP.\n\nEste es el objeto en el nombre de la petición LDAP realizada. Este valor se debería introducir como un DN (Nombre Distinguido).
+Extended_description-fr.utf-8: Veuillez indiquer l'identité d'authentification de pare-feu à utiliser pour s'identifier sur la base LDAP.\n\nIl s'agit de l'objet au nom duquel les requêtes LDAP seront effectuées. Cette valeur doit être indiquée sous forme d'un nom distinctif (DN : « Distinguished Name »).
+Extended_description-it.utf-8: Inserire l'identità di autorizzazione del proxy che verrà utilizzata per l'autenticazione nel database LDAP.\n\nQuesto è l'oggetto a cui nome viene fatta la richiesta LDAP. Questo valore dovrebbe essere specificato come DN (nome distinto).
+Extended_description-ja.utf-8: LDAP データベースを認証するのに使われる代理認可アイデンティティを入力してください。\n\nこれは、LDAP 要求が行われる名前のオブジェクトです。この値は DN (識別名) として指定すべきです。
+Extended_description-nb.utf-8: Skriv inn den mellomtjener-autoriseringsidentiteten som vil bli brukt til å autentisere mot LDAP-databasen.\n\nLDAP-forespørsel gjøres med navnet til dette objektet. Verdien må oppgis som et DN - entydig navn.
+Extended_description-nl.utf-8: Welke proxy autorisatie-identiteit wilt u date er gebruikt zal worden om bij de LDAP-database aan te melden?\n\nDit is de naam van het object waarmee de LDAP-verzoeken gedaan worden. Deze waarde dient opgegeven te worden als een DN (distinguished name).
+Extended_description-no.utf-8: Skriv inn den mellomtjener-autoriseringsidentiteten som vil bli brukt til å autentisere mot LDAP-databasen.\n\nLDAP-forespørsel gjøres med navnet til dette objektet. Verdien må oppgis som et DN - entydig navn.
+Extended_description-pl.utf-8: Proszę wprowadzić identyfikator pośrednika uwierzytelniania, który będzie używany w celu uwierzytelnienia dostępu do bazy danych LDAP.\n\nJest to obiekt w imieniu którego wykonywane jest żądanie LDAP. Wartość powinna być podana jako unikalna nazwa (DN - ang. distinguished name).
+Extended_description-pt.utf-8: Por favor indique a identidade de autenticação de proxy que irá ser usada para autenticação à base de dados LDAP.\n\nEste é o objecto no nome no qual o pedido LDAP é feito. Este valor deve ser especificado como um DN (nome distinto).
+Extended_description-pt_br.utf-8: Por favor, informe a identidade de autorização do proxy que será utilizada para autenticar no banco de dados LDAP.\n\nEste é o objeto em nome do qual a requisição LDAP é feita. Este valor deverá ser especificado como um DN (nome distinto).
+Extended_description-ru.utf-8: Введите проксированное авторизационное удостоверение SASL, которое будет использовано для аутентификации при подключении к базе данных LDAP.\n\nЭто объект, от имени которого выполняется запрос LDAP. Значение должно быть указано в форме DN (уникального имени).
+Extended_description-sk.utf-8: Prosím, zadajte autorizačnú identitu proxy, ktorá bude použitá na autentifikáciu do databázy LDAP.\n\nJe to objekt, v ktorého mene je vykonaný požiadavok LDAP. Táto hodnota musí byť zadaná vo forme DN (distinguished name).
+Extended_description-sv.utf-8: Ange den identitet för proxyautentisering som ska användas för att autentisera mot LDAP-databasen.\n\nDetta är namnet som används för att göra LDAP-förfrågningen. Värde ska anges som ett DN (eng. "distinguished name").
+Extended_description-tr.utf-8: Lütfen LDAP veritabanında doğrulama için kullanılacak vekil doğrulama kimliğini giriniz.\n\nBu nesne, yapılan LDAP isteğinin nesne adıdır. Bu değer bir belirgin ad (DN) olarak belirtilmelidir.
+Type: string
+Owners: nslcd/ldap-sasl-authzid
+
+Name: nslcd/ldap-sasl-krb5-ccname
+Default: /run/nslcd/nslcd.tkt
+Description: Kerberos credential cache file path:
+Description-cs.utf-8: Cesta k cache souboru s Kerberos identitami:
+Description-da.utf-8: Kerberos' filsti for akkreditivmellemlageret:
+Description-de.utf-8: Dateipfad des Kerberos-Berechtigungszwischenspeichers:
+Description-es.utf-8: Ruta a la caché de las credenciales de Kerberos:
+Description-fr.utf-8: Chemin d'accès au fichier de cache d'authentification Kerberos :
+Description-it.utf-8: Percorso del file della cache per le credenziali Kerberos:
+Description-ja.utf-8: Kerberos 信用キャッシュファイルのパス:
+Description-nb.utf-8: Filsti til mellomlager for Kerberos-akkreditiver:
+Description-nl.utf-8: Pad naar de Kerberos identificatie-cache:
+Description-no.utf-8: Filsti til mellomlager for Kerberos-akkreditiver:
+Description-pl.utf-8: Ścieżka bufora uwierzytelnień Kerberos:
+Description-pt.utf-8: Caminho do ficheiro de cache das credenciais de Kerberos:
+Description-pt_br.utf-8: Caminho do arquivo de cache de credenciais Kerberos:
+Description-ru.utf-8: Файл кэша свидетельств Kerberos:
+Description-sk.utf-8: Cesta k súboru vyrovnávacej pamäte prihlásenia Kerberos:
+Description-sv.utf-8: Sökväg till cachefil för Kerberosidentifiering:
+Description-tr.utf-8: Kerberos yeterlilik belgesi (credential cache) dosya yolu:
+Extended_description: Please enter the GSSAPI/Kerberos credential cache file name that will be used.
+Extended_description-cs.utf-8: Zadejte jméno souboru obsahujícího cache identit systému GSSAPI/Kerberos, který se má použít.
+Extended_description-da.utf-8: Indtast filnavnet for GSSAPI/Kerberos' akkreditivmellemlageret som vil blive brugt.
+Extended_description-de.utf-8: Bitte geben Sie den Dateinamen des Kerberos-Berechtigungszwischenspeichers an, der benutzt wird.
+Extended_description-es.utf-8: Introduzca el nombre del archivo de la caché de las credenciales de GSSAPI/Kerberos a utilizar.
+Extended_description-fr.utf-8: Veuillez indiquer le nom du fichier à utiliser pour le cache d'authentification GSSAPI/Kerberos.
+Extended_description-it.utf-8: Inserire il nome del file della cache per le credenziali GSSAPI/Kerberos che verrà usato.
+Extended_description-ja.utf-8: 使われる GSSAPI/Kerberos 信用キャッシュファイル名を入力してください。
+Extended_description-nb.utf-8: Skriv inn navnet på GSSAP/Kerberos mellomlagerfil som vil bli brukt.
+Extended_description-nl.utf-8: Voer de filenaam in van de GSSAPI/Kerberos identificatie-cache.
+Extended_description-no.utf-8: Skriv inn navnet på GSSAP/Kerberos mellomlagerfil som vil bli brukt.
+Extended_description-pl.utf-8: Proszę wprowadzić nazwę pliku bufora GSSAPI/Kerberos która ma być używana.
+Extended_description-pt.utf-8: Por favor indique o nome de ficheiro de cache de credenciais de GSSAPI/Kerberos que irá ser usado.
+Extended_description-pt_br.utf-8: Por favor, informe o nome do arquivo de cache de credenciais GSSAPI/Kerberos que será utilizado.
+Extended_description-ru.utf-8: Введите имя файла кэша свидетельств GSSAPI/Kerberos, который нужно использовать.
+Extended_description-sk.utf-8: Prosím, zadajte meno súboru vyrovnávacej pamäte prihlásení GSSAPI/Kerberos, ktorý bude použitý.
+Extended_description-sv.utf-8: Ange filnamn för den GSSAPI/Kerberos identifieringcache som ska användas.
+Extended_description-tr.utf-8: Lütfen kullanılacak GSSAPI/Kerberos yeterlilik belgesi dosya adını giriniz.
+Type: string
+Owners: nslcd/ldap-sasl-krb5-ccname
+
+Name: nslcd/ldap-sasl-mech
+Choices: auto, LOGIN, PLAIN, NTLM, CRAM-MD5, DIGEST-MD5, SCRAM, GSSAPI, SKEY, OTP, EXTERNAL
+Description: SASL mechanism to use:
+Description-cs.utf-8: Metoda SASL, která se má použít:
+Description-da.utf-8: SASL-mekanisme at bruge:
+Description-de.utf-8: Zu benutzender SASL-Mechanismus:
+Description-es.utf-8: Mecanismo SASL a utilizar:
+Description-fr.utf-8: Mécanisme SASL à utiliser :
+Description-it.utf-8: Meccanismo SASL da usare:
+Description-ja.utf-8: 使用する SASL 機構:
+Description-nb.utf-8: SASL-mekanisme som skal brukes:
+Description-nl.utf-8: SASL-mechanisme dat gebruikt zal worden:
+Description-no.utf-8: SASL-mekanisme som skal brukes:
+Description-pl.utf-8: Mechanizm SASL do użycia:
+Description-pt.utf-8: Mecanismo SASL a usar:
+Description-pt_br.utf-8: Mecanismo SASL para utilizar:
+Description-ru.utf-8: Используемый механизм SASL:
+Description-sk.utf-8: Použitý mechanizmus SASL:
+Description-sv.utf-8: SASL-metod som ska användas:
+Description-tr.utf-8: Kullanılacak SASL yöntemi:
+Extended_description: Please choose the SASL mechanism that will be used to authenticate to the LDAP database:\n\n * auto: auto-negotiation;\n * LOGIN: deprecated in favor of PLAIN;\n * PLAIN: simple cleartext password mechanism;\n * NTLM: NT LAN Manager authentication mechanism;\n * CRAM-MD5: challenge-response scheme based on HMAC-MD5;\n * DIGEST-MD5: HTTP Digest compatible challenge-response scheme;\n * SCRAM: salted challenge-response mechanism;\n * GSSAPI: used for Kerberos;\n * SKEY: S/KEY mechanism (obsoleted by OTP);\n * OTP: One Time Password mechanism;\n * EXTERNAL: authentication is implicit in the context.
+Extended_description-cs.utf-8: Vyberte SASL mechanismus, který se použije pro autentizaci do LDAP databáze:\n\n * auto: automatické vyjednání parametrů;\n * LOGIN: staré, nahrazeno PLAIN;\n * PLAIN: jednoduché nešifrované heslo;\n * NTLM: autentizace stylem NT LAN Manager;\n * CRAM-MD5: challenge-response schéma založené na HMAC-MD5;\n * DIGEST-MD5: challenge-response schéma kompatibilní s HTTP Digest;\n * SCRAM: „osolené“ challenge-response schéma;\n * GSSAPI: používáno pro Kerberos;\n * SKEY: S/KEY (staré, nahrazeno OTP);\n * OTP: jednorázová hesla;\n * EXTERNAL: autentizace je v kontextu implicitní.
+Extended_description-da.utf-8: Vælg den SASL-mekanisme som vil blive brugt til at godkende adgang til LDAP-databasen:\n\n * auto: automatisk forhandling;\n * LOGIN: forældet i forhold til PLAIN;\n * PLAIN: simpel klartekst adgangskodemekanisme;\n * NTLM: NT LAN Manager-godkendelsesmekanisme;\n * CRAM-MD5: udfordr-svar skema baseret på HMAC-MD5;\n * DIGEST-MD5: HTTP Digest-kompatibel udfordr-svar skema;\n * SCRAM: salted challenge-response-mekanisme;\n * GSSAPI: brugt for Kerberos;\n * SKEY: S/KEY-mekanisme (forældet af OTP);\n * OTP: en mekanisme hvor en adgangskode kun kan bruges en gang. * EXTERNAL: godkendelse er implicit i konteksten.
+Extended_description-de.utf-8: Bitte wählen Sie den SASL-Mechanismus aus, der für die Authentifizierung an der LDAP-Datenbank benutzt wird.\n\n * auto: automatische Aushandlung;\n * LOGIN: missbilligt zugunsten von PLAIN;\n * PLAIN: einfacher Klartextpasswort-Mechanismus;\n * NTLM: NT-LAN-Manager-Authentifizierungs-Mechanismus;\n * CRAM-MD5: Challenge-Response-Schema, das auf HMAC-MD5 basiert;\n * DIGEST-MD5: HTTP-Digest-kompatibles Challenge-Response-Schema;\n * SCRAM: Challenge-Response-Mechanismus mit Salt;\n * GSSAPI: benutzt für Kerberos;\n * SKEY: S/KEY-Mechanismus (dank OTP hinfällig);\n * OTP: ein Einmalpasswort-Mechanismus;\n * EXTERNAL: Authentifizierung findet stillschweigend im Kontext statt.
+Extended_description-es.utf-8: Escoja el mecanismo SASL que se utilizará para autenticarse en la base de datos de LDAP:\n\n * auto: negociación automática.\n * LOGIN: obsoleto, sustituida por PLAIN.\n * PLAIN: mecanismo sencillo con contraseñas en claro.\n * NTLM: mecanismo de autenticación mediante el gestor NT LAN.\n * CRAM-MD5: esquema desafío-respuesta basado en HMAC-MD5.\n * DIGEST-MD5: esquema desafío-respuesta compatible con HTTP Digest.\n * SCRAM: esquema desafío-respuesta con sales («salts»).\n * GSSAPI: utilizado por Kerberos.\n * SKEY: mecanismo S/KEY (obsoleto, sustituido por OTP).\n * OTP: mecanismo de contraseñas de un solo uso («One Time Password»).\n * EXTERNAL: autenticación implícita del contexto.
+Extended_description-fr.utf-8: Veuillez indiquer le mécanisme SASL à utiliser pour s'identifier sur la base LDAP :\n\n - auto       : négociation automatique ;\n - LOGIN      : obsolète et remplacé par PLAIN ;\n - PLAIN      : mot de passe simple en clair ;\n - NTLM       : authentification NT LAN Manager ;\n - CRAM-MD5   : schéma de challenge-réponse basé sur HMAC-MD5 ;\n - DIGEST-MD5 : schéma de challenge-réponse compatible avec HTTP Digest ;\n - SCRAM      : mécanisme schéma de challenge-réponse sécurisé ;\n - GSSAPI     : utilisé pour Kerberos ;\n - SKEY       : mécanisme S/KEY (rendu obsolète par OTP) ;\n - OTP        : mots de passe jetables (« One Time Password ») ;\n - EXTERNAL   : authentification implicite dans le contexte.
+Extended_description-it.utf-8: Scegliere il meccanismo SASL da usare per l'autenticazione nel database LDAP:\n\n * auto: negoziazione automatica;\n * LOGIN: deprecato in favore di PLAIN;\n * PLAIN: semplice meccanismo con password in chiaro;\n * NTLM: meccanismo di autenticazione NT LAN Manager;\n * CRAM-MD5: schema challenge-response basato su HMAC-MD5;\n * DIGEST-MD5: schema challenge-response compatibile con HTTP Digest;\n * SCRAM: meccanismo challenge-response salted;\n * GSSAPI: usato per Kerberos;\n * SKEY: meccanismo S/KEY (reso obsoleto da OTP);\n * OTP: meccanismo One Time Password (password usa e getta);\n * EXTERNAL: l'autenticazione è implicita nel contesto.
+Extended_description-ja.utf-8: LDAP データベースを認証するのに使われる SASL 機構を選んでください:\n\n * 自動: 自動ネゴシエーション;\n * LOGIN: PLAIN によって代替された;\n * PLAIN: シンプルクリアテキストパスワード機構;\n * NTLM: NT LAN Manager 認証機構;\n * CRAM-MD5: HMAC-MD5 ベースのチャレンジ-レスポンス機構;\n * DIGEST-MD5: HTTP ダイジェスト互換のチャレンジ-レスポンス機構;\n * SCRAM: salt を使ったチャレンジ-レスポンス機構;\n * GSSAPI: Kerberos により利用;\n * SKEY: S/KEY 機構 (今後は OTP を使うようにしてください);\n * OTP: ワンタイムパスワード機構;\n * EXTERNAL: 認証方法はコンテキストによって暗黙的に決まる。
+Extended_description-nb.utf-8: Velg den SASL-mekanismen som vil bli brukt til å autentisere til LDAP-databasen:\n\n * auto: auto-forhandling;\n * LOGIN: frarådes, bruk heller PLAIN;\n * PLAIN: enkel klartekst passordmekanisme;\n * NTLM: NT LAN Manager autentiseringsmekanisme;\n * CRAM-MD5: utfordring-svar basert på HMAC-MD5;\n * DIGEST-MD5: HTTP digest-kompatibel utfordring-svar mekanisme;\n * SCRAM: saltet utfordring-respons-mekanisme;\n * GSSAPI: brukt for Kerberos;\n * SKEY: S/KEY-mekanisme (utdatert av OTP);\n * OTP: en mekanisme med engangspassord;\n * EXTERNAL: autentisering er implisitt i omgivelsen.
+Extended_description-nl.utf-8: Welk SASL-mechanisme wilt u dat er gebruikt zal worden om bij de LDAP-database aan te melden?\n\n * auto: automatische onderhandeling;\n * LOGIN: achterhaald en vervangen door PLAIN;\n * PLAIN: eenvoudig klare tekst wachtwoord-mechanisme;\n * NTLM: NT LAN Manager authenticatie-mechanisme;\n * CRAM-MD5: challenge-response-systeem op basis van HMAC-MD5;\n * DIGEST-MD5: HTTP Digest compatibel challenge-response-systeem;\n * SCRAM: gezouten challenge-response mechanisme;\n * GSSAPI: gebruikt voor Kerberos;\n * SKEY: S/KEY mechanisme (achterhaald door OTP);\n * OTP: een eenmalig wachtwoord-mechanisme;\n * EXTERNAL: authenticatie is impliciet in de context.
+Extended_description-no.utf-8: Velg den SASL-mekanismen som vil bli brukt til å autentisere til LDAP-databasen:\n\n * auto: auto-forhandling;\n * LOGIN: frarådes, bruk heller PLAIN;\n * PLAIN: enkel klartekst passordmekanisme;\n * NTLM: NT LAN Manager autentiseringsmekanisme;\n * CRAM-MD5: utfordring-svar basert på HMAC-MD5;\n * DIGEST-MD5: HTTP digest-kompatibel utfordring-svar mekanisme;\n * SCRAM: saltet utfordring-respons-mekanisme;\n * GSSAPI: brukt for Kerberos;\n * SKEY: S/KEY-mekanisme (utdatert av OTP);\n * OTP: en mekanisme med engangspassord;\n * EXTERNAL: autentisering er implisitt i omgivelsen.
+Extended_description-pl.utf-8: Proszę wybrać mechanizm SASL, który będzie używany do uwierzytelnienia dostępu do bazy danych LDAP:\n\n * auto: automatyczna negocjacja;\n * LOGIN: przestarzałe, proszę używać PLAIN;\n * PLAIN: prosty mechanizm hasła w zwykłym tekście;\n * NTLM: mechanizm uwierzytelniania NT LAN Manager;\n * CRAM-MD5: wyzwanie-odpowiedź oparte na HMAC-MD5;\n * DIGEST-MD5: wyzwanie-odpowiedź kompatybilne z HTTP Digest;\n * SCRAM: posolony mechanizm wyzwanie-odpowiedź;\n * GSSAPI: używane do Kerberosa;\n * SKEY: mechanizm S/KEY (zastąpiony przez OTP);\n * OTP: mechanizm jednorazowego hasła - One Time Password;\n * EXTERNAL: uwierzytelnianie wynika z kontekstu.
+Extended_description-pt.utf-8: Por favor escolha o mecanismo SASL que irá ser usado para se autentica à base de dados LDAP:\n\n * auto: negociação automática;\n * LOGIN: descontinuado em favor do PLAIN;\n * PLAIN: mecanismo simples de palavra-passe em texto normal;\n * NTLM: mecanismo de autenticação de Gestor NT LAN;\n * CRAM-MD5: esquema de resposta a desafio baseado em HMAC-MD5;\n * DIGEST-MD5: esquema de resposta a desafio compatível com HTTP Digest;\n * SCRAM: mecanismo de resposta-desafio experiente;\n * GSSAPI: usado para o Kerberos;\n * SKEY: mecanismo S/KEY (tornado obsoleto pelo by OTP);\n * OTP: um mecanismo de Palavra-passe de Uma Vez;\n * EXTERNAL: a autenticação está implícita no contexto.
+Extended_description-pt_br.utf-8: Por favor, escolha o mecanismo SASL que deverá ser utilizado para autenticar no banco de dados LDAP.\n\n * auto: negociação automática;\n * LOGIN: tornada obsoleta em favor de PLAIN;\n * PLAIN: mecanismo simples de senha em texto puro;\n * NTLM: mecanismo de autenticação NT LAN Manager;\n * CRAM-MD5: esquema desafio-resposta baseado em HMAC-MD5;\n * DIGEST-MD5: esquema desafio-resposta compatível com HTTP Digest;\n * SCRAM: mecanismo desafio-resposta "salted";\n * GSSAPI: utilizado pelo Kerberos;\n * SKEY: mecanismo S/KEY (tornado obsoleto pelo OTP);\n * OTP: mecanismo de senha de apenas uma vez;\n * EXTERNAL: autenticação é implícita no contexto.
+Extended_description-ru.utf-8: Выберите механизм SASL, который будет использован для аутентификации при подключении к базе данных LDAP:\n\n * auto:       применить автоматическое согласование;\n * LOGIN:      устарел, используйте PLAIN;\n * PLAIN:      механизм с нешифрованным паролем;\n * NTLM:       механизм аутентификации NT LAN Manager;\n * CRAM-MD5:   схема запрос-ответ на основе HMAC-MD5;\n * DIGEST-MD5: схема запрос-ответ, совместимая с HTTP Digest;\n * SCRAM:      схема запрос-ответ с солью;\n * GSSAPI:     использовать Kerberos;\n * SKEY:       механизм S/KEY (устарел, используйте OTP);\n * OTP:        механизм одноразового пароля;\n * EXTERNAL:   аутентификация подразумевается в контексте.
+Extended_description-sk.utf-8: Prosím, zvoľte mechanizmus SASL, ktorý bude použitý na autentifikáciu do databázy LDAP:\n\n * auto: automatické dohodnutie;\n * LOGIN: zastarané v prospech PLAIN;\n * PLAIN: jednoduchý mechanizmus hesla prostým textom;\n * NTLM: autentifikačný mechanizmus NT LAN Manager;\n * CRAM-MD5: schéma výzva-odpoveď, založená na HMAC-MD5;\n * DIGEST-MD5: schéma výzva-odpoveď, kompatibilná s HTTP Digest;\n * SCRAM: posolený (salt) mechanizmus výzva-odpoveď;\n * GSSAPI: použité pre Kerberos;\n * SKEY: mechanizmus S/KEY (zastaraný v prospech OTP);\n * OTP: mechanizmus jednorázového hesla (One Time Password);\n * EXTERNAL: autentifikácia je implicitná v kontexte.
+Extended_description-sv.utf-8: Ange SASL-mekanismen som ska användas för att autentisera mot LDAP-databasen:\n\n * auto: automatisk förhandling\n * LOGIN: utfasas till förmån för PLAIN\n * PLAIN: enkel lösenordsmekanism med lösenord i klartext\n * NTLM: NT LAN Manager autentiseringsmekanism\n * CRAM-MD5: challenge-response-schema baserad på HMAC-MD5\n * DIGEST-MD5: HTTP Digest kompatibel challenge-response-schema\n * GSSAPI: används för Kerberos\n * SKEY: S/KEY-mekanism (utfasas till förmån för OTP);\n * OTP: engångslösenord ("One Time Password").\n * EXTERNAL: autentisering är implicit i kontexten.
+Extended_description-tr.utf-8: Lütfen LDAP veritabanında doğrulama için kullanılacak SASL yöntemini seçiniz:\n\n * auto: otomatik uzlaşma;\n * LOGIN: daha yeni olan PLAIN yöntemini kullanmanız önerilir;\n * PLAIN: basit, açık metin parola yöntemi;\n * NTLM: NT LAN Manager doğrulama yöntemi;\n * CRAM-MD5: HMAC-MD5 tabanlı sorma-karşılık alma şeması;\n * DIGEST-MD5: HTTP Digest uyumlu sorma-karşılık alma şeması;\n * SCRAM: rastgele veri ile karıştırılmış sorma-karşılık alma şeması;\n * GSSAPI: Kerberos ile kullanılır;\n * SKEY: S/KEY düzeneği (artık OTP kullanılmaktadır);\n * OTP: Tek Kullanımlık Parola yöntemi;\n * EXTERNAL: doğrulama içeriğin içinde gerçekleşir.
+Type: select
+Owners: nslcd/ldap-sasl-mech
+
+Name: nslcd/ldap-sasl-realm
+Description: SASL realm:
+Description-cs.utf-8: SASL říše:
+Description-da.utf-8: SASL-område (realm):
+Description-de.utf-8: SASL-Bereich:
+Description-es.utf-8: Reino SASL:
+Description-fr.utf-8: Domaine (« realm ») SASL :
+Description-it.utf-8: Dominio SASL:
+Description-ja.utf-8: SASL レルム:
+Description-nb.utf-8: SASL-domene:
+Description-nl.utf-8: SASL-gebied:
+Description-no.utf-8: SASL-domene:
+Description-pl.utf-8: Dziedzina SASL:
+Description-pt.utf-8: Reino do SASL:
+Description-pt_br.utf-8: Domínio SASL:
+Description-ru.utf-8: Область SASL:
+Description-sk.utf-8: SASL realm:
+Description-sv.utf-8: SASL-realm:
+Description-tr.utf-8: SASL bölgesi:
+Extended_description: Please enter the SASL realm that will be used to authenticate to the LDAP database.\n\nThe realm is appended to authentication and authorization identities.\n\nFor GSSAPI, this can be left blank to use information from the Kerberos credentials cache.
+Extended_description-cs.utf-8: Zadejte SASL říši, která se použije pro autentizaci do LDAP databáze.\n\nŘíše se připojí k autentizačním a autorizačním identitám.\n\nPro GSSAPI můžete ponechat prázdné, aby se použily informace z cache identit systému Kerberos.
+Extended_description-da.utf-8: Angiv SASL-området (realm) som vil blive brugt til at godkende for LDAP-databasen.\n\nOmrådet tilføjes godkendelses- og autorisationsidentiteter.\n\nFor GSSAPI kan dette efterlades tomt for at bruge information fra akkreditivmellemlageret for Kerberos.
+Extended_description-de.utf-8: Bitte geben Sie den SASL-Bereich ein, der für die Authentifizierung an der LDAP-Datenbank benutzt wird.\n\nDer Bereich wird Authentifizierungs- und Berechtigungsidentitäten zugeordnet.\n\nFür GSSAPI kann dies leer gelassen werden, um Informationen vom Kerberos-Berechtigungszwischenspeicher zu benutzen.
+Extended_description-es.utf-8: Introduzca el reino SASL que se utilizará para autenticarse con la base de datos de LDAP.\n\nEl reino se añade a las identidades de autenticación y autorización.\n\nSi utiliza GSSAPI puede dejarlo vacío para utilizar la información de la caché de credenciales de Kerberos.
+Extended_description-fr.utf-8: Veuillez indiquer le domaine SASL à utiliser pour s'identifier sur la base LDAP.\n\nIl sera ajouté aux identifiants d'authentification et d'autorisation.\n\nPour GSSAPI, ce champ peut être laissé vide afin d'utiliser l'information du cache d'authentification de Kerberos.
+Extended_description-it.utf-8: Inserire il dominio SASL da usare per l'autenticazione nel database LDAP.\n\nIl dominio viene aggiunto in fondo alle identità di autenticazione e autorizzazione.\n\nPer GSSAPI, lasciare vuoto per usare le informazioni dalla cache delle credenziali Kerberos.
+Extended_description-ja.utf-8: LDAP データベースを認証するのに使われる SASL レルムを入力してください。\n\nレルムは認証および認可識別子に追加されます。\n\nGSSAPI では、Kerberos 信用キャッシュからの情報を使うためにこれは空のままにしておくことができます。
+Extended_description-nb.utf-8: Skriv inn det SASL-domenet som vil bli brukt til å autentisere til LDAP-databasen.\n\nOmrådet legges til identitetene for autentisering og autorisering.\n\nFor GSSAPI kan dette utelates for å bruke opplysninger fra Kerberos' påloggingsinformasjons-mellomlager.
+Extended_description-nl.utf-8: Welk SASL-gebied wilt u dat er gebruikt zal worden om bij de LDAP-database aan te melden?\n\nHet gebied wordt toegevoegd aan de authenticatie- en autorisatie-identiteiten.\n\nVoor GSSAPI kan dit leeg gelaten worden zodat informatie uit de Kerberos identificatie cache gebruikt zal worden.
+Extended_description-no.utf-8: Skriv inn det SASL-domenet som vil bli brukt til å autentisere til LDAP-databasen.\n\nOmrådet legges til identitetene for autentisering og autorisering.\n\nFor GSSAPI kan dette utelates for å bruke opplysninger fra Kerberos' påloggingsinformasjons-mellomlager.
+Extended_description-pl.utf-8: Proszę wprowadzić dziedzinę SASL (ang. realm), która będzie używana do uwierzytelnienia do bazy danych LDAP.\n\nDziedzina jest dołączana do identyfikatorów uwierzytelniania i autoryzacji.\n\nW przypadku GSSAPI pole to można pozostawić puste, aby używać informacji z bufora uwierzytelnień Kerberos.
+Extended_description-pt.utf-8: Por favor indique o reino de SASL que irá ser usado para autenticação à base de dados LDAP.\n\nO reino é acrescentado às identidades de autenticação e autorização.\n\nPara GSSAPI isto pode ser deixado vazio para usar informação da cache de credenciais do Kerberos.
+Extended_description-pt_br.utf-8: Por favor, informe o domínio SASL que será utilizado para autenticação no banco de dados LDAP.\n\nO domínio é anexado às identidades de autenticação e de autorização.\n\nPara o GSSAPI, isto pode ser deixado em branco para utilizar a informação do cache de credenciais Kerberos.
+Extended_description-ru.utf-8: Введите область SASL, которая будет использована для аутентификации при подключении к базе данных LDAP.\n\nОбласть добавляется к удостоверениям аутентификации и авторизации.\n\nДля GSSAPI можно ничего не вводить; в этом случае будет использована информация из кэша свидетельств Kerberos.
+Extended_description-sk.utf-8: Prosím, zadajte SASL realm, ktoré bude použité na autentifikáciu do databázy LDAP.\n\nrealm je pripojený k autentifikačným a autorizačným identitám.\n\nPri GSSAPI môžete nechať prázdne a budú použité informácie z vyrovnávacej pamäte prihlasovania Kerberos.
+Extended_description-sv.utf-8: Ange den SASL-realm som ska användas för att autentisera mot LDAP-databasen.\n\nInställningen för realm läggs till för identifiering och autentisering av identiteter.\n\nFör GSSAPI kan detta lämnas tomt för att använda Kerberos identifieringscache
+Extended_description-tr.utf-8: Lütfen LDAP veritabanında doğrulama için kullanılacak SASL bölgesini giriniz:\n\nGirilen bölge doğrulama ve yetkilendirme kimliklerinin sonuna eklenecektir.\n\nGSSAPI kullanılması durumunda, Kerberos kimlik alanından alınan bilginin kullanılması için, bu bölüm boş bırakılabilir.
+Type: string
+Owners: nslcd/ldap-sasl-realm
+
+Name: nslcd/ldap-sasl-secprops
+Description: Cyrus SASL security properties:
+Description-cs.utf-8: Bezpečnostní prvky Cyrus SASL:
+Description-da.utf-8: Cyrus SASL-sikkerhedsegenskaber:
+Description-de.utf-8: Cyrus-SASL-Sicherheitseigenschaften:
+Description-es.utf-8: Propiedades de seguridad de Cyrus SASL:
+Description-fr.utf-8: Paramètres de sécurité pour Cyrus SASL :
+Description-it.utf-8: Proprietà di sicurezza Cyrus SASL:
+Description-ja.utf-8: Cyrus SASL セキュリティプロパティ:
+Description-nb.utf-8: Cyrus SASL sikkerhetsegenskaper:
+Description-nl.utf-8: Cyrus SASL beveiliginseigenschappen:
+Description-no.utf-8: Cyrus SASL sikkerhetsegenskaper:
+Description-pl.utf-8: Właściwości związane z bezpieczeństwem Cyrus SASL:
+Description-pt.utf-8: Propriedades de segurança do Cyrus SASL:
+Description-pt_br.utf-8: Propriedades de segurança Cyrus SASL:
+Description-ru.utf-8: Параметры безопасности Cyrus SASL:
+Description-sk.utf-8: Bezpečnostné vlastnosti Cyrus SASL:
+Description-sv.utf-8: Säkerhetsalternativ för Cyrus SASL:
+Description-tr.utf-8: Cyrus SASL güvenlik özellikleri:
+Extended_description: Please enter the Cyrus SASL security properties.\n\nAllowed values are described in the ldap.conf(5) manual page in the SASL OPTIONS section.
+Extended_description-cs.utf-8: Zadejte bezpečnostní prvky Cyrus SASL.\n\nPovolené hodnoty jsou popsány v manuálové stránce ldap.conf(5) v části SASL OPTIONS.
+Extended_description-da.utf-8: Indtast Cyrus SASL-sikkerhedsegenskaber.\n\nTilladte værdier er beskrevet i ldap.conf(5)-manualsiden i SASL OPTIONS-afsnittet.
+Extended_description-de.utf-8: Bitte geben Sie die Cyrus-SASL-Sicherheitseigenschaften ein.\n\nErlaubte Werte werden in der Handbuchseite ldap.conf(5) im Abschnitt SASL OPTIONS beschrieben.
+Extended_description-es.utf-8: Introduzca las propiedades de seguridad de Cyrus SASL:\n\nLos valores permitidos se describen en la página del manual ldap.conf(5) en la sección «SASL OPTIONS».
+Extended_description-fr.utf-8: Veuillez indiquer les paramètres de sécurité pour Cyrus SASL.\n\nLes valeurs autorisées sont décrites dans la page de manuel ldap.conf(5), dans la section « SASL OPTIONS ».
+Extended_description-it.utf-8: Inserire le proprietà di sicurezza Cyrus SASL.\n\nI valori permessi sono descritti nella pagina di manuale ldap.conf(5) nella sezione «SASL OPTIONS».
+Extended_description-ja.utf-8: Cyrus SASL セキュリティプロパティを入力してください。\n\n許される値は、ldap.conf(5) マニュアルページの SASL OPTIONS セクションに記載されています。
+Extended_description-nb.utf-8: Fyll inn Cyrus SASL sikkerhetsegenskapene:\n\nTillatte verdier beskrives i manualsiden ldap.conf(5) i avsnittet SASL OPTONS.
+Extended_description-nl.utf-8: Welke SASL beveiliginseigenschappen wilt u dat er gebruikt worden?\n\nVoer de Cyrus SASL geveiligingseigenschappen in. Toegestane waarden staan beschreven in de ldap.conf(5) handleiding in het SASL OPTIONS deel.
+Extended_description-no.utf-8: Fyll inn Cyrus SASL sikkerhetsegenskapene:\n\nTillatte verdier beskrives i manualsiden ldap.conf(5) i avsnittet SASL OPTONS.
+Extended_description-pl.utf-8: Proszę wprowadzić cechy bezpieczeństwa Cyrus SASL.\n\nDopuszczalne wartości są opisane w podręczniku systemowym ldap.conf(5) w rozdziale SASL OPTIONS.
+Extended_description-pt.utf-8: Por favor indique as propriedades de segurança do Cyrus SASL.\n\nOs valores permitidos estão descritos no manual do ldap.conf(5) na secção de OPÇÕES do SASL.
+Extended_description-pt_br.utf-8: Por favor, informe as propriedades de segurança Cyrus SASL.\n\nValores permitidos estão descritos na página de manual ldap.conf(5), na seção SASL OPTIONS.
+Extended_description-ru.utf-8: Укажите параметры безопасности Cyrus SASL:\n\nРазрешено указывать значения, описанные в справочной странице ldap.conf(5) в разделе SASL OPTIONS.
+Extended_description-sk.utf-8: Prosím, zadajte bezpečnostné vlastnosti Cyrus SASL.\n\nPovolené hodnoty sú popísané v manuálovej stránke ldap.conf(5), v časti SASL OPTIONS.
+Extended_description-sv.utf-8: Ange Cyrus SASL säkerhetsegenskaper:\n\nTillåtna värden beskrivs i manualsidan ldap.conf(5) i avsnittet SASL OPTIONS.
+Extended_description-tr.utf-8: Lütfen Cyrus SASL güvenlik özelliklerini giriniz.\n\nİzin verilen değerler ldap.conf(5) el kitabında SASL OPTIONS bölümünde açıklanmıştır.
+Type: string
+Owners: nslcd/ldap-sasl-secprops
+
+Name: nslcd/ldap-starttls
+Description: Use StartTLS?
+Description-ca.utf-8: Utilitzar StartTLS?
+Description-cs.utf-8: Používat StartTLS?
+Description-da.utf-8: Brug StartTLS?
+Description-de.utf-8: StartTLS benutzen?
+Description-es.utf-8: ¿Desea utilizar StartTLS?
+Description-fi.utf-8: Käytetäänkö StartTLS:ää?
+Description-fr.utf-8: Faut-il utiliser StartTLS ?
+Description-gl.utf-8: Debe empregarse StartTLS?
+Description-it.utf-8: Utilizzare StartTLS?
+Description-ja.utf-8: StartTLS を利用しますか?
+Description-nb.utf-8: Bruke StartTLS?
+Description-nl.utf-8: StartTLS gebruiken?
+Description-no.utf-8: Bruke StartTLS?
+Description-pl.utf-8: Używać StartTLS?
+Description-pt.utf-8: Utilizar StartTLS?
+Description-pt_br.utf-8: Usar StartTLS?
+Description-ru.utf-8: Использовать StartTLS?
+Description-sk.utf-8: Použiť StartTLS?
+Description-sv.utf-8: Använda StartTLS?
+Description-tr.utf-8: StartTLS kullanılsın mı?
+Description-vi.utf-8: Dùng StartTLS ?
+Description-zh_cn.utf-8: 使用 StartTLS?
+Extended_description: Please choose whether the connection to the LDAP server should use StartTLS to encrypt the connection.
+Extended_description-ca.utf-8: Seleccioneu si la connexió amb el servidor LDAP ha d'utilitzar STARTTLS per xifrar la connexió.
+Extended_description-cs.utf-8: Vyberte, zda má přpojení k LDAP serveru používat StartTLS pro šifrování spojení.
+Extended_description-da.utf-8: Vælg venligst hvorvidt forbindelsen til LDAP-serveren skal bruge StartTLS til at kryptere forbindelsen.
+Extended_description-de.utf-8: Bitte entscheiden Sie, ob die Verbindung zum LDAP-Server mittels StartTLS verschlüsselt werden soll.
+Extended_description-es.utf-8: Escoja si la conexión del servidor LDAP debería utilizar StartTLS para cifrar la conexión.
+Extended_description-fi.utf-8: Valitse tulisiko LDAP-palvelimelle otettava yhteys salata käyttäen StartTLS:ää.
+Extended_description-fr.utf-8: Veuillez choisir si la connexion au serveur LDAP doit être chiffrée avec StartTLS.
+Extended_description-gl.utf-8: Indique se a conexión co servidor LDAP debe empregar StartTLS para cifrar a conexión.
+Extended_description-it.utf-8: Scegliere se la connessione al server LDAP deve utilizzare StartTLS per cifrare la connessione.
+Extended_description-ja.utf-8: 接続の暗号化のために LDAP サーバに StartTLS を使って接続するかどうかを選んでください。
+Extended_description-nb.utf-8: Velg om forbindelsen til LDAP-tjeneren skal bruke StartTLS til å kryptere forbindelsen.
+Extended_description-nl.utf-8: Moet voor de verbinding naar de LDAP server gebruik gemaakt worden van StartTLS-versleuteling?
+Extended_description-no.utf-8: Velg om forbindelsen til LDAP-tjeneren skal bruke StartTLS til å kryptere forbindelsen.
+Extended_description-pl.utf-8: Proszę zdecydować czy połączenia do serwera LDAP powinny wykorzystywać StartTLS w celu szyfrowania połączenia.
+Extended_description-pt.utf-8: Por favor escolha se a ligação ao servidor LDAP deverá usar StartTLS para encriptar a ligação.
+Extended_description-pt_br.utf-8: Por favor, escolha se deverá ser usado StartTLS para criptografar a conexão com o servidor LDAP.
+Extended_description-ru.utf-8: Выберите нужно ли использовать StartTLS для шифрования соединения с сервером LDAP.
+Extended_description-sk.utf-8: Prosím, vyberte si, či pripojenie k serveru LDAP má na šifrovanie spojenia použiť StartTLS.
+Extended_description-sv.utf-8: Välj huruvida uppkopplingen till LDAP-servern ska använda StartTLS för att kryptera uppkopplingen.
+Extended_description-tr.utf-8: Lütfen LDAP sunucusuna yapılacak bağlantının, bağlantıyı şifrelemek için StartTLS kullanıp kullanmayacağını seçiniz.
+Extended_description-vi.utf-8: Hãy chọn nếu kết nối tới máy phục vụ LDAP nên sử dụng StarTLS để mật mã hoá kết nối, hay không.
+Extended_description-zh_cn.utf-8: 请选择是否使用StartTLS来加密到LDAP服务器的连接。
+Type: boolean
+Owners: nslcd/ldap-starttls
+
+Name: nslcd/ldap-uris
+Description: LDAP server URI:
+Description-cs.utf-8: URI LDAP serveru:
+Description-da.utf-8: Adresse for LDAP-server:
+Description-de.utf-8: URI des LDAP-Servers:
+Description-es.utf-8: URI del servidor LDAP:
+Description-fr.utf-8: URI du serveur LDAP :
+Description-it.utf-8: URI del server LDAP:
+Description-ja.utf-8: LDAP サーバの URI:
+Description-nb.utf-8: URI til LDAP-tjener:
+Description-nl.utf-8: LDAP-server URI:
+Description-no.utf-8: URI til LDAP-tjener:
+Description-pl.utf-8: URI serwera LDAP:
+Description-pt.utf-8: URI do servidor LDAP:
+Description-pt_br.utf-8: URI do servidor LDAP:
+Description-ru.utf-8: URI сервера LDAP:
+Description-sk.utf-8: URI servera LDAP:
+Description-sv.utf-8: URI för LDAP-server:
+Description-tr.utf-8: LDAP sunucusu Tekdüzen Kaynak Tanımlayıcısı (URI):
+Extended_description: Please enter the Uniform Resource Identifier of the LDAP server. The format is "ldap://<hostname_or_IP_address>:<port>/". Alternatively, "ldaps://" or "ldapi://" can be used. The port number is optional.\n\nWhen using an ldap or ldaps scheme it is recommended to use an IP address to avoid failures when domain name services are unavailable.\n\nMultiple URIs can be separated by spaces.
+Extended_description-cs.utf-8: Zadejte URI (Uniform Resource Identifier) LDAP serveru ve formátu „ldap://<jmeno_nebo_IP_adresa_serveru>:<port>/“. Možné jsou i varianty „ldaps://“ a „ldapi://“. Číslo portu není povinné.\n\nPři použití schémat ldap nebo ldaps se doporučuje použít IP adresu, protože tím předejdete chybám v případech, kdy je služba překladu jmen nedostupná.\n\nVíce URI je možno oddělit mezerami.
+Extended_description-da.utf-8: Angiv URI'en (Uniform Resource Identifier) for den anvendte LDAP-server. Formatet er »ldap://<værtsnavn_eller_IP-adresse>:<port>/«. Alternativt »ldaps://« eller også kan »ldapi://« bruges. Portnummeret er valgfrit.\n\nNår ldap- eller ldaps-skemaerne bruges, anbefales det, at bruge en IP-adresse for at undgå fejl når domænenavnstjenester ikke er tilgængelige.\n\nFlere URI'er kan adskilles med mellemrum.
+Extended_description-de.utf-8: Bitte geben Sie den Uniform Resource Identifier des benutzten LDAP-Servers ein. Das Format ist »ldap://<Rechnername oder IP-Adresse>:<Port>/«. Alternativ kann auch »ldaps://« oder »ldapi://« benutzt werden. Der Port muss nicht angegeben werden.\n\nWenn Sie »ldap« oder »ldaps« verwenden, sollten Sie eine IP-Adresse eingeben, um Ausfälle zu verhindern, falls die Namensauflösung einmal nicht verfügbar ist.\n\nMehrere URIs können, durch Leerzeichen getrennt, angegeben werden.
+Extended_description-es.utf-8: Introduzca el URI («Uniform Resource Identifier») del servidor LDAP. Éste debe tener el formato «ldap://<máquina-o-dirección-ip>:<puerto>/», también se pueden utilizar «ldaps://» o «ldapi://». El número de puerto es opcional.\n\nCuando utilice los esquemas ldap o ldaps es siempre una buena idea especificar una dirección IP para evitar fallos en caso de que el servicio de nombres de dominio (DNS) no esté disponible.\n\nPuede separar múltiples URI con espacios.
+Extended_description-fr.utf-8: Veuillez indiquer l'URI (« Uniform Resource Identifier ») du serveur LDAP à utiliser. Il s'agit d'une adresse de la forme « ldap://<nom de machine ou IP>:<port>/ ». Des adresses sous la forme « ldaps:// » et « ldapi:// » peuvent aussi être utilisées. Le numéro de port est facultatif.\n\nLorsque le protocole utilisé est « ldap » ou « ldaps », il est recommandé d'utiliser une adresse IP plutôt qu'un nom d'hôte afin de réduire les risques d'échec en cas d'indisponibilité du service de noms.\n\nDes adresses multiples peuvent être indiquées, séparées par des espaces.
+Extended_description-it.utf-8: Inserire l'URI (Uniform Resource Identifier) del server LDAP. Il formato è «ldap://<nomehost_o_indirizzo_IP>:<porta>»; è anche possibile usare «ldaps://» oppure «ldapi://». Il numero della porta è facoltativo.\n\nQuando si usa lo schema ldap o ldaps è raccomandato utilizzare un indirizzo IP, al fine di ridurre i rischi di errore quando i servizi dei nomi di dominio non sono disponibili.\n\nURI multipli possono essere separati da spazi.
+Extended_description-ja.utf-8: LDAP サーバの Uniform Resource Identifier を入力してください。形式は 'ldap://<ホスト名または IP>:<ポート>/' です。このほかに 'ldaps://' または 'ldapi://' も利用できます。ポート番号は省略できます。\n\nldap または ldaps スキーマを使う際には、ネームサービスが利用できないときの障害回避のために IP アドレスを使うことを推奨します。\n\nスペースで区切って、複数の URI を指定できます。
+Extended_description-nb.utf-8: Skriv inn Uniform Resource Identifier for LDAP-tjeneren, Formatet er «ldap://<vertsnavn_eller_IP-adresse>:<port>/». «ldaps://» eller «ldapi://» kan også brukes. Portnummer kan utelates.\n\nNår ldap eller ldaps-formen brukes anbefales det å bruke en IP-adresse for å unngå svikt når en DNS-tjeneste ikke et tilgjengelig.\n\nFlere URI-er kan oppgis, atskilt med mellomrom.
+Extended_description-nl.utf-8: Vul de URI (Uniform Resource Identifier) van de LDAP-server in. Het formaat is 'ldap://<computernaam of IP>:<poortnummer>/'. Ook kan 'ldaps://' of 'ldapi://' gebruikt worden. Het poortnummer is optioneel.\n\nAls u gebruik maakt van de ldap- of ldaps-schema's, is het aan te bevelen om een IP-adres te gebruiken. Dit voorkomt problemen in het geval dat naamdiensten onbeschikbaar zijn.\n\nMeerdere URI's kunnen door spaties gescheiden worden.
+Extended_description-no.utf-8: Skriv inn Uniform Resource Identifier for LDAP-tjeneren, Formatet er «ldap://<vertsnavn_eller_IP-adresse>:<port>/». «ldaps://» eller «ldapi://» kan også brukes. Portnummer kan utelates.\n\nNår ldap eller ldaps-formen brukes anbefales det å bruke en IP-adresse for å unngå svikt når en DNS-tjeneste ikke et tilgjengelig.\n\nFlere URI-er kan oppgis, atskilt med mellomrom.
+Extended_description-pl.utf-8: Proszę podać Uniform Resource Identifier serwera LDAP. Format to: "ldap://<nazwa-hosta-lub-adres-IP>:<port>/". Można również użyć protokołu "ldaps://" lub "ldapi://". Numer portu jest opcjonalny.\n\nPrzy korzystaniu z ldap lub ldaps zaleca się użycie adresu IP, w celu uniknięciu problemów w przypadku niedostępności usług nazw domenowych.\n\nPoszczególne URI proszę oddzielić spacją.
+Extended_description-pt.utf-8: Por favor insira o Uniform Resource Identifier do servidor LDAP. O formato é 'ldap://<nome_da_máquina_ou_endereço_IP>:<porto>/'. Alternativamente, pode ser usado 'ldaps://' ou 'ldapi://'. O número do porto é opcional.\n\nQuando se usa um esquema ldap ou ldaps é recomendado usar endereços IP para evitar falhas quando os serviços de nomes de domínio não estão disponíveis.\n\nMúltiplos URIs podem ser separados por espaços.
+Extended_description-pt_br.utf-8: Por favor, informe o Identificador Uniforme de Recurso (URI) do servidor LDAP. O formato é "ldap://<nomedemaquina_ou_endereco_IP>:<porta>/". Alternativamente, "ldaps://" ou "ldapi://" pode ser usado. O número da porta é opcional.\n\nAo usar um esquema ldap ou ldaps, é recomendado usar um endereço IP para evitar falhas quando os serviços de nome de domínio estiverem indisponíveis.\n\nMúltiplas URIs podem ser separadas por espaços.
+Extended_description-ru.utf-8: Укажите универсальный индикатор ресурса (URI) сервера LDAP. Формат: «ldap://<имя_узла или IP>:<порт>/». Также можно использовать «ldaps://» или «ldapi://». Номер порта необязателен.\n\nПри использовании схемы ldap или ldaps, обычно, лучше указывать IP-адрес; это снижает риск появления проблем в случае отказа службы имён.\n\nМожно указывать несколько URI через пробел.
+Extended_description-sk.utf-8: Prosím, zadajte Jednotný identifikátor zdroja (URI) servera LDAP. Formát je „ldap://<hostname_alebo_IP_adresa>:<port>/”. Môže byť použité aj „ldaps://” alebo „ldapi://”. Číslo portu je voliteľné.\n\nPri použití schémy ldap alebo ldaps odporúčame použiť IP adresu, aby ste sa vyhli výpadkom, keď nie sú dostupné služby prekladu doménových mien.\n\nViacero URI možno oddeliť medzerami.
+Extended_description-sv.utf-8: Ange URI:n (eng. "Uniform Resource Identifier") till LDAP-servern. Formatet är 'ldap://<värdnamn_eller_IP>:<port>/'. Alternativt kan 'ldaps://' eller 'ldapi://' användas. Portnumret behöver inte anges.\n\nNär ldap och ldaps används är det vanligtvis en bra idé att använda en IP-adress för att undvika fel när namntjänsten (DNS) är otillgänglig.\n\nFlera URI:er kan anges separerade med blanksteg.
+Extended_description-tr.utf-8: Lütfen LDAP sunucusunun Tekdüzen Kaynak Tanımlayıcısını (URI) giriniz.  Bu "ldap://<sunucuadı_ya_da_IP>:<bağlantı_noktası>/" şeklinde bir dizgedir. "ldaps://" ya da "ldapi://" de kullanılabilir. Bağlantı noktası (port) numarası seçime bağlıdır.\n\n'ldap' ya da 'ldaps' düzeni kullanıldığında, alan adı hizmetinin erişilemediği durumlarda aksama yaşanmaması için IP adresi kullanmanız önerilir.\n\nAralarında boşluk bırakılarak birden fazla URI tanımlanabilir.
+Type: string
+Owners: nslcd/ldap-uris
+
 Name: openssh-server/password-authentication
 Default: true
 Description: Allow password authentication?
@@ -5846,6 +6557,12 @@ Extended_description-sv.utf-8: Tidigare versioner av openssh-server tillät inlo
 Extended_description-tr.utf-8: openssh-server'ın önceki sürümleri parola ile kimlik doğrulama kullanılarak root kullanıcısının SSH üzerinden oturum açmasına izin veriyordu. Artık yeni kurulumların öntanımlı ayarı "PermitRootLogin prohibit-password" şeklindedir. Bu ayar root kullanıcısının parola kullanarak oturum açmasını yasaklar. SSH genel anahtar doğrulama yöntemine ayrıca izin veren mevcut sistemler bu ayardan etkilenmez.\n\nBu ayar sistemleri kaba kuvvet sözlükten parola saldırılarına karşı güvenli hale getirir (root kullanıcısı bu tarz saldırıların en büyük hedeflerindendir). Fakat bu ayarın etkinleştirilmesi, root kullanıcısına parola doğrulama yöntemiyle oturum açılabileceği varsayımıyla hareket eden sistemlerde eskiden çalışan düzenin bozulmasına sebep olacaktır. Bu değişikliği yalnızca sorun çıkarmayacağından eminseniz yapın.
 Type: boolean
 Owners: openssh-server/permit-root-login
+
+Name: sddm/daemon_name
+Default: /usr/bin/sddm
+Description: for internal use only
+Type: string
+Owners: sddm/daemon_name
 
 Name: tzdata/Areas
 Choices: Africa, America, Antarctica, Arctic, Asia, Atlantic, Australia, Europe, Indian, Pacific, Etc

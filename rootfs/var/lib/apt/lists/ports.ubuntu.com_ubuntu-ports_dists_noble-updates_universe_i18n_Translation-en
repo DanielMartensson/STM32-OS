@@ -11,6 +11,14 @@ Description-en: 2to3 binary using python3
  This package is a dependency package, which depends on Debian's default
  Python 3 2to3 version (currently v3.12).
 
+Package: accerciser
+Description-md5: 7806dc55e95ea2b46c6c1541f59644ce
+Description-en: interactive Python accessibility explorer for the GNOME desktop
+ It uses AT-SPI to inspect and control widgets, allowing you to check if
+ an application is providing correct information to assistive technologies
+ and automated test frameworks. Accerciser has a simple plugin framework which
+ you can use to create custom views of accessibility information.
+
 Package: ace-gperf
 Description-md5: d2820ae34bb525c6060ea2b7be2a7746
 Description-en: ACE perfect hash function generator
@@ -2649,6 +2657,34 @@ Description-en: Fortran compiler
  While it is capable of generating executables for a number
  of examples, some functionalities are still missing.
 
+Package: flatpak
+Description-md5: f91acb1d2880527b2759bc5e2d99fbff
+Description-en: Application deployment framework for desktop apps
+ Flatpak installs, manages and runs sandboxed desktop application bundles.
+ Application bundles run partially isolated from the wider system, using
+ containerization techniques such as namespaces to prevent direct access
+ to system resources. Resources from outside the sandbox can be accessed
+ via "portal" services, which are responsible for access control; for
+ example, the Documents portal displays an "Open" dialog outside the
+ sandbox, then allows the application to access only the selected file.
+ .
+ Each application uses a specified "runtime", or set of libraries, which is
+ available as /usr inside its sandbox. This can be used to run application
+ bundles with multiple, potentially incompatible sets of dependencies within
+ the same desktop environment.
+ .
+ This package contains the services and executables needed to install and
+ launch sandboxed applications, and the portal services needed to provide
+ limited access to resources outside the sandbox.
+
+Package: flatpak-tests
+Description-md5: 8c55ee927d2b9992e22292e7b2c097aa
+Description-en: Application deployment framework for desktop apps (tests)
+ Flatpak installs, manages and runs sandboxed desktop application bundles.
+ See the flatpak package for a more comprehensive description.
+ .
+ This package contains automated tests.
+
 Package: foot
 Description-md5: 5b91183776a1d7e15df34bc8ebe2ba63
 Description-en: Fast, lightweight and minimalistic Wayland terminal emulator
@@ -2698,6 +2734,69 @@ Description-en: jq for binary formats (program)
  reads binary data. The result is a JSON compatible structures where each
  value has a bit range, symbolic interpretations and know how to be
  presented in a useful way.
+
+Package: freeradius-iodbc
+Description-md5: 6347edefac75f466ab02895aecb1a016
+Description-en: iODBC module for FreeRADIUS server
+ The FreeRADIUS server can use iODBC to access databases to authenticate users
+ and do accounting, and this module is necessary for that.
+
+Package: freeradius-krb5
+Description-md5: 3a5c3602207569628c542943459c0429
+Description-en: kerberos module for FreeRADIUS server
+ The FreeRADIUS server can use Kerberos to authenticate users, and this module
+ is necessary for that.
+
+Package: freeradius-ldap
+Description-md5: cc9ad4f60cb78e6b940d44e4c3b57d1d
+Description-en: LDAP module for FreeRADIUS server
+ The FreeRADIUS server can use LDAP to authenticate users, and this module
+ is necessary for that.
+
+Package: freeradius-memcached
+Description-md5: 6c7415181d540694968e8e8c5fbf1877
+Description-en: Memcached module for FreeRADIUS server
+ The FreeRADIUS server can cache data in memcached and this package
+ contains the required module.
+
+Package: freeradius-mysql
+Description-md5: 4423793fbfc997cd42deec2bcb196555
+Description-en: MySQL module for FreeRADIUS server
+ The FreeRADIUS server can use MySQL to authenticate users and do accounting,
+ and this module is necessary for that.
+
+Package: freeradius-postgresql
+Description-md5: 21c022ad780dbebcad8db320d076ccd0
+Description-en: PostgreSQL module for FreeRADIUS server
+ The FreeRADIUS server can use PostgreSQL to authenticate users and do
+ accounting, and this module is necessary for that.
+
+Package: freeradius-python3
+Description-md5: 80f8197fc7d045314f87c86f25224510
+Description-en: Python 3 module for FreeRADIUS server
+ This package is required to add Python 3 functionality to the
+ FreeRADIUS server.
+ .
+ It was introduced in FreeRADIUS 3.0.20 as EXPERIMENTAL module. Use at
+ your own risk.
+
+Package: freeradius-redis
+Description-md5: 409331feca6e7b06facbc4bac2a0f07b
+Description-en: Redis module for FreeRADIUS server
+ This module is required to enable the FreeRADIUS server to access
+ Redis databases.
+
+Package: freeradius-rest
+Description-md5: 84efad4f894dd87ee01e51563cfab4f8
+Description-en: REST module for FreeRADIUS server
+ The FreeRADIUS server can make calls to remote web APIs, and this module
+ is necessary for that.
+
+Package: freeradius-yubikey
+Description-md5: 085fe9fe99855d39801336fb78e00a38
+Description-en: Yubikey module for FreeRADIUS server
+ This package is required to add Yubikey functionality to the
+ FreeRADIUS server.
 
 Package: freerdp3-dev
 Description-md5: 87d789b26f2354d9180f00d23a677478
@@ -3007,6 +3106,15 @@ Description-en: BDD Testing Framework for Go
  Ginkgo is a BDD-style Golang testing framework built to help you efficiently
  write expressive and comprehensive tests. It is best paired with the Gomega
  matcher library but is designed to be matcher-agnostic.
+
+Package: gir1.2-flatpak-1.0
+Description-md5: d56a77ab2a71ace5e8bdb87dcec05c28
+Description-en: Application deployment framework for desktop apps (introspection)
+ Flatpak installs, manages and runs sandboxed desktop application bundles.
+ See the flatpak package for a more comprehensive description.
+ .
+ This package can be used by other packages using the GIRepository format to
+ generate dynamic bindings for libflatpak0.
 
 Package: gir1.2-gtk-2.0
 Description-md5: 0e856cde3e86eb181a419da2e80d941c
@@ -8086,6 +8194,33 @@ Description-en: Flang library - Development package
  .
  This package contains the flang libraries and headers.
 
+Package: libflatpak-dev
+Description-md5: 4fcaa1347e5652b1c831098f39239f04
+Description-en: Application deployment framework for desktop apps (development)
+ Flatpak installs, manages and runs sandboxed desktop application bundles.
+ See the flatpak package for a more comprehensive description.
+ .
+ This package contains development headers and pkg-config metadata
+ for libflatpak0, and the flatpak-coredump and flatpak-bisect scripts used
+ to debug Flatpak applications.
+
+Package: libflatpak-doc
+Description-md5: c7d59a541c5d9998f886d74daf4ac8d6
+Description-en: Application deployment framework for desktop apps (documentation)
+ Flatpak installs, manages and runs sandboxed desktop application bundles.
+ See the flatpak package for a more comprehensive description.
+ .
+ This package contains reference documentation for libflatpak0.
+
+Package: libflatpak0
+Description-md5: 0e4073ffd5dff85f7c3cfe70f89906ed
+Description-en: Application deployment framework for desktop apps (library)
+ Flatpak installs, manages and runs sandboxed desktop application bundles.
+ See the flatpak package for a more comprehensive description.
+ .
+ This package contains the flatpak shared library, used by higher level
+ package management tools like gnome-software.
+
 Package: libfprint-2-tests
 Description-md5: 0c1324ebec13218ac07535b018414d6b
 Description-en: Tests for async fingerprint library of fprint project
@@ -8337,6 +8472,28 @@ Description-en: graphviz libs and headers against which to build applications
  library routines into an application. It also installs additional man pages.
  .
  Note: A graphviz user doesn't need to install this package.
+
+Package: libgsf-1-dev
+Description-md5: c26c685203445077273bff5424a425c9
+Description-en: Structured File Library - development files
+ This package contains the development files used in building applications
+ that use the GNOME Structured File Library.
+ .
+ The GNOME Structured File Library aims to provide an efficient
+ extensible I/O abstraction for dealing with different structured file
+ formats. It is actively being developed and its API is still likely to
+ undergo significant changes (in particular, extensions).
+
+Package: libgsf-bin
+Description-md5: e555cb88781ef2e473ff3705e128bd5b
+Description-en: Structured File Library - programs
+ The GNOME Structured File Library aims to provide an efficient
+ extensible I/O abstraction for dealing with different structured file
+ formats.
+ .
+ These are the programs that are shipped as part of libgsf. They include
+ a thumbnail generator, a tar-like archiver application and a VBA macro
+ extractor.
 
 Package: libgtk2.0-dev
 Description-md5: 27369c198da70271ed178d1415c3e8fe
@@ -9029,6 +9186,20 @@ Description-en: JPEG 2000 Interactive Protocol
  compression than JPEG 1991, and has resilience to errors in the image.
  .
  This is an implementation of the JPEG 2000 Interactive Protocol (Part-9)
+
+Package: libpam-oath
+Description-md5: 2d17d3000b8fde392811eab2f2429fb0
+Description-en: OATH Toolkit libpam_oath PAM module
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package contain a PAM module to authenticate users against
+ a local file-based OATH database.
 
 Package: libpathplan4
 Description-md5: 3b349696750e1cfac5e966e847c18e9c
@@ -10489,6 +10660,14 @@ Description-md5: d29120b11150b79af4338241d0a5dc74
 Description-en: Linux kernel VM host tools
  This package provides kernel tools useful for VM hosts.
 
+Package: live-build-cgi
+Description-md5: f4c71dad5330df75c843617cf4d9fe41
+Description-en: Debian Live - System build scripts (CGI frontend)
+ live-build contains the scripts that build a Debian Live system image from a
+ configuration directory.
+ .
+ This package contains the CGI frontend.
+
 Package: lld-18
 Description-md5: 39b52f07f105b329dd7852cce89ebb7d
 Description-en: LLVM-based linker
@@ -11946,6 +12125,19 @@ Description-md5: f11494e618e154235d7240541a9fc755
 Description-en: transitional package for ubuntu-drivers-common
  This is a transitional package for ubuntu-drivers-common. You can remove it
  after upgrading.
+
+Package: oathtool
+Description-md5: d984121e7ec1e8e81c5eb05708fd6f3d
+Description-en: OATH Toolkit oathtool command line tool
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package contains the OATH Toolkit "oathtool" command line tool.
 
 Package: obfs4proxy
 Description-md5: fa2d91d7e21407c55f950a3b9437add6
@@ -13561,6 +13753,19 @@ Description-en: Ubuntu init backend
  Backend service used by Ubuntu init to
  perform different system setup activities.
 
+Package: pskctool
+Description-md5: edf8c44ffbaa594af237cc0977d00da9
+Description-en: OATH Toolkit pskctool command line tool
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package contains the OATH Toolkit "pskctool" command line tool.
+
 Package: python-aiohttp-doc
 Description-md5: 3c8129e3bdeb5060e745f9baecf62116
 Description-en: documentation of python3-aiohttp
@@ -13583,6 +13788,19 @@ Description-en: Python interface to libapt-pkg (development files)
  This package contains the header files needed to use python-apt objects from
  C++ applications.
 
+Package: python-asyncssh-doc
+Description-md5: 4fd1f087b339c2a5c6fc2f89f04899f0
+Description-en: asyncio-based client and server implementation of SSHv2 protocol (doc)
+ AsyncSSH is a Python package which provides an asynchronous client
+ and server implementation of the SSHv2 protocol on top of the Python
+ 3.4+ asyncio framework.
+ .
+ It comes with a full support of SSHv2 and SFTP client and server
+ functions, including shell, command and subsystem channels, direct
+ and forwarded TCP channels, local and remote TCP port forwarding.
+ .
+ This package contains the HTML docs and examples.
+
 Package: python-greenlet-dev
 Description-md5: 732237700918b05962305d8ea440ee79
 Description-en: Lightweight in-process concurrent programming - development files
@@ -13604,6 +13822,21 @@ Description-en: documentation for the Jinja2 Python library
  .
  This package contains the documentation for Jinja2 in HTML and
  reStructuredText formats.
+
+Package: python-m2crypto-doc
+Description-md5: 308a7a3baa80f49f1b193f14c4501d4d
+Description-en: Python wrapper for the OpenSSL library (docs)
+ m2crypto features the following:
+   * RSA, DSA, DH, HMACs, message digests, symmetric ciphers (including AES).
+   * SSL functionality to implement clients and servers.
+   * HTTPS extensions to Python's httplib, urllib, and xmlrpclib.
+   * Unforgeable HMAC'ing AuthCookies for web session management.
+   * FTP/TLS client and server.
+   * S/MIME.
+   * ZServerSSL: A HTTPS server for Zope.
+   * ZSmime: An S/MIME messenger for Zope.
+ .
+ This package contains the documentation.
 
 Package: python3-access2base
 Description-md5: 62049593c5d96b74959809148594af38
@@ -13657,6 +13890,28 @@ Description-en: bash tab completion for argparse (for Python 3)
  .
  This package provides the module for Python 3.x.
 
+Package: python3-asyncssh
+Description-md5: ea709ca614c3167bf115b4408f4f223d
+Description-en: asyncio-based client and server implementation of SSHv2 protocol
+ AsyncSSH is a Python package which provides an asynchronous client
+ and server implementation of the SSHv2 protocol on top of the Python
+ 3.4+ asyncio framework.
+ .
+ It comes with a full support of SSHv2 and SFTP client and server
+ functions, including shell, command and subsystem channels, direct
+ and forwarded TCP channels, local and remote TCP port forwarding.
+ .
+ Other features include:
+    + Multiple simultaneous sessions on a single SSH connection
+    + Multiple SSH connections in a single event loop
+    + Byte and string based I/O with settable encoding
+    + A variety of key exchange, encryption, and MAC algorithms
+    + Support for gzip compression
+    + Password, public key, and keyboard-interactive user authentication methods
+    + Many types and formats of public keys and certificates
+    + OpenSSH-style known_hosts file support
+    + OpenSSH-style authorized_keys file support
+
 Package: python3-ceph
 Description-md5: 73168f4688e222dd80dcdae1068a35d8
 Description-en: Meta-package for all Python 3.x modules for the Ceph libraries
@@ -13690,6 +13945,15 @@ Description-en: Clang Python Bindings
  provides most of the support of C++20.
  .
  This binding package provides access to the Clang compiler and libraries.
+
+Package: python3-docker
+Description-md5: f35f9a5a7263514cf0e810ca4e05fc20
+Description-en: Python 3 wrapper to access docker.io's control socket
+ This package contains oodles of routines that aid in controlling
+ docker.io over it's socket control, the same way the docker.io
+ client controls the daemon.
+ .
+ This package provides Python 3 module bindings only.
 
 Package: python3-evtx
 Description-md5: d220a3bdf7647eb46f3948481b82de2a
@@ -13810,6 +14074,21 @@ Description-en: Developer friendly load testing framework
     sites/services, it can be used to test almost any system or protocol. Just
     write a client for what you want to test, or explore some created by the
     community.
+
+Package: python3-m2crypto
+Description-md5: 008b98d28832b4ee63d25ccaed126efd
+Description-en: Python wrapper for the OpenSSL library (Python 3 modules)
+ m2crypto features the following:
+   * RSA, DSA, DH, HMACs, message digests, symmetric ciphers (including AES).
+   * SSL functionality to implement clients and servers.
+   * HTTPS extensions to Python's httplib, urllib, and xmlrpclib.
+   * Unforgeable HMAC'ing AuthCookies for web session management.
+   * FTP/TLS client and server.
+   * S/MIME.
+   * ZServerSSL: A HTTPS server for Zope.
+   * ZSmime: An S/MIME messenger for Zope.
+ .
+ This package contains the modules for the Python 3.x interpreter.
 
 Package: python3-mrcal
 Description-md5: 6620c59c9f8c2c17c7b2070511ecec31
@@ -15609,6 +15888,26 @@ Description-en: TLS reverse-proxy with SNI multiplexing (TLS virtual hosts)
  material), or just passing the encrypted traffic along (if it has no
  key material).
 
+Package: smifb2-dkms
+Description-md5: 402e0405e2f7bda181da89359d4cb904
+Description-en: SiliconMotion SM750/SM768 Graphics PCI-E DRM Driver
+ smifb2 is a hdmi driver for SiliconMotion SM750 and SM768 graphics
+ cards.
+ .
+ SM768 is high performance graphics processor which provides dual display
+ channels and supports multiple output interfaces, including HDMI,
+ DisplayPort, DVI, VGA, LVDS and digital interfaces. SM768 has 128-bit
+ graphics engine to accelerate graphics displays and provides color space
+ conversion and scaling features. Display resolution supports up to
+ 4K UHD (3840x2160@30p) or 2K/Full HD@60p. SM768 supports H.264/MJPEG
+ hardware video decoding.
+ .
+ SM750, Dual Display Graphics Chip is a PCI Express 2D multimedia mobile
+ display controller device providing video and 2D capability to the
+ embedded industry in a 265-pin BGA package.
+ .
+ This package uses DKMS to automatically build the smifb2 kernel module.
+
 Package: snap-confine
 Description-md5: 3223c275ff89224fda1b277eec5e7ffe
 Description-en: Transitional package for snapd
@@ -15832,6 +16131,16 @@ Description-md5: 6258e451672d871bf5ef5c4279f54da8
 Description-en: Go finite state machine generator for Porter2 stemmers
  Suffixfsm generates Go finite state machines implementing the Porter2
  stemming algorithm, as found in golang-github-dataence-porter2-dev.
+
+Package: svn2git
+Description-md5: f5ec45d1c2ab84b6a2640315312e7252
+Description-en: Ruby tool for migrating svn projects to git
+ Svn2git is a tiny utility for migrating projects from Subversion to Git
+ while keeping the trunk, branches and tags where they should be. It uses
+ git-svn to clone an svn repository and does some clean-up to make sure
+ branches and tags are imported in a meaningful way, and that the code
+ checked into master ends up being what's currently in your svn trunk
+ rather than whichever svn branch your last commit was in.
 
 Package: syncthing
 Description-md5: 1a4918fe5ed39dee33ebb3642be28ec0
@@ -16433,6 +16742,38 @@ Description-en: Command line tool for golang-v2ray-core
  network tools that help you to build your own computer network.
  It secures your network connections and thus protects your privacy.
 
+Package: valkey-redis-compat
+Description-md5: 500879af21bfc65b17e5b7ed1e1267c2
+Description-en: Conversion script and compatibility symlinks for Redis
+ Automation of the migration of data and configuration from Redis to Valkey.
+
+Package: valkey-sentinel
+Description-md5: 1ef4c8691947aee72b83d05d54d09d9d
+Description-en: Persistent key-value database with network interface (monitoring)
+ Valkey is a key-value database in a similar vein to memcache but the dataset
+ is non-volatile. Valkey additionally provides native support for atomically
+ manipulating and querying data structures such as lists and sets.
+ .
+ This package contains the Valkey Sentinel monitoring software.
+
+Package: valkey-server
+Description-md5: 56fa238bc2c8bdafb30a00225ea3e036
+Description-en: Persistent key-value database with network interface
+ Valkey is a key-value database in a similar vein to memcache but the dataset
+ is non-volatile. Valkey additionally provides native support for atomically
+ manipulating and querying data structures such as lists and sets.
+ .
+ The dataset is stored entirely in memory and periodically flushed to disk.
+
+Package: valkey-tools
+Description-md5: 4f62d2faf69aee6c687920fcf2c2be28
+Description-en: Persistent key-value database with network interface (client)
+ Valkey is a key-value database in a similar vein to memcache but the dataset
+ is non-volatile. Valkey additionally provides native support for atomically
+ manipulating and querying data structures such as lists and sets.
+ .
+ This package contains the command line client and other tools.
+
 Package: varlink-go
 Description-md5: c74de2573287dedc47b06fd9f54f44ce
 Description-en: Varlink interface generator utility
@@ -16594,6 +16935,30 @@ Description-en: Patroni virtual IP manager
  accordingly.
  .
  This package works only with version 3 of the etcd API.
+
+Package: virt-manager
+Description-md5: 50a97bc762eb5e42380071b9f6045b6c
+Description-en: desktop application for managing virtual machines
+ The virt-manager application is a desktop user interface for managing virtual
+ machines through libvirt. It primarily targets KVM VMs, but also manages Xen
+ and LXC (Linux containers). It presents a summary view of running domains,
+ their live performance & resource utilization statistics. Wizards enable the
+ creation of new domains, and configuration & adjustment of a domain's resource
+ allocation & virtual hardware. An embedded VNC and SPICE client viewer
+ presents a full graphical console to the guest domain.
+
+Package: virtinst
+Description-md5: 09cfe8f7f5e1f2c11dbf7b6725c19207
+Description-en: utilities to create and edit virtual machines
+ This package contains some command line utilities to create and edit virtual
+ machines:
+ .
+  - virt-clone: cloning existing inactive guests; it copies the disk images,
+    and defines a config with new name, UUID and MAC address pointing to the
+    copied disks
+  - virt-install: provision operating systems into new virtual machines
+  - virt-xml: easily edit libvirt domain XML using virt-install's command line
+    options
 
 Package: vpx-tools
 Description-md5: 41cd6c10fc838ed5f4e38bb18b5f43df
@@ -16980,6 +17345,280 @@ Description-en: Linux kernel version specific tools for version 6.8.0-1008
  ARMv8.
  You probably want to install linux-tools-6.8.0-1008-<flavour>.
 
+Package: u-boot-amlogic
+Description-md5: 50c61aa3a5add381f0d520d9abd5628f
+Description-en: A boot loader for amlogic systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various amlogic platforms.
+ .
+ Included platforms:
+ khadas-vim
+ khadas-vim2
+ libretech-cc
+ nanopi-k2
+ odroid-c2
+ odroid-n2
+
+Package: u-boot-asahi
+Description-md5: 49a0c9f1e60165bfef14bc862881bb41
+Description-en: A boot loader for Apple Silicon systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various Apple Silicon (M1, M2)
+ platforms supported by the Asahi Linux project, though may lack some
+ features not yet present in mainline u-boot.
+ .
+ Included platforms:
+ apple_m1
+
+Package: u-boot-mvebu
+Description-md5: cc829caa84573afbaedf37c8ffef1a8f
+Description-en: A boot loader for marvell systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various Marvell platforms.
+ .
+ Included platforms:
+ mvebu_espressobin-88f3720
+
+Package: u-boot-qcom
+Description-md5: 5bad2cb709abbac55c1fe8bc071b113d
+Description-en: A boot loader for qcom systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various qcom platforms.
+ .
+ Included platforms:
+ dragonboard410c
+ dragonboard820c
+
+Package: u-boot-rockchip
+Description-md5: 8e55d54566e7b036f9cfa1c5e7a7f9a7
+Description-en: A boot loader for rockchip systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various Rockchip platforms.
+ .
+ Included platforms:
+ firefly-rk3399
+ nanopc-t4-rk3399
+ nanopi-neo4-rk3399
+ pinebook-pro-rk3399
+ puma-rk3399
+ roc-pc-rk3399
+ rock-pi-4-rk3399
+ rock-pi-e-rk3328
+ rock64-rk3328
+ rockpro64-rk3399
+
+Package: u-boot-sunxi
+Description-md5: d37ae998b7f745491c349896bdf7ef85
+Description-en: A boot loader for sunxi systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various Allwinner/sunxi
+ platforms.
+ .
+ Included platforms:
+ a64-olinuxino
+ a64-olinuxino-emmc
+ nanopi_neo2
+ nanopi_neo_plus2
+ orangepi_one_plus
+ orangepi_zero_plus2
+ pine64-lts
+ pine64_plus
+ pinebook
+ pinephone
+ pinetab
+ sopine_baseboard
+ teres_i
+
+Package: u-boot-tegra
+Description-md5: ad07e7cd8fdfecdca4f558d0ad3eba70
+Description-en: A boot loader for NVIDIA Tegra systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various NVIDIA Tegra platforms.
+ .
+ Included platforms:
+ p2371-2180
+
+Package: u-boot-exynos
+Description-md5: 80a1894e409b368bcf5d7754566a4f43
+Description-en: A boot loader for exynos systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various Exynos platforms.
+ .
+ Included platforms:
+ arndale
+ odroid
+ odroid-xu3
+
+Package: u-boot-imx
+Description-md5: ef75611be2277f035c0a8b5a4389d927
+Description-en: A boot loader for imx systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various imx platforms.
+ .
+ Included platforms:
+ colibri_imx6
+ dh_imx6
+ mx53loco
+ mx6cuboxi
+ mx6qsabrelite
+ nitrogen6q
+ nitrogen6q2g
+ novena
+ novena-rawsd
+ udoo
+ usbarmory
+ wandboard
+
+Package: u-boot-omap
+Description-md5: bdadf142364925a38c24e09b6750e043
+Description-en: A boot loader for omap systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various omap and related
+ platforms.
+ .
+ Included platforms:
+ am335x_boneblack
+ am335x_evm
+ am57xx_evm
+ dra7xx_evm
+ igep00x0
+ omap3_beagle
+ omap4_panda
+
+Package: u-boot-rockchip
+Description-md5: 9ba1da67582e01ec6d264d55e125b5b0
+Description-en: A boot loader for rockchip systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various Rockchip platforms.
+ .
+ Included platforms:
+ firefly-rk3288
+
+Package: u-boot-stm32
+Description-md5: 42bf629b7be6667aac553164254be8d2
+Description-en: A boot loader for ST Microelectronics systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various ST Microelectronics
+ platforms.
+ .
+ Included platforms:
+ stm32mp157c-dk2
+
+Package: u-boot-sunxi
+Description-md5: 5a934b1f5931530583dc9f183e5b4675
+Description-en: A boot loader for sunxi systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various Allwinner/sunxi
+ platforms.
+ .
+ Included platforms:
+ A10-OLinuXino-Lime
+ A10s-OLinuXino-M
+ A20-OLinuXino-Lime
+ A20-OLinuXino-Lime2
+ A20-OLinuXino-Lime2-eMMC
+ A20-OLinuXino_MICRO
+ A20-OLinuXino_MICRO-eMMC
+ A20-Olimex-SOM-EVB
+ Bananapi
+ Bananapi_M2_Ultra
+ Bananapro
+ CHIP
+ Cubieboard
+ Cubieboard2
+ Cubieboard4
+ Cubietruck
+ Cubietruck_plus
+ Lamobo_R1
+ Linksprite_pcDuino
+ Linksprite_pcDuino3
+ Mini-X
+ Sinovoip_BPI_M3
+ bananapi_m2_berry
+ nanopi_neo
+ nanopi_neo_air
+ orangepi_plus
+ orangepi_zero
+
+Package: u-boot-tegra
+Description-md5: 28df873780f6461926a287388069be12
+Description-en: A boot loader for NVIDIA Tegra systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various NVIDIA Tegra platforms.
+ .
+ Included platforms:
+ jetson-tk1
+
 Package: openjdk-11-jre
 Description-md5: 5bad8f597e182fdf0635f3b9fccbce1a
 Description-en: OpenJDK Java runtime, using Hotspot Zero
@@ -17000,6 +17639,21 @@ Description-en: Boot loader for Microchip PIC64GX systems
  intended to be easy to port and to debug, and runs on many
  supported architectures, including PPC, ARM, MIPS, x86, m68k,
  NIOS, and Microblaze.
+
+Package: u-boot-starfive
+Description-md5: 40b6fe1dfd5100a70ecd5291c6359d39
+Description-en: A boot loader for Starfive systems
+ Das U-Boot is a cross-platform bootloader for embedded systems,
+ used as the default boot loader by several board vendors.  It is
+ intended to be easy to port and to debug, and runs on many
+ supported architectures, including PPC, ARM, MIPS, x86, m68k,
+ NIOS, and Microblaze.
+ .
+ This package includes boot loaders for various Starfive
+ platforms.
+ .
+ Included platforms:
+ starfive_visionfive2
 
 Package: libzdnn-dev
 Description-md5: 349b8d8904826b474aadee0588858fc7

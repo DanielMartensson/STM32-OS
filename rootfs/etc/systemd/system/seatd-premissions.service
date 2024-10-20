@@ -1,0 +1,11 @@
+[Unit]
+Description=Adjust permissions for seatd.sock
+After=getty@tty1.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/chmod 777 /run/seatd.sock
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target

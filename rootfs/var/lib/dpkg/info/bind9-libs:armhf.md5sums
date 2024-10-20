@@ -1,0 +1,11 @@
+8dc213cf699f6d610b02eb08b3870d59  usr/lib/arm-linux-gnueabihf/libbind9-9.18.28-0ubuntu0.24.04.1-Ubuntu.so
+12b54d54a7b001be985cb65db0f52062  usr/lib/arm-linux-gnueabihf/libdns-9.18.28-0ubuntu0.24.04.1-Ubuntu.so
+b1ad3908aae8e9ab07b26e1077cef4c5  usr/lib/arm-linux-gnueabihf/libirs-9.18.28-0ubuntu0.24.04.1-Ubuntu.so
+bc8ab5a0627778544d7b5fb1a6854bde  usr/lib/arm-linux-gnueabihf/libisc-9.18.28-0ubuntu0.24.04.1-Ubuntu.so
+a9da69d2710efe449d3522d44f76cfb7  usr/lib/arm-linux-gnueabihf/libisccc-9.18.28-0ubuntu0.24.04.1-Ubuntu.so
+fe1c0a3c09d0f3d0a0a20736ecf5ee5f  usr/lib/arm-linux-gnueabihf/libisccfg-9.18.28-0ubuntu0.24.04.1-Ubuntu.so
+3ad647c6b43befedc5ad21e89bd26593  usr/lib/arm-linux-gnueabihf/libns-9.18.28-0ubuntu0.24.04.1-Ubuntu.so
+eb24bd55baf669a3ba0f8e33f79752f8  usr/share/doc/bind9-libs/NEWS.Debian.gz
+c6802cad9f652d4c93e3b6a0121b8a6c  usr/share/doc/bind9-libs/changelog.Debian.gz
+c4902d7f6fd40457f41ec8b26499e7a8  usr/share/doc/bind9-libs/copyright
+5a8db1f2385c80b7537a5614f81d6e26  usr/share/lintian/overrides/bind9-libs

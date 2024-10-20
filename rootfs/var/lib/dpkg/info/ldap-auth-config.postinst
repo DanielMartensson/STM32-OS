@@ -1,0 +1,185 @@
+#!/bin/sh
+# postinst script for ldap-auth-config
+#
+
+set -e
+
+. /usr/share/debconf/confmodule
+
+PACKAGE="ldap-auth-config"
+CONFFILE="/etc/ldap.conf"
+EXAMPLECONFFILE="/usr/share/ldap-auth-config/ldap.conf"
+PASSWDFILE="/etc/ldap.secret"
+OLDPASSWDFILE="/etc/pam_ldap.secret"
+
+add_missing()
+{
+	# FIXME: it would be nice to get the prototype from a template.
+	
+	parameter=$1
+	value=$2
+	echo "$parameter $value" >> $CONFFILE
+}
+
+change_value()
+{
+	parameter=$1
+	value=$2
+	commented=0 ; notthere=0
+	egrep -i -q "^$parameter " $CONFFILE || notthere=1
+	if [ "$notthere" = "1" ]; then
+		if ( egrep -i -q "^# *$parameter" $CONFFILE ); then
+			notthere=0
+			commented=1	
+		fi
+	fi
+
+	if [ "$notthere" = "1" ]; then
+		add_missing $parameter $value
+	else
+		# i really need a better way to do this...
+		# currently we replace only the first match, we need a better
+		# way of dealing with multiple hits.
+		if [ "$commented" = "1" ]; then
+			value="$value" parameter="$parameter" perl -i -p -e 's/^# *\Q$ENV{"parameter"}\E .*/$ENV{"parameter"} $ENV{"value"}/i
+				and $match=1 unless ($match)' $CONFFILE
+		else
+			value="$value" parameter="$parameter" perl -i -p -e 's/^\Q$ENV{"parameter"}\E .*/$ENV{"parameter"} $ENV{"value"}/i
+				and $match=1 unless ($match)' $CONFFILE
+		fi
+	fi
+}
+
+disable_param()
+{
+	parameter=$1
+	enabled=0
+	egrep -q "^$parameter " $CONFFILE && enabled=1
+	if [ "$enabled" = "1" ]; then
+		perl -i -p -e "s/^($parameter .*)/#\$1/i" $CONFFILE
+	fi
+}
+	
+case "$1" in
+	configure)
+		if [ ! -e $CONFFILE ]; then
+			if [ -z "$2" ]; then
+				# if no config and fresh install, cp the template
+       				cp $EXAMPLECONFFILE $CONFFILE
+			else
+				# if no config and upgrade, don't do anything
+				exit 0
+			fi
+		fi
+
+		if [ -e "/etc/libnss-ldap.conf" ] || [ -e "/etc/pam-ldap.conf" ]; then
+			db_get ldap-auth-config/move-to-debconf
+			if [ "$RET" = "false" ]; then
+				db_set ldap-auth-config/override false
+			else
+				db_set ldap-auth-config/override true
+				db_fset ldap-auth-config/override seen true
+			fi
+		fi
+
+		db_get ldap-auth-config/override
+		if [ "$RET" = "false" ]; then
+			# user said doesn't want to use debconf
+			if ( head -1 $CONFFILE | grep -q '^###DEBCONF###$' ); then
+				sed -i '1d' $CONFFILE
+			fi
+		else
+			if ( head -1 $CONFFILE | grep -q -v '^###DEBCONF###$' ); then
+				sed -i '1 s/\([^ ]*\)/###DEBCONF###\n\1/' $CONFFILE
+			fi
+
+			db_get ldap-auth-config/ldapns/ldap-server
+			if echo $RET | egrep -q '^ldap[is]?://'; then
+				disable_param host
+				change_value uri "$RET"
+			else
+				disable_param uri
+				change_value host "$RET"
+			fi
+
+			db_get ldap-auth-config/ldapns/base-dn
+			change_value base "$RET"
+
+			db_get ldap-auth-config/ldapns/ldap_version
+			change_value ldap_version "$RET"
+
+			db_get ldap-auth-config/pam_password
+			change_value pam_password "$RET"
+
+			db_get ldap-auth-config/dbrootlogin
+			if [ "$RET" = "true" ]; then
+				# separate root login to the database
+				db_get ldap-auth-config/rootbinddn
+				change_value rootbinddn "$RET"
+	
+				db_get ldap-auth-config/rootbindpw
+				if [ "$RET" != "" ]; then
+					rm -f $PASSWDFILE $OLDPASSWDFILE
+					echo $RET > $PASSWDFILE
+					chmod 0600 $PASSWDFILE
+					db_set ldap-auth-config/rootbindpw ''
+				else
+					# copy the old password file to its new location
+					if [ ! -e $PASSWDFILE -a -e $OLDPASSWDFILE ]; then
+						cp -a $OLDPASSWDFILE $PASSWDFILE
+					fi	
+				fi
+			else
+				# ok, so the user refused to use this feature, better make
+				# sure it's really off.
+				disable_param rootbinddn
+				rm -f $PASSWDFILE 
+			fi
+
+			db_get ldap-auth-config/dblogin
+			if [ "$RET" = "true" ]; then
+				# user wants to log in to the database, so be it.
+				db_get ldap-auth-config/binddn
+				change_value binddn "$RET"
+
+				db_get ldap-auth-config/bindpw
+				if [ "$RET" != "" ]; then
+					change_value bindpw "$RET"
+					db_set ldap-auth-config/bindpw ''
+				fi
+			else
+				# once again, user didn't.. lets make sure we dont.
+				disable_param binddn
+				disable_param bindpw
+			fi
+
+			# copy the password file to its new location
+			if [ ! -e $PASSWDFILE -a -e $OLDPASSWDFILE ]; then
+				cp -a $OLDPASSWDFILE $PASSWDFILE
+			fi
+
+			# do this here, so we know ldap.conf got configured
+			if [ -e "/etc/libnss-ldap.conf" ] ; then
+				mv -f /etc/libnss-ldap.conf /etc/libnss-ldap.conf-dpkg.old
+			fi
+			if [ -e "/etc/pam-ldap.conf" ]; then
+				mv -f /etc/pam-ldap.conf /etc/pam-ldap.conf-dpkg.old
+			fi
+		fi
+		;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+		# do nothing
+		;;
+
+	*)
+		echo "postinst called with unknown argument \`$1'" >&2
+		exit 1
+		;;
+esac
+
+# Automatically added by dh_installdeb/11.3.2ubuntu1
+dpkg-maintscript-helper rm_conffile /etc/auth-client-config/profile.d/ldap-auth-config 0.5.4\~ ldap-auth-config -- "$@"
+# End automatically added section
+
+

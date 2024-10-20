@@ -1,3 +1,21 @@
+Package: acl
+Status: deinstall ok config-files
+Priority: optional
+Section: utils
+Installed-Size: 156
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: foreign
+Version: 2.3.2-1build1
+Config-Version: 2.3.2-1build1
+Depends: libacl1 (= 2.3.2-1build1), libc6 (>= 2.38)
+Description: access control list - utilities
+ This package contains the getfacl and setfacl utilities needed for
+ manipulating access control lists. It also contains the chacl IRIX
+ compatible utility.
+Homepage: https://savannah.nongnu.org/projects/acl/
+Original-Maintainer: Guillem Jover <guillem@debian.org>
+
 Package: adduser
 Status: install ok installed
 Priority: important
@@ -355,6 +373,47 @@ Description: GNU Bourne Again SHell
  the bash-completion package.
 Homepage: http://tiswww.case.edu/php/chet/bash/bashtop.html
 Original-Maintainer: Matthias Klose <doko@debian.org>
+
+Package: bind9-host
+Status: install ok installed
+Priority: standard
+Section: net
+Installed-Size: 113
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Source: bind9
+Version: 1:9.18.28-0ubuntu0.24.04.1
+Replaces: bind-host (<< 1:9.13.6~)
+Provides: host
+Depends: bind9-libs (= 1:9.18.28-0ubuntu0.24.04.1), libc6 (>= 2.38), libidn2-0 (>= 2.0.0)
+Breaks: bind-host (<< 1:9.13.6~)
+Description: DNS Lookup Utility
+ This package provides the 'host' DNS lookup utility in the form that
+ is bundled with the BIND 9 sources.
+Homepage: https://www.isc.org/downloads/bind/
+Original-Maintainer: Debian DNS Team <team+dns@tracker.debian.org>
+
+Package: bind9-libs
+Status: install ok installed
+Priority: standard
+Section: libs
+Installed-Size: 2287
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: bind9
+Version: 1:9.18.28-0ubuntu0.24.04.1
+Replaces: bind-libs (<< 1:9.13.6~)
+Depends: libuv1t64 (>= 1.40.0), libc6 (>= 2.38), libgssapi-krb5-2 (>= 1.17), libjson-c5 (>= 0.15), libkrb5-3 (>= 1.6.dfsg.2), liblmdb0 (>= 0.9.7), libmaxminddb0 (>= 1.3.0), libnghttp2-14 (>= 1.12.0), libssl3t64 (>= 3.0.0), libxml2 (>= 2.7.4), zlib1g (>= 1:1.1.4)
+Breaks: bind-libs (<< 1:9.13.6~)
+Description: Shared Libraries used by BIND 9
+ The Berkeley Internet Name Domain (BIND 9) implements an Internet domain
+ name server.  BIND 9 is the most widely-used name server software on the
+ Internet, and is supported by the Internet Software Consortium, www.isc.org.
+ .
+ This package contains a bundle of shared libraries used by BIND 9.
+Homepage: https://www.isc.org/downloads/bind/
+Original-Maintainer: Debian DNS Team <team+dns@tracker.debian.org>
 
 Package: bsdextrautils
 Status: install ok installed
@@ -748,8 +807,8 @@ Original-Maintainer: Andrej Shadura <andrewsh@debian.org>
 
 Package: dbus
 Status: install ok installed
-Priority: standard
-Section: admin
+Priority: important
+Section: devel
 Installed-Size: 162
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
@@ -787,7 +846,7 @@ Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.aliot
 
 Package: dbus-bin
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: admin
 Installed-Size: 174
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -810,7 +869,7 @@ Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.aliot
 
 Package: dbus-daemon
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: admin
 Installed-Size: 283
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -839,7 +898,7 @@ Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.aliot
 
 Package: dbus-session-bus-common
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: admin
 Installed-Size: 109
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -868,7 +927,7 @@ Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.aliot
 
 Package: dbus-system-bus-common
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: admin
 Installed-Size: 120
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -900,7 +959,7 @@ Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.aliot
 
 Package: dbus-user-session
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: admin
 Installed-Size: 113
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -1046,7 +1105,7 @@ Original-Maintainer: Ileana Dumitrescu <ileanadumitrescu95@gmail.com>
 
 Package: dhcpcd-base
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: net
 Installed-Size: 348
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -1132,7 +1191,7 @@ Original-Maintainer: Benjamin Drung <bdrung@debian.org>
 
 Package: distro-info-data
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: devel
 Installed-Size: 18
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -1151,7 +1210,7 @@ Original-Maintainer: Benjamin Drung <bdrung@debian.org>
 
 Package: dmsetup
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: admin
 Installed-Size: 210
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -1491,7 +1550,7 @@ Homepage: https://wiki.gnome.org/GObjectIntrospection
 
 Package: gir1.2-glib-2.0
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: introspection
 Installed-Size: 764
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -1538,6 +1597,31 @@ Description: GNU privacy guard - signature verification tool
  files and only a few options are implemented.
 Homepage: https://www.gnupg.org/
 Original-Maintainer: Debian GnuPG Maintainers <pkg-gnupg-maint@lists.alioth.debian.org>
+
+Package: greetd
+Status: deinstall ok config-files
+Priority: optional
+Section: misc
+Installed-Size: 998
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Version: 0.9.0-4ubuntu1
+Config-Version: 0.9.0-4ubuntu1
+Replaces: phog (<< 0.1.3-2)
+Provides: x-display-manager
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 4.3), libpam0g (>= 0.99.7.1), adduser
+Suggests: wlgreet
+Breaks: phog (<< 0.1.3-2)
+Conffiles:
+ /etc/greetd/config.toml 82a47e3faf27a6edb16e9fa73a4eff31
+ /etc/needrestart/conf.d/50_greetd.conf a43bcc93d8eeb75d8061e37b36013672
+ /etc/pam.d/greetd a50839dfee0b83fef9f4a8d18737d1df
+ /etc/pam.d/greetd-greeter 66b18753b82a7ba82ab52931b494138a
+Description: minimal Wayland login manager
+ greetd is a minimal and flexible login manager daemon that makes no
+ assumptions about what you want to launch.
+Homepage: https://sr.ht/~kennylevinsen/greetd/
+Original-Maintainer: Marc Dequènes (Duck) <Duck@DuckCorp.org>
 
 Package: grep
 Essential: yes
@@ -1987,7 +2071,7 @@ Description: tools for managing Linux kernel modules
 Original-Maintainer: Marco d'Itri <md@linux.it>
 
 Package: kmscon
-Status: install ok installed
+Status: deinstall ok config-files
 Priority: optional
 Section: utils
 Installed-Size: 2452
@@ -1995,6 +2079,7 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: foreign
 Version: 9.0.0-5build2
+Config-Version: 9.0.0-5build2
 Depends: init-system-helpers (>> 1.65~), libc6 (>= 2.38), libdrm2 (>= 2.4.25), libegl1, libgbm1 (>= 8.1~0), libgles2, libglib2.0-0t64 (>= 2.12.0), libpango-1.0-0 (>= 1.22.0), libpangoft2-1.0-0 (>= 1.14.0), libpixman-1-0 (>= 0.27.4), libsystemd0, libtsm4 (>= 4.0.1), libudev1 (>= 183), libxkbcommon0 (>= 0.5.0)
 Conffiles:
  /etc/needrestart/conf.d/kmscon.conf e3a096024f8659f3eb944996009515e4
@@ -2015,7 +2100,7 @@ Original-Maintainer: Victor Westerhuis <victor@westerhu.is>
 
 Package: krb5-locales
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: localization
 Installed-Size: 100
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -2034,6 +2119,57 @@ Description: internationalization support for MIT Kerberos
  This package contains internationalized messages for MIT Kerberos.
 Homepage: https://web.mit.edu/kerberos/
 Original-Maintainer: Sam Hartman <hartmans@debian.org>
+
+Package: ldap-auth-client
+Status: install ok installed
+Priority: extra
+Section: admin
+Installed-Size: 9
+Maintainer: Rick Clark <rick.clark@ubuntu.com>
+Architecture: all
+Version: 0.5.4
+Depends: libpam-ldap, libnss-ldap
+Conflicts: libnss-ldap (<< 255-1ubuntu1), libpam-ldap (<< 184-1ubuntu1)
+Description: meta-package for LDAP authentication
+ This is the LDAP authentication meta package.  It depends on other packages
+ necessary for a Linux system to authenticate to a LDAP server.
+
+Package: ldap-auth-config
+Status: install ok installed
+Priority: extra
+Section: admin
+Installed-Size: 37
+Maintainer: Rick Clark <rick.clark@ubuntu.com>
+Architecture: all
+Multi-Arch: foreign
+Source: ldap-auth-client
+Version: 0.5.4
+Depends: debconf (>= 0.5) | debconf-2.0, sed (>= 3.95), ldap-auth-client
+Description: Config package for LDAP authentication
+ This is the LDAP authentication config package.  It depends on the meta
+ package  necessary for a Linux system to authenticate to a LDAP server.
+
+Package: ldap-utils
+Status: install ok installed
+Priority: optional
+Section: net
+Installed-Size: 562
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Source: openldap
+Version: 2.6.7+dfsg-1~exp1ubuntu8
+Replaces: openldap-utils, openldapd, slapd (<< 2.2.23-0.pre6)
+Provides: ldap-client, openldap-utils
+Depends: libc6 (>= 2.38), libldap2 (= 2.6.7+dfsg-1~exp1ubuntu8), libsasl2-2 (>= 2.1.28+dfsg1)
+Suggests: libsasl2-modules, libsasl2-modules-gssapi-mit | libsasl2-modules-gssapi-heimdal
+Conflicts: ldap-client, openldap-utils, umich-ldap-utils
+Description: OpenLDAP utilities
+ This package provides utilities from the OpenLDAP (Lightweight
+ Directory Access Protocol) package. These utilities can access a
+ local or remote LDAP server and contain all the client programs
+ required to access LDAP servers.
+Homepage: https://www.openldap.org/
+Original-Maintainer: Debian OpenLDAP Maintainers <pkg-openldap-devel@lists.alioth.debian.org>
 
 Package: less
 Status: install ok installed
@@ -2145,7 +2281,7 @@ Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debi
 
 Package: libapparmor1
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 90
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -2820,7 +2956,7 @@ Original-Maintainer: Guillem Jover <guillem@debian.org>
 
 Package: libbz2-1.0
 Status: install ok installed
-Priority: important
+Priority: required
 Section: libs
 Installed-Size: 66
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -2880,7 +3016,7 @@ Original-Vcs-Git: https://salsa.debian.org/glibc-team/glibc.git
 
 Package: libc6
 Status: install ok installed
-Priority: optional
+Priority: required
 Section: libs
 Installed-Size: 8952
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -3158,7 +3294,7 @@ Original-Maintainer: Debian freedesktop.org maintainers <pkg-freedesktop-maintai
 
 Package: libcom-err2
 Status: install ok installed
-Priority: optional
+Priority: required
 Section: libs
 Installed-Size: 48
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -3200,7 +3336,7 @@ Original-Maintainer: Marco d'Itri <md@linux.it>
 
 Package: libcryptsetup12
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 428
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -3309,7 +3445,7 @@ Homepage: http://www.oracle.com/technetwork/database/database-technologies/berke
 
 Package: libdbus-1-3
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 325
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -3446,7 +3582,7 @@ Original-Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.aliot
 
 Package: libdevmapper1.02.1
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 346
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -3703,9 +3839,9 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: same
 Source: mesa
-Version: 24.0.9-0ubuntu0.1
+Version: 24.0.9-0ubuntu0.2
 Provides: libegl-vendor
-Depends: libc6 (>= 2.38), libdrm2 (>= 2.4.119), libexpat1 (>= 2.0.1), libgbm1 (= 24.0.9-0ubuntu0.1), libgcc-s1 (>= 3.5), libglapi-mesa (= 24.0.9-0ubuntu0.1), libwayland-client0 (>= 1.20.0), libwayland-server0 (>= 1.15.0), libx11-xcb1 (>= 2:1.8.7), libxcb-dri2-0 (>= 1.8), libxcb-dri3-0 (>= 1.13), libxcb-present0, libxcb-randr0 (>= 1.3), libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxshmfence1
+Depends: libc6 (>= 2.38), libdrm2 (>= 2.4.119), libexpat1 (>= 2.0.1), libgbm1 (= 24.0.9-0ubuntu0.2), libgcc-s1 (>= 3.5), libglapi-mesa (= 24.0.9-0ubuntu0.2), libwayland-client0 (>= 1.20.0), libwayland-server0 (>= 1.15.0), libx11-xcb1 (>= 2:1.8.7), libxcb-dri2-0 (>= 1.8), libxcb-dri3-0 (>= 1.13), libxcb-present0, libxcb-randr0 (>= 1.3), libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxshmfence1
 Description: free implementation of the EGL API -- Mesa vendor library
  This package contains the EGL native platform graphics interface library.
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
@@ -3818,7 +3954,7 @@ Original-Maintainer: Stephen Kitt <skitt@debian.org>
 
 Package: libexpat1
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 250
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -3837,7 +3973,7 @@ Original-Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
 
 Package: libext2fs2t64
 Status: install ok installed
-Priority: optional
+Priority: required
 Section: libs
 Installed-Size: 386
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -4170,7 +4306,7 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: same
 Source: mesa
-Version: 24.0.9-0ubuntu0.1
+Version: 24.0.9-0ubuntu0.2
 Depends: libc6 (>= 2.38), libdrm2 (>= 2.4.119), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.0), libwayland-server0 (>= 1.15.0), libxcb-randr0
 Description: generic buffer management API -- runtime
  This package contains the GBM buffer management library.  It provides a
@@ -4408,9 +4544,9 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: same
 Source: mesa
-Version: 24.0.9-0ubuntu0.1
+Version: 24.0.9-0ubuntu0.2
 Replaces: libgl1-amber-dri (<< 21.3.9)
-Depends: libvulkan1, libc6 (>= 2.38), libdrm-amdgpu1 (>= 2.4.119), libdrm-nouveau2 (>= 2.4.119), libdrm-radeon1 (>= 2.4.119), libdrm2 (>= 2.4.119), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.5), libglapi-mesa (= 24.0.9-0ubuntu0.1), libllvm17t64, libsensors5 (>= 1:3.5.0), libstdc++6 (>= 11), libxcb-dri3-0 (>= 1.13), libzstd1 (>= 1.5.5), zlib1g (>= 1:1.1.4)
+Depends: libvulkan1, libc6 (>= 2.38), libdrm-amdgpu1 (>= 2.4.119), libdrm-nouveau2 (>= 2.4.119), libdrm-radeon1 (>= 2.4.119), libdrm2 (>= 2.4.119), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.5), libglapi-mesa (= 24.0.9-0ubuntu0.2), libllvm17t64, libsensors5 (>= 1:3.5.0), libstdc++6 (>= 11), libxcb-dri3-0 (>= 1.13), libzstd1 (>= 1.5.5), zlib1g (>= 1:1.1.4)
 Recommends: libgl1-amber-dri
 Breaks: libgl1-amber-dri (<< 21.3.9)
 Description: free implementation of the OpenGL API -- DRI modules
@@ -4435,7 +4571,7 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: same
 Source: mesa
-Version: 24.0.9-0ubuntu0.1
+Version: 24.0.9-0ubuntu0.2
 Depends: libc6 (>= 2.34)
 Description: free implementation of the GL API -- shared library
  The Mesa GL API module is responsible for dispatching all the gl*
@@ -4465,7 +4601,7 @@ Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 
 Package: libglib2.0-0t64
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 3018
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -4490,8 +4626,8 @@ Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.aliot
 
 Package: libglib2.0-data
 Status: install ok installed
-Priority: optional
-Section: libs
+Priority: important
+Section: misc
 Installed-Size: 120
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: all
@@ -4538,9 +4674,9 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: same
 Source: mesa
-Version: 24.0.9-0ubuntu0.1
+Version: 24.0.9-0ubuntu0.2
 Provides: libglx-vendor
-Depends: libc6 (>= 2.38), libdrm2 (>= 2.4.119), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.5), libglapi-mesa (= 24.0.9-0ubuntu0.1), libx11-6 (>= 2:1.4.99.1), libx11-xcb1 (>= 2:1.8.7), libxcb-dri2-0 (>= 1.8), libxcb-dri3-0 (>= 1.13), libxcb-glx0 (>= 1.8), libxcb-present0, libxcb-randr0, libxcb-shm0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxext6, libxfixes3, libxshmfence1, libxxf86vm1, libgl1-mesa-dri
+Depends: libc6 (>= 2.38), libdrm2 (>= 2.4.119), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.5), libglapi-mesa (= 24.0.9-0ubuntu0.2), libx11-6 (>= 2:1.4.99.1), libx11-xcb1 (>= 2:1.8.7), libxcb-dri2-0 (>= 1.8), libxcb-dri3-0 (>= 1.13), libxcb-glx0 (>= 1.8), libxcb-present0, libxcb-randr0, libxcb-shm0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxext6, libxfixes3, libxshmfence1, libxxf86vm1, libgl1-mesa-dri
 Breaks: glx-diversions (<< 0.8.4~), libopengl-perl (<< 0.6704+dfsg-2)
 Description: free implementation of the OpenGL API -- GLX vendor library
  Mesa is a 3-D graphics library with an API which is very similar to
@@ -4631,7 +4767,7 @@ Original-Maintainer: Debian Science Maintainers <debian-science-maintainers@list
 
 Package: libgnutls30t64
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 1824
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -4774,7 +4910,7 @@ Original-Maintainer: Debian Mobcom Maintainers <Debian-mobcom-maintainers@lists.
 
 Package: libgssapi-krb5-2
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 287
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -4970,7 +5106,7 @@ Original-Maintainer: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@
 
 Package: libhogweed6t64
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 276
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -5047,7 +5183,7 @@ Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 
 Package: libicu74
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 33847
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -5280,7 +5416,7 @@ Original-Maintainer: Debian PhotoTools Maintainers <pkg-phototools-devel@lists.a
 
 Package: libk5crypto3
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 216
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -5344,7 +5480,7 @@ Original-Maintainer: Marco d'Itri <md@linux.it>
 
 Package: libkrb5-3
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 745
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -5371,7 +5507,7 @@ Original-Maintainer: Sam Hartman <hartmans@debian.org>
 
 Package: libkrb5support0
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 115
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -5442,6 +5578,43 @@ Description: Little CMS 2 color management library
 Homepage: http://www.littlecms.com/
 Original-Maintainer: Thomas Weber <tweber@debian.org>
 
+Package: libldap-common
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 94
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: all
+Multi-Arch: foreign
+Source: openldap
+Version: 2.6.7+dfsg-1~exp1ubuntu8
+Replaces: libldap-2.4-2 (<< 2.4.44+dfsg-1)
+Conffiles:
+ /etc/ldap/ldap.conf 4f02c6860a58b7402a4b5c5ec24aa7b2
+Description: OpenLDAP common files for libraries
+ These are common files for the run-time libraries for the OpenLDAP
+ (Lightweight Directory Access Protocol) servers and clients.
+Homepage: https://www.openldap.org/
+Original-Maintainer: Debian OpenLDAP Maintainers <pkg-openldap-devel@lists.alioth.debian.org>
+
+Package: libldap2
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 382
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: openldap
+Version: 2.6.7+dfsg-1~exp1ubuntu8
+Depends: libc6 (>= 2.38), libgnutls30t64 (>= 3.8.2), libsasl2-2 (>= 2.1.28+dfsg1)
+Recommends: libldap-common
+Description: OpenLDAP libraries
+ These are the run-time libraries for the OpenLDAP (Lightweight Directory
+ Access Protocol) servers and clients.
+Homepage: https://www.openldap.org/
+Original-Maintainer: Debian OpenLDAP Maintainers <pkg-openldap-devel@lists.alioth.debian.org>
+
 Package: liblerc4
 Status: install ok installed
 Priority: optional
@@ -5507,6 +5680,29 @@ Description: Modular compiler and toolchain technologies, runtime library
 Homepage: https://www.llvm.org/
 Original-Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
 
+Package: liblmdb0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 71
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: lmdb
+Version: 0.9.31-1build1
+Depends: libc6 (>= 2.38)
+Description: Lightning Memory-Mapped Database shared library
+ This package contains the LMDB shared library.
+ .
+ Lighting Memory-Mapped Database (LMDB) is an ultra-fast, ultra-compact
+ key-value embedded data store developed for the OpenLDAP Project.  It uses
+ memory-mapped files, so it has the read performance of a pure in-memory
+ database while still offering the persistence of standard disk-based
+ databases, and is only limited to the size of the virtual address space, (it
+ is not limited to the size of physical RAM).
+Homepage: https://symas.com/mdb/
+Original-Maintainer: LMDB <lmdb@packages.debian.org>
+
 Package: liblocale-gettext-perl
 Status: install ok installed
 Priority: important
@@ -5530,7 +5726,7 @@ Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian
 
 Package: liblz4-1
 Status: install ok installed
-Priority: optional
+Priority: required
 Section: libs
 Installed-Size: 110
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -5553,7 +5749,7 @@ Original-Maintainer: Nobuhiro Iwamatsu <iwamatsu@debian.org>
 
 Package: liblzma5
 Status: install ok installed
-Priority: optional
+Priority: required
 Section: libs
 Installed-Size: 298
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -5616,6 +5812,30 @@ Description: Recognize the type of data in a file using "magic" numbers - librar
  tests. It implements the core functionality of the file command.
 Homepage: https://www.darwinsys.com/file/
 Original-Maintainer: Christoph Biedl <debian.axhn@manchmal.in-ulm.de>
+
+Package: libmaxminddb0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 72
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: libmaxminddb
+Version: 1.9.1-1build1
+Depends: libc6 (>= 2.34)
+Suggests: mmdb-bin
+Description: IP geolocation database library
+ The libmaxminddb library provides a C library for reading MaxMind DB files,
+ including the GeoIP2 databases from MaxMind. This is a custom binary format
+ designed to facilitate fast lookups of IP addresses while allowing for great
+ flexibility in the type of data associated with an address.
+ .
+ The MaxMind DB format is an open format. The spec is available at
+ https://maxmind.github.io/MaxMind-DB/. This spec is licensed under the Creative
+ Commons Attribution-ShareAlike 3.0 Unported License.
+Homepage: https://maxmind.github.io/libmaxminddb/
+Original-Maintainer: Faidon Liambotis <paravoid@debian.org>
 
 Package: libmbedcrypto7t64
 Status: install ok installed
@@ -5903,7 +6123,7 @@ Original-Maintainer: Boyuan Yang <byang@debian.org>
 
 Package: libnetplan1
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 246
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -5927,7 +6147,7 @@ Original-Maintainer: Debian Netplan Maintainers <team+netplan@tracker.debian.org
 
 Package: libnettle8t64
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 343
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -5982,6 +6202,26 @@ Description: Not Erik's Windowing Toolkit - text mode windowing with slang
 Homepage: https://pagure.io/newt
 Original-Maintainer: Alastair McKinstry <mckinstry@debian.org>
 
+Package: libnghttp2-14
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 151
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: nghttp2
+Version: 1.59.0-1ubuntu0.1
+Depends: libc6 (>= 2.34)
+Description: library implementing HTTP/2 protocol (shared library)
+ This is an implementation of the Hypertext Transfer Protocol version
+ 2 in C. The framing layer of HTTP/2 is implemented as a reusable C
+ library.
+ .
+ This package installs a shared library.
+Homepage: https://nghttp2.org/
+Original-Maintainer: Tomasz Buchert <tomasz@debian.org>
+
 Package: libnorm1t64
 Status: install ok installed
 Priority: optional
@@ -6026,9 +6266,34 @@ Description: replacement for GNU Pth using system threads
 Homepage: https://www.gnupg.org/
 Original-Maintainer: Eric Dorland <eric@debian.org>
 
+Package: libnss-ldap
+Status: install ok installed
+Priority: extra
+Section: admin
+Installed-Size: 130
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Version: 265-5ubuntu3
+Depends: libc6 (>= 2.34), libgssapi-krb5-2 (>= 1.6.dfsg.2), libldap2 (>= 2.6.2)
+Recommends: libpam-ldap, ldap-auth-config
+Suggests: nscd
+Conffiles:
+ /etc/init.d/libnss-ldap edbfdec074e65f271c99a37836ddd0b5
+Description: NSS module for using LDAP as a naming service
+ This package provides a Name Service Switch that allows your LDAP server
+ act as a name service. This means providing user account information,
+ group id's, host information, aliases, netgroups, and basically anything
+ else that you would normally get from /etc flat files or NIS.
+ .
+ If used with glibc 2.1's nscd (Name Service Cache Daemon) it will help
+ reduce your network traffic and speed up lookups for entries.
+Homepage: http://www.padl.com/OSS/nss_ldap.html
+Original-Maintainer: Richard A Nelson (Rick) <cowboy@debian.org>
+
 Package: libnss-systemd
 Status: install ok installed
-Priority: standard
+Priority: important
 Section: admin
 Installed-Size: 362
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -6174,7 +6439,7 @@ Original-Maintainer: Maintainers of GStreamer packages <orc@packages.debian.org>
 
 Package: libp11-kit0
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 1010
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -6219,6 +6484,26 @@ Description: POSIX 1003.1e capabilities (PAM module)
  groups at PAM session start time.
 Homepage: https://sites.google.com/site/fullycapable/
 Original-Maintainer: Christian Kastner <ckk@debian.org>
+
+Package: libpam-ldapd
+Status: install ok installed
+Priority: optional
+Section: admin
+Installed-Size: 52
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: nss-pam-ldapd
+Version: 0.9.12-4build1
+Provides: libpam-ldap
+Depends: libc6 (>= 2.38), libpam0g (>= 1.1.3-2), nslcd (>= 0.9.0) | nslcd-2, libpam-runtime (>= 1.0.1-6)
+Conflicts: libpam-ldap
+Description: PAM module for using LDAP as an authentication service
+ This package provides a Pluggable Authentication Module that provides user
+ authentication, authorization and password management based on credentials
+ stored in an LDAP server.
+Homepage: https://arthurdejong.org/nss-pam-ldapd/
+Original-Maintainer: Arthur de Jong <adejong@debian.org>
 
 Package: libpam-modules
 Status: install ok installed
@@ -6294,7 +6579,7 @@ Original-Maintainer: Sam Hartman <hartmans@debian.org>
 
 Package: libpam-systemd
 Status: install ok installed
-Priority: standard
+Priority: important
 Section: admin
 Installed-Size: 480
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -6318,7 +6603,7 @@ Original-Maintainer: Debian systemd Maintainers <pkg-systemd-maintainers@lists.a
 
 Package: libpam0g
 Status: install ok installed
-Priority: optional
+Priority: required
 Section: libs
 Installed-Size: 162
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -6711,14 +6996,14 @@ Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debi
 
 Package: libproc2-0
 Status: install ok installed
-Priority: optional
+Priority: required
 Section: libs
 Installed-Size: 134
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: same
 Source: procps
-Version: 2:4.0.4-4ubuntu3.1
+Version: 2:4.0.4-4ubuntu3.2
 Replaces: procps (<< 1:3.3.2-1)
 Depends: libc6 (>= 2.38), libsystemd0 (>= 209)
 Description: library for accessing process information from /proc
@@ -6782,7 +7067,7 @@ Original-Maintainer: Pulseaudio maintenance team <pkg-pulseaudio-devel@lists.ali
 
 Package: libpython3-stdlib
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: python
 Installed-Size: 27
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -6802,7 +7087,7 @@ Original-Maintainer: Matthias Klose <doko@debian.org>
 
 Package: libpython3.12-minimal
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: python
 Installed-Size: 5068
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -6822,7 +7107,7 @@ Original-Maintainer: Matthias Klose <doko@debian.org>
 
 Package: libpython3.12-stdlib
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: python
 Installed-Size: 7907
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -7018,6 +7303,77 @@ Description: Audio sample rate conversion library
 Homepage: https://libsndfile.github.io/libsamplerate/
 Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
 
+Package: libsasl2-2
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 115
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: cyrus-sasl2
+Version: 2.1.28+dfsg1-5ubuntu3.1
+Replaces: libsasl2
+Depends: libsasl2-modules-db (>= 2.1.28+dfsg1-5ubuntu3.1), libc6 (>= 2.38), libssl3t64 (>= 3.0.0)
+Recommends: libsasl2-modules (>= 2.1.28+dfsg1-5ubuntu3.1)
+Description: Cyrus SASL - authentication abstraction library
+ This is the Cyrus SASL API implementation, version 2.1.
+ .
+ SASL is the Simple Authentication and Security Layer, a method for
+ adding authentication support to connection-based protocols. To use
+ SASL, a protocol includes a command for identifying and
+ authenticating a user to a server and for optionally negotiating
+ protection of subsequent protocol interactions. If its use is
+ negotiated, a security layer is inserted between the protocol and the
+ connection. See RFC 2222 for more information.
+ .
+ Any of: ANONYMOUS, SCRAM, CRAM-MD5, DIGEST-MD5, GSSAPI (MIT or Heimdal
+ Kerberos 5), NTLM, OTP, PLAIN, or LOGIN can be used.
+Homepage: https://www.cyrusimap.org/sasl/
+Original-Maintainer: Debian Cyrus Team <team+cyrus@tracker.debian.org>
+
+Package: libsasl2-modules
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 202
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: cyrus-sasl2
+Version: 2.1.28+dfsg1-5ubuntu3.1
+Replaces: libsasl2-modules-gssapi-mit (<< 2.1.28+dfsg-4)
+Depends: libc6 (>= 2.38), libssl3t64 (>= 3.0.0)
+Suggests: libsasl2-modules-gssapi-mit | libsasl2-modules-gssapi-heimdal, libsasl2-modules-ldap, libsasl2-modules-otp, libsasl2-modules-sql
+Breaks: libsasl2-modules-gssapi-mit (<< 2.1.28+dfsg-4)
+Description: Cyrus SASL - pluggable authentication modules
+ This is the Cyrus SASL API implementation, version 2.1. See package
+ libsasl2-2 and RFC 2222 for more information.
+ .
+ This package provides the following SASL modules: LOGIN, PLAIN, ANONYMOUS,
+ NTLM, SCRAM, CRAM-MD5, and DIGEST-MD5 (with DES support, deprecated).
+Homepage: https://www.cyrusimap.org/sasl/
+Original-Maintainer: Debian Cyrus Team <team+cyrus@tracker.debian.org>
+
+Package: libsasl2-modules-db
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 58
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: cyrus-sasl2
+Version: 2.1.28+dfsg1-5ubuntu3.1
+Depends: libc6 (>= 2.4), libdb5.3t64
+Description: Cyrus SASL - pluggable authentication modules (DB)
+ This is the Cyrus SASL API implementation, version 2.1. See package
+ libsasl2-2 and RFC 2222 for more information.
+ .
+ This package provides the DB plugin, which supports Berkeley DB lookups.
+Homepage: https://www.cyrusimap.org/sasl/
+Original-Maintainer: Debian Cyrus Team <team+cyrus@tracker.debian.org>
+
 Package: libseat1
 Status: install ok installed
 Priority: optional
@@ -7038,7 +7394,7 @@ Homepage: https://git.sr.ht/~kennylevinsen/seatd
 
 Package: libseccomp2
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 122
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -7625,7 +7981,7 @@ Original-Maintainer: Florian Ernst <florian@debian.org>
 
 Package: libss2
 Status: install ok installed
-Priority: optional
+Priority: required
 Section: libs
 Installed-Size: 56
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -7670,7 +8026,7 @@ Original-Maintainer: Laurent Bigonville <bigon@debian.org>
 
 Package: libssl3t64
 Status: install ok installed
-Priority: optional
+Priority: required
 Section: libs
 Installed-Size: 3565
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -7814,7 +8170,7 @@ Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debi
 
 Package: libsystemd-shared
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: libs
 Installed-Size: 4094
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -7832,7 +8188,7 @@ Original-Maintainer: Debian systemd Maintainers <pkg-systemd-maintainers@lists.a
 
 Package: libsystemd0
 Status: install ok installed
-Priority: optional
+Priority: required
 Section: libs
 Installed-Size: 719
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -8075,40 +8431,6 @@ Description: transport-independent RPC library
 Homepage: http://sourceforge.net/projects/libtirpc
 Original-Maintainer: Josue Ortega <josue@debian.org>
 
-Package: libtsm4
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 72
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Architecture: armhf
-Multi-Arch: same
-Source: libtsm
-Version: 4.0.2-0.4
-Depends: libc6 (>= 2.4)
-Description: Terminal-emulator State Machine - runtime
- TSM is a state machine for DEC VT100-VT520 compatible terminal
- emulators. It tries to support all common standards while keeping
- compatibility to existing emulators like xterm, gnome-terminal, konsole, ..
- .
- TSM itself does not provide any rendering nor window management.
- It is a simple plain state machine without any external dependencies.
- It can be used to implement terminal emulators, but also to implement
- other applications that need to interpret terminal escape sequences.
- .
- This library is very similar to libvte of the GNOME project.
- However, libvte is highly bound to GTK+, which makes it unsuitable for
- non-graphics projects that need to parse escape sequences. Instead,
- TSM tries to restrict its API to terminal emulation only. Furthermore,
- TSM does not try to establish a new terminal emulation standard, but
- instead keeps compatibility as close to xterm as possible.
- This is why the TERM variable can be set to xterm-color256 with any
- TSM based terminal emulator.
- .
- This package contains the libtsm runtime library.
-Original-Maintainer: Nobuhiro Iwamatsu <iwamatsu@debian.org>
-Homepage: https://github.com/Aetf/libtsm
-
 Package: libturbojpeg
 Status: install ok installed
 Priority: optional
@@ -8183,7 +8505,7 @@ Original-Maintainer: James Cowgill <jcowgill@debian.org>
 
 Package: libudev1
 Status: install ok installed
-Priority: optional
+Priority: required
 Section: libs
 Installed-Size: 245
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -8329,6 +8651,37 @@ Description: Universally Unique ID library
  See RFC 4122 for more information.
 Homepage: https://www.kernel.org/pub/linux/utils/util-linux/
 Original-Maintainer: util-linux packagers <util-linux@packages.debian.org>
+
+Package: libuv1t64
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 175
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: libuv1
+Version: 1.48.0-1.1build1
+Replaces: libuv1
+Depends: libc6 (>= 2.38)
+Breaks: libuv1 (<< 1.48.0-1.1build1)
+Description: asynchronous event notification library - runtime library
+ Libuv is the asynchronous library behind Node.js. Very similar to libevent or
+ libev, it provides the main elements for event driven systems: watching and
+ waiting for availability in a set of sockets, and some other events like timers
+ or asynchronous messages. However, libuv also comes with some other extras
+ like:
+  * files watchers and asynchronous operations
+  * a portable TCP and UDP API, as well as asynchronous DNS resolution
+  * processes and threads management, and a portable inter-process
+    communications mechanism, with pipes and work queues
+  * a plugins mechanism for loading libraries dynamically
+  * interface with external libraries that also need to access the I/O.
+ .
+ This package includes the dynamic library against which you can link
+ your program.
+Homepage: https://github.com/libuv/libuv
+Original-Maintainer: Dominique Dumont <dod@debian.org>
 
 Package: libva-drm2
 Status: install ok installed
@@ -10201,7 +10554,7 @@ Original-Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
 
 Package: libzstd1
 Status: install ok installed
-Priority: optional
+Priority: required
 Section: libs
 Installed-Size: 492
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -10326,8 +10679,8 @@ Homepage: https://github.com/zapping-vbi/zvbi
 
 Package: locales
 Status: install ok installed
-Priority: standard
-Section: localization
+Priority: important
+Section: libs
 Installed-Size: 15727
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: all
@@ -10360,7 +10713,7 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: foreign
 Source: shadow
-Version: 1:4.13+dfsg1-4ubuntu3
+Version: 1:4.13+dfsg1-4ubuntu3.2
 Pre-Depends: libaudit1 (>= 1:2.2.1), libc6 (>= 2.38), libcrypt1 (>= 1:4.1.0), libpam0g (>= 0.99.7.1), libpam-runtime, libpam-modules
 Conflicts: python-4suite (<< 0.99cvs20060405-1)
 Conffiles:
@@ -10402,7 +10755,7 @@ Original-Maintainer: Christian Göttsche <cgzones@googlemail.com>
 
 Package: logsave
 Status: install ok installed
-Priority: optional
+Priority: required
 Section: admin
 Installed-Size: 46
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -10600,7 +10953,7 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: same
 Source: mesa
-Version: 24.0.9-0ubuntu0.1
+Version: 24.0.9-0ubuntu0.2
 Replaces: vdpau-va-driver (<< 0.7.4-5)
 Provides: va-driver
 Depends: libc6 (>= 2.38), libdrm-amdgpu1 (>= 2.4.119), libdrm-nouveau2 (>= 2.4.119), libdrm-radeon1 (>= 2.4.119), libdrm2 (>= 2.4.119), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.5), libllvm17t64, libstdc++6 (>= 11), libx11-xcb1 (>= 2:1.8.7), libxcb-dri2-0 (>= 1.8), libxcb-dri3-0, libxcb-present0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxshmfence1, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.1.4)
@@ -10624,7 +10977,7 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: same
 Source: mesa
-Version: 24.0.9-0ubuntu0.1
+Version: 24.0.9-0ubuntu0.2
 Provides: vdpau-driver
 Depends: libvdpau1, libc6 (>= 2.38), libdrm-amdgpu1 (>= 2.4.119), libdrm-nouveau2 (>= 2.4.119), libdrm-radeon1 (>= 2.4.119), libdrm2 (>= 2.4.119), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.5), libllvm17t64, libstdc++6 (>= 11), libx11-xcb1 (>= 2:1.8.7), libxcb-dri2-0 (>= 1.8), libxcb-dri3-0, libxcb-present0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxshmfence1, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.1.4)
 Enhances: libvdpau1
@@ -10641,12 +10994,12 @@ Package: mesa-vulkan-drivers
 Status: install ok installed
 Priority: optional
 Section: libs
-Installed-Size: 27075
+Installed-Size: 27079
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: same
 Source: mesa
-Version: 24.0.9-0ubuntu0.1
+Version: 24.0.9-0ubuntu0.2
 Provides: vulkan-icd
 Depends: libvulkan1, python3:any, libc6 (>= 2.38), libdrm-amdgpu1 (>= 2.4.119), libdrm2 (>= 2.4.119), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.5), libllvm17t64, libstdc++6 (>= 11), libwayland-client0 (>= 1.20.0), libx11-xcb1 (>= 2:1.8.7), libxcb-dri3-0 (>= 1.13), libxcb-present0, libxcb-randr0 (>= 1.13), libxcb-shm0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxshmfence1, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.1.4)
 Description: Mesa Vulkan graphics drivers
@@ -10850,7 +11203,7 @@ Original-Maintainer: Guilhem Moulin <guilhem@debian.org>
 
 Package: netplan-generator
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: net
 Installed-Size: 275
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -10878,7 +11231,7 @@ Original-Maintainer: Debian Netplan Maintainers <team+netplan@tracker.debian.org
 
 Package: netplan.io
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: net
 Installed-Size: 307
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -10917,6 +11270,78 @@ Description: Dispatcher service for systemd-networkd connection status changes
  limited nature of systemd-networkd.
 Original-Maintainer: Julian Andres Klode <jak@debian.org>
 Homepage: https://gitlab.com/craftyguy/networkd-dispatcher
+
+Package: nscd
+Status: install ok installed
+Priority: optional
+Section: admin
+Installed-Size: 193
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: foreign
+Source: glibc
+Version: 2.39-0ubuntu8.3
+Depends: libaudit1 (>= 1:2.2.1), libc6 (>> 2.39), libc6 (<< 2.40), libcap2 (>= 1:2.10), libselinux1 (>= 3.1~)
+Pre-Depends: init-system-helpers (>= 1.54~)
+Conffiles:
+ /etc/init.d/nscd 3fa4cd47c673567d37f08d1a3f219bae
+ /etc/nscd.conf 6d1e90743bebff8f7a0b509906987682
+Description: GNU C Library: Name Service Cache Daemon
+ A daemon which handles passwd, group and host lookups
+ for running programs and caches the results for the next
+ query. You should install this package only if you use
+ slow services like LDAP, NIS or NIS+.
+Homepage: https://www.gnu.org/software/libc/libc.html
+Original-Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
+Original-Vcs-Browser: https://salsa.debian.org/glibc-team/glibc
+Original-Vcs-Git: https://salsa.debian.org/glibc-team/glibc.git
+
+Package: nslcd
+Status: install ok installed
+Priority: optional
+Section: admin
+Installed-Size: 353
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: foreign
+Source: nss-pam-ldapd
+Version: 0.9.12-4build1
+Replaces: libnss-ldapd (<< 0.7.0), nslcd-2
+Provides: nslcd-2
+Depends: libc6 (>= 2.38), libgssapi-krb5-2 (>= 1.6.dfsg.2), libldap2 (>= 2.6.2), adduser, ca-certificates
+Pre-Depends: init-system-helpers (>= 1.54~), debconf (>= 0.5) | debconf-2.0
+Recommends: nscd, libnss-ldapd | libnss-ldap, libpam-ldapd | libpam-ldap | libpam-krb5 | libpam-heimdal | libpam-sss, nslcd-utils, ldap-utils, bind9-host | host
+Suggests: kstart
+Breaks: libnss-ldapd (<< 0.9.0), libpam-ldapd (<< 0.9.0)
+Conflicts: nslcd-2
+Conffiles:
+ /etc/default/nslcd ca1f37ef349a870032cc677c58b12a71
+ /etc/init.d/nslcd c580840de5968a2f1c69dc3fbc4d4ee4
+ /etc/network/if-up.d/nslcd 6315cf0a1589cd8512afd8c36dcc945b
+Description: daemon for NSS and PAM lookups using LDAP
+ This package provides a daemon for retrieving user accounts and similar
+ system information from LDAP. It is used by the libnss-ldapd and libpam-ldapd
+ packages but is not very useful by itself.
+Homepage: https://arthurdejong.org/nss-pam-ldapd/
+Original-Maintainer: Arthur de Jong <adejong@debian.org>
+
+Package: nslcd-utils
+Status: install ok installed
+Priority: optional
+Section: admin
+Installed-Size: 66
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: all
+Source: nss-pam-ldapd
+Version: 0.9.12-4build1
+Depends: python3:any, nslcd (>= 0.9.0) | nslcd-2
+Description: utilities for querying LDAP via nslcd
+ This package provides tools to query and update information in LDAP via
+ nslcd:
+  * chsh.ldap - change a user's shell in LDAP;
+  * getent.ldap - perform LDAP lookups bypassing nsswitch configuration.
+Homepage: https://arthurdejong.org/nss-pam-ldapd/
+Original-Maintainer: Arthur de Jong <adejong@debian.org>
 
 Package: ocl-icd-libopencl1
 Status: install ok installed
@@ -11079,7 +11504,7 @@ Original-Maintainer: Debian OpenSSH Maintainers <debian-ssh@lists.debian.org>
 
 Package: openssl
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: utils
 Installed-Size: 1547
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -11115,7 +11540,7 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: foreign
 Source: shadow
-Version: 1:4.13+dfsg1-4ubuntu3
+Version: 1:4.13+dfsg1-4ubuntu3.2
 Depends: libaudit1 (>= 1:2.2.1), libc6 (>= 2.38), libcrypt1 (>= 1:4.1.0), libpam0g (>= 0.99.7.1), libselinux1 (>= 3.1~), libsemanage2 (>= 2.0.32), libpam-modules
 Recommends: sensible-utils
 Conffiles:
@@ -11199,13 +11624,13 @@ Original-Maintainer: Debian Accessibility Team <pkg-a11y-devel@alioth-lists.debi
 
 Package: procps
 Status: install ok installed
-Priority: important
+Priority: required
 Section: admin
 Installed-Size: 1608
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: foreign
-Version: 2:4.0.4-4ubuntu3.1
+Version: 2:4.0.4-4ubuntu3.2
 Replaces: manpages-de (<< 4.9.1-2), manpages-fr (<< 4.9.1-2), manpages-fr-extra (<< 20151231+nmu1), manpages-pl (<< 1:4.9.1-2)
 Provides: watch
 Depends: libc6 (>= 2.38), libncursesw6 (>= 6), libproc2-0 (>= 2:4.0.4), libsystemd0 (>= 254), libtinfo6 (>= 6), init-system-helpers (>= 1.29~)
@@ -11256,7 +11681,7 @@ Homepage: https://publicsuffix.org
 
 Package: python-apt-common
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: python
 Installed-Size: 530
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -11277,7 +11702,7 @@ Original-Maintainer: APT Development Team <deity@lists.debian.org>
 
 Package: python3
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: python
 Installed-Size: 81
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -11325,7 +11750,7 @@ Homepage: https://wiki.ubuntu.com/Apport
 
 Package: python3-apt
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: python
 Installed-Size: 562
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -11789,7 +12214,7 @@ Homepage: https://github.com/executablebooks/mdurl
 
 Package: python3-minimal
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: python
 Installed-Size: 111
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -11830,7 +12255,7 @@ Original-Maintainer: Debian Python Team <team+python@tracker.debian.org>
 
 Package: python3-netplan
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: python
 Installed-Size: 106
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -11889,7 +12314,7 @@ Homepage: https://github.com/idan/oauthlib
 
 Package: python3-pkg-resources
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: python
 Installed-Size: 742
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -12223,7 +12648,7 @@ Original-Maintainer: Debian Python Team <team+python@tracker.debian.org>
 
 Package: python3.12
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: python
 Installed-Size: 736
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -12242,7 +12667,7 @@ Original-Maintainer: Matthias Klose <doko@debian.org>
 
 Package: python3.12-minimal
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: python
 Installed-Size: 5510
 Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -12353,6 +12778,37 @@ Description: reliable system and kernel logging daemon
  It is the default syslogd on Debian systems.
 Homepage: https://www.rsyslog.com/
 Original-Maintainer: Michael Biebl <biebl@debian.org>
+
+Package: sddm
+Status: deinstall ok config-files
+Priority: optional
+Section: kde
+Installed-Size: 1674
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Version: 0.20.0-2ubuntu4.2
+Config-Version: 0.20.0-2ubuntu4.2
+Provides: x-display-manager
+Depends: adduser, qml-module-qtquick2, x11-common, xauth, xkb-data, xserver-xorg | xserver, debconf (>= 0.5) | debconf-2.0, libc6 (>= 2.34), libgcc-s1 (>= 3.5), libpam0g (>= 0.99.7.1), libqt5core5t64 (>= 5.15.1), libqt5dbus5t64 (>= 5.15.0~), libqt5gui5t64 (>= 5.15.0~) | libqt5gui5-gles (>= 5.15.0~), libqt5network5t64 (>= 5.15.1), libqt5qml5 (>= 5.15.0~), libqt5quick5 (>= 5.15.0~) | libqt5quick5-gles (>= 5.15.0~), libstdc++6 (>= 13.1), libsystemd0, libxau6 (>= 1:1.0.9), libxcb-xkb1, libxcb1
+Recommends: libpam-systemd, sddm-theme-debian-breeze | sddm-theme
+Suggests: libpam-kwallet5, qtvirtualkeyboard-plugin
+Conffiles:
+ /usr/share/sddm/scripts/Xsetup 94e719d4e07f682c37976646557f2137
+ /usr/share/sddm/scripts/Xsession 0b56c6c523d37dff4dc40609190b5f15
+ /usr/share/sddm/scripts/Xstop 8efa5226d902da13867e8ca1c16fe443
+ /etc/dbus-1/system.d/sddm_org.freedesktop.DisplayManager.conf b76b6b45d7f7ff533c51d7fc02be32f4
+ /etc/init.d/sddm 7fc1de1bbca4e1228db5678f8a9ba08e
+ /etc/pam.d/sddm 984323523e5c567cf0323e288988f2dc
+ /etc/pam.d/sddm-autologin 82312da0e92a604bca1b8c50265615f9
+ /etc/pam.d/sddm-greeter 9b6648376070b644f184d316a4310bc3
+ /etc/sddm/Xsession 04a576698a59a0226979a6d3c49e4dcd
+ /etc/sddm/wayland-session 1c15bc669cd08e3b00b7b0b446e44f47
+Description: modern display manager for X11
+ SDDM is a modern display manager for X11 aiming to be fast, simple
+ and beautiful. It uses modern technologies like QtQuick to create
+ smooth, animated user interfaces.
+Homepage: https://github.com/sddm/sddm
+Original-Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 
 Package: seatd
 Status: install ok installed
@@ -12553,7 +13009,7 @@ Original-Maintainer: Debian systemd Maintainers <pkg-systemd-maintainers@lists.a
 
 Package: systemd-dev
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: devel
 Installed-Size: 720
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -12573,7 +13029,7 @@ Original-Maintainer: Debian systemd Maintainers <pkg-systemd-maintainers@lists.a
 
 Package: systemd-hwe-hwdb
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: admin
 Installed-Size: 16
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -12637,7 +13093,7 @@ Original-Maintainer: Debian systemd Maintainers <pkg-systemd-maintainers@lists.a
 
 Package: systemd-timesyncd
 Status: install ok installed
-Priority: standard
+Priority: important
 Section: admin
 Installed-Size: 188
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -12710,8 +13166,8 @@ Original-Maintainer: Janos Lenart <ocsi@debian.org>
 
 Package: tzdata
 Status: install ok installed
-Priority: required
-Section: localization
+Priority: important
+Section: libs
 Installed-Size: 1381
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: all
@@ -12747,7 +13203,7 @@ Description: GnuPG keys of the Ubuntu archive
 
 Package: ubuntu-minimal
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: metapackages
 Installed-Size: 17
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -12979,7 +13435,7 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: all
 Multi-Arch: foreign
 Source: vim
-Version: 2:9.1.0016-1ubuntu7.2
+Version: 2:9.1.0016-1ubuntu7.3
 Replaces: vim-runtime (<< 2:9.0.1658-1~)
 Recommends: xxd, vim | vim-gtk3 | vim-motif | vim-nox | vim-tiny
 Breaks: vim-runtime (<< 2:9.0.1658-1~)
@@ -13002,9 +13458,9 @@ Installed-Size: 1144
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Source: vim
-Version: 2:9.1.0016-1ubuntu7.2
+Version: 2:9.1.0016-1ubuntu7.3
 Provides: editor
-Depends: vim-common (= 2:9.1.0016-1ubuntu7.2), libacl1 (>= 2.2.23), libc6 (>= 2.34), libselinux1 (>= 3.1~), libtinfo6 (>= 6)
+Depends: vim-common (= 2:9.1.0016-1ubuntu7.3), libacl1 (>= 2.2.23), libc6 (>= 2.34), libselinux1 (>= 3.1~), libtinfo6 (>= 6)
 Suggests: indent
 Conffiles:
  /etc/vim/vimrc.tiny 2eef1685cce57398be3763940dbced84
@@ -13580,7 +14036,7 @@ Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 
 Package: xkb-data
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: x11
 Installed-Size: 4156
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -14017,14 +14473,14 @@ Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 
 Package: xxd
 Status: install ok installed
-Priority: optional
+Priority: important
 Section: editors
 Installed-Size: 147
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Architecture: armhf
 Multi-Arch: foreign
 Source: vim
-Version: 2:9.1.0016-1ubuntu7.2
+Version: 2:9.1.0016-1ubuntu7.3
 Depends: libc6 (>= 2.34)
 Description: tool to make (or reverse) a hex dump
  xxd creates a hex dump of a given file or standard input.  It can also convert

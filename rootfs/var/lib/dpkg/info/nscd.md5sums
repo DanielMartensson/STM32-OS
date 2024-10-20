@@ -1,0 +1,8 @@
+f87db25ae4b1a1394012f55f1cdf72ac  usr/lib/systemd/system/nscd.service
+da662ca76e7c8d7efbc7986ab7acea2d  usr/lib/tmpfiles.d/nscd.conf
+8b1268a4de5731fec0fc2c1225296a8b  usr/sbin/nscd
+54bd459205c3ef96f193f65dac6484cc  usr/share/doc/nscd/changelog.Debian.gz
+48d68260ab7331ccff4ff77677d7607d  usr/share/doc/nscd/changelog.gz
+86b2eaa030ceefc59ea39579ec51120d  usr/share/doc/nscd/copyright
+4a27779d027afe47591de4763c521702  usr/share/man/man5/nscd.conf.5.gz
+4ab0e02452a10ed53c92af377aa8929a  usr/share/man/man8/nscd.8.gz

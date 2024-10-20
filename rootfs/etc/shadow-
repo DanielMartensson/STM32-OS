@@ -1,4 +1,4 @@
-root:*:19988:0:99999:7:::
+root:$y$j9T$FvydGtyUmpid8dcBSVj7O0$pepEVxDXa/AB4GsBAAebjJ4PJCjZWj8OojluiY.OLo5:19988:0:99999:7:::
 daemon:*:19988:0:99999:7:::
 bin:*:19988:0:99999:7:::
 sys:*:19988:0:99999:7:::
@@ -22,3 +22,7 @@ dhcpcd:!:19988::::::
 messagebus:!:19988::::::
 syslog:!:19988::::::
 systemd-resolve:!*:19988::::::
+sshd:!:19988::::::
+user:$y$j9T$1npuuuMbtNkEZsJnn8uMI0$Epy9BPfaRUmg2456ilK36VSye5FrCMe45ogqPCUA2s1:20010:0:99999:7:::
+nslcd:!:20010::::::
+_greetd:!:20014::::::

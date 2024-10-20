@@ -1,0 +1,130 @@
+Template: ldap-auth-config/rootbinddn
+Type: string
+Default: cn=manager,dc=example,dc=net
+Description: LDAP account for root:
+ This account will be used when root changes a password.
+ .
+ Note: This account has to be a privileged account.
+
+Template: ldap-auth-config/rootbindpw
+Type: password
+Description: LDAP root account password:
+ Please enter the password to use when ${package} tries to login to the
+ LDAP directory using the LDAP account for root.
+ .
+ The password will be stored in a separate file ${filename} which will be
+ made readable to root only.
+ .
+ Entering an empty password will re-use the old password.
+
+Template: ldap-auth-config/dblogin
+Type: boolean
+Default: false
+Description: Does the LDAP database require login?
+ Choose this option if you are required to login to the database to
+ retrieve entries.
+ .
+ Note: Under a normal setup, this is not needed.
+
+Template: ldap-auth-config/ldapns/base-dn
+Type: string
+Default: dc=example,dc=net
+Description: Distinguished name of the search base:
+ Please enter the distinguished name of the LDAP search base. Many sites
+ use the components of their domain names for this purpose. For example,
+ the domain "example.net" would use "dc=example,dc=net" as the
+ distinguished name of the search base.
+
+Template: ldap-auth-config/pam_password
+Type: select
+Choices: clear, crypt, nds, ad, exop, md5
+Default: md5
+Description: Local crypt to use when changing passwords:
+ The PAM module can set the password crypt locally when changing the
+ passwords, which is usually a good choice. Specifying something other than
+ clear ensures that the password gets crypted in some way.
+ .
+ The meanings for selections are:
+ .
+ clear - Don't set any encryptions. This is useful with servers that
+ automatically encrypt userPassword entry.
+ .
+ crypt - (Default) make userPassword use the same format as the flat
+ filesystem. This will work for most configurations.
+ .
+ nds - Use Novell Directory Services-style updating by first removing the
+ old password and then update with a cleartext password.
+ .
+ ad - Active Directory-style. Create a Unicode password and update the
+ unicodePwd attribute.
+ .
+ exop - Use the OpenLDAP password change extended operation to update the
+ password.
+ .
+ md5 - Use the stronger md5 algorithm instead of standard crypt.
+
+Template: ldap-auth-config/ldapns/ldap_version
+Type: select
+Choices: 3, 2
+Default: 3
+Description: LDAP version to use:
+ Please enter which version of the LDAP protocol should be used by ldapns.
+ It is usually a good idea to set this to the highest available version.
+
+Template: ldap-auth-config/binddn
+Type: string
+Default: cn=proxyuser,dc=example,dc=net
+Description: Unprivileged database user:
+ Please enter the name of the account that will be used to log in to the
+ LDAP database.
+ .
+ Warning: DO NOT use privileged accounts for logging in, the configuration
+ file has to be world readable.
+
+Template: ldap-auth-config/dbrootlogin
+Type: boolean
+Default: true
+Description: Make local root Database admin:
+ This option will allow you to make password utilities that use pam to
+ behave like you would be changing local passwords.
+ .
+ The password will be stored in a separate file which will be made readable
+ to root only.
+ .
+ If you are using NFS mounted /etc or any other custom setup, you should
+ disable this.
+
+Template: ldap-auth-config/ldapns/ldap-server
+Type: string
+Default: ldapi:///
+Description: LDAP server Uniform Resource Identifier:
+ Please enter the URI of the LDAP server to use. This is a string in the
+ form of ldap://<hostname or IP>:<port>/. ldaps:// or ldapi:// can also be
+ used. The port number is optional.
+ .
+ Note: It is usually a good idea to use an IP address because it reduces
+ risks of failure in the event name service problems.
+
+Template: ldap-auth-config/bindpw
+Type: password
+Description: Password for database login account:
+ Please enter the password that will be used to log in to the LDAP
+ database.
+
+Template: ldap-auth-config/override
+Type: boolean
+Default: true
+Description: Should debconf manage LDAP configuration?
+ Saying yes will allow future upgrades to use these settings. This is the
+ recommended option.
+
+Template: ldap-auth-config/move-to-debconf
+Type: boolean
+Default: true
+Description: Reconfigure LDAP with debconf?
+ The LDAP authentication libraries now use the new unified configuration
+ file ${newfn}, and no longer use ${pamfn} or ${nssfn}. One or both of
+ these old configuration files were found. These files cannot be
+ automatically migrated to the new ${newfn}. You MUST either reconfigure
+ your settings with debconf, or manually migrate your settings into ${newfn}
+ and verify your configuration before logging out.

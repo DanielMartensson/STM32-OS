@@ -22,3 +22,8 @@ dhcpcd:x:100:65534:DHCP Client Daemon,,,:/usr/lib/dhcpcd:/bin/false
 messagebus:x:101:101::/nonexistent:/usr/sbin/nologin
 syslog:x:102:102::/nonexistent:/usr/sbin/nologin
 systemd-resolve:x:991:991:systemd Resolver:/:/usr/sbin/nologin
+sshd:x:103:65534::/run/sshd:/usr/sbin/nologin
+user:x:1000:1000:user,0,0,0,0:/home/user:/bin/bash
+nslcd:x:104:104:nslcd name service LDAP connection daemon,,,:/run/nslcd:/usr/sbin/nologin
+_greetd:x:105:105::/etc/greetd:/usr/sbin/nologin
+sddm:x:106:106:Simple Desktop Display Manager:/var/lib/sddm:/usr/sbin/nologin

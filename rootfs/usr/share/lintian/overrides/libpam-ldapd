@@ -1,0 +1,6 @@
+# PAM modules shipped in /lib/x86_64-linux-gnu/security also normally get
+# a manual page
+libpam-ldapd: spare-manual-page *usr/share/man/man8/pam_ldap.8.gz*
+# This is a false positive because we don't use any functions that need
+# fortifying.
+libpam-ldapd: hardening-no-fortify-functions *lib/*/security/pam_ldap.so*

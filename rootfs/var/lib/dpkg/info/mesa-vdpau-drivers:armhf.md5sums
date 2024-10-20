@@ -1,8 +1,8 @@
-1cffc895236b85c77fe04fab78e1ef9c  usr/lib/arm-linux-gnueabihf/vdpau/libvdpau_nouveau.so.1.0.0
-1cffc895236b85c77fe04fab78e1ef9c  usr/lib/arm-linux-gnueabihf/vdpau/libvdpau_r600.so.1.0.0
-1cffc895236b85c77fe04fab78e1ef9c  usr/lib/arm-linux-gnueabihf/vdpau/libvdpau_radeonsi.so.1.0.0
-1cffc895236b85c77fe04fab78e1ef9c  usr/lib/arm-linux-gnueabihf/vdpau/libvdpau_virtio_gpu.so.1.0.0
+2282404416fd2f3d819060afcfc0908f  usr/lib/arm-linux-gnueabihf/vdpau/libvdpau_nouveau.so.1.0.0
+2282404416fd2f3d819060afcfc0908f  usr/lib/arm-linux-gnueabihf/vdpau/libvdpau_r600.so.1.0.0
+2282404416fd2f3d819060afcfc0908f  usr/lib/arm-linux-gnueabihf/vdpau/libvdpau_radeonsi.so.1.0.0
+2282404416fd2f3d819060afcfc0908f  usr/lib/arm-linux-gnueabihf/vdpau/libvdpau_virtio_gpu.so.1.0.0
 7f0d95ab544ef194372363bb93229ede  usr/share/bug/mesa-vdpau-drivers/control
 114f277e413ffae0a725cc024a955b47  usr/share/bug/mesa-vdpau-drivers/script
-1d7d88046ee6e287b970ae602fd8f3ea  usr/share/doc/mesa-vdpau-drivers/changelog.Debian.gz
+67d64d2378b5098515570e78ed530c28  usr/share/doc/mesa-vdpau-drivers/changelog.Debian.gz
 d63634382a6104b7ac6e8d0fb50ebc17  usr/share/doc/mesa-vdpau-drivers/copyright

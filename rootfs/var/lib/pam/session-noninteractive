@@ -2,3 +2,5 @@ Module: null
 [default=1]			pam_permit.so
 Module: unix
 required	pam_unix.so
+Module: ldap
+[success=ok default=ignore]	pam_ldap.so minimum_uid=1000

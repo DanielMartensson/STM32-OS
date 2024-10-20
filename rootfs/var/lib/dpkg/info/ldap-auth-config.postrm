@@ -1,0 +1,25 @@
+#!/bin/sh
+
+CONFFILE="/etc/ldap.conf"
+PASSWDFILE="/etc/ldap.secret"
+
+action=$1
+
+if [ "$action" = "purge" ]; then
+	# clear out debconf
+	. /usr/share/debconf/confmodule
+	db_purge
+
+	rm -f $CONFFILE $PASSWDFILE
+fi
+
+# Automatically added by dh_installdeb/11.3.2ubuntu1
+dpkg-maintscript-helper rm_conffile /etc/auth-client-config/profile.d/ldap-auth-config 0.5.4\~ ldap-auth-config -- "$@"
+# End automatically added section
+# Automatically added by dh_installdebconf/11.3.2ubuntu1
+if [ "$1" = purge ] && [ -e /usr/share/debconf/confmodule ]; then
+	. /usr/share/debconf/confmodule
+	db_purge
+fi
+# End automatically added section
+

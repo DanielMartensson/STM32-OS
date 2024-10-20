@@ -1,0 +1,11 @@
+[Unit]
+Description=Weston, a Wayland compositor, as a user service
+Documentation=man:weston(1) man:weston.ini(5)
+Documentation=https://wayland.freedesktop.org/
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/weston --use-pixman --idle-time=0
+
+[Install]
+WantedBy=default.target

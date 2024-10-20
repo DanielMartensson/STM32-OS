@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/liblber.so.2.0.200
+/usr/lib/arm-linux-gnueabihf/libldap.so.2.0.200
+/usr/share
+/usr/share/doc
+/usr/share/doc/libldap2
+/usr/share/doc/libldap2/README.Debian
+/usr/share/doc/libldap2/changelog.Debian.gz
+/usr/share/doc/libldap2/copyright
+/usr/lib/arm-linux-gnueabihf/liblber.so.2
+/usr/lib/arm-linux-gnueabihf/libldap.so.2

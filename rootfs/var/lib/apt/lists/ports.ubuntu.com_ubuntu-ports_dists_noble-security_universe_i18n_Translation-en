@@ -1582,6 +1582,34 @@ Description-en: Fast web fuzzer written in Go (program)
  This program is useful for pentesters, ethical hackers and forensics experts.
  It also can be used for security tests.
 
+Package: flatpak
+Description-md5: f91acb1d2880527b2759bc5e2d99fbff
+Description-en: Application deployment framework for desktop apps
+ Flatpak installs, manages and runs sandboxed desktop application bundles.
+ Application bundles run partially isolated from the wider system, using
+ containerization techniques such as namespaces to prevent direct access
+ to system resources. Resources from outside the sandbox can be accessed
+ via "portal" services, which are responsible for access control; for
+ example, the Documents portal displays an "Open" dialog outside the
+ sandbox, then allows the application to access only the selected file.
+ .
+ Each application uses a specified "runtime", or set of libraries, which is
+ available as /usr inside its sandbox. This can be used to run application
+ bundles with multiple, potentially incompatible sets of dependencies within
+ the same desktop environment.
+ .
+ This package contains the services and executables needed to install and
+ launch sandboxed applications, and the portal services needed to provide
+ limited access to resources outside the sandbox.
+
+Package: flatpak-tests
+Description-md5: 8c55ee927d2b9992e22292e7b2c097aa
+Description-en: Application deployment framework for desktop apps (tests)
+ Flatpak installs, manages and runs sandboxed desktop application bundles.
+ See the flatpak package for a more comprehensive description.
+ .
+ This package contains automated tests.
+
 Package: foot
 Description-md5: 5b91183776a1d7e15df34bc8ebe2ba63
 Description-en: Fast, lightweight and minimalistic Wayland terminal emulator
@@ -1631,6 +1659,69 @@ Description-en: jq for binary formats (program)
  reads binary data. The result is a JSON compatible structures where each
  value has a bit range, symbolic interpretations and know how to be
  presented in a useful way.
+
+Package: freeradius-iodbc
+Description-md5: 6347edefac75f466ab02895aecb1a016
+Description-en: iODBC module for FreeRADIUS server
+ The FreeRADIUS server can use iODBC to access databases to authenticate users
+ and do accounting, and this module is necessary for that.
+
+Package: freeradius-krb5
+Description-md5: 3a5c3602207569628c542943459c0429
+Description-en: kerberos module for FreeRADIUS server
+ The FreeRADIUS server can use Kerberos to authenticate users, and this module
+ is necessary for that.
+
+Package: freeradius-ldap
+Description-md5: cc9ad4f60cb78e6b940d44e4c3b57d1d
+Description-en: LDAP module for FreeRADIUS server
+ The FreeRADIUS server can use LDAP to authenticate users, and this module
+ is necessary for that.
+
+Package: freeradius-memcached
+Description-md5: 6c7415181d540694968e8e8c5fbf1877
+Description-en: Memcached module for FreeRADIUS server
+ The FreeRADIUS server can cache data in memcached and this package
+ contains the required module.
+
+Package: freeradius-mysql
+Description-md5: 4423793fbfc997cd42deec2bcb196555
+Description-en: MySQL module for FreeRADIUS server
+ The FreeRADIUS server can use MySQL to authenticate users and do accounting,
+ and this module is necessary for that.
+
+Package: freeradius-postgresql
+Description-md5: 21c022ad780dbebcad8db320d076ccd0
+Description-en: PostgreSQL module for FreeRADIUS server
+ The FreeRADIUS server can use PostgreSQL to authenticate users and do
+ accounting, and this module is necessary for that.
+
+Package: freeradius-python3
+Description-md5: 80f8197fc7d045314f87c86f25224510
+Description-en: Python 3 module for FreeRADIUS server
+ This package is required to add Python 3 functionality to the
+ FreeRADIUS server.
+ .
+ It was introduced in FreeRADIUS 3.0.20 as EXPERIMENTAL module. Use at
+ your own risk.
+
+Package: freeradius-redis
+Description-md5: 409331feca6e7b06facbc4bac2a0f07b
+Description-en: Redis module for FreeRADIUS server
+ This module is required to enable the FreeRADIUS server to access
+ Redis databases.
+
+Package: freeradius-rest
+Description-md5: 84efad4f894dd87ee01e51563cfab4f8
+Description-en: REST module for FreeRADIUS server
+ The FreeRADIUS server can make calls to remote web APIs, and this module
+ is necessary for that.
+
+Package: freeradius-yubikey
+Description-md5: 085fe9fe99855d39801336fb78e00a38
+Description-en: Yubikey module for FreeRADIUS server
+ This package is required to add Yubikey functionality to the
+ FreeRADIUS server.
 
 Package: freerdp3-dev
 Description-md5: 87d789b26f2354d9180f00d23a677478
@@ -1846,6 +1937,15 @@ Description-en: BDD Testing Framework for Go
  Ginkgo is a BDD-style Golang testing framework built to help you efficiently
  write expressive and comprehensive tests. It is best paired with the Gomega
  matcher library but is designed to be matcher-agnostic.
+
+Package: gir1.2-flatpak-1.0
+Description-md5: d56a77ab2a71ace5e8bdb87dcec05c28
+Description-en: Application deployment framework for desktop apps (introspection)
+ Flatpak installs, manages and runs sandboxed desktop application bundles.
+ See the flatpak package for a more comprehensive description.
+ .
+ This package can be used by other packages using the GIRepository format to
+ generate dynamic bindings for libflatpak0.
 
 Package: gir1.2-gtk-2.0
 Description-md5: 0e856cde3e86eb181a419da2e80d941c
@@ -6060,6 +6160,33 @@ Description-en: OpenPrinting libcupsfilters - Test programs for autopkgtests
  For using libcupsfilters you do not need to install this package. It does not
  contain anything useful for end users.
 
+Package: libflatpak-dev
+Description-md5: 4fcaa1347e5652b1c831098f39239f04
+Description-en: Application deployment framework for desktop apps (development)
+ Flatpak installs, manages and runs sandboxed desktop application bundles.
+ See the flatpak package for a more comprehensive description.
+ .
+ This package contains development headers and pkg-config metadata
+ for libflatpak0, and the flatpak-coredump and flatpak-bisect scripts used
+ to debug Flatpak applications.
+
+Package: libflatpak-doc
+Description-md5: c7d59a541c5d9998f886d74daf4ac8d6
+Description-en: Application deployment framework for desktop apps (documentation)
+ Flatpak installs, manages and runs sandboxed desktop application bundles.
+ See the flatpak package for a more comprehensive description.
+ .
+ This package contains reference documentation for libflatpak0.
+
+Package: libflatpak0
+Description-md5: 0e4073ffd5dff85f7c3cfe70f89906ed
+Description-en: Application deployment framework for desktop apps (library)
+ Flatpak installs, manages and runs sandboxed desktop application bundles.
+ See the flatpak package for a more comprehensive description.
+ .
+ This package contains the flatpak shared library, used by higher level
+ package management tools like gnome-software.
+
 Package: libfreerdp-shadow-subsystem3-3
 Description-md5: 6ef6436c34df72c1cfaf1cf4dabe3235
 Description-en: FreeRDP Remote Desktop Protocol shadow subsystem libraries
@@ -6120,6 +6247,28 @@ Description-en: Transliteration library to type Indic languages
  .
  This package contains the shared libraries for applications interfacing with
  govarnam.
+
+Package: libgsf-1-dev
+Description-md5: c26c685203445077273bff5424a425c9
+Description-en: Structured File Library - development files
+ This package contains the development files used in building applications
+ that use the GNOME Structured File Library.
+ .
+ The GNOME Structured File Library aims to provide an efficient
+ extensible I/O abstraction for dealing with different structured file
+ formats. It is actively being developed and its API is still likely to
+ undergo significant changes (in particular, extensions).
+
+Package: libgsf-bin
+Description-md5: e555cb88781ef2e473ff3705e128bd5b
+Description-en: Structured File Library - programs
+ The GNOME Structured File Library aims to provide an efficient
+ extensible I/O abstraction for dealing with different structured file
+ formats.
+ .
+ These are the programs that are shipped as part of libgsf. They include
+ a thumbnail generator, a tar-like archiver application and a VBA macro
+ extractor.
 
 Package: libgtk2.0-dev
 Description-md5: 27369c198da70271ed178d1415c3e8fe
@@ -6448,6 +6597,20 @@ Description-en: JPEG 2000 Interactive Protocol
  compression than JPEG 1991, and has resilience to errors in the image.
  .
  This is an implementation of the JPEG 2000 Interactive Protocol (Part-9)
+
+Package: libpam-oath
+Description-md5: 2d17d3000b8fde392811eab2f2429fb0
+Description-en: OATH Toolkit libpam_oath PAM module
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package contain a PAM module to authenticate users against
+ a local file-based OATH database.
 
 Package: libphp8.3-embed
 Description-md5: bb653dd86e2dab4cff0e1464cdab0028
@@ -8769,6 +8932,19 @@ Description-en: GNU C Library: Name Service Cache Daemon
  query. You should install this package only if you use
  slow services like LDAP, NIS or NIS+.
 
+Package: oathtool
+Description-md5: d984121e7ec1e8e81c5eb05708fd6f3d
+Description-en: OATH Toolkit oathtool command line tool
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package contains the OATH Toolkit "oathtool" command line tool.
+
 Package: obfs4proxy
 Description-md5: fa2d91d7e21407c55f950a3b9437add6
 Description-en: pluggable transport proxy for Tor, implementing obfs4
@@ -9919,6 +10095,19 @@ Description-en: Ubuntu init backend
  Backend service used by Ubuntu init to
  perform different system setup activities.
 
+Package: pskctool
+Description-md5: edf8c44ffbaa594af237cc0977d00da9
+Description-en: OATH Toolkit pskctool command line tool
+ OATH Toolkit provide components to build one-time password
+ authentication systems.  It contains shared C libraries, command line
+ tools and a PAM module.  Supported technologies include the
+ event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm
+ (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to
+ manage secret key data.  OATH stands for Open AuTHentication, which is
+ the organization that specify the algorithms.
+ .
+ This package contains the OATH Toolkit "pskctool" command line tool.
+
 Package: python-aiohttp-doc
 Description-md5: 3c8129e3bdeb5060e745f9baecf62116
 Description-en: documentation of python3-aiohttp
@@ -9930,6 +10119,19 @@ Description-en: documentation of python3-aiohttp
   * web-server has middlewares and pluggable routing.
  .
  This package provides HTML documentation for aiohttp.
+
+Package: python-asyncssh-doc
+Description-md5: 4fd1f087b339c2a5c6fc2f89f04899f0
+Description-en: asyncio-based client and server implementation of SSHv2 protocol (doc)
+ AsyncSSH is a Python package which provides an asynchronous client
+ and server implementation of the SSHv2 protocol on top of the Python
+ 3.4+ asyncio framework.
+ .
+ It comes with a full support of SSHv2 and SFTP client and server
+ functions, including shell, command and subsystem channels, direct
+ and forwarded TCP channels, local and remote TCP port forwarding.
+ .
+ This package contains the HTML docs and examples.
 
 Package: python-jinja2-doc
 Description-md5: e5fe357cd6b91f10c8ecccac668a8672
@@ -9963,6 +10165,28 @@ Description-en: http client/server for asyncio
   * supports both client and server side of HTTP protocol,
   * supports both client and server Web-Sockets out-of-the-box,
   * web-server has middlewares and pluggable routing.
+
+Package: python3-asyncssh
+Description-md5: ea709ca614c3167bf115b4408f4f223d
+Description-en: asyncio-based client and server implementation of SSHv2 protocol
+ AsyncSSH is a Python package which provides an asynchronous client
+ and server implementation of the SSHv2 protocol on top of the Python
+ 3.4+ asyncio framework.
+ .
+ It comes with a full support of SSHv2 and SFTP client and server
+ functions, including shell, command and subsystem channels, direct
+ and forwarded TCP channels, local and remote TCP port forwarding.
+ .
+ Other features include:
+    + Multiple simultaneous sessions on a single SSH connection
+    + Multiple SSH connections in a single event loop
+    + Byte and string based I/O with settable encoding
+    + A variety of key exchange, encryption, and MAC algorithms
+    + Support for gzip compression
+    + Password, public key, and keyboard-interactive user authentication methods
+    + Many types and formats of public keys and certificates
+    + OpenSSH-style known_hosts file support
+    + OpenSSH-style authorized_keys file support
 
 Package: python3-ironic
 Description-md5: 232396c2e8995c1bc5fe3c8276581ac1
