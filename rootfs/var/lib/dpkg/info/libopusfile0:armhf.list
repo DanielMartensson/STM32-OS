@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libopusfile.so.0.4.5
+/usr/lib/arm-linux-gnueabihf/libopusurl.so.0.4.5
+/usr/share
+/usr/share/doc
+/usr/share/doc/libopusfile0
+/usr/share/doc/libopusfile0/AUTHORS
+/usr/share/doc/libopusfile0/README.md
+/usr/share/doc/libopusfile0/changelog.Debian.gz
+/usr/share/doc/libopusfile0/copyright
+/usr/lib/arm-linux-gnueabihf/libopusfile.so.0
+/usr/lib/arm-linux-gnueabihf/libopusurl.so.0

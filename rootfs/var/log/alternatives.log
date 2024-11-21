@@ -106,3 +106,15 @@ update-alternatives 2024-10-19 15:26:45: run with --install /usr/share/sddm/them
 update-alternatives 2024-10-19 15:26:45: link group sddm-ubuntu-theme updated to point to /usr/share/sddm/themes/maya
 update-alternatives 2024-10-20 11:09:27: run with --remove sddm-ubuntu-theme /usr/share/sddm/themes/maya
 update-alternatives 2024-10-20 11:09:27: link group sddm-ubuntu-theme fully removed
+update-alternatives 2024-11-20 17:23:43: run with --force --install /usr/share/sounds/sf2/default-GM.sf2 default-GM.sf2 /usr/share/sounds/sf2/TimGM6mb.sf2 20
+update-alternatives 2024-11-20 17:23:43: link group default-GM.sf2 updated to point to /usr/share/sounds/sf2/TimGM6mb.sf2
+update-alternatives 2024-11-20 17:23:43: run with --force --install /usr/share/sounds/sf3/default-GM.sf3 default-GM.sf3 /usr/share/sounds/sf2/TimGM6mb.sf2 20
+update-alternatives 2024-11-20 17:23:43: link group default-GM.sf3 updated to point to /usr/share/sounds/sf2/TimGM6mb.sf2
+update-alternatives 2024-11-20 17:23:44: run with --install /usr/games/doom doom /usr/games/chocolate-doom 50 --slave /usr/share/man/man6/doom.6.gz doom.6.gz /usr/share/man/man6/chocolate-doom.6.gz
+update-alternatives 2024-11-20 17:23:44: link group doom updated to point to /usr/games/chocolate-doom
+update-alternatives 2024-11-20 17:23:45: run with --install /usr/games/heretic heretic /usr/games/chocolate-heretic 50 --slave /usr/share/man/man6/heretic.6.gz heretic.6.gz /usr/share/man/man6/chocolate-heretic.6.gz
+update-alternatives 2024-11-20 17:23:45: link group heretic updated to point to /usr/games/chocolate-heretic
+update-alternatives 2024-11-20 17:23:45: run with --install /usr/games/hexen hexen /usr/games/chocolate-hexen 50 --slave /usr/share/man/man6/hexen.6.gz hexen.6.gz /usr/share/man/man6/chocolate-hexen.6.gz
+update-alternatives 2024-11-20 17:23:45: link group hexen updated to point to /usr/games/chocolate-hexen
+update-alternatives 2024-11-20 17:23:45: run with --install /usr/games/strife strife /usr/games/chocolate-strife 50 --slave /usr/share/man/man6/strife.6.gz strife.6.gz /usr/share/man/man6/chocolate-strife.6.gz
+update-alternatives 2024-11-20 17:23:45: link group strife updated to point to /usr/games/chocolate-strife

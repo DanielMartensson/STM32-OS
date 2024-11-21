@@ -79,6 +79,42 @@ Description: default icon theme of GNOME
  Design Team's Icon Development Kit.
 Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 
+Package: alsa-base
+Status: install ok installed
+Priority: optional
+Section: sound
+Installed-Size: 464
+Maintainer: Ubuntu Core Developers <ubuntu-devel@lists.ubuntu.com>
+Architecture: all
+Multi-Arch: foreign
+Source: alsa-driver
+Version: 1.0.25+dfsg-0ubuntu7
+Provides: alsa
+Depends: kmod (>= 17-1), linux-sound-base, udev
+Recommends: alsa-utils
+Suggests: apmd (>= 3.0.2-1), alsa-oss, oss-compat
+Conffiles:
+ /etc/apm/scripts.d/alsa a7592b002de1eba28e79ba11c9ca3bc7
+ /etc/modprobe.d/alsa-base.conf 817bff6351a7321f5bbf000f39f587c0
+ /etc/modprobe.d/blacklist-modem.conf 83850631d180e0c064ee313d57cd7c86
+Description: ALSA driver configuration files
+ This package contains various configuration files for
+ the ALSA drivers.
+ .
+ For ALSA to work on a system with a given sound card,
+ there must be an ALSA driver for that card in the kernel.
+ Linux 2.6 as shipped in linux-image packages contains
+ ALSA drivers for all supported sound cards in the form
+ of loadable modules. A custom alsa-modules package can
+ be built from the sources in the alsa-source package
+ using the m-a utility (included in the module-assistant
+ package). Please read the README.Debian file for more
+ information about loading and building modules.
+ .
+ ALSA is the Advanced Linux Sound Architecture.
+Homepage: http://www.alsa-project.org/
+Original-Maintainer: Debian ALSA Maintainers <pkg-alsa-devel@lists.alioth.debian.org>
+
 Package: alsa-topology-conf
 Status: install ok installed
 Priority: optional
@@ -113,6 +149,38 @@ Description: ALSA Use Case Manager configuration files
  This package contains ALSA Use Case Manager configuration of audio
  input/output names and routing for specific audio hardware. They can be
  used with the alsaucm tool.
+ .
+ ALSA is the Advanced Linux Sound Architecture.
+Homepage: https://www.alsa-project.org/
+Original-Maintainer: Debian ALSA Maintainers <pkg-alsa-devel@lists.alioth.debian.org>
+
+Package: alsa-utils
+Status: install ok installed
+Priority: optional
+Section: sound
+Installed-Size: 2256
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: foreign
+Version: 1.2.9-1ubuntu5
+Provides: audio-mixer
+Depends: kmod (>= 17-1~), libasound2t64 (>= 1.2.6.1), libatopology2t64 (>= 1.2.2), libc6 (>= 2.38), libfftw3-single3 (>= 3.3.10), libncursesw6 (>= 6), libsamplerate0 (>= 0.1.7), libtinfo6 (>= 6)
+Suggests: dialog
+Conffiles:
+ /etc/init.d/alsa-utils c52e669945e1b6c4b77e00cefa21073a
+Description: Utilities for configuring and using ALSA
+ Included tools:
+  - alsactl: advanced controls for ALSA sound drivers
+  - alsaloop: create loopbacks between PCM capture and playback devices
+  - alsamixer: curses mixer
+  - alsaucm: alsa use case manager
+  - amixer: command line mixer
+  - amidi: read from and write to ALSA RawMIDI ports
+  - aplay, arecord: command line playback and recording
+  - aplaymidi, arecordmidi: command line MIDI playback and recording
+  - aconnect, aseqnet, aseqdump: command line MIDI sequencer control
+  - iecset: set or dump IEC958 status bits
+  - speaker-test: speaker test tone generator
  .
  ALSA is the Advanced Linux Sound Architecture.
 Homepage: https://www.alsa-project.org/
@@ -509,6 +577,45 @@ Description: Common CA certificates
  Full responsibility to assess them belongs to the local system
  administrator.
 Original-Maintainer: Julien Cristau <jcristau@debian.org>
+
+Package: chocolate-doom
+Status: install ok installed
+Priority: optional
+Section: games
+Installed-Size: 3000
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Version: 3.0.1+really3.0.0+git1548-1build2
+Replaces: chocolate-common (<< 2.2.1-5~), chocolate-heretic (<< 2.2.1-5~), chocolate-hexen (<< 2.2.1-5~), chocolate-strife (<< 2.2.1-5~)
+Provides: chocolate-heretic, chocolate-hexen, chocolate-strife, doom-engine, heretic-engine, hexen-engine, strife-engine
+Depends: libc6 (>= 2.34), libfluidsynth3 (>= 2.0.5), libpng16-16t64 (>= 1.6.2), libsamplerate0 (>= 0.1.7), libsdl2-2.0-0 (>= 2.0.12), libsdl2-mixer-2.0-0 (>= 2.6.0), libsdl2-net-2.0-0 (>= 2.0.1)
+Recommends: freedoom | game-data-packager
+Breaks: chocolate-common (<< 2.2.1-5~), chocolate-heretic (<< 2.2.1-5~), chocolate-hexen (<< 2.2.1-5~), chocolate-strife (<< 2.2.1-5~), freedm (<< 0.9), freedoom (<< 0.12.1)
+Description: Doom engines closely-compatible with Vanilla Doom
+ Chocolate Doom aims to accurately reproduce the original DOS version of
+ Doom and other games based on the Doom engine in a form that can be
+ run on modern computers. Unlike most modern Doom engines, Chocolate Doom
+ is not derived from the Boom source port and does not inherit its
+ features (or bugs).
+ .
+ This package contains:
+  * Chocolate Doom, a port of Id Software's "Doom" (1993)
+  * Chocolate Heretic, a port of Raven Software's "Heretic" (1994)
+  * Chocolate Hexen, a port of Raven Software's "Hexen" (1995)
+  * Chocolate Strife, a recreation of Rogue Entertainment's "Strife" (1996)
+ .
+ These games are designed to behave as similar to the original DOS version as
+ is possible.
+ .
+ Chocolate Doom supports all flavors of Doom, including The Ultimate Doom, Doom
+ 2 and Final Doom as well as Chex(R) Quest, HacX, Freedoom: Phase 1 and Phase 2
+ and FreeDM.
+ .
+ All Chocolate game engines require game data to play. For Chocolate Doom,
+ free game data is available in the freedoom package. Commercial game data for
+ all four engines can be packaged using "game-data-packager".
+Homepage: https://chocolate-doom.org/
+Original-Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
 
 Package: console-setup
 Status: install ok installed
@@ -1487,6 +1594,37 @@ Description: Vera font family derivate with additional characters
  computer screens) but can be used in printing as well.
 Original-Maintainer: Debian Fonts Task Force <debian-fonts@lists.debian.org>
 Homepage: https://dejavu-fonts.github.io/
+
+Package: freedoom
+Status: install ok installed
+Priority: optional
+Section: games
+Installed-Size: 59038
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: all
+Multi-Arch: foreign
+Version: 0.13.0-1
+Provides: doom-wad
+Depends: dsda-doom | doom-engine
+Description: two single player campaigns for Doom-compatible engines
+ The Freedoom project aims to produce three base-game data files
+ (IWADs) for Doom-compatible engines.  With it comes the
+ capability to also play the wide range of mods created for Doom
+ by a vibrant community.
+ .
+ Freedoom: Phase 1 contains four chapters, nine levels each, to
+ provide a smoothly-paced first person action game.  In it is a
+ wide variety of mazes and enemies to fight and challenge your
+ reflexes.
+ .
+ Freedoom: Phase 2 is a 32-level game, expanding upon Phase 1 and
+ adding a double-barrelled shotgun and more enemy types, along
+ with even more brutal gameplay to really test your limits.
+ .
+ Freedoom: Phase 1 is fully compatible with The Ultimate Doom mods.
+ Freedoom: Phase 2 is fully compatible with Doom II and Final Doom mods.
+Original-Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+Homepage: https://freedoom.github.io/
 
 Package: gcc-13-base
 Status: install ok installed
@@ -2518,6 +2656,26 @@ Description: shared library for ATM (Asynchronous Transfer Mode)
  Shared libraries needed by ATM (Asynchronous Transfer Mode) related programs
 Homepage: http://linux-atm.sourceforge.net/
 Original-Maintainer: Debian QA Group <packages@qa.debian.org>
+
+Package: libatopology2t64
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 95
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: alsa-lib
+Version: 1.2.11-1build2
+Replaces: libasound2t64 (<< 1.2.1.1), libatopology2
+Depends: libasound2t64 (>= 1.2.7.1), libc6 (>= 2.38)
+Breaks: libasound2t64 (<< 1.2.1.1), libatopology2 (<< 1.2.11-1build2)
+Description: shared library for handling ALSA topology definitions
+ This package contains the ALSA topology library.
+ .
+ ALSA is the Advanced Linux Sound Architecture.
+Homepage: https://www.alsa-project.org/
+Original-Maintainer: Debian ALSA Maintainers <pkg-alsa-devel@lists.alioth.debian.org>
 
 Package: libatspi2.0-0t64
 Status: install ok installed
@@ -4075,6 +4233,28 @@ Description: Library for computing Fast Fourier Transforms - Double precision
 Homepage: https://fftw.org
 Original-Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
 
+Package: libfftw3-single3
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 695
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: fftw3
+Version: 3.3.10-1ubuntu3
+Depends: libc6 (>= 2.34), libgomp1 (>= 4.9)
+Suggests: libfftw3-bin, libfftw3-dev
+Description: Library for computing Fast Fourier Transforms - Single precision
+ The FFTW library computes Fast Fourier Transforms (FFT) in one or more
+ dimensions. It is extremely fast. This package contains the shared library
+ for single precision transforms.
+ .
+ To get the static library and the header files, you need to install
+ libfftw3-dev. For documentation, see libfftw3-doc.
+Homepage: https://fftw.org
+Original-Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
+
 Package: libfido2-1
 Status: install ok installed
 Priority: optional
@@ -4148,6 +4328,28 @@ Description: Small run-time speech synthesis engine - shared libraries
  This package contains the shared library objects of Festival Lite
 Homepage: http://cmuflite.org
 Original-Maintainer: Debian Accessibility Team <pkg-a11y-devel@alioth-lists.debian.net>
+
+Package: libfluidsynth3
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 393
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: fluidsynth
+Version: 2.3.4-1build3
+Depends: libasound2t64 (>= 1.0.16), libc6 (>= 2.34), libdbus-1-3 (>= 1.9.14), libgcc-s1 (>= 3.5), libglib2.0-0t64 (>= 2.32.0), libgomp1 (>= 4.9), libinstpatch-1.0-2 (>= 1.1.2), libjack-jackd2-0 (>= 1.9.10+20150825) | libjack-0.125, libpipewire-0.3-0t64 (>= 0.3.1), libpulse0 (>= 0.99.1), libreadline8t64 (>= 6.0), libsdl2-2.0-0 (>= 2.0.12), libsndfile1 (>= 1.0.20), libstdc++6 (>= 11), timgm6mb-soundfont (>= 1.3-3~) | sf3-soundfont-gm
+Breaks: fluidr3mono-gm-soundfont (<< 2.315-6~), musescore-general-soundfont (<< 0.1.7-2~), musescore-general-soundfont-lossless (<< 0.1.7-2~), musescore-general-soundfont-small (<< 0.1.6-2~)
+Description: Real-time MIDI software synthesizer (runtime library)
+ Fluidsynth is a real-time midi synthesizer based on the soundfont (sf2 and sf3)
+ specifications. It can be used to render MIDI input or MIDI files to audio.
+ The MIDI events are read from a MIDI device. The sound is rendered in
+ real-time to the sound output device.
+ .
+ This package contains the runtime library.
+Homepage: https://github.com/Fluidsynth/fluidsynth
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
 
 Package: libfontconfig1
 Status: install ok installed
@@ -5292,6 +5494,32 @@ Description: input device management and event handling library - shared library
 Homepage: https://www.freedesktop.org/wiki/Software/libinput/
 Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 
+Package: libinstpatch-1.0-2
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 507
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: libinstpatch
+Version: 1.1.6-1build2
+Depends: libc6 (>= 2.34), libglib2.0-0t64 (>= 2.79.0), libsndfile1 (>= 1.0.20)
+Description: MIDI instrument editing library
+ libInstPatch stands for lib-Instrument-Patch and is a library for
+ processing digital sample based MIDI instrument "patch" files.
+ The types of files libInstPatch supports are used for creating
+ instrument sounds for wavetable synthesis. This library provides
+ an object framework (based on GObject) to load patch files into,
+ which can then be edited, converted, compressed and saved.
+ .
+ More information can be found on the Project Swami website
+ http://swami.sourceforge.net.
+ .
+ This package contains the shared library.
+Homepage: https://github.com/swami/libinstpatch
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+
 Package: libisl23
 Status: install ok installed
 Priority: optional
@@ -5316,6 +5544,29 @@ Description: manipulating sets and relations of integer points bounded by linear
  This package contains the runtime library.
 Homepage: http://isl.gforge.inria.fr/
 Original-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+
+Package: libjack-jackd2-0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 712
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: jackd2
+Version: 1.9.21~dfsg-3ubuntu3
+Replaces: libjack-0.116, libjack-0.125
+Provides: libjack-0.116, libjack-0.125
+Depends: libc6 (>= 2.38), libdb5.3t64, libgcc-s1 (>= 3.5), libopus0 (>= 1.3.1-2~), libsamplerate0 (>= 0.1.7), libstdc++6 (>= 13.1)
+Suggests: jackd2 (= 1.9.21~dfsg-3ubuntu3)
+Conflicts: libjack-0.116, libjack-0.125, libjack0
+Description: JACK Audio Connection Kit (libraries)
+ JACK is a low-latency sound server, allowing multiple applications to
+ connect to one audio device, and to share audio between themselves.
+ .
+ This package contains the shared libraries.
+Homepage: https://jackaudio.org/
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
 
 Package: libjbig0
 Status: install ok installed
@@ -5928,6 +6179,28 @@ Description: minimalistic Netlink communication library
 Homepage: https://netfilter.org/projects/libmnl/
 Original-Maintainer: Debian Netfilter Packaging Team <pkg-netfilter-team@lists.alioth.debian.org>
 
+Package: libmodplug1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 247
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: libmodplug
+Version: 1:0.8.9.0-3build1
+Depends: libc6 (>= 2.38), libgcc-s1 (>= 3.5), libstdc++6 (>= 5)
+Description: shared libraries for mod music based on ModPlug
+ Module files (MOD music, tracker music) are a family of music file
+ formats originating from the MOD file format on Amiga systems used in
+ late 1980s.
+ .
+ This is a library based on the mod music rendering code from ModPlug,
+ a popular Windows mod player written by Olivier Lapicque, found at
+ http://www.modplug.com.
+Homepage: http://modplug-xmms.sourceforge.net/
+Original-Maintainer: Stephen Kitt <skitt@debian.org>
+
 Package: libmount1
 Status: install ok installed
 Priority: required
@@ -6409,6 +6682,31 @@ Description: Opus codec runtime library
   Floating point and fixed-point implementation
  .
  This package provides the Opus runtime library.
+Homepage: http://www.opus-codec.org
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+
+Package: libopusfile0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 80
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: opusfile
+Version: 0.12-4build3
+Depends: libc6 (>= 2.34), libogg0 (>= 1.1.0), libopus0 (>= 1.1), libssl3t64 (>= 3.0.0)
+Description: High-level API for basic manipulation of Ogg Opus audio streams
+ libopusfile provides several sets of built-in routines for file and stream
+ access, and may also use custom stream I/O routines provided by the embedded
+ environment.  There are built-in I/O routines provided for ANSI-compliant
+ stdio (FILE *), memory buffers, and URLs (including <file:> URLs, plus
+ optionally <http:> and <https:> URLs).
+ .
+ It is implemented as a layer on top of Xiph.Org's reference libogg and
+ libopus libraries.
+ .
+ This package provides the opusfile runtime library.
 Homepage: http://www.opus-codec.org
 Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
 
@@ -7373,6 +7671,70 @@ Description: Cyrus SASL - pluggable authentication modules (DB)
  This package provides the DB plugin, which supports Berkeley DB lookups.
 Homepage: https://www.cyrusimap.org/sasl/
 Original-Maintainer: Debian Cyrus Team <team+cyrus@tracker.debian.org>
+
+Package: libsdl2-2.0-0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 1371
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: libsdl2
+Version: 2.30.0+dfsg-1build3
+Replaces: libsdl-1.3-0
+Depends: libasound2t64 (>= 1.0.27), libc6 (>= 2.38), libdecor-0-0 (>= 0.1.1-2~), libdrm2 (>= 2.4.47), libgbm1 (>= 8.1~0), libpulse0 (>= 5.0), libsamplerate0 (>= 0.1.7), libwayland-client0 (>= 1.20.0), libwayland-cursor0 (>= 1.18), libwayland-egl1 (>= 1.18), libx11-6 (>= 2:1.2.99.901), libxcursor1 (>> 1.1.2), libxext6, libxfixes3 (>= 1:5.0), libxi6 (>= 2:1.6.99.1), libxkbcommon0 (>= 0.5.0), libxrandr2 (>= 2:1.2.99.3), libxss1
+Suggests: xdg-utils
+Conflicts: libsdl-1.3-0
+Description: Simple DirectMedia Layer
+ SDL is a library that allows programs portable low level access to a video
+ framebuffer, audio output, mouse, and keyboard.
+ .
+ This version of SDL is compiled with X11 and Wayland graphics drivers and OSS,
+ ALSA, sndio and PulseAudio sound drivers.
+Homepage: https://www.libsdl.org/
+Original-Maintainer: Debian SDL packages maintainers <pkg-sdl-maintainers@lists.alioth.debian.org>
+
+Package: libsdl2-mixer-2.0-0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 141
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: libsdl2-mixer
+Version: 2.8.0+dfsg-1build3
+Depends: libc6 (>= 2.4), libflac12t64 (>= 1.3.0), libfluidsynth3 (>= 2.0.5), libmodplug1 (>= 1:0.8.8.5), libmpg123-0t64 (>= 1.13.7), libopusfile0 (>= 0.5), libsdl2-2.0-0 (>= 2.0.12), libvorbisfile3 (>= 1.1.2)
+Recommends: timgm6mb-soundfont | sf3-soundfont-gm
+Description: Mixer library for Simple DirectMedia Layer 2, libraries
+ SDL_mixer is a sample multi-channel audio mixer library.  It supports any
+ number of simultaneously playing channels of 16 bit stereo audio, plus a single
+ channel of music, mixed by the popular FLAC, modplug MOD, FluidSynth and
+ Timidity MIDI, Ogg Vorbis, and MAD or SMPEG MP3 libraries.
+ .
+ This package contains the shared library.
+Homepage: https://www.libsdl.org/projects/SDL_mixer/
+Original-Maintainer: Debian SDL packages maintainers <pkg-sdl-maintainers@lists.alioth.debian.org>
+
+Package: libsdl2-net-2.0-0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 86
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: libsdl2-net
+Version: 2.2.0+dfsg-2
+Depends: libc6 (>= 2.28), libsdl2-2.0-0 (>= 2.0.12)
+Description: Network library for Simple DirectMedia Layer 2, libraries
+ This is a small, low-level, cross-platform networking library, that can be used
+ with the Simple DirectMedia Layer library.
+ .
+ This package contains the shared library.
+Original-Maintainer: Debian SDL packages maintainers <pkg-sdl-maintainers@lists.alioth.debian.org>
+Homepage: https://www.libsdl.org/projects/SDL_net/
 
 Package: libseat1
 Status: install ok installed
@@ -8606,6 +8968,26 @@ Description: library to determine the call-chain of a program - runtime
  This package includes the shared libraries
 Homepage: http://www.nongnu.org/libunwind
 Original-Maintainer: Adrian Bunk <bunk@debian.org>
+
+Package: libusb-1.0-0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 100
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: libusb-1.0
+Version: 2:1.0.27-1
+Depends: libc6 (>= 2.38), libudev1 (>= 183)
+Description: userspace USB programming library
+ Library for programming USB applications without the knowledge
+ of Linux kernel internals.
+ .
+ This package contains what you need to run programs that use this
+ library.
+Original-Maintainer: Aurelien Jarno <aurel32@debian.org>
+Homepage: http://www.libusb.info
 
 Package: libutempter0
 Status: install ok installed
@@ -10274,6 +10656,32 @@ Description: X shared memory fences - shared library
  This package contains the xshmfence shared library.
 Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 
+Package: libxss1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 26
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: same
+Source: libxss
+Version: 1:1.2.3-1build3
+Depends: libc6 (>= 2.4), libx11-6 (>= 2:1.4.99.1), libxext6, x11-common
+Description: X11 Screen Saver extension library
+ libXss provides an X Window System client interface to the MIT-SCREEN-SAVER
+ extension to the X protocol.
+ .
+ The Screen Saver extension allows clients behaving as screen savers to
+ register themselves with the X server, to better integrate themselves with
+ the running session.
+ .
+ More information about X.Org can be found at:
+ <URL:https://www.X.org>
+ .
+ This module can be found at
+ https://gitlab.freedesktop.org/xorg/lib/libXScrnSaver
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+
 Package: libxt6t64
 Status: install ok installed
 Priority: optional
@@ -10676,6 +11084,26 @@ Description: Vertical Blanking Interval decoder (VBI) - runtime files
    * Can multiplex and demultiplex DVB VBI PES and TS streams.
 Original-Maintainer: Ileana Dumitrescu <ileanadumitrescu95@gmail.com>
 Homepage: https://github.com/zapping-vbi/zvbi
+
+Package: linux-sound-base
+Status: install ok installed
+Priority: optional
+Section: sound
+Installed-Size: 69
+Maintainer: Ubuntu Core Developers <ubuntu-devel@lists.ubuntu.com>
+Architecture: all
+Source: alsa-driver
+Version: 1.0.25+dfsg-0ubuntu7
+Depends: debconf (>= 0.5) | debconf-2.0, kmod (>= 17-1)
+Suggests: alsa-base (>= 1.0.18-1)
+Description: base package for ALSA and OSS sound systems
+ This package allows the administrator to choose between
+ the OSS and ALSA sound systems.
+ .
+ ALSA is the Advanced Linux Sound Architecture.
+ OSS is the free version of the Open Sound System.
+Homepage: http://www.alsa-project.org/
+Original-Maintainer: Debian ALSA Maintainers <pkg-alsa-devel@lists.alioth.debian.org>
 
 Package: locales
 Status: install ok installed
@@ -13164,6 +13592,30 @@ Description: GNU version of the tar archiving utility
 Homepage: https://www.gnu.org/software/tar/
 Original-Maintainer: Janos Lenart <ocsi@debian.org>
 
+Package: timgm6mb-soundfont
+Status: install ok installed
+Priority: optional
+Section: sound
+Installed-Size: 6073
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: all
+Multi-Arch: foreign
+Version: 1.3-5
+Replaces: musescore-soundfont-gm (<< 2)
+Provides: sf2-soundfont-gm, sf3-soundfont-gm
+Suggests: fluid-soundfont-gm
+Breaks: musescore-soundfont-gm (<< 2)
+Enhances: fluidsynth, musescore, timidity
+Conffiles:
+ /etc/timidity/timgm6mb.cfg 2c03144b48c206b4477b0fd575ce107d
+Description: TimGM6mb SoundFont from MuseScore 1.3
+ This is a small but complete GM SoundFont, originally packaged with
+ MuseScore 1.3, but dropped from MuseScore 2.0.
+ .
+ This package will be installed into /usr/share/sounds/sf2/.
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Homepage: https://timbrechbill.com/saxguru/Timidity.php
+
 Package: tzdata
 Status: install ok installed
 Priority: important
@@ -13351,6 +13803,29 @@ Description: /dev/ and hotplug management daemon
  /dev/, handles hotplug events and loads drivers at boot time.
 Homepage: https://www.freedesktop.org/wiki/Software/systemd
 Original-Maintainer: Debian systemd Maintainers <pkg-systemd-maintainers@lists.alioth.debian.org>
+
+Package: usbutils
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 212
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: armhf
+Multi-Arch: foreign
+Version: 1:017-3build1
+Depends: libc6 (>= 2.38), libudev1 (>= 196), libusb-1.0-0 (>= 2:1.0.22)
+Suggests: usbutils-py
+Breaks: hwdata (<< 0.334-1~), isenkram (<< 0.45~), kinfocenter (<< 4:5.14.5-2~), libosinfo-1.0-0 (<< 1.8.0-1~), usbip (<< 2.0+5.10.4-1~)
+Description: Linux USB utilities
+ This package contains the lsusb utility for inspecting the devices
+ connected to the USB bus. It shows a graphical representation of the
+ devices that are currently plugged in, showing the topology of the
+ USB bus. It also displays information on each individual device on
+ the bus.
+ .
+ lsusb, usb-devices, usbhid-dump, usbreset
+Homepage: https://github.com/gregkh/usbutils
+Original-Maintainer: Aurelien Jarno <aurel32@debian.org>
 
 Package: util-linux
 Essential: yes

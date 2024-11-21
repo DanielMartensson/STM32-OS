@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = "abort-upgrade" ] || [ "$1" = "configure" ]
+then
+  update-alternatives \
+  --install /usr/games/doom doom /usr/games/chocolate-doom 50 \
+  --slave /usr/share/man/man6/doom.6.gz doom.6.gz /usr/share/man/man6/chocolate-doom.6.gz
+  update-alternatives \
+  --install /usr/games/heretic heretic /usr/games/chocolate-heretic 50 \
+  --slave /usr/share/man/man6/heretic.6.gz heretic.6.gz /usr/share/man/man6/chocolate-heretic.6.gz
+  update-alternatives \
+  --install /usr/games/hexen hexen /usr/games/chocolate-hexen 50 \
+  --slave /usr/share/man/man6/hexen.6.gz hexen.6.gz /usr/share/man/man6/chocolate-hexen.6.gz
+  update-alternatives \
+  --install /usr/games/strife strife /usr/games/chocolate-strife 50 \
+  --slave /usr/share/man/man6/strife.6.gz strife.6.gz /usr/share/man/man6/chocolate-strife.6.gz
+fi
+
+
+
+exit 0

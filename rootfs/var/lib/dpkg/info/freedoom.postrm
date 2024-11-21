@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_icons/13.13ubuntu1
+if command -v update-icon-caches >/dev/null; then
+	update-icon-caches /usr/share/icons/io.github.freedoom.Phase1.png /usr/share/icons/io.github.freedoom.Phase2.png
+fi
+# End automatically added section

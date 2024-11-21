@@ -1414,3 +1414,67 @@ Package: nscd
 Architecture: armhf
 Auto-Installed: 1
 
+Package: libatopology2t64
+Architecture: armhf
+Auto-Installed: 1
+
+Package: linux-sound-base
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libfftw3-single3
+Architecture: armhf
+Auto-Installed: 1
+
+Package: alsa-utils
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libusb-1.0-0
+Architecture: armhf
+Auto-Installed: 1
+
+Package: freedoom
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libjack-jackd2-0
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libfluidsynth3
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libopusfile0
+Architecture: armhf
+Auto-Installed: 1
+
+Package: timgm6mb-soundfont
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libmodplug1
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libxss1
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libsdl2-2.0-0
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libsdl2-net-2.0-0
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libinstpatch-1.0-2
+Architecture: armhf
+Auto-Installed: 1
+
+Package: libsdl2-mixer-2.0-0
+Architecture: armhf
+Auto-Installed: 1
+

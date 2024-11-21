@@ -232,3 +232,21 @@ Commandline: apt-get autoremove sddm
 Requested-By: user (1000)
 Remove: qttranslations5-l10n:armhf (5.15.13-1), libxcb-util1:armhf (0.4.0-1build3), libxcb-image0:armhf (0.4.0-2build1), libxcb-icccm4:armhf (0.4.1-1.1build3), qt5-gtk-platformtheme:armhf (5.15.13+dfsg-1ubuntu1), libqt5qml5:armhf (5.15.13+dfsg-1), libqt5quick5:armhf (5.15.13+dfsg-1), qtwayland5:armhf (5.15.13-1), libdouble-conversion3:armhf (3.3.0-1build1), libqt5waylandcompositor5:armhf (5.15.13-1), libqt5gui5t64:armhf (5.15.13+dfsg-1ubuntu1), libpcre2-16-0:armhf (10.42-4ubuntu2), libxcb-keysyms1:armhf (0.4.0-1build4), libqt5widgets5t64:armhf (5.15.13+dfsg-1ubuntu1), libqt5svg5:armhf (5.15.13-1), sddm:armhf (0.20.0-2ubuntu4.2), libqt5dbus5t64:armhf (5.15.13+dfsg-1ubuntu1), libqt5network5t64:armhf (5.15.13+dfsg-1ubuntu1), libqt5qmlmodels5:armhf (5.15.13+dfsg-1), libxcb-render-util0:armhf (0.3.9-1build4), qml-module-qtquick2:armhf (5.15.13+dfsg-1), libmd4c0:armhf (0.4.8-1build1), libxcb-xinerama0:armhf (1.15-1ubuntu2), libxcb-xinput0:armhf (1.15-1ubuntu2), libqt5qmlworkerscript5:armhf (5.15.13+dfsg-1), libqt5waylandclient5:armhf (5.15.13-1), sddm-theme-maya:armhf (0.20.0-2ubuntu4.2), libqt5core5t64:armhf (5.15.13+dfsg-1ubuntu1)
 End-Date: 2024-10-20  11:09:43
+
+Start-Date: 2024-10-21  20:25:24
+Commandline: apt-get install alsa
+Requested-By: user (1000)
+Install: alsa-base:armhf (1.0.25+dfsg-0ubuntu7), libatopology2t64:armhf (1.2.11-1build2, automatic), linux-sound-base:armhf (1.0.25+dfsg-0ubuntu7, automatic), libfftw3-single3:armhf (3.3.10-1ubuntu3, automatic), alsa-utils:armhf (1.2.9-1ubuntu5, automatic)
+End-Date: 2024-10-21  20:25:44
+
+Start-Date: 2024-11-14  19:22:34
+Commandline: apt-get install usbutils
+Requested-By: user (1000)
+Install: usbutils:armhf (1:017-3build1), libusb-1.0-0:armhf (2:1.0.27-1, automatic)
+End-Date: 2024-11-14  19:23:02
+
+Start-Date: 2024-11-20  17:23:23
+Commandline: apt-get install chocolate-doom
+Requested-By: user (1000)
+Install: freedoom:armhf (0.13.0-1, automatic), libjack-jackd2-0:armhf (1.9.21~dfsg-3ubuntu3, automatic), libfluidsynth3:armhf (2.3.4-1build3, automatic), libopusfile0:armhf (0.12-4build3, automatic), timgm6mb-soundfont:armhf (1.3-5, automatic), chocolate-doom:armhf (3.0.1+really3.0.0+git1548-1build2), libmodplug1:armhf (1:0.8.9.0-3build1, automatic), libxss1:armhf (1:1.2.3-1build3, automatic), libsdl2-2.0-0:armhf (2.30.0+dfsg-1build3, automatic), libsdl2-net-2.0-0:armhf (2.2.0+dfsg-2, automatic), libinstpatch-1.0-2:armhf (1.1.6-1build2, automatic), libsdl2-mixer-2.0-0:armhf (2.8.0+dfsg-1build3, automatic)
+End-Date: 2024-11-20  17:23:50

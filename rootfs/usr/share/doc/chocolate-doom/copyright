@@ -1,0 +1,151 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Chocolate Doom
+Upstream-Contact: Simon "Fraggle" Howard <fraggle@users.sf.net>
+Source: http://www.chocolate-doom.org/wiki/index.php/Downloads
+
+Files: *
+Copyright: 1993-1996, Id Software, Inc
+  1993-2008, Raven Software
+  1996, Rogue Entertainment / Velocity, Inc.
+  1996-2013, Free Software Foundation, Inc
+  1999, Thomas A. Fine
+  2002-2003, Marcel Telka
+  2002-2010, The DOSBox Team
+  2005-2014, Simon Howard
+  2005-2014, Andrey Budko
+  2006, Ben Ryves
+  2008, "GhostlyDeath" (ghostlydeath@gmail.com)
+  2008, David Flater
+  2010, James Haley, Samuel Villarreal
+  2011, Team Eternity
+  2014, Fabian Greffrath
+License: GPL-2+
+
+Files: man/simplecpp
+Copyright: 2001-2008, Contributors to the Freedoom project
+License: BSD-3-clause_b
+ # Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008
+ # Contributors to the Freedoom project.  All rights reserved.
+ #
+ # Redistribution and use in source and binary forms, with or without
+ # modification, are permitted provided that the following conditions are
+ # met:
+ #
+ #  * Redistributions of source code must retain the above copyright
+ #    notice, this list of conditions and the following disclaimer.
+ #  * Redistributions in binary form must reproduce the above copyright
+ #    notice, this list of conditions and the following disclaimer in the
+ #    documentation and/or other materials provided with the distribution.
+ #  * Neither the name of the freedoom project nor the names of its
+ #    contributors may be used to endorse or promote products derived from
+ #    this software without specific prior written permission.
+ #
+ # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+ # IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+ # TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+ # PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+ # OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ # EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ # PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ # PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ # LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ # NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Files: src/aes_prng.c
+Copyright: 2005-2014 Simon Howard
+  2000-2008 Free Software Foundation, Inc.
+License: GPL-2+_a or BSD-3-Clause_c
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * ---------------------------------------------------------------------------
+ * Copyright (c) 2002, Dr Brian Gladman <brg@gladman.me.uk>, Worcester, UK.
+ * All rights reserved.
+ *
+ * LICENSE TERMS
+ *
+ * The free distribution and use of this software in both source and binary
+ * form is allowed (with or without changes) provided that:
+ *
+ *   1. distributions of this source code include the above copyright
+ *      notice, this list of conditions and the following disclaimer;
+ *
+ *   2. distributions in binary form include the above copyright
+ *      notice, this list of conditions and the following disclaimer
+ *      in the documentation and/or other associated materials;
+ *
+ *   3. the copyright holder's name is not used to endorse products
+ *      built using this software without specific written permission.
+ *
+ * ALTERNATIVELY, provided that this notice is retained in full, this product
+ * may be distributed under the terms of the GNU General Public License (GPL),
+ * in which case the provisions of the GPL apply INSTEAD OF those given above.
+ *
+ * DISCLAIMER
+ *
+ * This software is provided 'as is' with no explicit or implied warranties
+ * in respect of its properties, including, but not limited to, correctness
+ * and/or fitness for purpose.
+
+Files: win32/win_opendir.*
+Copyright: -
+License: public-domain
+ // 03/10/2006 James Haley
+ //
+ // For this module only:
+ // This code is public domain. No change sufficient enough to constitute a
+ // significant or original work has been made, and thus it remains as such.
+ //
+ //----------------------------------------------------------------------------
+ //
+ // DESCRIPTION:
+ //
+ // Implementation of POSIX opendir for Visual C++.
+ // Derived from the MinGW C Library Extensions Source (released to the
+ // public domain). As with other Win32 modules, don't include most DOOM
+ // headers into this or conflicts will occur.
+ //
+ // Original Header:
+ //
+ // * dirent.c
+ // * This file has no copyright assigned and is placed in the Public Domain.
+ // * This file is a part of the mingw-runtime package.
+ // * No warranty is given; refer to the file DISCLAIMER within the package.
+ // *
+ // * Derived from DIRLIB.C by Matt J. Weinstein
+ // * This note appears in the DIRLIB.H
+ // * DIRLIB.H by M. J. Weinstein   Released to public domain 1-Jan-89
+ // *
+ // * Updated by Jeremy Bettis <jeremy@hksys.com>
+ // * Significantly revised and rewinddir, seekdir and telldir added by Colin
+ // * Peters <colin@fu.is.saga-u.ac.jp>
+
+Files: debian/*
+Copyright: 2019, Stephen Kitt <skitt@debian.org>
+  2013-2023, Fabian Greffrath <fabian@debian.org>
+  2006-2013, Jon Dowland <jmtd@debian.org>
+  Ansgar Burchardt <ansgar@43-1.org>
+  Barry deFreese <bddebian@comcast.net>
+  Cyril Brulebois <cyril.brulebois@enst-bretagne.fr>
+  Linas Žvirblis <0x0007@gmail.com>
+  Marco Rodrigues <gothicx@sapo.pt>
+  Miriam Ruiz <little_miry@yahoo.es>
+  Peter De Wachter <pdewacht@gmail.com>
+License: GPL-2+
+
+License: GPL-2+
+ // This program is free software; you can redistribute it and/or
+ // modify it under the terms of the GNU General Public License
+ // as published by the Free Software Foundation; either version 2
+ // of the License, or (at your option) any later version.
+ //
+ // This program is distributed in the hope that it will be useful,
+ // but WITHOUT ANY WARRANTY; without even the implied warranty of
+ // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ // GNU General Public License for more details.
+Comment:
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".

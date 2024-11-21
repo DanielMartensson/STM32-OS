@@ -1,0 +1,17 @@
+/.
+/etc
+/etc/modprobe.d
+/lib
+/lib/linux-sound-base
+/lib/linux-sound-base/noALSA.modprobe.conf
+/lib/linux-sound-base/noOSS.modprobe.conf
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/linux-sound-base
+/usr/share/doc/linux-sound-base/README.Debian
+/usr/share/doc/linux-sound-base/changelog.Debian.gz
+/usr/share/doc/linux-sound-base/copyright
+/usr/share/linux-sound-base
+/usr/share/linux-sound-base/ALSA-module-list
+/usr/share/linux-sound-base/OSS-module-list

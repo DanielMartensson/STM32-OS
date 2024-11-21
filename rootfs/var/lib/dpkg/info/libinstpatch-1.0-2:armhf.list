@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libinstpatch-1.0.so.2.2.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libinstpatch-1.0-2
+/usr/share/doc/libinstpatch-1.0-2/changelog.Debian.gz
+/usr/share/doc/libinstpatch-1.0-2/copyright
+/usr/lib/arm-linux-gnueabihf/libinstpatch-1.0.so.2

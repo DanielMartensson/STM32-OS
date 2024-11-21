@@ -412,6 +412,11 @@ Name: libraries/restart-without-asking
 Template: libraries/restart-without-asking
 Owners: libc6, libc6:armhf, libpam0g, libpam0g:armhf
 
+Name: linux-sound-base/sound_system
+Template: linux-sound-base/sound_system
+Value: ALSA
+Owners: linux-sound-base
+
 Name: locales/default_environment_locale
 Template: locales/default_environment_locale
 Value: sv_SE.UTF-8
@@ -514,14 +519,6 @@ Owners: openssh-server
 Name: sddm/daemon_name
 Template: sddm/daemon_name
 Owners: sddm
-
-Name: shared/default-x-display-manager
-Template: shared/default-x-display-manager
-Value: sddm
-Owners: sddm
-Flags: seen
-Variables:
- choices = sddm
 
 Name: tzdata/Areas
 Template: tzdata/Areas

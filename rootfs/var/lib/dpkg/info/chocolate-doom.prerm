@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = "remove" ] || [ "$1" = "deconfigure" ]
+then
+  update-alternatives --remove doom /usr/games/chocolate-doom
+  update-alternatives --remove heretic /usr/games/chocolate-heretic
+  update-alternatives --remove hexen /usr/games/chocolate-hexen
+  update-alternatives --remove strife /usr/games/chocolate-strife
+fi
+
+
+
+exit 0

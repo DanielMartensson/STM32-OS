@@ -2,7 +2,7 @@
 rm rootfs.ext4
 
 # Make file
-dd if=/dev/zero of=rootfs.ext4 bs=1M count=2200
+dd if=/dev/zero of=rootfs.ext4 bs=1M count=2100
 
 # Make filesystem
 mkfs.ext4 rootfs.ext4
@@ -16,8 +16,8 @@ cd rootfs
 # Create folder
 sudo mkdir /mnt/rootfs
 
-# Fill
-sudo cp -a bin proc/ home/ media/ opt/ root/ sbin usr/ boot/ etc/ lib mnt/ srv/ tmp/ var/ dev/ run/ sys/ /mnt/rootfs/
+# Fill except /proc
+sudo cp -a bin home/ media/ opt/ root/ sbin usr/ boot/ etc/ lib mnt/ srv/ tmp/ var/ dev/ run/ sys/ /mnt/rootfs/
 
 # Umount
 sudo umount /mnt/rootfs

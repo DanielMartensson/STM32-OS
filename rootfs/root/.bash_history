@@ -807,3 +807,46 @@ cd getty.target.wants/
 ls
 cat getty\@tty1.service 
 exit
+modprobe
+modprobe ladss
+exit
+aplay
+arecord
+apt-get install alsa
+aplay
+speaker-test
+amixer
+iecset
+cd /home/user/
+ls
+cd modules/
+ls
+cd 6.1.82/
+öls
+ls
+cd ..
+ls
+cd user/
+ls
+mv modules/ /lib
+ls
+cd /lib
+ls
+cd modules/
+ls
+cd 6.1.82/
+ls
+exit
+mv /lib/modules /home/user/
+cd /home/user/modules/
+ls
+cd 6.1.82/
+ls
+exit
+ls /home/user/
+exit
+apt-get install usbutils
+exit
+apt-get install chocolate-doom
+apt-get install chocolate-heretic
+exit

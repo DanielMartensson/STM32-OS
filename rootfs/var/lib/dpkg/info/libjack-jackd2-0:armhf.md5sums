@@ -1,0 +1,6 @@
+e2728aaf0932482ac11bc610121a6deb  usr/lib/arm-linux-gnueabihf/libjack.so.0.1.0
+58ded4fb385cd60c6510bbea0d218d2e  usr/lib/arm-linux-gnueabihf/libjacknet.so.0.1.0
+deb86f8e22def7d68e95af06a05e82d8  usr/lib/arm-linux-gnueabihf/libjackserver.so.0.1.0
+d22207e362c1736240925f475e172c66  usr/share/doc/libjack-jackd2-0/changelog.Debian.gz
+ff0c97b9bce270063075aa0e7d1e0f67  usr/share/doc/libjack-jackd2-0/copyright
+4a9ca1bfefb44a7211478daafe501226  usr/share/lintian/overrides/libjack-jackd2-0

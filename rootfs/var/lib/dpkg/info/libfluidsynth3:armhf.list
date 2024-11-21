@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/arm-linux-gnueabihf
+/usr/lib/arm-linux-gnueabihf/libfluidsynth.so.3.2.2
+/usr/share
+/usr/share/doc
+/usr/share/doc/libfluidsynth3
+/usr/share/doc/libfluidsynth3/changelog.Debian.gz
+/usr/share/doc/libfluidsynth3/copyright
+/usr/lib/arm-linux-gnueabihf/libfluidsynth.so.3
