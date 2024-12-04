@@ -1,2 +1,3 @@
+rootfs.ext4
 ./rootfs/usr/lib/arm-linux-gnueabihf/libLLVM-17.so.1
 ./.git/objects/pack/pack-98214e819ded36804fac98ffab270c3391da78ac.pack
